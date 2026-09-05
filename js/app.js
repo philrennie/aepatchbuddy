@@ -15,6 +15,11 @@
   const ZOOM_MIN = 0.25, ZOOM_MAX = 2.0, ZOOM_STEP = 0.1;
   const CABLE_COLORS = ["#e8a33d", "#5fc9c0", "#d97b9e", "#a8c957", "#9b8ad9", "#e0846b"];
 
+  const STORAGE_KEY     = "patchbay-patch";
+  const STORAGE_VERSION = 1;
+  // Increment STORAGE_VERSION when the saved schema changes in a way that
+  // would break loading older saves; stale data is silently discarded.
+
   /* ---------------------------------------------------------------------
      State
   --------------------------------------------------------------------- */
@@ -39,6 +44,7 @@
   let connectCtx = null;     // cable-being-drawn drag
   let knobDragCtx = null;    // knob rotation drag
   let panCtx = null;         // canvas pan drag
+  let saveTimer = null;      // debounce handle for localStorage writes
 
   /* ---------------------------------------------------------------------
      DOM refs
@@ -102,6 +108,7 @@
   el.patchName.addEventListener("input", () => {
     patchName = el.patchName.value;
     updatePageTitle();
+    saveToStorage();
   });
 
   function moduleDisplaySize(mod) {
@@ -141,6 +148,7 @@
     libraryById.clear();
     for (const mod of library) libraryById.set(mod.id, mod);
     renderModuleList("");
+    loadFromStorage();
   }
 
   function renderModuleList(filterText) {
@@ -264,6 +272,7 @@
     renderInstances();
     renderCables();
     el.emptyHint.style.display = rack.instances.size === 0 ? "block" : "none";
+    saveToStorage();
   }
 
   function renderInstances() {
@@ -875,6 +884,73 @@
     panCtx = null;
     el.rackViewport.classList.remove("panning");
   });
+
+  /* ---------------------------------------------------------------------
+     localStorage persistence
+  --------------------------------------------------------------------- */
+
+  function saveToStorage() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          version: STORAGE_VERSION,
+          name: patchName,
+          zoom, panX, panY,
+          cableColorCursor,
+          instances: Array.from(rack.instances.values()).map((i) => ({
+            id: i.id, moduleId: i.moduleId, x: Math.round(i.x), y: Math.round(i.y),
+            controls: i.controls || {},
+          })),
+          cables: Array.from(rack.cables.values()).map((c) => ({
+            id: c.id, from: c.from, to: c.to, color: c.color, slack: c.slack,
+          })),
+        }));
+      } catch (_) {}
+    }, 400);
+  }
+
+  function loadFromStorage() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const s = JSON.parse(raw);
+      if (!s || s.version !== STORAGE_VERSION) return;
+      if (!Array.isArray(s.instances) || !Array.isArray(s.cables)) return;
+
+      const newInstances = new Map();
+      for (const inst of s.instances) {
+        if (!libraryById.has(inst.moduleId)) continue;
+        newInstances.set(inst.id, {
+          id: inst.id, moduleId: inst.moduleId, x: inst.x || 0, y: inst.y || 0,
+          controls: (inst.controls && typeof inst.controls === "object") ? inst.controls : {},
+        });
+      }
+      const newCables = new Map();
+      for (const cable of s.cables) {
+        if (!cable.from || !cable.to) continue;
+        if (!newInstances.has(cable.from.instanceId) || !newInstances.has(cable.to.instanceId)) continue;
+        newCables.set(cable.id, {
+          id: cable.id, from: cable.from, to: cable.to,
+          color: cable.color || nextCableColor(),
+          slack: typeof cable.slack === "number" ? cable.slack : 0.75 + Math.random() * 0.65,
+        });
+      }
+
+      rack.instances = newInstances;
+      rack.cables    = newCables;
+      selectedCableId = null;
+      patchName = typeof s.name === "string" ? s.name : "";
+      el.patchName.value = patchName;
+      updatePageTitle();
+      if (typeof s.zoom  === "number") zoom  = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, s.zoom));
+      if (typeof s.panX  === "number") panX  = s.panX;
+      if (typeof s.panY  === "number") panY  = s.panY;
+      if (typeof s.cableColorCursor === "number") cableColorCursor = s.cableColorCursor;
+      applyZoom();
+      renderAll();
+    } catch (_) {}
+  }
 
   /* ---------------------------------------------------------------------
      Export / Import
