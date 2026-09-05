@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 640" width="320" height="640">
+  <rect x="0" y="0" width="320" height="640" fill="#2b271f"/>
+  <rect x="4" y="4" width="312" height="632" fill="none" stroke="#4a4335" stroke-width="2"/>
+  <circle cx="14" cy="14" r="4" fill="#141210"/>
+  <circle cx="306" cy="14" r="4" fill="#141210"/>
+  <circle cx="14" cy="626" r="4" fill="#141210"/>
+  <circle cx="306" cy="626" r="4" fill="#141210"/>
+  <text x="160" y="40" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="14" letter-spacing="1">SEQ8</text>
+  <circle cx="20" cy="60" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="37" y="64" text-anchor="start" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">CLK</text>
+  <circle cx="20" cy="90" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="37" y="94" text-anchor="start" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">RESET</text>
+  <circle cx="20" cy="120" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="37" y="124" text-anchor="start" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">MUTE 1</text>
+  <circle cx="20" cy="150" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="37" y="154" text-anchor="start" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">MUTE 2</text>
+  <circle cx="20" cy="180" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="37" y="184" text-anchor="start" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">REPEAT CV</text>
+  <circle cx="20" cy="210" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="37" y="214" text-anchor="start" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">BUS CLK</text>
+  <circle cx="20" cy="240" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="37" y="244" text-anchor="start" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">BUS START</text>
+  <circle cx="20" cy="270" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="37" y="274" text-anchor="start" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">BUS STOP</text>
+  <circle cx="290" cy="60" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="64" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">OUT 1</text>
+  <circle cx="290" cy="90" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="94" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">OUT 1</text>
+  <circle cx="290" cy="120" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="124" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">OUT 2</text>
+  <circle cx="290" cy="150" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="154" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">OUT 2</text>
+  <circle cx="290" cy="180" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="184" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">OUT 3</text>
+  <circle cx="290" cy="210" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="214" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">OUT 3</text>
+  <circle cx="290" cy="240" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="244" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">OUT 4</text>
+  <circle cx="290" cy="270" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="274" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">OUT 4</text>
+  <circle cx="160" cy="590" r="12" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>
+  <line x1="160" y1="584" x2="160" y2="580" stroke="#c8bfaa" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="160" y="620" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">REPEAT</text>
+  <circle cx="290" cy="390" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="394" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">9</text>
+  <circle cx="290" cy="600" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="604" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">16</text>
+  <circle cx="290" cy="570" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="574" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">15</text>
+  <circle cx="290" cy="540" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="544" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">14</text>
+  <circle cx="290" cy="510" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="514" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">13</text>
+  <circle cx="290" cy="480" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="484" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">12</text>
+  <circle cx="290" cy="450" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="454" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">11</text>
+  <circle cx="290" cy="420" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="273" y="424" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">10</text>
+  <circle cx="230" cy="340" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="213" y="344" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">1</text>
+  <circle cx="230" cy="370" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="213" y="374" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">2</text>
+  <circle cx="230" cy="400" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="213" y="404" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">3</text>
+  <circle cx="230" cy="430" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="213" y="434" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">4 </text>
+  <circle cx="230" cy="460" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="213" y="464" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">5</text>
+  <circle cx="230" cy="490" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="213" y="494" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">6</text>
+  <circle cx="230" cy="520" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="213" y="524" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">7</text>
+  <circle cx="230" cy="550" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="213" y="554" text-anchor="end" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="11">8</text>
+</svg>

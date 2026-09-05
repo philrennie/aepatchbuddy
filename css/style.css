@@ -252,6 +252,22 @@ html, body {
   color: var(--text);
 }
 
+.module-row-name-link {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.module-row-name-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.module-row-manufacturer {
+  font-size: 10px;
+  color: var(--text-faint);
+  margin-top: 1px;
+}
+
 .module-row-meta {
   font-family: var(--mono);
   font-size: 10px;
@@ -384,6 +400,40 @@ html, body {
 .instance-remove:hover {
   border-color: var(--danger);
   color: var(--danger);
+}
+
+.instance-link {
+  position: absolute;
+  top: -9px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 11px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  text-decoration: none;
+}
+
+.instance:hover .instance-link {
+  opacity: 1;
+}
+
+.instance-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.instance-link-docs {
+  right: 39px;
 }
 
 .jack {

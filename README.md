@@ -77,6 +77,7 @@ node scripts/lint-modules.js
   "name": "2 Tone",
   "manufacturer": "Tangible Waves",
   "url": "https://www.example.com/shop/2tone",
+  "documentation": "https://www.example.com/docs/2tone",
   "width": 160,
   "height": 640,
   "connections": [
@@ -99,6 +100,7 @@ node scripts/lint-modules.js
 | `name` | ✓ | Display name shown in the module library. |
 | `manufacturer` | | Name of the company that makes this module. Shown as a subtitle in the library sidebar. |
 | `url` | | Product page URL (`https://…`). Shown as a link button on rack instances and in the sidebar. |
+| `documentation` | | Documentation/manual URL (`https://…`). Available in the module editor; not currently surfaced in the main app. |
 | `width` | ✓ | Panel width in native SVG pixels. Must be a multiple of 160 (1 RU = 160 px). |
 | `height` | ✓ | Panel height in native SVG pixels. Always 640 (100 mm at AE Modular scale). |
 | `connections` | ✓ | Array of jack definitions (see below). |

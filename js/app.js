@@ -144,7 +144,9 @@
   function renderModuleList(filterText) {
     const q = filterText.trim().toLowerCase();
     const filtered = q
-      ? library.filter((m) => m.name.toLowerCase().includes(q))
+      ? library.filter((m) =>
+          m.name.toLowerCase().includes(q) ||
+          (m.manufacturer && m.manufacturer.toLowerCase().includes(q)))
       : library;
 
     el.moduleList.innerHTML = "";
@@ -167,8 +169,11 @@
       thumb.loading = "lazy";
 
       const meta = document.createElement("div");
-      meta.innerHTML = `<div class="module-row-name">${escapeHtml(mod.name)}</div>
-                         <div class="module-row-meta">${mod.connections.length} jack${mod.connections.length === 1 ? "" : "s"}</div>`;
+      const mfr = mod.manufacturer ? `<div class="module-row-manufacturer">${escapeHtml(mod.manufacturer)}</div>` : "";
+      const nameHtml = mod.url
+        ? `<a class="module-row-name module-row-name-link" href="${escapeHtml(mod.url)}" target="_blank" rel="noopener" title="View product page" onclick="event.stopPropagation()">${escapeHtml(mod.name)}</a>`
+        : `<div class="module-row-name">${escapeHtml(mod.name)}</div>`;
+      meta.innerHTML = `${nameHtml}${mfr}<div class="module-row-meta">${mod.connections.length} jack${mod.connections.length === 1 ? "" : "s"}</div>`;
 
       row.appendChild(thumb);
       row.appendChild(meta);
@@ -268,10 +273,19 @@
     }
   }
 
-  function connectedJackColor(instanceId, connector) {
+  // Unique key for a connection: uses the explicit id field when present, falls back
+  // to name (safe for modules where all names are unique, breaks for duplicates).
+  function connectorKey(conn) { return conn.id !== undefined ? conn.id : conn.name; }
+
+  // Find a connection in a module by the key stored in cable.from/to.connector.
+  function findConnection(mod, key) {
+    return mod.connections.find(c => connectorKey(c) === key);
+  }
+
+  function connectedJackColor(instanceId, key) {
     for (const cable of rack.cables.values()) {
-      if (cable.from.instanceId === instanceId && cable.from.connector === connector) return cable.color;
-      if (cable.to.instanceId === instanceId && cable.to.connector === connector) return cable.color;
+      if (cable.from.instanceId === instanceId && cable.from.connector === key) return cable.color;
+      if (cable.to.instanceId === instanceId && cable.to.connector === key) return cable.color;
     }
     return null;
   }
@@ -306,6 +320,32 @@
     });
     wrap.appendChild(removeBtn);
 
+    if (mod.url) {
+      const linkBtn = document.createElement("a");
+      linkBtn.className = "instance-link";
+      linkBtn.href = mod.url;
+      linkBtn.target = "_blank";
+      linkBtn.rel = "noopener";
+      linkBtn.title = mod.manufacturer ? `View on ${mod.manufacturer}` : "View product page";
+      linkBtn.textContent = "↗";
+      linkBtn.addEventListener("mousedown", (e) => e.stopPropagation());
+      linkBtn.addEventListener("click", (e) => e.stopPropagation());
+      wrap.appendChild(linkBtn);
+    }
+
+    if (mod.documentation) {
+      const docsBtn = document.createElement("a");
+      docsBtn.className = "instance-link instance-link-docs";
+      docsBtn.href = mod.documentation;
+      docsBtn.target = "_blank";
+      docsBtn.rel = "noopener";
+      docsBtn.title = "View documentation";
+      docsBtn.textContent = "?";
+      docsBtn.addEventListener("mousedown", (e) => e.stopPropagation());
+      docsBtn.addEventListener("click", (e) => e.stopPropagation());
+      wrap.appendChild(docsBtn);
+    }
+
     wrap.addEventListener("mousedown", onInstanceMouseDown);
     return wrap;
   }
@@ -326,11 +366,11 @@
       const jack = document.createElement("div");
       jack.className = "jack";
       jack.dataset.instanceId = inst.id;
-      jack.dataset.connector = conn.name;
+      jack.dataset.connector = connectorKey(conn);
       jack.style.left = `${conn.position.x * MODULE_SCALE}px`;
       jack.style.top = `${conn.position.y * MODULE_SCALE}px`;
 
-      const color = connectedJackColor(inst.id, conn.name);
+      const color = connectedJackColor(inst.id, connectorKey(conn));
       if (color) {
         jack.classList.add("jack-connected");
         jack.style.setProperty("--jack-color", color);
@@ -406,14 +446,14 @@
       const hw = Math.round(bw * 0.4);
       handle.style.width = `${hw}px`;
       handle.style.height = `${bh - 4}px`;
-      handle.style.top = "2px";
-      handle.style.left = value ? `${bw - hw - 2}px` : "2px";
+      handle.style.top = "1px";
+      handle.style.left = value ? `${bw - hw - 3}px` : "1px";
     } else {
       const hh = Math.round(bh * 0.4);
       handle.style.width = `${bw - 4}px`;
       handle.style.height = `${hh}px`;
-      handle.style.left = "2px";
-      handle.style.top = value ? `${bh - hh - 2}px` : "2px";
+      handle.style.left = "1px";
+      handle.style.top = value ? `${bh - hh - 3}px` : "1px";
     }
 
     body.appendChild(handle);
@@ -457,8 +497,8 @@
 
     const fromMod = libraryById.get(fromInst.moduleId);
     const toMod = libraryById.get(toInst.moduleId);
-    const fromConn = fromMod.connections.find((c) => c.name === cable.from.connector);
-    const toConn = toMod.connections.find((c) => c.name === cable.to.connector);
+    const fromConn = findConnection(fromMod, cable.from.connector);
+    const toConn   = findConnection(toMod,   cable.to.connector);
     if (!fromConn || !toConn) return g;
 
     const p1 = jackCanvasPos(fromInst, fromConn);
@@ -554,7 +594,7 @@
   --------------------------------------------------------------------- */
 
   function onInstanceMouseDown(e) {
-    if (e.target.closest(".jack") || e.target.closest(".instance-remove")) return;
+    if (e.target.closest(".jack") || e.target.closest(".instance-remove") || e.target.closest(".instance-link")) return;
     e.preventDefault();
     const wrap = e.currentTarget;
     const instanceId = wrap.dataset.instanceId;
@@ -671,7 +711,7 @@
       const isFrom = existing.from.instanceId === instanceId && existing.from.connector === connector;
       const fixedEnd = isFrom ? existing.to : existing.from;
       const fixedInst = rack.instances.get(fixedEnd.instanceId);
-      const fixedConn = libraryById.get(fixedInst.moduleId).connections.find(c => c.name === fixedEnd.connector);
+      const fixedConn = findConnection(libraryById.get(fixedInst.moduleId), fixedEnd.connector);
 
       tempPath.style.stroke = existing.color;
       rack.cables.delete(existing.id);
@@ -694,7 +734,7 @@
     } else {
       el.cableLayer.appendChild(tempPath);
       const inst = rack.instances.get(instanceId);
-      const conn = libraryById.get(inst.moduleId).connections.find((c) => c.name === connector);
+      const conn = findConnection(libraryById.get(inst.moduleId), connector);
       connectCtx = { instanceId, connector, start: jackCanvasPos(inst, conn), tempPath, jackEl };
     }
 

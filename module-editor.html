@@ -194,6 +194,30 @@ html, body {
 
 .snap-unit { font-size: 11px; color: var(--text-faint); }
 
+.ru-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ru-row input[type="number"] {
+  width: 48px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 5px 6px;
+  text-align: right;
+}
+
+.ru-row input[type="number"]:focus { outline: none; border-color: var(--accent-dim); }
+
+.ru-unit { font-size: 12px; color: var(--text-dim); font-family: var(--mono); }
+
+.ru-hint { font-size: 11px; color: var(--text-faint); }
+
 /* --- center canvas --- */
 #center {
   flex: 1 1 auto;
@@ -373,6 +397,9 @@ html, body {
   background: rgba(232,163,61,0.08);
 }
 
+.action-btn.danger { color: var(--danger); }
+.action-btn.danger:hover { border-color: var(--danger); background: rgba(217,105,92,0.08); }
+
 #copy-feedback {
   font-size: 11px;
   color: var(--accent);
@@ -440,17 +467,25 @@ html, body {
           <label class="field-label" for="input-id">ID <span style="color:var(--text-faint);font-size:10px;">(filename, no spaces)</span></label>
           <input type="text" id="input-id" value="new-module" autocomplete="off" spellcheck="false">
         </div>
-        <div class="field-row-wrap">
-          <div class="field-row">
-            <div class="field">
-              <label class="field-label" for="input-width">Width</label>
-              <input type="number" id="input-width" value="200" min="40" max="960" step="10">
-            </div>
-            <div class="field">
-              <label class="field-label" for="input-height">Height</label>
-              <input type="number" id="input-height" value="640" min="80" max="2000" step="10">
-            </div>
+        <div class="field">
+          <label class="field-label" for="input-width">Width</label>
+          <div class="ru-row">
+            <input type="number" id="input-width" value="1" min="1" max="8" step="1">
+            <span class="ru-unit">RU</span>
+            <span class="ru-hint">× 160 px</span>
           </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="input-manufacturer">Manufacturer</label>
+          <input type="text" id="input-manufacturer" placeholder="e.g. Tangible Waves" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="field">
+          <label class="field-label" for="input-url">Product URL</label>
+          <input type="text" id="input-url" placeholder="https://…" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="field">
+          <label class="field-label" for="input-docs">Documentation URL</label>
+          <input type="text" id="input-docs" placeholder="https://…" autocomplete="off" spellcheck="false">
         </div>
       </div>
 
@@ -528,8 +563,11 @@ html, body {
   </div>
 
   <footer id="bottom-bar">
+    <button class="action-btn danger" id="btn-clear-module">Clear module</button>
+    <span style="flex:1"></span>
     <span id="copy-feedback">Copied to clipboard</span>
     <button class="action-btn" id="btn-copy-json">Copy JSON entry</button>
+    <button class="action-btn" id="btn-download-json">Download JSON</button>
     <button class="action-btn primary" id="btn-download-svg">Download SVG</button>
   </footer>
 
@@ -539,12 +577,40 @@ html, body {
 (function () {
   'use strict';
 
+  // ---- module size constants ----
+  const MODULE_HEIGHT  = 640;   // fixed panel height (100mm at AE Modular scale)
+  const PIXELS_PER_RU  = 160;   // 1 rack unit = 25mm = 160px
+
+  // Default template shown on first load and after "Clear module".
+  // Positions are in native SVG pixel space (before MODULE_SCALE).
+  const INIT_COMPONENTS = [
+    { type: 'jack', x: 20,  y: 60,  label: '1', labelPosition: 'right' },
+    { type: 'jack', x: 20,  y: 90,  label: '2', labelPosition: 'right' },
+    { type: 'jack', x: 20,  y: 120, label: '3', labelPosition: 'right' },
+    { type: 'jack', x: 20,  y: 150, label: '4', labelPosition: 'right' },
+    { type: 'jack', x: 20,  y: 180, label: '5', labelPosition: 'right' },
+    { type: 'jack', x: 20,  y: 210, label: '6', labelPosition: 'right' },
+    { type: 'jack', x: 20,  y: 240, label: '7', labelPosition: 'right' },
+    { type: 'jack', x: 20,  y: 270, label: '8', labelPosition: 'right' },
+    { type: 'jack', x: 140, y: 60,  label: '1', labelPosition: 'left' },
+    { type: 'jack', x: 140, y: 90,  label: '2', labelPosition: 'left' },
+    { type: 'jack', x: 140, y: 120, label: '3', labelPosition: 'left' },
+    { type: 'jack', x: 140, y: 150, label: '4', labelPosition: 'left' },
+    { type: 'jack', x: 140, y: 180, label: '5', labelPosition: 'left' },
+    { type: 'jack', x: 140, y: 210, label: '6', labelPosition: 'left' },
+    { type: 'jack', x: 140, y: 240, label: '7', labelPosition: 'left' },
+    { type: 'jack', x: 140, y: 270, label: '8', labelPosition: 'left' },
+  ];
+
   // ---- state ----
   const state = {
     name: 'New Module',
     id: 'new-module',
-    width: 200,
-    height: 640,
+    manufacturer: '',
+    url: '',
+    documentation: '',
+    width: PIXELS_PER_RU,
+    height: MODULE_HEIGHT,
     components: [],
     selectedId: null,
     mode: 'select',       // 'select' | 'add-jack' | 'add-knob' | 'add-switch'
@@ -555,7 +621,7 @@ html, body {
 
   // ---- component geometry constants ----
   // Edit here; both the live preview and the exported SVG read from these.
-  const LABEL_SIZE        = 12;   // font-size for all component labels
+  const LABEL_SIZE        = 11;   // font-size for all component labels
   const LABEL_GAP         = 8;   // px gap between component edge and label baseline
   const LABEL_BELOW_EXTRA = 10;   // extra clearance added only on the below side
 
@@ -579,7 +645,9 @@ html, body {
   const inputName  = document.getElementById('input-name');
   const inputId    = document.getElementById('input-id');
   const inputW     = document.getElementById('input-width');
-  const inputH     = document.getElementById('input-height');
+  const inputMfr   = document.getElementById('input-manufacturer');
+  const inputUrl   = document.getElementById('input-url');
+  const inputDocs  = document.getElementById('input-docs');
   const snapEnable = document.getElementById('snap-enable');
   const snapSizeEl = document.getElementById('snap-size');
   const propsDiv   = document.getElementById('props-content');
@@ -590,6 +658,31 @@ html, body {
   const NS = 'http://www.w3.org/2000/svg';
 
   function uid() { return 'c' + (state._nextId++); }
+
+  function applyInitState() {
+    state.name          = 'Module';
+    state.id            = 'module';
+    state.manufacturer  = '';
+    state.url           = '';
+    state.documentation = '';
+    state.width         = PIXELS_PER_RU;
+    state.height        = MODULE_HEIGHT;
+    state.selectedId    = null;
+    state.mode          = 'select';
+    state._nextId       = 1;
+    state.components    = INIT_COMPONENTS.map(c => ({ ...c, id: uid() }));
+  }
+
+  function syncFormFromState() {
+    inputName.value    = state.name;
+    inputId.value      = state.id;
+    inputMfr.value     = state.manufacturer || '';
+    inputUrl.value     = state.url          || '';
+    inputDocs.value    = state.documentation || '';
+    inputW.value       = Math.max(1, Math.round(state.width / PIXELS_PER_RU));
+    snapEnable.checked = state.snapEnabled;
+    snapSizeEl.value   = state.snapSize;
+  }
 
   function snap(v) {
     if (!state.snapEnabled) return Math.round(v);
@@ -701,17 +794,17 @@ html, body {
 
     if (horiz) {
       const bw = SW_H_HW * 2, bh = SW_H_HH * 2;
-      const tw = Math.round(bw * 0.39), th = bh - 3;
+      const tw = Math.round(bw * 0.39), th = bh - 2;
       g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW, y: comp.y - SW_H_HH, width: bw, height: bh, rx: 3, fill: '#1e1c18', stroke: s, 'stroke-width': 1.5, opacity: a }));
-      g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW + 2, y: comp.y - SW_H_HH + 1.5, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
+      g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW + 2, y: comp.y - SW_H_HH + 1, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
       const ly = comp.y + Math.round(LABEL_SIZE * 0.35);
       if (comp.label)  g.appendChild(textEl(comp.label,  { x: comp.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }, labelFill));
       if (comp.label2) g.appendChild(textEl(comp.label2, { x: comp.x + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }, labelFill));
     } else {
       const bw = SW_V_HW * 2, bh = SW_V_HH * 2;
-      const tw = bw - 3, th = Math.round(bh * 0.39);
+      const tw = bw - 2, th = Math.round(bh * 0.39);
       g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW, y: comp.y - SW_V_HH, width: bw, height: bh, rx: 3, fill: '#1e1c18', stroke: s, 'stroke-width': 1.5, opacity: a }));
-      g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW + 1.5, y: comp.y - SW_V_HH + 2, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
+      g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW + 1, y: comp.y - SW_V_HH + 2, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
       if (comp.label)  g.appendChild(textEl(comp.label,  { x: comp.x, y: comp.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }, labelFill));
       if (comp.label2) g.appendChild(textEl(comp.label2, { x: comp.x, y: comp.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }, labelFill));
     }
@@ -1076,14 +1169,14 @@ html, body {
     inputId.value = state.id;
   });
 
-  inputW.addEventListener('input', () => {
-    const v = parseInt(inputW.value, 10);
-    if (v >= 40) { state.width = v; render(); }
-  });
+  inputMfr.addEventListener('input',  () => { state.manufacturer  = inputMfr.value;  });
+  inputUrl.addEventListener('input',  () => { state.url           = inputUrl.value;  });
+  inputDocs.addEventListener('input', () => { state.documentation = inputDocs.value; });
 
-  inputH.addEventListener('input', () => {
-    const v = parseInt(inputH.value, 10);
-    if (v >= 80) { state.height = v; render(); }
+  inputW.addEventListener('input', () => {
+    const ru = Math.max(1, Math.min(8, parseInt(inputW.value, 10) || 1));
+    state.width = ru * PIXELS_PER_RU;
+    render();
   });
 
   snapEnable.addEventListener('change', () => { state.snapEnabled = snapEnable.checked; });
@@ -1122,17 +1215,17 @@ html, body {
         const horiz = (c.orientation || 'vertical') === 'horizontal';
         if (horiz) {
           const bw = SW_H_HW * 2, bh = SW_H_HH * 2;
-          const tw = Math.round(bw * 0.39), th = bh - 3;
+          const tw = Math.round(bw * 0.39), th = bh - 2;
           lines.push(`  <rect x="${c.x - SW_H_HW}" y="${c.y - SW_H_HH}" width="${bw}" height="${bh}" rx="3" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
-          lines.push(`  <rect x="${c.x - SW_H_HW + 2}" y="${c.y - SW_H_HH + 1.5}" width="${tw}" height="${th}" rx="2" fill="#8a8270"/>`);
+          lines.push(`  <rect x="${c.x - SW_H_HW + 2}" y="${c.y - SW_H_HH + 1}" width="${tw}" height="${th}" rx="2" fill="#8a8270"/>`);
           const ly = c.y + Math.round(LABEL_SIZE * 0.35);
           if (c.label)  lines.push(svgText(c.label,  { x: c.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }));
           if (c.label2) lines.push(svgText(c.label2, { x: c.x + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }));
         } else {
           const bw = SW_V_HW * 2, bh = SW_V_HH * 2;
-          const tw = bw - 3, th = Math.round(bh * 0.39);
+          const tw = bw - 2, th = Math.round(bh * 0.39);
           lines.push(`  <rect x="${c.x - SW_V_HW}" y="${c.y - SW_V_HH}" width="${bw}" height="${bh}" rx="3" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
-          lines.push(`  <rect x="${c.x - SW_V_HW + 1.5}" y="${c.y - SW_V_HH + 2}" width="${tw}" height="${th}" rx="2" fill="#8a8270"/>`);
+          lines.push(`  <rect x="${c.x - SW_V_HW + 1}" y="${c.y - SW_V_HH + 2}" width="${tw}" height="${th}" rx="2" fill="#8a8270"/>`);
           if (c.label)  lines.push(svgText(c.label,  { x: c.x, y: c.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }));
           if (c.label2) lines.push(svgText(c.label2, { x: c.x, y: c.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }));
         }
@@ -1147,7 +1240,7 @@ html, body {
     const id = state.id || nameToId(state.name) || 'module';
     const connections = state.components
       .filter(c => c.type === 'jack')
-      .map(c => ({ name: c.label || c.id, position: { x: c.x, y: c.y } }));
+      .map(c => ({ id: c.id, name: c.label || c.id, position: { x: c.x, y: c.y } }));
     const controls = state.components
       .filter(c => c.type === 'knob' || c.type === 'switch')
       .map(c => {
@@ -1162,7 +1255,9 @@ html, body {
     return JSON.stringify({
       id,
       name: state.name || 'Untitled',
-      image: `images/${id}.svg`,
+      ...(state.manufacturer ? { manufacturer: state.manufacturer } : {}),
+      ...(state.url          ? { url:          state.url          } : {}),
+      ...(state.documentation ? { documentation: state.documentation } : {}),
       width: state.width,
       height: state.height,
       connections,
@@ -1185,6 +1280,16 @@ html, body {
       copyFb.classList.add('visible');
       setTimeout(() => copyFb.classList.remove('visible'), 1800);
     });
+  });
+
+  document.getElementById('btn-download-json').addEventListener('click', () => {
+    const blob = new Blob([buildJSON()], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${state.id || 'module'}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
   });
 
   // ---- localStorage persistence ----
@@ -1210,6 +1315,9 @@ html, body {
         version: STORAGE_VERSION,
         name: state.name,
         id: state.id,
+        manufacturer: state.manufacturer,
+        url: state.url,
+        documentation: state.documentation,
         width: state.width,
         height: state.height,
         components: state.components,
@@ -1236,10 +1344,13 @@ html, body {
         return false;
       }
 
-      if (s.name        !== undefined) state.name        = s.name;
-      if (s.id          !== undefined) state.id          = s.id;
-      if (s.width       !== undefined) state.width       = Math.max(40,  s.width);
-      if (s.height      !== undefined) state.height      = Math.max(80,  s.height);
+      if (s.name          !== undefined) state.name          = s.name;
+      if (s.id            !== undefined) state.id            = s.id;
+      if (s.manufacturer  !== undefined) state.manufacturer  = s.manufacturer;
+      if (s.url           !== undefined) state.url           = s.url;
+      if (s.documentation !== undefined) state.documentation = s.documentation;
+      if (s.width         !== undefined) state.width         = Math.max(PIXELS_PER_RU, Math.round(s.width / PIXELS_PER_RU) * PIXELS_PER_RU);
+      state.height = MODULE_HEIGHT;
       if (Array.isArray(s.components)) state.components  = s.components;
       if (s.snapEnabled !== undefined) state.snapEnabled  = s.snapEnabled;
       if (s.snapSize    !== undefined) state.snapSize     = Math.max(1,   s.snapSize);
@@ -1248,15 +1359,19 @@ html, body {
     } catch (_) { return false; }
   }
 
+  document.getElementById('btn-clear-module').addEventListener('click', () => {
+    if (!confirm('Clear the module? All components will be removed and the template restored.')) return;
+    applyInitState();
+    localStorage.removeItem(STORAGE_KEY);
+    syncFormFromState();
+    render();
+    renderProps();
+  });
+
   // ---- init ----
-  if (loadFromStorage()) {
-    inputName.value    = state.name;
-    inputId.value      = state.id;
-    inputW.value       = state.width;
-    inputH.value       = state.height;
-    snapEnable.checked = state.snapEnabled;
-    snapSizeEl.value   = state.snapSize;
-  }
+  applyInitState();
+  loadFromStorage();   // overwrites state if saved data exists
+  syncFormFromState();
   render();
   renderProps();
 

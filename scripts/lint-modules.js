@@ -87,6 +87,10 @@ for (const dir of dirs) {
     if (typeof mod.url !== 'string') err(`${dir}: url must be a string`);
     else if (!/^https?:\/\//i.test(mod.url)) warn(`${dir}: url doesn't look like an http(s) URL`);
   }
+  if (mod.documentation !== undefined) {
+    if (typeof mod.documentation !== 'string') err(`${dir}: documentation must be a string`);
+    else if (!/^https?:\/\//i.test(mod.documentation)) warn(`${dir}: documentation doesn't look like an http(s) URL`);
+  }
 
   // Duplicate ID
   if (mod.id) {
