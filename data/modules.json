@@ -182,6 +182,146 @@
     "image": "modules/2att-cv/module.svg"
   },
   {
+    "id": "2cvadd-hq",
+    "name": "2CVADD-HQ",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p138/2CVADD-HQ.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2cvadd-hq",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "AN A1",
+        "position": {
+          "x": 20,
+          "y": 60
+        }
+      },
+      {
+        "id": "c2",
+        "name": "IN A2",
+        "position": {
+          "x": 20,
+          "y": 90
+        }
+      },
+      {
+        "id": "c3",
+        "name": "IN A3",
+        "position": {
+          "x": 20,
+          "y": 120
+        }
+      },
+      {
+        "id": "c4",
+        "name": "IN A4 NG",
+        "position": {
+          "x": 20,
+          "y": 150
+        }
+      },
+      {
+        "id": "c5",
+        "name": "IN B1",
+        "position": {
+          "x": 20,
+          "y": 180
+        }
+      },
+      {
+        "id": "c6",
+        "name": "IN B2",
+        "position": {
+          "x": 20,
+          "y": 210
+        }
+      },
+      {
+        "id": "c7",
+        "name": "IN B3",
+        "position": {
+          "x": 20,
+          "y": 240
+        }
+      },
+      {
+        "id": "c8",
+        "name": "c8",
+        "position": {
+          "x": 20,
+          "y": 270
+        }
+      },
+      {
+        "id": "c9",
+        "name": "OUT A",
+        "position": {
+          "x": 140,
+          "y": 60
+        }
+      },
+      {
+        "id": "c10",
+        "name": "OUT A",
+        "position": {
+          "x": 140,
+          "y": 90
+        }
+      },
+      {
+        "id": "c11",
+        "name": "OUT B",
+        "position": {
+          "x": 140,
+          "y": 120
+        }
+      },
+      {
+        "id": "c12",
+        "name": "OT B",
+        "position": {
+          "x": 140,
+          "y": 150
+        }
+      },
+      {
+        "id": "c13",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 180
+        }
+      },
+      {
+        "id": "c14",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 210
+        }
+      },
+      {
+        "id": "c15",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 240
+        }
+      },
+      {
+        "id": "c16",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 270
+        }
+      }
+    ],
+    "image": "modules/2cvadd-hq/module.svg"
+  },
+  {
     "id": "kick",
     "name": "KICK",
     "width": 160,
