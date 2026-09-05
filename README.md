@@ -111,7 +111,7 @@ node scripts/lint-modules.js
 | Field | Required | Description |
 |---|---|---|
 | `id` | ✓ | Unique identifier for this jack **within the module**. Used internally by the patch format — different from the display name. Required when any two jacks share the same `name` (e.g. a mult); recommended for all jacks. |
-| `name` | ✓ | Display name shown on hover (e.g. `"A IN"`, `"MULT"`). Does not need to be unique. |
+| `name` | ✓ | Display name shown on hover (e.g. `"A IN"`, `"MULT"`). Does not need to be unique. May also be a [waveform token](#waveform-symbol-labels). |
 | `position` | ✓ | `{ "x": number, "y": number }` — centre of the jack in native SVG pixel space (top-left origin, before any scaling). |
 
 #### `controls[]`
@@ -120,10 +120,27 @@ node scripts/lint-modules.js
 |---|---|---|
 | `id` | ✓ | Unique identifier within the module. |
 | `type` | ✓ | `"knob"` or `"switch"`. |
-| `label` | ✓ | Text label. For a switch this is the label for position 0. |
-| `label2` | (switch) | Label for position 1 of a switch. |
+| `label` | ✓ | Text label. For a switch this is the label for position 0. May also be a [waveform token](#waveform-symbol-labels). |
+| `label2` | (switch) | Label for position 1 of a switch. May also be a [waveform token](#waveform-symbol-labels). |
 | `orientation` | (switch) | `"vertical"` (default) or `"horizontal"`. |
 | `position` | ✓ | `{ "x": number, "y": number }` — centre of the control in native SVG pixel space. |
+
+#### Waveform symbol labels
+
+Any label (`connections[].name`, `controls[].label`, `controls[].label2`) may
+be the literal token **`wave:<name>`** instead of text, where `<name>` is one
+of `sine`, `square`, `triangle`, `saw`. It renders as a small vector waveform
+glyph on the panel instead of a word. Combine primitives with `+` for a
+composite symbol, e.g. `wave:triangle+saw`.
+
+```json
+{ "id": "shape", "type": "switch", "label": "wave:square", "label2": "wave:triangle+saw",
+  "orientation": "vertical", "position": { "x": 120, "y": 420 } }
+```
+
+The module editor's label fields have an `Abc` / `∿` toggle for picking a
+waveform instead of typing one. In the patch editor the glyph is baked into
+`module.svg`, and the hover tooltip shows a word ("Sawtooth").
 
 #### Finding pixel coordinates
 
