@@ -11,7 +11,7 @@
   --------------------------------------------------------------------- */
 
   const MODULE_LIBRARY_URL = "data/modules.json";
-  const MODULE_SCALE = 0.64;          // native image px -> on-screen px
+  const MODULE_SCALE = 0.896;          // native image px -> on-screen px
   const ZOOM_MIN = 0.25, ZOOM_MAX = 2.0, ZOOM_STEP = 0.1;
   const CABLE_COLORS = ["#e8a33d", "#5fc9c0", "#d97b9e", "#a8c957", "#9b8ad9", "#e0846b"];
 
@@ -29,6 +29,7 @@
   };
 
   let zoom = 1;
+  let panX = 0, panY = 0;
   let cableColorCursor = 0;
   let selectedCableId = null;
   let patchName = "";
@@ -37,6 +38,7 @@
   let dragCtx = null;        // instance drag
   let connectCtx = null;     // cable-being-drawn drag
   let knobDragCtx = null;    // knob rotation drag
+  let panCtx = null;         // canvas pan drag
 
   /* ---------------------------------------------------------------------
      DOM refs
@@ -115,10 +117,10 @@
   }
 
   function canvasPointFromClient(clientX, clientY) {
-    const rect = el.rackCanvas.getBoundingClientRect();
+    const rect = el.rackViewport.getBoundingClientRect();
     return {
-      x: (clientX - rect.left) / zoom,
-      y: (clientY - rect.top) / zoom,
+      x: (clientX - rect.left - panX) / zoom,
+      y: (clientY - rect.top  - panY) / zoom,
     };
   }
 
@@ -818,21 +820,60 @@
   }
 
   /* ---------------------------------------------------------------------
-     Zoom
+     Zoom + pan
   --------------------------------------------------------------------- */
 
   function applyZoom() {
-    el.rackCanvas.style.transform = `scale(${zoom})`;
+    el.rackCanvas.style.transform = `translate(${panX}px, ${panY}px) scale(${zoom})`;
     el.zoomLabel.textContent = `${Math.round(zoom * 100)}%`;
   }
 
-  el.btnZoomIn.addEventListener("click", () => {
-    zoom = Math.min(ZOOM_MAX, +(zoom + ZOOM_STEP).toFixed(2));
+  function zoomBy(delta, cx, cy) {
+    const newZoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, +(zoom + delta).toFixed(2)));
+    if (newZoom === zoom) return;
+    const ratio = newZoom / zoom;
+    panX = cx - (cx - panX) * ratio;
+    panY = cy - (cy - panY) * ratio;
+    zoom = newZoom;
     applyZoom();
+  }
+
+  el.btnZoomIn.addEventListener("click", () => {
+    const r = el.rackViewport.getBoundingClientRect();
+    zoomBy(ZOOM_STEP, r.width / 2, r.height / 2);
   });
   el.btnZoomOut.addEventListener("click", () => {
-    zoom = Math.max(ZOOM_MIN, +(zoom - ZOOM_STEP).toFixed(2));
+    const r = el.rackViewport.getBoundingClientRect();
+    zoomBy(-ZOOM_STEP, r.width / 2, r.height / 2);
+  });
+
+  el.rackViewport.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const r = el.rackViewport.getBoundingClientRect();
+    zoomBy(e.deltaY < 0 ? ZOOM_STEP : -ZOOM_STEP, e.clientX - r.left, e.clientY - r.top);
+  }, { passive: false });
+
+  el.rackViewport.addEventListener("mousedown", (e) => {
+    if (e.button !== 0) return;
+    if (e.target.closest(".instance") || e.target.closest(".jack") ||
+        e.target.closest(".knob-control") || e.target.closest(".switch-control") ||
+        e.target.closest("[data-cable-id]")) return;
+    e.preventDefault();
+    panCtx = { startX: e.clientX - panX, startY: e.clientY - panY };
+    el.rackViewport.classList.add("panning");
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!panCtx) return;
+    panX = e.clientX - panCtx.startX;
+    panY = e.clientY - panCtx.startY;
     applyZoom();
+  });
+
+  document.addEventListener("mouseup", () => {
+    if (!panCtx) return;
+    panCtx = null;
+    el.rackViewport.classList.remove("panning");
   });
 
   /* ---------------------------------------------------------------------
