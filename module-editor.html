@@ -362,6 +362,37 @@ html, body {
   background: rgba(232,163,61,0.08);
 }
 
+/* --- waveform symbol picker --- */
+.wave-pick-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.wave-pick-btn {
+  flex: 1;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+}
+
+.wave-pick-btn:hover { border-color: var(--text-faint); color: var(--text); }
+
+.wave-pick-btn.active {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+  background: rgba(232,163,61,0.08);
+}
+
+.wave-pick-btn svg { display: block; }
+
 /* --- bottom bar --- */
 #bottom-bar {
   flex: 0 0 auto;
@@ -643,6 +674,30 @@ html, body {
   const SW_H_HW = 14;            // horizontal switch half-width
   const SW_H_HH = 5;             // horizontal switch half-height
 
+  // ---- waveform symbol labels ----
+  // A label ("connection name" / knob or switch label) may be the literal
+  // token `wave:<name>` — or `wave:a+b` for a composite — instead of text.
+  // It renders as a vector glyph here and in the exported SVG, and shows as
+  // a word ("Sawtooth") in the patch editor's hover tooltips.
+  // Each path is drawn in a 14 × 14 local box (centre line ~y=7) and scaled
+  // to LABEL_SIZE at render time.
+  const WAVE_GLYPHS = {
+    sine:     'M0,7 q3.5,-6 7,0 t7,0',
+    square:   'M0,12 V4 H7 V12 H14 V4',
+    triangle: 'M0,12 L7,4 L14,12',
+    saw:      'M0,12 L14,4 V12',
+  };
+  const WAVE_ORDER = ['sine', 'square', 'triangle', 'saw'];
+  const WAVE_WORDS = { sine: 'Sine', square: 'Square', triangle: 'Triangle', saw: 'Sawtooth' };
+
+  // "wave:triangle+saw" -> ['triangle','saw'];  non-token / unknown name -> null
+  function parseWave(s) {
+    const m = /^wave:([a-z]+(?:\+[a-z]+)*)$/.exec(String(s || '').trim());
+    if (!m) return null;
+    const parts = m[1].split('+');
+    return parts.every(p => WAVE_GLYPHS[p]) ? parts : null;
+  }
+
   let ghost = null;     // {x, y} position while in add mode
   let drag = null;      // {id, sx, sy, ox, oy}
 
@@ -750,6 +805,40 @@ html, body {
     return t;
   }
 
+  // Geometry shared by the live-preview and exported wave glyph runs.
+  // Returns { originX, box, s, gap } for `names` placed at label pos `lp`.
+  function waveRun(names, lp) {
+    const box = 14, s = LABEL_SIZE / box, gap = 3 * s;
+    const runW = names.length * box * s + (names.length - 1) * gap;
+    const originX = lp.anchor === 'end'    ? lp.x - runW
+                  : lp.anchor === 'middle' ? lp.x - runW / 2
+                  :                          lp.x;
+    return { originX, box, s, gap };
+  }
+
+  // Live preview: one or more wave glyphs as a horizontal run at `lp`.
+  function waveGlyphEl(names, lp, stroke) {
+    const { originX, box, s, gap } = waveRun(names, lp);
+    const g = mkEl('g');
+    names.forEach((n, i) => {
+      const seg = mkEl('g', {
+        transform: `translate(${originX + i * (box * s + gap)},${lp.y - LABEL_SIZE}) scale(${s})`,
+      });
+      seg.appendChild(mkEl('path', {
+        d: WAVE_GLYPHS[n], fill: 'none', stroke,
+        'stroke-width': 1.5 / s, 'stroke-linejoin': 'round', 'stroke-linecap': 'round',
+      }));
+      g.appendChild(seg);
+    });
+    return g;
+  }
+
+  // Live preview: a label that is a wave token renders as a glyph, else text.
+  function labelG(label, lp, fillColor) {
+    const w = parseWave(label);
+    return w ? waveGlyphEl(w, lp, fillColor) : textEl(label, lp, fillColor);
+  }
+
   // ---- SVG rendering ----
 
   // Each component type: returns an SVG <g> element.
@@ -765,7 +854,7 @@ html, body {
     g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: JACK_R, fill: '#141210', stroke: s, 'stroke-width': 1.5, opacity: a }));
     g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: JACK_DOT_R, fill: '#3a352c', opacity: a }));
     if (comp.label) {
-      g.appendChild(textEl(comp.label, labelPos(comp.x, comp.y, comp.labelPosition || 'below', JACK_R), fill));
+      g.appendChild(labelG(comp.label, labelPos(comp.x, comp.y, comp.labelPosition || 'below', JACK_R), fill));
     }
     return g;
   }
@@ -784,7 +873,7 @@ html, body {
       'stroke-width': 1.5, 'stroke-linecap': 'round', opacity: a,
     }));
     if (comp.label) {
-      g.appendChild(textEl(comp.label, labelPos(comp.x, comp.y, comp.labelPosition || 'below', KNOB_R), fill));
+      g.appendChild(labelG(comp.label, labelPos(comp.x, comp.y, comp.labelPosition || 'below', KNOB_R), fill));
     }
     return g;
   }
@@ -804,15 +893,15 @@ html, body {
       g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW, y: comp.y - SW_H_HH, width: bw, height: bh, rx: 3, fill: '#1e1c18', stroke: s, 'stroke-width': 1.5, opacity: a }));
       g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW + 2, y: comp.y - SW_H_HH + 1, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
       const ly = comp.y + Math.round(LABEL_SIZE * 0.35);
-      if (comp.label)  g.appendChild(textEl(comp.label,  { x: comp.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }, labelFill));
-      if (comp.label2) g.appendChild(textEl(comp.label2, { x: comp.x + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }, labelFill));
+      if (comp.label)  g.appendChild(labelG(comp.label,  { x: comp.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }, labelFill));
+      if (comp.label2) g.appendChild(labelG(comp.label2, { x: comp.x + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }, labelFill));
     } else {
       const bw = SW_V_HW * 2, bh = SW_V_HH * 2;
       const tw = bw - 2, th = Math.round(bh * 0.39);
       g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW, y: comp.y - SW_V_HH, width: bw, height: bh, rx: 3, fill: '#1e1c18', stroke: s, 'stroke-width': 1.5, opacity: a }));
       g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW + 1, y: comp.y - SW_V_HH + 2, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
-      if (comp.label)  g.appendChild(textEl(comp.label,  { x: comp.x, y: comp.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }, labelFill));
-      if (comp.label2) g.appendChild(textEl(comp.label2, { x: comp.x, y: comp.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }, labelFill));
+      if (comp.label)  g.appendChild(labelG(comp.label,  { x: comp.x, y: comp.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }, labelFill));
+      if (comp.label2) g.appendChild(labelG(comp.label2, { x: comp.x, y: comp.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }, labelFill));
     }
     return g;
   }
@@ -908,9 +997,12 @@ html, body {
 
     // ---- jack / knob: label + position picker ----
     if (comp.type === 'jack' || comp.type === 'knob') {
-      const lf = field(comp.type === 'jack' ? 'Connection name' : 'Label', 'text', comp.label || '', 'e.g. CV IN');
-      lf.querySelector('input').addEventListener('input', e => { comp.label = e.target.value; render(); });
-      append(lf);
+      append(labelEditor(
+        comp.type === 'jack' ? 'Connection name' : 'Label',
+        () => comp.label || '',
+        v => { comp.label = v; },
+        'e.g. CV IN'
+      ));
 
       // label position label
       const posLabel = document.createElement('div');
@@ -985,14 +1077,8 @@ html, body {
       const pos1Name = horiz ? 'Label left (pos 1)' : 'Label above (pos 1)';
       const pos2Name = horiz ? 'Label right (pos 2)' : 'Label below (pos 2)';
 
-      const lf1 = field(pos1Name, 'text', comp.label || '', 'e.g. ON');
-      lf1.style.marginTop = '10px';
-      lf1.querySelector('input').addEventListener('input', e => { comp.label = e.target.value; render(); });
-      append(lf1);
-
-      const lf2 = field(pos2Name, 'text', comp.label2 || '', 'e.g. OFF');
-      lf2.querySelector('input').addEventListener('input', e => { comp.label2 = e.target.value; render(); });
-      append(lf2);
+      append(labelEditor(pos1Name, () => comp.label  || '', v => { comp.label  = v; }, 'e.g. ON',  '10px'));
+      append(labelEditor(pos2Name, () => comp.label2 || '', v => { comp.label2 = v; }, 'e.g. OFF'));
     }
 
     // ---- x / y (all types) ----
@@ -1048,6 +1134,86 @@ html, body {
     d.appendChild(l);
     d.appendChild(inp);
     return d;
+  }
+
+  // A label input that can be either free text or a waveform symbol.
+  // getVal/setVal read & write the underlying string (comp.label / comp.label2).
+  // Switching kind or picking a glyph mutates state then re-renders the panel.
+  function labelEditor(titleText, getVal, setVal, placeholder, marginTop) {
+    const wrap = document.createElement('div');
+    wrap.className = 'field-row-wrap';
+    if (marginTop) wrap.style.marginTop = marginTop;
+
+    const heading = document.createElement('label');
+    heading.className = 'field-label';
+    heading.textContent = titleText;
+    wrap.appendChild(heading);
+
+    const cur = getVal() || '';
+    const waveParts = parseWave(cur);        // array | null
+    const isWave = !!waveParts;
+
+    // kind toggle: Abc / ∿
+    const toggle = document.createElement('div');
+    toggle.className = 'orient-row';
+    for (const [kind, txt] of [['text', 'Abc'], ['wave', '∿']]) {
+      const b = document.createElement('button');
+      b.className = 'orient-btn' + ((kind === 'wave') === isWave ? ' active' : '');
+      b.textContent = txt;
+      b.title = kind === 'wave' ? 'Waveform symbol' : 'Text';
+      b.addEventListener('click', () => {
+        if (kind === 'wave' && !isWave) setVal('wave:sine');
+        else if (kind === 'text' && isWave) setVal('');
+        else return;
+        render();
+        renderProps();
+      });
+      toggle.appendChild(b);
+    }
+    wrap.appendChild(toggle);
+
+    if (isWave) {
+      const row = document.createElement('div');
+      row.className = 'wave-pick-row';
+      for (const name of WAVE_ORDER) {
+        const b = document.createElement('button');
+        b.className = 'wave-pick-btn' + (waveParts.includes(name) ? ' active' : '');
+        b.title = WAVE_WORDS[name];
+        b.innerHTML =
+          `<svg viewBox="-1 -1 16 16" width="20" height="20" aria-hidden="true">` +
+          `<path d="${WAVE_GLYPHS[name]}" fill="none" stroke="currentColor" stroke-width="1.5" ` +
+          `stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+        b.addEventListener('click', () => {
+          let parts = waveParts.slice();
+          if (parts.includes(name)) {
+            parts = parts.filter(p => p !== name);
+            if (!parts.length) parts = [name];      // keep at least one glyph
+          } else {
+            parts.push(name);
+          }
+          parts.sort((a, z) => WAVE_ORDER.indexOf(a) - WAVE_ORDER.indexOf(z));
+          setVal('wave:' + parts.join('+'));
+          render();
+          renderProps();
+        });
+        row.appendChild(b);
+      }
+      wrap.appendChild(row);
+
+      const hint = document.createElement('div');
+      hint.className = 'ru-hint';
+      hint.style.marginTop = '4px';
+      hint.textContent = 'Tap more than one for a combined symbol.';
+      wrap.appendChild(hint);
+    } else {
+      const f = field('', 'text', cur, placeholder);
+      f.style.marginTop = '6px';
+      f.querySelector('label').remove();
+      f.querySelector('input').addEventListener('input', e => { setVal(e.target.value); render(); });
+      wrap.appendChild(f);
+    }
+
+    return wrap;
   }
 
   // ---- SVG events ----
@@ -1209,14 +1375,29 @@ html, body {
       return `  <text x="${lp.x}" y="${lp.y}" text-anchor="${lp.anchor}" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="${LABEL_SIZE}">${escXml(label)}</text>`;
     }
 
+    function svgWave(names, lp) {
+      const { originX, box, s, gap } = waveRun(names, lp);
+      return names.map((n, i) =>
+        `  <g transform="translate(${originX + i * (box * s + gap)},${lp.y - LABEL_SIZE}) scale(${s})">` +
+        `<path d="${WAVE_GLYPHS[n]}" fill="none" stroke="#9a9282" stroke-width="${1.5 / s}" ` +
+        `stroke-linejoin="round" stroke-linecap="round"/></g>`
+      ).join('\n');
+    }
+
+    // A wave token renders as a glyph run; anything else as <text>.
+    function svgLabel(label, lp) {
+      const w = parseWave(label);
+      return w ? svgWave(w, lp) : svgText(label, lp);
+    }
+
     for (const c of state.components) {
       if (c.type === 'jack') {
         lines.push(`  <circle cx="${c.x}" cy="${c.y}" r="${JACK_R}" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>`);
-        if (c.label) lines.push(svgText(c.label, labelPos(c.x, c.y, c.labelPosition || 'below', JACK_R)));
+        if (c.label) lines.push(svgLabel(c.label, labelPos(c.x, c.y, c.labelPosition || 'below', JACK_R)));
       } else if (c.type === 'knob') {
         lines.push(`  <circle cx="${c.x}" cy="${c.y}" r="${KNOB_R}" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
         lines.push(`  <line x1="${c.x}" y1="${c.y - KNOB_TICK_IN}" x2="${c.x}" y2="${c.y - KNOB_TICK_OUT}" stroke="#c8bfaa" stroke-width="1.5" stroke-linecap="round"/>`);
-        if (c.label) lines.push(svgText(c.label, labelPos(c.x, c.y, c.labelPosition || 'below', KNOB_R)));
+        if (c.label) lines.push(svgLabel(c.label, labelPos(c.x, c.y, c.labelPosition || 'below', KNOB_R)));
       } else if (c.type === 'switch') {
         const horiz = (c.orientation || 'vertical') === 'horizontal';
         if (horiz) {
@@ -1225,15 +1406,15 @@ html, body {
           lines.push(`  <rect x="${c.x - SW_H_HW}" y="${c.y - SW_H_HH}" width="${bw}" height="${bh}" rx="3" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
           lines.push(`  <rect x="${c.x - SW_H_HW + 2}" y="${c.y - SW_H_HH + 1}" width="${tw}" height="${th}" rx="2" fill="#8a8270"/>`);
           const ly = c.y + Math.round(LABEL_SIZE * 0.35);
-          if (c.label)  lines.push(svgText(c.label,  { x: c.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }));
-          if (c.label2) lines.push(svgText(c.label2, { x: c.x + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }));
+          if (c.label)  lines.push(svgLabel(c.label,  { x: c.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }));
+          if (c.label2) lines.push(svgLabel(c.label2, { x: c.x + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }));
         } else {
           const bw = SW_V_HW * 2, bh = SW_V_HH * 2;
           const tw = bw - 2, th = Math.round(bh * 0.39);
           lines.push(`  <rect x="${c.x - SW_V_HW}" y="${c.y - SW_V_HH}" width="${bw}" height="${bh}" rx="3" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
           lines.push(`  <rect x="${c.x - SW_V_HW + 1}" y="${c.y - SW_V_HH + 2}" width="${tw}" height="${th}" rx="2" fill="#8a8270"/>`);
-          if (c.label)  lines.push(svgText(c.label,  { x: c.x, y: c.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }));
-          if (c.label2) lines.push(svgText(c.label2, { x: c.x, y: c.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }));
+          if (c.label)  lines.push(svgLabel(c.label,  { x: c.x, y: c.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }));
+          if (c.label2) lines.push(svgLabel(c.label2, { x: c.x, y: c.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }));
         }
       }
     }
