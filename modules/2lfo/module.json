@@ -1,0 +1,210 @@
+{
+  "id": "2lfo",
+  "name": "2LFO",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p89/2LFO.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2lfo",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "SYNC1",
+      "position": {
+        "x": 20,
+        "y": 60
+      }
+    },
+    {
+      "id": "c2",
+      "name": "SYC2",
+      "position": {
+        "x": 20,
+        "y": 90
+      }
+    },
+    {
+      "id": "c3",
+      "name": "PWM2",
+      "position": {
+        "x": 20,
+        "y": 120
+      }
+    },
+    {
+      "id": "c4",
+      "name": "c4",
+      "position": {
+        "x": 20,
+        "y": 150
+      }
+    },
+    {
+      "id": "c5",
+      "name": "c5",
+      "position": {
+        "x": 20,
+        "y": 180
+      }
+    },
+    {
+      "id": "c6",
+      "name": "c6",
+      "position": {
+        "x": 20,
+        "y": 210
+      }
+    },
+    {
+      "id": "c7",
+      "name": "BS CV",
+      "position": {
+        "x": 20,
+        "y": 240
+      }
+    },
+    {
+      "id": "c8",
+      "name": "BS CTRL",
+      "position": {
+        "x": 20,
+        "y": 270
+      }
+    },
+    {
+      "id": "c9",
+      "name": "wave:square",
+      "position": {
+        "x": 140,
+        "y": 60
+      }
+    },
+    {
+      "id": "c10",
+      "name": "wave:square",
+      "position": {
+        "x": 140,
+        "y": 90
+      }
+    },
+    {
+      "id": "c11",
+      "name": "wave:triangle",
+      "position": {
+        "x": 140,
+        "y": 120
+      }
+    },
+    {
+      "id": "c12",
+      "name": "wave:triangle",
+      "position": {
+        "x": 140,
+        "y": 150
+      }
+    },
+    {
+      "id": "c13",
+      "name": "wave:square",
+      "position": {
+        "x": 140,
+        "y": 180
+      }
+    },
+    {
+      "id": "c14",
+      "name": "wave:square",
+      "position": {
+        "x": 140,
+        "y": 210
+      }
+    },
+    {
+      "id": "c15",
+      "name": "wave:triangle+saw",
+      "position": {
+        "x": 140,
+        "y": 240
+      }
+    },
+    {
+      "id": "c16",
+      "name": "wave:triangle+saw",
+      "position": {
+        "x": 140,
+        "y": 270
+      }
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "RATE 1",
+      "position": {
+        "x": 50,
+        "y": 340
+      }
+    },
+    {
+      "id": "c18",
+      "type": "knob",
+      "label": "SHAPE",
+      "position": {
+        "x": 50,
+        "y": 420
+      }
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "PULSEWIDTH",
+      "position": {
+        "x": 50,
+        "y": 580
+      }
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "RATE 2",
+      "position": {
+        "x": 50,
+        "y": 500
+      }
+    },
+    {
+      "id": "c22",
+      "type": "switch",
+      "label": "FAST",
+      "position": {
+        "x": 130,
+        "y": 360
+      },
+      "label2": "SLOW",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c24",
+      "type": "switch",
+      "label": "FAST",
+      "position": {
+        "x": 100,
+        "y": 550
+      },
+      "label2": "SLOW",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c25",
+      "type": "switch",
+      "label": "wave:triangle",
+      "position": {
+        "x": 140,
+        "y": 550
+      },
+      "label2": "wave:saw",
+      "orientation": "vertical"
+    }
+  ]
+}

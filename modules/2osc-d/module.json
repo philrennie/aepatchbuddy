@@ -1,0 +1,201 @@
+{
+  "id": "2osc-d",
+  "name": "2OSC/d",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p60/2OSC%2Fd_%28OLDIE_BUT_GOLDIE%29.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2oscd",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "CV1",
+      "position": {
+        "x": 20,
+        "y": 60
+      }
+    },
+    {
+      "id": "c2",
+      "name": "PWM1",
+      "position": {
+        "x": 20,
+        "y": 90
+      }
+    },
+    {
+      "id": "c3",
+      "name": "SYNC1",
+      "position": {
+        "x": 20,
+        "y": 120
+      }
+    },
+    {
+      "id": "c4",
+      "name": "CV2",
+      "position": {
+        "x": 20,
+        "y": 150
+      }
+    },
+    {
+      "id": "c5",
+      "name": "PWM2",
+      "position": {
+        "x": 20,
+        "y": 180
+      }
+    },
+    {
+      "id": "c6",
+      "name": "SYNC2",
+      "position": {
+        "x": 20,
+        "y": 210
+      }
+    },
+    {
+      "id": "c7",
+      "name": "BUS CV",
+      "position": {
+        "x": 20,
+        "y": 240
+      }
+    },
+    {
+      "id": "c8",
+      "name": "BUS CV",
+      "position": {
+        "x": 20,
+        "y": 270
+      }
+    },
+    {
+      "id": "c9",
+      "name": "wave:saw",
+      "position": {
+        "x": 140,
+        "y": 60
+      }
+    },
+    {
+      "id": "c10",
+      "name": "wave:saw",
+      "position": {
+        "x": 140,
+        "y": 90
+      }
+    },
+    {
+      "id": "c11",
+      "name": "wave:square",
+      "position": {
+        "x": 140,
+        "y": 120
+      }
+    },
+    {
+      "id": "c12",
+      "name": "wave:square",
+      "position": {
+        "x": 140,
+        "y": 150
+      }
+    },
+    {
+      "id": "c13",
+      "name": "wave:saw",
+      "position": {
+        "x": 140,
+        "y": 180
+      }
+    },
+    {
+      "id": "c14",
+      "name": "wave:saw",
+      "position": {
+        "x": 140,
+        "y": 210
+      }
+    },
+    {
+      "id": "c15",
+      "name": "wave:square",
+      "position": {
+        "x": 140,
+        "y": 240
+      }
+    },
+    {
+      "id": "c16",
+      "name": "wave:square",
+      "position": {
+        "x": 140,
+        "y": 270
+      }
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "FREQ 1",
+      "position": {
+        "x": 50,
+        "y": 360
+      }
+    },
+    {
+      "id": "c18",
+      "type": "knob",
+      "label": "FREQ 2",
+      "position": {
+        "x": 50,
+        "y": 460
+      }
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "PULSEWIDTH",
+      "position": {
+        "x": 50,
+        "y": 560
+      }
+    },
+    {
+      "id": "c22",
+      "type": "switch",
+      "label": "HI",
+      "position": {
+        "x": 130,
+        "y": 360
+      },
+      "label2": "LO",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c24",
+      "type": "switch",
+      "label": "PW FIX",
+      "position": {
+        "x": 100,
+        "y": 550
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c25",
+      "type": "switch",
+      "label": "HI",
+      "position": {
+        "x": 140,
+        "y": 550
+      },
+      "label2": "LO",
+      "orientation": "vertical"
+    }
+  ]
+}
