@@ -294,11 +294,14 @@ html, body {
 #rack-viewport {
   flex: 1 1 auto;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
+  cursor: grab;
   background:
     radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0) 0 0/24px 24px,
     var(--bg);
 }
+
+#rack-viewport.panning { cursor: grabbing; }
 
 #rack-canvas {
   position: relative;
@@ -666,20 +669,9 @@ html, body {
 
 /* ---------- Scrollbars (webkit) ---------- */
 
-#module-list::-webkit-scrollbar,
-#rack-viewport::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-#module-list::-webkit-scrollbar-thumb,
-#rack-viewport::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 5px;
-}
-#module-list::-webkit-scrollbar-track,
-#rack-viewport::-webkit-scrollbar-track {
-  background: transparent;
-}
+#module-list::-webkit-scrollbar { width: 10px; }
+#module-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+#module-list::-webkit-scrollbar-track { background: transparent; }
 
 /* ---------- Responsive ---------- */
 
