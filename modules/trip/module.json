@@ -1,0 +1,188 @@
+{
+  "id": "trip",
+  "name": "TRIP",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p121/TRIP.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/trip",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "TRIG",
+      "position": {
+        "x": 20,
+        "y": 60
+      }
+    },
+    {
+      "id": "c2",
+      "name": "DELAY",
+      "position": {
+        "x": 20,
+        "y": 90
+      }
+    },
+    {
+      "id": "c3",
+      "name": "REPT",
+      "position": {
+        "x": 20,
+        "y": 120
+      }
+    },
+    {
+      "id": "c4",
+      "name": "ACCEL",
+      "position": {
+        "x": 20,
+        "y": 150
+      }
+    },
+    {
+      "id": "c5",
+      "name": "GATE",
+      "position": {
+        "x": 20,
+        "y": 180
+      }
+    },
+    {
+      "id": "c6",
+      "name": "MUTE",
+      "position": {
+        "x": 20,
+        "y": 210
+      }
+    },
+    {
+      "id": "c7",
+      "name": "7",
+      "position": {
+        "x": 20,
+        "y": 240
+      }
+    },
+    {
+      "id": "c8",
+      "name": "B GATE",
+      "position": {
+        "x": 20,
+        "y": 270
+      }
+    },
+    {
+      "id": "c9",
+      "name": "1",
+      "position": {
+        "x": 140,
+        "y": 60
+      }
+    },
+    {
+      "id": "c10",
+      "name": "2",
+      "position": {
+        "x": 140,
+        "y": 90
+      }
+    },
+    {
+      "id": "c11",
+      "name": "3",
+      "position": {
+        "x": 140,
+        "y": 120
+      }
+    },
+    {
+      "id": "c12",
+      "name": "4",
+      "position": {
+        "x": 140,
+        "y": 150
+      }
+    },
+    {
+      "id": "c13",
+      "name": "5",
+      "position": {
+        "x": 140,
+        "y": 180
+      }
+    },
+    {
+      "id": "c14",
+      "name": "6",
+      "position": {
+        "x": 140,
+        "y": 210
+      }
+    },
+    {
+      "id": "c15",
+      "name": "7",
+      "position": {
+        "x": 140,
+        "y": 240
+      }
+    },
+    {
+      "id": "c16",
+      "name": "8",
+      "position": {
+        "x": 140,
+        "y": 270
+      }
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "DELAY TIME",
+      "position": {
+        "x": 60,
+        "y": 360
+      }
+    },
+    {
+      "id": "c18",
+      "type": "knob",
+      "label": "REPEATS",
+      "position": {
+        "x": 60,
+        "y": 420
+      }
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "ACCEL/PROBABL",
+      "position": {
+        "x": 60,
+        "y": 480
+      }
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "GATE TIME",
+      "position": {
+        "x": 60,
+        "y": 540
+      }
+    },
+    {
+      "id": "c21",
+      "type": "switch",
+      "label": "PROBABL",
+      "position": {
+        "x": 120,
+        "y": 390
+      },
+      "label2": "ACCEL",
+      "orientation": "vertical"
+    }
+  ]
+}

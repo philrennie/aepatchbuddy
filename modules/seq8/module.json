@@ -1,0 +1,324 @@
+{
+  "id": "seq8",
+  "name": "SEQ8",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p100/SEQ8_R2.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/seq8",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "CLK",
+      "position": {
+        "x": 20,
+        "y": 120
+      }
+    },
+    {
+      "id": "c2",
+      "name": "RESET",
+      "position": {
+        "x": 20,
+        "y": 150
+      }
+    },
+    {
+      "id": "c3",
+      "name": "MODE CV",
+      "position": {
+        "x": 20,
+        "y": 180
+      }
+    },
+    {
+      "id": "c4",
+      "name": "IMDI IN",
+      "position": {
+        "x": 20,
+        "y": 210
+      }
+    },
+    {
+      "id": "c5",
+      "name": "BUS GATE",
+      "position": {
+        "x": 20,
+        "y": 240
+      }
+    },
+    {
+      "id": "c6",
+      "name": "BUS CLK",
+      "position": {
+        "x": 20,
+        "y": 270
+      }
+    },
+    {
+      "id": "c7",
+      "name": "BUS START",
+      "position": {
+        "x": 20,
+        "y": 300
+      }
+    },
+    {
+      "id": "c8",
+      "name": "BUS STOP",
+      "position": {
+        "x": 20,
+        "y": 330
+      }
+    },
+    {
+      "id": "c9",
+      "name": "CV",
+      "position": {
+        "x": 300,
+        "y": 120
+      }
+    },
+    {
+      "id": "c10",
+      "name": "CV",
+      "position": {
+        "x": 300,
+        "y": 150
+      }
+    },
+    {
+      "id": "c11",
+      "name": "CV",
+      "position": {
+        "x": 300,
+        "y": 180
+      }
+    },
+    {
+      "id": "c12",
+      "name": "GATE",
+      "position": {
+        "x": 300,
+        "y": 210
+      }
+    },
+    {
+      "id": "c13",
+      "name": "GATE",
+      "position": {
+        "x": 300,
+        "y": 240
+      }
+    },
+    {
+      "id": "c14",
+      "name": "IMDI OUT",
+      "position": {
+        "x": 300,
+        "y": 270
+      }
+    },
+    {
+      "id": "c15",
+      "name": "CV RAW",
+      "position": {
+        "x": 300,
+        "y": 300
+      }
+    },
+    {
+      "id": "c16",
+      "name": "CV RAW",
+      "position": {
+        "x": 300,
+        "y": 330
+      }
+    },
+    {
+      "id": "c17",
+      "name": "1",
+      "position": {
+        "x": 50,
+        "y": 60
+      }
+    },
+    {
+      "id": "c18",
+      "name": "2",
+      "position": {
+        "x": 80,
+        "y": 60
+      }
+    },
+    {
+      "id": "c19",
+      "name": "3",
+      "position": {
+        "x": 110,
+        "y": 60
+      }
+    },
+    {
+      "id": "c20",
+      "name": "4",
+      "position": {
+        "x": 140,
+        "y": 60
+      }
+    },
+    {
+      "id": "c21",
+      "name": "5",
+      "position": {
+        "x": 170,
+        "y": 60
+      }
+    },
+    {
+      "id": "c22",
+      "name": "6",
+      "position": {
+        "x": 200,
+        "y": 60
+      }
+    },
+    {
+      "id": "c23",
+      "name": "7",
+      "position": {
+        "x": 230,
+        "y": 60
+      }
+    },
+    {
+      "id": "c24",
+      "name": "8",
+      "position": {
+        "x": 260,
+        "y": 60
+      }
+    }
+  ],
+  "controls": [
+    {
+      "id": "c25",
+      "type": "knob",
+      "label": "CV V",
+      "position": {
+        "x": 200,
+        "y": 540
+      }
+    },
+    {
+      "id": "c26",
+      "type": "knob",
+      "label": "CV IV",
+      "position": {
+        "x": 200,
+        "y": 480
+      }
+    },
+    {
+      "id": "c27",
+      "type": "knob",
+      "label": "CV III",
+      "position": {
+        "x": 200,
+        "y": 420
+      }
+    },
+    {
+      "id": "c28",
+      "type": "knob",
+      "label": "CV II",
+      "position": {
+        "x": 200,
+        "y": 360
+      }
+    },
+    {
+      "id": "c29",
+      "type": "knob",
+      "label": "4",
+      "position": {
+        "x": 50,
+        "y": 580
+      }
+    },
+    {
+      "id": "c30",
+      "type": "knob",
+      "label": "3",
+      "position": {
+        "x": 50,
+        "y": 520
+      }
+    },
+    {
+      "id": "c31",
+      "type": "knob",
+      "label": "2",
+      "position": {
+        "x": 50,
+        "y": 460
+      }
+    },
+    {
+      "id": "c32",
+      "type": "knob",
+      "label": "1",
+      "position": {
+        "x": 50,
+        "y": 400
+      }
+    },
+    {
+      "id": "c33",
+      "type": "knob",
+      "label": "8",
+      "position": {
+        "x": 110,
+        "y": 580
+      }
+    },
+    {
+      "id": "c34",
+      "type": "knob",
+      "label": "7",
+      "position": {
+        "x": 110,
+        "y": 520
+      }
+    },
+    {
+      "id": "c35",
+      "type": "knob",
+      "label": "6",
+      "position": {
+        "x": 110,
+        "y": 460
+      }
+    },
+    {
+      "id": "c36",
+      "type": "knob",
+      "label": "5",
+      "position": {
+        "x": 110,
+        "y": 400
+      }
+    },
+    {
+      "id": "c37",
+      "type": "switch",
+      "label": "2.5V",
+      "position": {
+        "x": 240,
+        "y": 600
+      },
+      "label2": "5V",
+      "orientation": "horizontal"
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "id": "trig164",
+  "name": "TRIG164",
+  "image": "images/trig164.svg",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p52/TRIQ164.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/triq164",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "CLK",
+      "position": {
+        "x": 20,
+        "y": 60
+      }
+    },
+    {
+      "id": "c2",
+      "name": "RESET",
+      "position": {
+        "x": 20,
+        "y": 90
+      }
+    },
+    {
+      "id": "c3",
+      "name": "MUTE 1",
+      "position": {
+        "x": 20,
+        "y": 120
+      }
+    },
+    {
+      "id": "c4",
+      "name": "MUTE 2",
+      "position": {
+        "x": 20,
+        "y": 150
+      }
+    },
+    {
+      "id": "c5",
+      "name": "REPEAT CV",
+      "position": {
+        "x": 20,
+        "y": 180
+      }
+    },
+    {
+      "id": "c6",
+      "name": "BUS CLK",
+      "position": {
+        "x": 20,
+        "y": 210
+      }
+    },
+    {
+      "id": "c7",
+      "name": "BUS START",
+      "position": {
+        "x": 20,
+        "y": 240
+      }
+    },
+    {
+      "id": "c8",
+      "name": "BUS STOP",
+      "position": {
+        "x": 20,
+        "y": 270
+      }
+    },
+    {
+      "id": "c9",
+      "name": "OUT 1",
+      "position": {
+        "x": 290,
+        "y": 60
+      }
+    },
+    {
+      "id": "c10",
+      "name": "OUT 1",
+      "position": {
+        "x": 290,
+        "y": 90
+      }
+    },
+    {
+      "id": "c11",
+      "name": "OUT 2",
+      "position": {
+        "x": 290,
+        "y": 120
+      }
+    },
+    {
+      "id": "c12",
+      "name": "OUT 2",
+      "position": {
+        "x": 290,
+        "y": 150
+      }
+    },
+    {
+      "id": "c13",
+      "name": "OUT 3",
+      "position": {
+        "x": 290,
+        "y": 180
+      }
+    },
+    {
+      "id": "c14",
+      "name": "OUT 3",
+      "position": {
+        "x": 290,
+        "y": 210
+      }
+    },
+    {
+      "id": "c15",
+      "name": "OUT 4",
+      "position": {
+        "x": 290,
+        "y": 240
+      }
+    },
+    {
+      "id": "c16",
+      "name": "OUT 4",
+      "position": {
+        "x": 290,
+        "y": 270
+      }
+    },
+    {
+      "id": "c18",
+      "name": "9",
+      "position": {
+        "x": 290,
+        "y": 390
+      }
+    },
+    {
+      "id": "c19",
+      "name": "16",
+      "position": {
+        "x": 290,
+        "y": 600
+      }
+    },
+    {
+      "id": "c20",
+      "name": "15",
+      "position": {
+        "x": 290,
+        "y": 570
+      }
+    },
+    {
+      "id": "c21",
+      "name": "14",
+      "position": {
+        "x": 290,
+        "y": 540
+      }
+    },
+    {
+      "id": "c22",
+      "name": "13",
+      "position": {
+        "x": 290,
+        "y": 510
+      }
+    },
+    {
+      "id": "c23",
+      "name": "12",
+      "position": {
+        "x": 290,
+        "y": 480
+      }
+    },
+    {
+      "id": "c24",
+      "name": "11",
+      "position": {
+        "x": 290,
+        "y": 450
+      }
+    },
+    {
+      "id": "c25",
+      "name": "10",
+      "position": {
+        "x": 290,
+        "y": 420
+      }
+    },
+    {
+      "id": "c26",
+      "name": "1",
+      "position": {
+        "x": 230,
+        "y": 340
+      }
+    },
+    {
+      "id": "c27",
+      "name": "2",
+      "position": {
+        "x": 230,
+        "y": 370
+      }
+    },
+    {
+      "id": "c28",
+      "name": "3",
+      "position": {
+        "x": 230,
+        "y": 400
+      }
+    },
+    {
+      "id": "c29",
+      "name": "4 ",
+      "position": {
+        "x": 230,
+        "y": 430
+      }
+    },
+    {
+      "id": "c30",
+      "name": "5",
+      "position": {
+        "x": 230,
+        "y": 460
+      }
+    },
+    {
+      "id": "c31",
+      "name": "6",
+      "position": {
+        "x": 230,
+        "y": 490
+      }
+    },
+    {
+      "id": "c32",
+      "name": "7",
+      "position": {
+        "x": 230,
+        "y": 520
+      }
+    },
+    {
+      "id": "c33",
+      "name": "8",
+      "position": {
+        "x": 230,
+        "y": 550
+      }
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "REPEAT",
+      "position": {
+        "x": 160,
+        "y": 590
+      }
+    }
+  ]
+}

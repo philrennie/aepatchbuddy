@@ -1,0 +1,120 @@
+{
+    "id": "module",
+    "name": "Module",
+    "width": 160,
+    "height": 640,
+    "connections": [
+        {
+            "name": "1",
+            "position": {
+                "x": 20,
+                "y": 60
+            }
+        },
+        {
+            "name": "2",
+            "position": {
+                "x": 20,
+                "y": 90
+            }
+        },
+        {
+            "name": "3",
+            "position": {
+                "x": 20,
+                "y": 120
+            }
+        },
+        {
+            "name": "4",
+            "position": {
+                "x": 20,
+                "y": 150
+            }
+        },
+        {
+            "name": "5",
+            "position": {
+                "x": 20,
+                "y": 180
+            }
+        },
+        {
+            "name": "6",
+            "position": {
+                "x": 20,
+                "y": 210
+            }
+        },
+        {
+            "name": "7",
+            "position": {
+                "x": 20,
+                "y": 240
+            }
+        },
+        {
+            "name": "8",
+            "position": {
+                "x": 20,
+                "y": 270
+            }
+        },
+        {
+            "name": "1",
+            "position": {
+                "x": 140,
+                "y": 60
+            }
+        },
+        {
+            "name": "2",
+            "position": {
+                "x": 140,
+                "y": 90
+            }
+        },
+        {
+            "name": "3",
+            "position": {
+                "x": 140,
+                "y": 120
+            }
+        },
+        {
+            "name": "4",
+            "position": {
+                "x": 140,
+                "y": 150
+            }
+        },
+        {
+            "name": "5",
+            "position": {
+                "x": 140,
+                "y": 180
+            }
+        },
+        {
+            "name": "6",
+            "position": {
+                "x": 140,
+                "y": 210
+            }
+        },
+        {
+            "name": "7",
+            "position": {
+                "x": 140,
+                "y": 240
+            }
+        },
+        {
+            "name": "8",
+            "position": {
+                "x": 140,
+                "y": 270
+            }
+        }
+    ]
+}
