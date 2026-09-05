@@ -322,6 +322,184 @@
     "image": "modules/2cvadd-hq/module.svg"
   },
   {
+    "id": "2cvtool",
+    "name": "2CVTOOL",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p93/2CVTOOL.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2cvtool",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN 1",
+        "position": {
+          "x": 20,
+          "y": 60
+        }
+      },
+      {
+        "id": "c2",
+        "name": "IN 2",
+        "position": {
+          "x": 20,
+          "y": 90
+        }
+      },
+      {
+        "id": "c3",
+        "name": "c3",
+        "position": {
+          "x": 20,
+          "y": 120
+        }
+      },
+      {
+        "id": "c4",
+        "name": "c4",
+        "position": {
+          "x": 20,
+          "y": 150
+        }
+      },
+      {
+        "id": "c5",
+        "name": "c5",
+        "position": {
+          "x": 20,
+          "y": 180
+        }
+      },
+      {
+        "id": "c6",
+        "name": "c6",
+        "position": {
+          "x": 20,
+          "y": 210
+        }
+      },
+      {
+        "id": "c7",
+        "name": "BUS CV",
+        "position": {
+          "x": 20,
+          "y": 240
+        }
+      },
+      {
+        "id": "c8",
+        "name": "BUS CTRL",
+        "position": {
+          "x": 20,
+          "y": 270
+        }
+      },
+      {
+        "id": "c9",
+        "name": "OUT 1",
+        "position": {
+          "x": 140,
+          "y": 60
+        }
+      },
+      {
+        "id": "c10",
+        "name": "OUT 1",
+        "position": {
+          "x": 140,
+          "y": 90
+        }
+      },
+      {
+        "id": "c11",
+        "name": "OUT 2",
+        "position": {
+          "x": 140,
+          "y": 120
+        }
+      },
+      {
+        "id": "c12",
+        "name": "OUT 2",
+        "position": {
+          "x": 140,
+          "y": 150
+        }
+      },
+      {
+        "id": "c13",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 180
+        }
+      },
+      {
+        "id": "c14",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 210
+        }
+      },
+      {
+        "id": "c15",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 240
+        }
+      },
+      {
+        "id": "c16",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 270
+        }
+      }
+    ],
+    "controls": [
+      {
+        "id": "c17",
+        "type": "knob",
+        "label": "OFFSET 1",
+        "position": {
+          "x": 80,
+          "y": 340
+        }
+      },
+      {
+        "id": "c18",
+        "type": "knob",
+        "label": "LEVEL 1",
+        "position": {
+          "x": 80,
+          "y": 410
+        }
+      },
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "OFFSET 2",
+        "position": {
+          "x": 80,
+          "y": 510
+        }
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "LEVEL 2",
+        "position": {
+          "x": 80,
+          "y": 580
+        }
+      }
+    ],
+    "image": "modules/2cvtool/module.svg"
+  },
+  {
     "id": "kick",
     "name": "KICK",
     "width": 160,
