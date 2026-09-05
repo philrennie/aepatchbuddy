@@ -1,0 +1,123 @@
+[
+  {
+    "id": "2tone",
+    "name": "2 Tone",
+    "image": "images/2tone.svg",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      { "name": "A IN", "position": { "x": 40, "y": 120 } },
+      { "name": "A OUT", "position": { "x": 120, "y": 120 } },
+      { "name": "A CV", "position": { "x": 80, "y": 200 } },
+      { "name": "B IN", "position": { "x": 40, "y": 400 } },
+      { "name": "B OUT", "position": { "x": 120, "y": 400 } },
+      { "name": "B CV", "position": { "x": 80, "y": 480 } }
+    ],
+    "controls": [
+      { "id": "tone-a", "type": "knob", "label": "TONE A", "position": { "x": 80, "y": 290 } },
+      { "id": "tone-b", "type": "knob", "label": "TONE B", "position": { "x": 80, "y": 530 } }
+    ]
+  },
+  {
+    "id": "vco",
+    "name": "VCO",
+    "image": "images/vco.svg",
+    "width": 240,
+    "height": 640,
+    "connections": [
+      { "name": "1V/OCT", "position": { "x": 40, "y": 120 } },
+      { "name": "CV", "position": { "x": 120, "y": 120 } },
+      { "name": "FM", "position": { "x": 200, "y": 120 } },
+      { "name": "SIN", "position": { "x": 40, "y": 520 } },
+      { "name": "SAW", "position": { "x": 100, "y": 520 } },
+      { "name": "PULSE", "position": { "x": 160, "y": 520 } },
+      { "name": "SYNC", "position": { "x": 220, "y": 520 } }
+    ],
+    "controls": [
+      { "id": "freq", "type": "knob", "label": "FREQ", "position": { "x": 80, "y": 310 } },
+      { "id": "pw", "type": "knob", "label": "PW", "position": { "x": 160, "y": 310 } },
+      { "id": "range", "type": "switch", "label": "HI", "label2": "LO", "orientation": "vertical", "position": { "x": 120, "y": 420 } }
+    ]
+  },
+  {
+    "id": "mixer4",
+    "name": "4-Ch Mixer",
+    "image": "images/mixer4.svg",
+    "width": 200,
+    "height": 640,
+    "connections": [
+      { "name": "IN 1", "position": { "x": 40, "y": 100 } },
+      { "name": "IN 2", "position": { "x": 40, "y": 220 } },
+      { "name": "IN 3", "position": { "x": 40, "y": 340 } },
+      { "name": "IN 4", "position": { "x": 40, "y": 460 } },
+      { "name": "OUT", "position": { "x": 160, "y": 560 } }
+    ],
+    "controls": [
+      { "id": "level-1", "type": "knob", "label": "LEVEL 1", "position": { "x": 100, "y": 100 } },
+      { "id": "level-2", "type": "knob", "label": "LEVEL 2", "position": { "x": 100, "y": 220 } },
+      { "id": "level-3", "type": "knob", "label": "LEVEL 3", "position": { "x": 100, "y": 340 } },
+      { "id": "level-4", "type": "knob", "label": "LEVEL 4", "position": { "x": 100, "y": 460 } }
+    ]
+  },
+  {
+    "id": "envelope",
+    "name": "Envelope",
+    "image": "images/envelope.svg",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      { "name": "GATE", "position": { "x": 40, "y": 120 } },
+      { "name": "TRIG", "position": { "x": 120, "y": 120 } },
+      { "name": "CV", "position": { "x": 40, "y": 540 } },
+      { "name": "OUT", "position": { "x": 120, "y": 540 } }
+    ],
+    "controls": [
+      { "id": "attack", "type": "knob", "label": "ATK", "position": { "x": 40, "y": 280 } },
+      { "id": "decay", "type": "knob", "label": "DEC", "position": { "x": 120, "y": 280 } },
+      { "id": "sustain", "type": "knob", "label": "SUS", "position": { "x": 40, "y": 400 } },
+      { "id": "release", "type": "knob", "label": "REL", "position": { "x": 120, "y": 400 } }
+    ]
+  },
+  {
+    "id": "clocklfo",
+    "name": "Clock / LFO",
+    "image": "images/clocklfo.svg",
+    "width": 200,
+    "height": 640,
+    "connections": [
+      { "name": "RATE CV", "position": { "x": 50, "y": 120 } },
+      { "name": "SQR OUT", "position": { "x": 150, "y": 120 } },
+      { "name": "TRI OUT", "position": { "x": 50, "y": 520 } },
+      { "name": "RAMP OUT", "position": { "x": 150, "y": 520 } }
+    ],
+    "controls": [
+      { "id": "rate", "type": "knob", "label": "RATE", "position": { "x": 100, "y": 310 } },
+      { "id": "mode", "type": "switch", "label": "CLK", "label2": "LFO", "orientation": "horizontal", "position": { "x": 100, "y": 420 } }
+    ]
+  },
+  {
+    "id": "2att-cv",
+    "name": "2ATT/CV",
+    "image": "images/2att-cv.svg",
+    "width": 200,
+    "height": 640,
+    "connections": [
+      { "name": "c1",  "position": { "x": 30, "y": 70  } },
+      { "name": "c2",  "position": { "x": 30, "y": 100 } },
+      { "name": "c3",  "position": { "x": 30, "y": 130 } },
+      { "name": "c4",  "position": { "x": 30, "y": 160 } },
+      { "name": "c5",  "position": { "x": 30, "y": 190 } },
+      { "name": "c6",  "position": { "x": 30, "y": 220 } },
+      { "name": "c7",  "position": { "x": 30, "y": 250 } },
+      { "name": "c8",  "position": { "x": 30, "y": 280 } },
+      { "name": "c9",  "position": { "x": 170, "y": 70  } },
+      { "name": "c10", "position": { "x": 170, "y": 100 } },
+      { "name": "c11", "position": { "x": 170, "y": 130 } },
+      { "name": "c12", "position": { "x": 170, "y": 160 } },
+      { "name": "c13", "position": { "x": 170, "y": 190 } },
+      { "name": "c14", "position": { "x": 170, "y": 220 } },
+      { "name": "c15", "position": { "x": 170, "y": 250 } },
+      { "name": "c16", "position": { "x": 170, "y": 280 } }
+    ]
+  }
+]

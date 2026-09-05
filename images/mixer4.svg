@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 640" width="200" height="640">
+  <rect x="0" y="0" width="200" height="640" fill="#2b271f"/>
+  <rect x="4" y="4" width="192" height="632" fill="none" stroke="#4a4335" stroke-width="2"/>
+  <circle cx="14" cy="14" r="4" fill="#141210"/>
+  <circle cx="186" cy="14" r="4" fill="#141210"/>
+  <circle cx="14" cy="626" r="4" fill="#141210"/>
+  <circle cx="186" cy="626" r="4" fill="#141210"/>
+  <text x="100" y="40" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="14" letter-spacing="1">4-CH MIXER</text>
+  <rect x="130" y="80" width="12" height="360" rx="3" fill="none" stroke="#8a8270" stroke-width="1.5"/>
+  <rect x="160" y="80" width="12" height="360" rx="3" fill="none" stroke="#8a8270" stroke-width="1.5"/>
+  <rect x="128" y="220" width="16" height="30" rx="2" fill="#8a8270"/>
+  <rect x="158" y="180" width="16" height="30" rx="2" fill="#8a8270"/>
+  <circle cx="40" cy="100" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="40" y="126" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="9">IN 1</text>
+  <circle cx="40" cy="220" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="40" y="246" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="9">IN 2</text>
+  <circle cx="40" cy="340" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="40" y="366" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="9">IN 3</text>
+  <circle cx="40" cy="460" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="40" y="486" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="9">IN 4</text>
+  <circle cx="160" cy="560" r="10" fill="#141210" stroke="#e8a33d" stroke-width="1.5"/>
+  <text x="160" y="588" text-anchor="middle" fill="#c9c2b3" font-family="IBM Plex Mono, monospace" font-size="10">OUT</text>
+</svg>

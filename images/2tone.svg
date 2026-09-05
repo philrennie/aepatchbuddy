@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 640" width="160" height="640">
+  <rect x="0" y="0" width="160" height="640" fill="#2b271f"/>
+  <rect x="4" y="4" width="152" height="632" fill="none" stroke="#4a4335" stroke-width="2"/>
+  <circle cx="14" cy="14" r="4" fill="#141210"/>
+  <circle cx="146" cy="14" r="4" fill="#141210"/>
+  <circle cx="14" cy="626" r="4" fill="#141210"/>
+  <circle cx="146" cy="626" r="4" fill="#141210"/>
+  <text x="80" y="40" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="1">2 TONE</text>
+  <line x1="16" y1="320" x2="144" y2="320" stroke="#4a4335" stroke-width="1"/>
+  <text x="20" y="90" fill="#c9c2b3" font-family="IBM Plex Mono, monospace" font-size="11">CH A</text>
+  <circle cx="40" cy="120" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <circle cx="120" cy="120" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="40" y="160" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="9">IN</text>
+  <text x="120" y="146" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="9">OUT</text>
+  <circle cx="80" cy="200" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="80" y="226" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="9">CV</text>
+  <text x="20" y="370" fill="#c9c2b3" font-family="IBM Plex Mono, monospace" font-size="11">CH B</text>
+  <circle cx="40" cy="400" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <circle cx="120" cy="400" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="40" y="426" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="9">IN</text>
+  <text x="120" y="426" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="9">OUT</text>
+  <circle cx="80" cy="480" r="9" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>
+  <text x="80" y="506" text-anchor="middle" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="9">CV</text>
+</svg>
