@@ -110,7 +110,7 @@
     const W = mod.width, H = mod.height;
     const lines = [];
     lines.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">`);
-    lines.push(`  <rect x="0" y="0" width="${W}" height="${H}" fill="${c.panel}"/>`);
+    lines.push(`  <rect x="0" y="0" width="${W}" height="${H}" fill="${c.panel2}"/>`);
     lines.push(`  <rect x="4" y="4" width="${W - 8}" height="${H - 8}" fill="none" stroke="${c.border}" stroke-width="2"/>`);
     lines.push(`  <circle cx="14" cy="14" r="4" fill="${c.bg}"/>`);
     lines.push(`  <circle cx="${W - 14}" cy="14" r="4" fill="${c.bg}"/>`);
@@ -149,7 +149,7 @@
         if (horiz) {
           const bw = SW_H_HW * 2, bh = SW_H_HH * 2;
           const tw = Math.round(bw * 0.39), th = bh - 2;
-          lines.push(`  <rect x="${cx - SW_H_HW}" y="${cy - SW_H_HH}" width="${bw}" height="${bh}" rx="3" fill="${c.panel2}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
+          lines.push(`  <rect x="${cx - SW_H_HW}" y="${cy - SW_H_HH}" width="${bw}" height="${bh}" rx="3" fill="${c.bg}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
           lines.push(`  <rect x="${cx - SW_H_HW + 2}" y="${cy - SW_H_HH + 1}" width="${tw}" height="${th}" rx="2" fill="${c.textFaint}"/>`);
           const ly = cy + Math.round(LABEL_SIZE * 0.35);
           if (ctrl.label)  lines.push(svgLabel(ctrl.label,  { x: cx - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }));
@@ -157,14 +157,14 @@
         } else {
           const bw = SW_V_HW * 2, bh = SW_V_HH * 2;
           const tw = bw - 2, th = Math.round(bh * 0.39);
-          lines.push(`  <rect x="${cx - SW_V_HW}" y="${cy - SW_V_HH}" width="${bw}" height="${bh}" rx="3" fill="${c.panel2}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
+          lines.push(`  <rect x="${cx - SW_V_HW}" y="${cy - SW_V_HH}" width="${bw}" height="${bh}" rx="3" fill="${c.bg}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
           lines.push(`  <rect x="${cx - SW_V_HW + 1}" y="${cy - SW_V_HH + 2}" width="${tw}" height="${th}" rx="2" fill="${c.textFaint}"/>`);
           if (ctrl.label)  lines.push(svgLabel(ctrl.label,  { x: cx, y: cy - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }));
           if (ctrl.label2) lines.push(svgLabel(ctrl.label2, { x: cx, y: cy + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }));
         }
       } else {
         // knob (default)
-        lines.push(`  <circle cx="${cx}" cy="${cy}" r="${KNOB_R}" fill="${c.panel2}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
+        lines.push(`  <circle cx="${cx}" cy="${cy}" r="${KNOB_R}" fill="${c.bg}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
         lines.push(`  <line x1="${cx}" y1="${cy - KNOB_TICK_IN}" x2="${cx}" y2="${cy - KNOB_TICK_OUT}" stroke="${c.text}" stroke-width="1.5" stroke-linecap="round"/>`);
         if (ctrl.label) lines.push(svgLabel(ctrl.label, labelPos(cx, cy, ctrl.labelPosition || 'below', KNOB_R)));
       }

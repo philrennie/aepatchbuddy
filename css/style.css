@@ -642,7 +642,7 @@ html, body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: var(--panel-2);
+  background: var(--bg);
   border: 1.5px solid var(--text-faint);
   box-sizing: border-box;
   position: relative;
@@ -683,7 +683,7 @@ html, body {
   width: 100%;
   height: 100%;
   border-radius: 2px;
-  background: var(--panel-2);
+  background: var(--bg);
   border: 1.5px solid var(--text-faint);
   box-sizing: border-box;
   position: relative;

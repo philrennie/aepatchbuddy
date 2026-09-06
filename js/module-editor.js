@@ -256,7 +256,7 @@
     const s = isGhost ? t.accent : t.textFaint;
     const fill = isGhost ? `color-mix(in srgb, ${t.accent} 60%, transparent)` : t.textDim;
 
-    g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: KNOB_R, fill: t.panel2, stroke: s, 'stroke-width': 1.5, opacity: a }));
+    g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: KNOB_R, fill: t.bg, stroke: s, 'stroke-width': 1.5, opacity: a }));
     g.appendChild(mkEl('line', {
       x1: comp.x, y1: comp.y - KNOB_TICK_IN, x2: comp.x, y2: comp.y - KNOB_TICK_OUT,
       stroke: isGhost ? `color-mix(in srgb, ${t.accent} 80%, transparent)` : t.text,
@@ -280,7 +280,7 @@
     if (horiz) {
       const bw = SW_H_HW * 2, bh = SW_H_HH * 2;
       const tw = Math.round(bw * 0.39), th = bh - 2;
-      g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW, y: comp.y - SW_H_HH, width: bw, height: bh, rx: 3, fill: t.panel2, stroke: s, 'stroke-width': 1.5, opacity: a }));
+      g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW, y: comp.y - SW_H_HH, width: bw, height: bh, rx: 3, fill: t.bg, stroke: s, 'stroke-width': 1.5, opacity: a }));
       g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW + 2, y: comp.y - SW_H_HH + 1, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
       const ly = comp.y + Math.round(LABEL_SIZE * 0.35);
       if (comp.label)  g.appendChild(captionG(comp.label,  { x: comp.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }, labelFill));
@@ -288,7 +288,7 @@
     } else {
       const bw = SW_V_HW * 2, bh = SW_V_HH * 2;
       const tw = bw - 2, th = Math.round(bh * 0.39);
-      g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW, y: comp.y - SW_V_HH, width: bw, height: bh, rx: 3, fill: t.panel2, stroke: s, 'stroke-width': 1.5, opacity: a }));
+      g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW, y: comp.y - SW_V_HH, width: bw, height: bh, rx: 3, fill: t.bg, stroke: s, 'stroke-width': 1.5, opacity: a }));
       g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW + 1, y: comp.y - SW_V_HH + 2, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
       if (comp.label)  g.appendChild(captionG(comp.label,  { x: comp.x, y: comp.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }, labelFill));
       if (comp.label2) g.appendChild(captionG(comp.label2, { x: comp.x, y: comp.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }, labelFill));
@@ -338,7 +338,7 @@
     while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
 
     // panel background
-    svgEl.appendChild(mkEl('rect', { x: 0, y: 0, width: W, height: H, fill: t.panel }));
+    svgEl.appendChild(mkEl('rect', { x: 0, y: 0, width: W, height: H, fill: t.panel2 }));
     svgEl.appendChild(mkEl('rect', { x: 4, y: 4, width: W - 8, height: H - 8, fill: 'none', stroke: t.border, 'stroke-width': 2 }));
     for (const [cx, cy] of [[14, 14], [W - 14, 14], [14, H - 14], [W - 14, H - 14]]) {
       svgEl.appendChild(mkEl('circle', { cx, cy, r: 4, fill: t.bg }));
