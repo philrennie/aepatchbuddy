@@ -6,25 +6,33 @@
   const PIXELS_PER_RU  = 160;   // 1 rack unit = 25mm = 160px
 
   // Default template shown on first load and after "Clear module".
-  // Positions are in native SVG pixel space (before MODULE_SCALE).
+  // Positions are in native SVG pixel space (before MODULE_SCALE). x is expressed as
+  // `margin` px in from `side` rather than an absolute value, so applyInitState() can
+  // place it correctly for the current width — see resolveInitX().
   const INIT_COMPONENTS = [
-    { type: 'jack', x: 20,  y: 60,  label: '1', labelPosition: 'right' },
-    { type: 'jack', x: 20,  y: 90,  label: '2', labelPosition: 'right' },
-    { type: 'jack', x: 20,  y: 120, label: '3', labelPosition: 'right' },
-    { type: 'jack', x: 20,  y: 150, label: '4', labelPosition: 'right' },
-    { type: 'jack', x: 20,  y: 180, label: '5', labelPosition: 'right' },
-    { type: 'jack', x: 20,  y: 210, label: '6', labelPosition: 'right' },
-    { type: 'jack', x: 20,  y: 240, label: '7', labelPosition: 'right' },
-    { type: 'jack', x: 20,  y: 270, label: '8', labelPosition: 'right' },
-    { type: 'jack', x: 140, y: 60,  label: '1', labelPosition: 'left' },
-    { type: 'jack', x: 140, y: 90,  label: '2', labelPosition: 'left' },
-    { type: 'jack', x: 140, y: 120, label: '3', labelPosition: 'left' },
-    { type: 'jack', x: 140, y: 150, label: '4', labelPosition: 'left' },
-    { type: 'jack', x: 140, y: 180, label: '5', labelPosition: 'left' },
-    { type: 'jack', x: 140, y: 210, label: '6', labelPosition: 'left' },
-    { type: 'jack', x: 140, y: 240, label: '7', labelPosition: 'left' },
-    { type: 'jack', x: 140, y: 270, label: '8', labelPosition: 'left' },
+    { type: 'jack', side: 'left',  margin: 20, y: 60,  label: '1', labelPosition: 'right' },
+    { type: 'jack', side: 'left',  margin: 20, y: 90,  label: '2', labelPosition: 'right' },
+    { type: 'jack', side: 'left',  margin: 20, y: 120, label: '3', labelPosition: 'right' },
+    { type: 'jack', side: 'left',  margin: 20, y: 150, label: '4', labelPosition: 'right' },
+    { type: 'jack', side: 'left',  margin: 20, y: 180, label: '5', labelPosition: 'right' },
+    { type: 'jack', side: 'left',  margin: 20, y: 210, label: '6', labelPosition: 'right' },
+    { type: 'jack', side: 'left',  margin: 20, y: 240, label: '7', labelPosition: 'right' },
+    { type: 'jack', side: 'left',  margin: 20, y: 270, label: '8', labelPosition: 'right' },
+    { type: 'jack', side: 'right', margin: 20, y: 60,  label: '1', labelPosition: 'left' },
+    { type: 'jack', side: 'right', margin: 20, y: 90,  label: '2', labelPosition: 'left' },
+    { type: 'jack', side: 'right', margin: 20, y: 120, label: '3', labelPosition: 'left' },
+    { type: 'jack', side: 'right', margin: 20, y: 150, label: '4', labelPosition: 'left' },
+    { type: 'jack', side: 'right', margin: 20, y: 180, label: '5', labelPosition: 'left' },
+    { type: 'jack', side: 'right', margin: 20, y: 210, label: '6', labelPosition: 'left' },
+    { type: 'jack', side: 'right', margin: 20, y: 240, label: '7', labelPosition: 'left' },
+    { type: 'jack', side: 'right', margin: 20, y: 270, label: '8', labelPosition: 'left' },
   ];
+
+  // x for a component placed `margin` px in from `side` ('left' or 'right') of a panel
+  // that's `width` px wide.
+  function resolveInitX(side, margin, width) {
+    return side === 'right' ? width - margin : margin;
+  }
 
   // ---- state ----
   const state = {
@@ -95,7 +103,12 @@
     state.selectedId    = null;
     state.mode          = 'select';
     state._nextId       = 1;
-    state.components    = INIT_COMPONENTS.map(c => ({ ...c, id: uid() }));
+    state.components    = INIT_COMPONENTS.map(c => ({
+      type: c.type, y: c.y, label: c.label, labelPosition: c.labelPosition,
+      x: resolveInitX(c.side, c.margin, state.width),
+      _initSide: c.side, _initMargin: c.margin,
+      id: uid(),
+    }));
   }
 
   function syncFormFromState() {
@@ -546,7 +559,12 @@
       inp.dataset.axis = axis;
       inp.addEventListener('input', () => {
         const v = parseFloat(inp.value);
-        if (!isNaN(v)) { comp[axis] = v; render(); }
+        if (!isNaN(v)) {
+          comp[axis] = v;
+          delete comp._initSide; // manually repositioned — stop tracking the panel edge
+          delete comp._initMargin;
+          render();
+        }
       });
       xyRow.appendChild(f);
     }
@@ -687,6 +705,8 @@
       if (comp) {
         comp.x = snap(drag.ox + (raw.x - drag.sx));
         comp.y = snap(drag.oy + (raw.y - drag.sy));
+        delete comp._initSide; // manually repositioned — stop tracking the panel edge
+        delete comp._initMargin;
         render();
         // update x/y inputs in props without full re-render
         const inputs = propsDiv.querySelectorAll('input[data-axis]');
@@ -810,6 +830,11 @@
   inputW.addEventListener('input', () => {
     const ru = Math.max(1, Math.min(8, parseInt(inputW.value, 10) || 1));
     state.width = ru * PIXELS_PER_RU;
+    // Keep any still-edge-anchored init jacks (not yet manually repositioned) flush
+    // against the new width instead of drifting away from the panel edge.
+    for (const c of state.components) {
+      if (c._initSide) c.x = resolveInitX(c._initSide, c._initMargin, state.width);
+    }
     render();
   });
 
