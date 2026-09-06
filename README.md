@@ -31,9 +31,10 @@ Jacks are always visible with a subtle ring; a jack with a cable patched into it
 
 Open **`module-editor.html`** alongside the main app. It lets you build a module panel SVG visually, then export the SVG image and the `module.json` entry ready to drop into the library.
 
-- Use the tool buttons to place **jacks**, **knobs**, and **toggle switches**
+- Use the tool buttons to place **jacks**, **knobs**, **toggle switches**, and **labels** (free panel text)
 - Click a component to select it and edit its label, position, and orientation in the right-hand panel
 - The width field sets the module's rack-unit width (1 RU = 25 mm = 160 px); height is always 640 px (100 mm), matching the AE Modular standard
+- **Import JSON** loads an existing `module.json` back into the editor for further edits — no need to re-upload the matching SVG, since the JSON alone carries enough to reconstruct the panel
 - **Copy JSON entry** puts the `module.json` snippet on the clipboard
 - **Download SVG** saves the panel graphic
 
@@ -81,11 +82,14 @@ node scripts/lint-modules.js
   "width": 160,
   "height": 640,
   "connections": [
-    { "id": "a-in",  "name": "A IN",  "position": { "x": 40,  "y": 120 } },
-    { "id": "a-out", "name": "A OUT", "position": { "x": 120, "y": 120 } }
+    { "id": "a-in",  "name": "A IN",  "position": { "x": 40,  "y": 120 }, "labelPosition": "right" },
+    { "id": "a-out", "name": "A OUT", "position": { "x": 120, "y": 120 }, "labelPosition": "left" }
   ],
   "controls": [
-    { "id": "tone", "type": "knob", "label": "TONE", "position": { "x": 80, "y": 280 } }
+    { "id": "tone", "type": "knob", "label": "TONE", "position": { "x": 80, "y": 280 }, "labelPosition": "below" }
+  ],
+  "labels": [
+    { "text": "TONE STAGE", "position": { "x": 80, "y": 200 }, "size": 12, "align": "middle" }
   ]
 }
 ```
@@ -105,6 +109,7 @@ node scripts/lint-modules.js
 | `height` | ✓ | Panel height in native SVG pixels. Always 640 (100 mm at AE Modular scale). |
 | `connections` | ✓ | Array of jack definitions (see below). |
 | `controls` | | Array of knob and switch definitions (see below). Omit if the module has none. |
+| `labels` | | Array of free-standing text definitions (see below). Omit if the module has none. |
 
 #### `connections[]`
 
@@ -113,6 +118,7 @@ node scripts/lint-modules.js
 | `id` | ✓ | Unique identifier for this jack **within the module**. Used internally by the patch format — different from the display name. Required when any two jacks share the same `name` (e.g. a mult); recommended for all jacks. |
 | `name` | ✓ | Display name shown on hover (e.g. `"A IN"`, `"MULT"`). Does not need to be unique. |
 | `position` | ✓ | `{ "x": number, "y": number }` — centre of the jack in native SVG pixel space (top-left origin, before any scaling). |
+| `labelPosition` | | Where the module editor draws the caption relative to the jack: `"above"`, `"left"`, `"right"`, or `"below"` (default). Only affects the generated SVG — the main app positions jack labels with CSS regardless of this value. |
 
 #### `controls[]`
 
@@ -124,6 +130,23 @@ node scripts/lint-modules.js
 | `label2` | (switch) | Label for position 1 of a switch. |
 | `orientation` | (switch) | `"vertical"` (default) or `"horizontal"`. |
 | `position` | ✓ | `{ "x": number, "y": number }` — centre of the control in native SVG pixel space. |
+| `labelPosition` | (knob) | Same as `connections[].labelPosition`, above. Not applicable to switches, which position `label`/`label2` from `orientation` instead. |
+
+#### `labels[]`
+
+Arbitrary panel text not attached to a jack or control — section headings, dividers, etc.
+
+| Field | Required | Description |
+|---|---|---|
+| `text` | ✓ | The text to render. |
+| `position` | ✓ | `{ "x": number, "y": number }` — anchor point in native SVG pixel space. |
+| `size` | | Font size in px. Defaults to `11`. |
+| `align` | | SVG `text-anchor` value: `"start"`, `"middle"` (default), or `"end"`. |
+
+Like `labelPosition`, this field is not read by the main patch app — the text is already baked
+into `module.svg` as static graphics. It exists so that `module.json` alone is enough to reopen
+a module in the module editor (**Import JSON**) and reconstruct the full panel, without needing
+to re-upload the matching SVG.
 
 #### Finding pixel coordinates
 

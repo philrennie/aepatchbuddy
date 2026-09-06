@@ -14,6 +14,9 @@ let errors = 0;
 function err(msg)  { console.error(`  ERROR: ${msg}`); errors++; }
 function warn(msg) { console.warn (`  WARN:  ${msg}`); }
 
+const LABEL_POSITIONS = ['above', 'left', 'right', 'below'];
+const LABEL_ALIGNS    = ['start', 'middle', 'end'];
+
 function validatePosition(pos, ctx) {
   if (!pos || typeof pos.x !== 'number' || typeof pos.y !== 'number') {
     err(`${ctx}: position must be {x: number, y: number}`);
@@ -24,6 +27,8 @@ function validateConnection(conn, mod, i) {
   const ctx = `${mod}/connections[${i}]`;
   if (!conn.name || typeof conn.name !== 'string') err(`${ctx}: missing name`);
   validatePosition(conn.position, ctx);
+  if (conn.labelPosition !== undefined && !LABEL_POSITIONS.includes(conn.labelPosition))
+    err(`${ctx}: labelPosition must be one of ${LABEL_POSITIONS.join(', ')}`);
 }
 
 function validateControl(ctrl, mod, i) {
@@ -36,6 +41,18 @@ function validateControl(ctrl, mod, i) {
     const ori = ctrl.orientation || 'vertical';
     if (!['vertical', 'horizontal'].includes(ori)) err(`${ctx}: orientation must be 'vertical' or 'horizontal'`);
   }
+  if (ctrl.type === 'knob' && ctrl.labelPosition !== undefined && !LABEL_POSITIONS.includes(ctrl.labelPosition))
+    err(`${ctx}: labelPosition must be one of ${LABEL_POSITIONS.join(', ')}`);
+}
+
+function validateLabel(lbl, mod, i) {
+  const ctx = `${mod}/labels[${i}]`;
+  if (!lbl.text || typeof lbl.text !== 'string') err(`${ctx}: missing text`);
+  validatePosition(lbl.position, ctx);
+  if (lbl.size !== undefined && (typeof lbl.size !== 'number' || lbl.size <= 0))
+    err(`${ctx}: size must be a positive number`);
+  if (lbl.align !== undefined && !LABEL_ALIGNS.includes(lbl.align))
+    err(`${ctx}: align must be one of ${LABEL_ALIGNS.join(', ')}`);
 }
 
 const dirs = fs.readdirSync(modulesDir)
@@ -79,6 +96,11 @@ for (const dir of dirs) {
   if (mod.controls !== undefined) {
     if (!Array.isArray(mod.controls)) err(`${dir}: controls must be an array`);
     else mod.controls.forEach((c, i) => validateControl(c, dir, i));
+  }
+
+  if (mod.labels !== undefined) {
+    if (!Array.isArray(mod.labels)) err(`${dir}: labels must be an array`);
+    else mod.labels.forEach((l, i) => validateLabel(l, dir, i));
   }
 
   if (mod.manufacturer !== undefined && typeof mod.manufacturer !== 'string')

@@ -534,6 +534,15 @@ html, body {
             <span class="tool-shortcut">W</span>
           </button>
 
+          <button class="tool-btn" data-mode="add-label">
+            <svg class="tool-icon" viewBox="0 0 16 16" fill="none">
+              <path d="M3 4H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M8 4V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            Add Label
+            <span class="tool-shortcut">T</span>
+          </button>
+
         </div>
       </div>
 
@@ -570,6 +579,8 @@ html, body {
 
   <footer id="bottom-bar">
     <button class="action-btn danger" id="btn-clear-module">Clear module</button>
+    <button class="action-btn" id="btn-import-json">Import JSON</button>
+    <input type="file" id="input-import-json" accept="application/json,.json" hidden>
     <span style="flex:1"></span>
     <span id="copy-feedback">Copied to clipboard</span>
     <button class="action-btn" id="btn-copy-json">Copy JSON entry</button>
@@ -619,7 +630,7 @@ html, body {
     height: MODULE_HEIGHT,
     components: [],
     selectedId: null,
-    mode: 'select',       // 'select' | 'add-jack' | 'add-knob' | 'add-switch'
+    mode: 'select',       // 'select' | 'add-jack' | 'add-knob' | 'add-switch' | 'add-label'
     snapEnabled: true,
     snapSize: 10,
     _nextId: 1,
@@ -706,6 +717,29 @@ html, body {
   }
 
   function byId(id) { return state.components.find(c => c.id === id); }
+
+  // Deletes a component, warning first if it came from an imported module.json — its id may
+  // already be referenced by cables (jacks) or saved control values (knobs/switches) in patches
+  // out in the wild. Labels are never referenced by patches, so they're never warned about.
+  function deleteComponent(id) {
+    const comp = byId(id);
+    if (!comp) return;
+
+    if (comp._imported && comp.type !== 'label') {
+      const consequence = comp.type === 'jack'
+        ? 'break any cable already connected to it in existing saved patches'
+        : 'reset its saved value back to default in existing saved patches';
+      const ok = confirm(
+        `This ${comp.type}'s id ("${comp.id}") came from the imported module.json. Deleting it will ${consequence}. Continue?`
+      );
+      if (!ok) return;
+    }
+
+    state.components = state.components.filter(c => c.id !== id);
+    if (state.selectedId === id) state.selectedId = null;
+    render();
+    renderProps();
+  }
 
   function nameToId(name) {
     return (name || '')
@@ -817,10 +851,30 @@ html, body {
     return g;
   }
 
+  function labelG(comp, isGhost) {
+    const g = mkEl('g');
+    if (!isGhost) { g.classList.add('comp'); g.dataset.id = comp.id; }
+    const fill = isGhost ? 'rgba(232,163,61,0.6)' : '#c8bfaa';
+    const size = comp.size || LABEL_SIZE;
+    const anchor = comp.align || 'middle';
+
+    const t = mkEl('text', {
+      x: comp.x, y: comp.y,
+      'text-anchor': anchor,
+      fill,
+      'font-family': 'IBM Plex Mono, monospace',
+      'font-size': size,
+    });
+    t.textContent = isGhost ? (comp.text || 'LABEL') : (comp.text || '');
+    g.appendChild(t);
+    return g;
+  }
+
   function compG(comp, isGhost) {
     if (comp.type === 'jack')   return jackG(comp, isGhost);
     if (comp.type === 'knob')   return knobG(comp, isGhost);
     if (comp.type === 'switch') return switchG(comp, isGhost);
+    if (comp.type === 'label')  return labelG(comp, isGhost);
   }
 
   function selRadius(comp) {
@@ -855,33 +909,55 @@ html, body {
     svgEl.appendChild(title);
 
     // components
+    let selectedEl = null;
     for (const comp of state.components) {
       const g = compG(comp, false);
       svgEl.appendChild(g);
+      if (comp.id === state.selectedId) selectedEl = g;
     }
 
     // selection ring
     if (state.selectedId) {
       const sel = byId(state.selectedId);
       if (sel) {
-        const ring = mkEl('circle', {
-          cx: sel.x, cy: sel.y,
-          r: selRadius(sel),
-          fill: 'none',
-          stroke: '#e8a33d',
-          'stroke-width': 1.5,
-          'stroke-dasharray': '4 3',
-          opacity: 0.85,
-          'pointer-events': 'none',
-        });
-        svgEl.appendChild(ring);
+        if (sel.type === 'label' && selectedEl) {
+          // arbitrary-width text: ring its actual rendered bounding box instead of a fixed radius
+          const bbox = selectedEl.getBBox();
+          const pad = 4;
+          svgEl.appendChild(mkEl('rect', {
+            x: bbox.x - pad, y: bbox.y - pad,
+            width: bbox.width + pad * 2, height: bbox.height + pad * 2,
+            fill: 'none',
+            stroke: '#e8a33d',
+            'stroke-width': 1.5,
+            'stroke-dasharray': '4 3',
+            opacity: 0.85,
+            'pointer-events': 'none',
+          }));
+        } else {
+          const ring = mkEl('circle', {
+            cx: sel.x, cy: sel.y,
+            r: selRadius(sel),
+            fill: 'none',
+            stroke: '#e8a33d',
+            'stroke-width': 1.5,
+            'stroke-dasharray': '4 3',
+            opacity: 0.85,
+            'pointer-events': 'none',
+          });
+          svgEl.appendChild(ring);
+        }
       }
     }
 
     // ghost (add mode)
     if (ghost && state.mode !== 'select') {
       const type = state.mode.replace('add-', '');
-      const ghostComp = { id: '__ghost__', type, x: ghost.x, y: ghost.y, label: '', label2: '', labelPosition: 'below', orientation: 'vertical' };
+      const ghostComp = {
+        id: '__ghost__', type, x: ghost.x, y: ghost.y,
+        label: '', label2: '', labelPosition: 'below', orientation: 'vertical',
+        text: '', size: LABEL_SIZE, align: 'middle',
+      };
       const g = compG(ghostComp, true);
       g.setAttribute('pointer-events', 'none');
       svgEl.appendChild(g);
@@ -995,6 +1071,42 @@ html, body {
       append(lf2);
     }
 
+    // ---- label: text + size + alignment ----
+    if (comp.type === 'label') {
+      const tf = field('Text', 'text', comp.text || '', 'Panel text');
+      tf.querySelector('input').addEventListener('input', e => { comp.text = e.target.value; render(); });
+      append(tf);
+
+      const sf = field('Size', 'number', comp.size || LABEL_SIZE, '', { min: 6, max: 48, step: 1 });
+      sf.style.marginTop = '8px';
+      sf.querySelector('input').addEventListener('input', e => {
+        const v = parseFloat(e.target.value);
+        if (!isNaN(v) && v > 0) { comp.size = v; render(); }
+      });
+      append(sf);
+
+      const alLabel = document.createElement('div');
+      alLabel.className = 'field-label';
+      alLabel.style.marginTop = '8px';
+      alLabel.textContent = 'Alignment';
+      append(alLabel);
+
+      const alignRow = document.createElement('div');
+      alignRow.className = 'orient-row';
+      for (const [val, txt] of [['start', 'Left'], ['middle', 'Center'], ['end', 'Right']]) {
+        const btn = document.createElement('button');
+        btn.className = 'orient-btn' + ((comp.align || 'middle') === val ? ' active' : '');
+        btn.textContent = txt;
+        btn.addEventListener('click', () => {
+          comp.align = val;
+          render();
+          renderProps();
+        });
+        alignRow.appendChild(btn);
+      }
+      append(alignRow);
+    }
+
     // ---- x / y (all types) ----
     const xyWrap = document.createElement('div');
     xyWrap.style.marginTop = '10px';
@@ -1021,16 +1133,20 @@ html, body {
     badge.textContent = comp.type;
     append(badge);
 
+    // id (read-only) — makes clear that editing the label/text isn't the same as this identity,
+    // and that removing the component below discards it
+    const idField = field('ID', 'text', comp.id, '', { readOnly: true });
+    idField.style.marginTop = '6px';
+    const idInput = idField.querySelector('input');
+    idInput.style.opacity = '0.6';
+    idInput.style.cursor = 'default';
+    append(idField);
+
     // delete
     const del = document.createElement('button');
     del.className = 'delete-btn';
     del.textContent = 'Delete component';
-    del.addEventListener('click', () => {
-      state.components = state.components.filter(c => c.id !== comp.id);
-      state.selectedId = null;
-      render();
-      renderProps();
-    });
+    del.addEventListener('click', () => deleteComponent(comp.id));
     append(del);
   }
 
@@ -1089,6 +1205,8 @@ html, body {
       const type = state.mode.replace('add-', '');
       const defaults = type === 'switch'
         ? { label: '', label2: '', orientation: 'vertical' }
+        : type === 'label'
+        ? { text: 'Label text', size: LABEL_SIZE, align: 'middle' }
         : { label: '', labelPosition: 'below' };
       const comp = { id: uid(), type, x: pt.x, y: pt.y, ...defaults };
       state.components.push(comp);
@@ -1128,15 +1246,13 @@ html, body {
     if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
 
     if ((e.key === 'Delete' || e.key === 'Backspace') && state.selectedId) {
-      state.components = state.components.filter(c => c.id !== state.selectedId);
-      state.selectedId = null;
-      render();
-      renderProps();
+      deleteComponent(state.selectedId);
     }
     if (e.key === 'Escape' || e.key === 's') setMode('select');
     if (e.key === 'j') setMode('add-jack');
     if (e.key === 'k') setMode('add-knob');
     if (e.key === 'w') setMode('add-switch');
+    if (e.key === 't') setMode('add-label');
   });
 
   // ---- tool buttons ----
@@ -1235,6 +1351,10 @@ html, body {
           if (c.label)  lines.push(svgText(c.label,  { x: c.x, y: c.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }));
           if (c.label2) lines.push(svgText(c.label2, { x: c.x, y: c.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }));
         }
+      } else if (c.type === 'label' && c.text) {
+        const size = c.size || LABEL_SIZE;
+        const anchor = c.align || 'middle';
+        lines.push(`  <text x="${c.x}" y="${c.y}" text-anchor="${anchor}" fill="#c8bfaa" font-family="IBM Plex Mono, monospace" font-size="${size}">${escXml(c.text)}</text>`);
       }
     }
 
@@ -1246,7 +1366,12 @@ html, body {
     const id = state.id || nameToId(state.name) || 'module';
     const connections = state.components
       .filter(c => c.type === 'jack')
-      .map(c => ({ id: c.id, name: c.label || c.id, position: { x: c.x, y: c.y } }));
+      .map(c => ({
+        id: c.id,
+        name: c.label || c.id,
+        position: { x: c.x, y: c.y },
+        labelPosition: c.labelPosition || 'below',
+      }));
     const controls = state.components
       .filter(c => c.type === 'knob' || c.type === 'switch')
       .map(c => {
@@ -1254,10 +1379,24 @@ html, body {
         if (c.type === 'switch') {
           entry.label2 = c.label2 || '';
           entry.orientation = c.orientation || 'vertical';
+        } else {
+          entry.labelPosition = c.labelPosition || 'below';
         }
         return entry;
       });
+    const labels = state.components
+      .filter(c => c.type === 'label')
+      .map(c => ({
+        id: c.id,
+        text: c.text || '',
+        position: { x: c.x, y: c.y },
+        size: c.size || LABEL_SIZE,
+        align: c.align || 'middle',
+      }));
 
+    // `labels` is not used by the patch editor (the SVG already bakes the text in) — it exists
+    // purely so a module.json alone can be re-imported here and reconstruct the full panel,
+    // without needing the matching module.svg re-uploaded.
     return JSON.stringify({
       id,
       name: state.name || 'Untitled',
@@ -1268,7 +1407,82 @@ html, body {
       height: state.height,
       connections,
       ...(controls.length ? { controls } : {}),
+      ...(labels.length   ? { labels }   : {}),
     }, null, 2);
+  }
+
+  function importModule(mod) {
+    if (!mod || typeof mod !== 'object' || !Array.isArray(mod.connections)) {
+      showToast('That file does not look like a module.json — missing a "connections" array.', true);
+      return;
+    }
+
+    // Reassign _nextId past any existing "c<N>" ids so newly-added components can't collide
+    // with ones carried over from the import (which keep their original ids verbatim — cables
+    // in saved patches reference jacks by this id, so it must not change on re-export).
+    const allDefs = [...mod.connections, ...(mod.controls || []), ...(mod.labels || [])];
+    let maxNum = 0;
+    for (const d of allDefs) {
+      const m = /^c(\d+)$/.exec((d && d.id) || '');
+      if (m) maxNum = Math.max(maxNum, parseInt(m[1], 10));
+    }
+    state._nextId = maxNum + 1;
+
+    const components = [];
+
+    for (const c of mod.connections) {
+      if (!c || !c.position) continue;
+      components.push({
+        id: c.id || uid(), type: 'jack', x: c.position.x, y: c.position.y,
+        label: c.name || '', labelPosition: c.labelPosition || 'below',
+        _imported: !!c.id,
+      });
+    }
+
+    for (const c of (mod.controls || [])) {
+      if (!c || !c.position) continue;
+      if (c.type === 'switch') {
+        components.push({
+          id: c.id || uid(), type: 'switch', x: c.position.x, y: c.position.y,
+          label: c.label || '', label2: c.label2 || '', orientation: c.orientation || 'vertical',
+          _imported: !!c.id,
+        });
+      } else {
+        components.push({
+          id: c.id || uid(), type: 'knob', x: c.position.x, y: c.position.y,
+          label: c.label || '', labelPosition: c.labelPosition || 'below',
+          _imported: !!c.id,
+        });
+      }
+    }
+
+    for (const c of (mod.labels || [])) {
+      if (!c || !c.position) continue;
+      components.push({
+        id: c.id || uid(), type: 'label', x: c.position.x, y: c.position.y,
+        text: c.text || '', size: c.size || LABEL_SIZE, align: c.align || 'middle',
+        _imported: !!c.id,
+      });
+    }
+
+    state.name          = mod.name || 'Module';
+    state.id            = mod.id   || nameToId(state.name) || 'module';
+    state.manufacturer  = mod.manufacturer  || '';
+    state.url           = mod.url           || '';
+    state.documentation = mod.documentation || '';
+    state.width = (typeof mod.width === 'number' && mod.width > 0)
+      ? Math.max(PIXELS_PER_RU, Math.round(mod.width / PIXELS_PER_RU) * PIXELS_PER_RU)
+      : PIXELS_PER_RU;
+    state.height     = MODULE_HEIGHT;
+    state.components = components;
+    state.selectedId = null;
+    idManual = true; // imported id is explicit; don't let name edits silently overwrite it
+
+    setMode('select');
+    syncFormFromState();
+    render();
+    renderProps();
+    showToast(`Imported "${state.name}" — ${components.length} component(s).`);
   }
 
   document.getElementById('btn-download-svg').addEventListener('click', () => {
@@ -1296,6 +1510,29 @@ html, body {
     a.download = `${state.id || 'module'}.json`;
     a.click();
     URL.revokeObjectURL(url);
+  });
+
+  const inputImportJson = document.getElementById('input-import-json');
+
+  document.getElementById('btn-import-json').addEventListener('click', () => {
+    if (state.components.length && !confirm('Import will replace the current module. Continue?')) return;
+    inputImportJson.click();
+  });
+
+  inputImportJson.addEventListener('change', () => {
+    const file = inputImportJson.files[0];
+    inputImportJson.value = ''; // allow re-selecting the same file next time
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      let mod;
+      try { mod = JSON.parse(reader.result); }
+      catch (err) { showToast(`Invalid JSON file: ${err.message}`, true); return; }
+      importModule(mod);
+    };
+    reader.onerror = () => showToast('Could not read the selected file.', true);
+    reader.readAsText(file);
   });
 
   // ---- localStorage persistence ----
