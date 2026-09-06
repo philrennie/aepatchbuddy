@@ -169,6 +169,23 @@ html, body {
 
 .tool-btn.active .tool-shortcut { color: var(--accent-dim); }
 
+.tool-hint {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-faint);
+  line-height: 1.5;
+}
+
+.tool-hint kbd {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 4px;
+}
+
 /* --- snap row --- */
 .snap-row {
   display: flex;
@@ -575,6 +592,8 @@ html, body {
           </button>
 
         </div>
+
+        <div class="tool-hint"><kbd>[</kbd> / <kbd>]</kbd> selects the previous / next component</div>
       </div>
 
       <div class="panel-section">
@@ -796,6 +815,20 @@ html, body {
     renderProps();
   }
 
+  // Selects the next (offset 1) or previous (offset -1) component in creation order, wrapping
+  // around at either end. With nothing selected, offset 1 starts at the first component and
+  // offset -1 starts at the last.
+  function selectRelative(offset) {
+    if (!state.components.length) return;
+    const idx = state.components.findIndex(c => c.id === state.selectedId);
+    const next = idx === -1
+      ? (offset > 0 ? 0 : state.components.length - 1)
+      : (idx + offset + state.components.length) % state.components.length;
+    state.selectedId = state.components[next].id;
+    setMode('select');
+    renderProps();
+  }
+
   function nameToId(name) {
     return (name || '')
       .toLowerCase().trim()
@@ -867,8 +900,10 @@ html, body {
     return g;
   }
 
-  // Live preview: a label that is a wave token renders as a glyph, else text.
-  function labelG(label, lp, fillColor) {
+  // Live preview: a jack/knob/switch caption that is a wave token renders as a glyph, else text.
+  // Named distinctly from labelG() (below), which renders a standalone label *component* —
+  // two same-named functions here would silently shadow one another.
+  function captionG(label, lp, fillColor) {
     const w = parseWave(label);
     return w ? waveGlyphEl(w, lp, fillColor) : textEl(label, lp, fillColor);
   }
@@ -888,7 +923,7 @@ html, body {
     g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: JACK_R, fill: '#141210', stroke: s, 'stroke-width': 1.5, opacity: a }));
     g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: JACK_DOT_R, fill: '#3a352c', opacity: a }));
     if (comp.label) {
-      g.appendChild(labelG(comp.label, labelPos(comp.x, comp.y, comp.labelPosition || 'below', JACK_R), fill));
+      g.appendChild(captionG(comp.label, labelPos(comp.x, comp.y, comp.labelPosition || 'below', JACK_R), fill));
     }
     return g;
   }
@@ -907,7 +942,7 @@ html, body {
       'stroke-width': 1.5, 'stroke-linecap': 'round', opacity: a,
     }));
     if (comp.label) {
-      g.appendChild(labelG(comp.label, labelPos(comp.x, comp.y, comp.labelPosition || 'below', KNOB_R), fill));
+      g.appendChild(captionG(comp.label, labelPos(comp.x, comp.y, comp.labelPosition || 'below', KNOB_R), fill));
     }
     return g;
   }
@@ -927,15 +962,15 @@ html, body {
       g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW, y: comp.y - SW_H_HH, width: bw, height: bh, rx: 3, fill: '#1e1c18', stroke: s, 'stroke-width': 1.5, opacity: a }));
       g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW + 2, y: comp.y - SW_H_HH + 1, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
       const ly = comp.y + Math.round(LABEL_SIZE * 0.35);
-      if (comp.label)  g.appendChild(labelG(comp.label,  { x: comp.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }, labelFill));
-      if (comp.label2) g.appendChild(labelG(comp.label2, { x: comp.x + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }, labelFill));
+      if (comp.label)  g.appendChild(captionG(comp.label,  { x: comp.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }, labelFill));
+      if (comp.label2) g.appendChild(captionG(comp.label2, { x: comp.x + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }, labelFill));
     } else {
       const bw = SW_V_HW * 2, bh = SW_V_HH * 2;
       const tw = bw - 2, th = Math.round(bh * 0.39);
       g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW, y: comp.y - SW_V_HH, width: bw, height: bh, rx: 3, fill: '#1e1c18', stroke: s, 'stroke-width': 1.5, opacity: a }));
       g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW + 1, y: comp.y - SW_V_HH + 2, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
-      if (comp.label)  g.appendChild(labelG(comp.label,  { x: comp.x, y: comp.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }, labelFill));
-      if (comp.label2) g.appendChild(labelG(comp.label2, { x: comp.x, y: comp.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }, labelFill));
+      if (comp.label)  g.appendChild(captionG(comp.label,  { x: comp.x, y: comp.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }, labelFill));
+      if (comp.label2) g.appendChild(captionG(comp.label2, { x: comp.x, y: comp.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }, labelFill));
     }
     return g;
   }
@@ -1414,11 +1449,15 @@ html, body {
     if ((e.key === 'Delete' || e.key === 'Backspace') && state.selectedId) {
       deleteComponent(state.selectedId);
     }
-    if (e.key === 'Escape' || e.key === 's') setMode('select');
-    if (e.key === 'j') setMode('add-jack');
-    if (e.key === 'k') setMode('add-knob');
-    if (e.key === 'w') setMode('add-switch');
-    if (e.key === 't') setMode('add-label');
+    if (e.key === '[') selectRelative(-1);
+    if (e.key === ']') selectRelative(1);
+
+    const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    if (key === 'Escape' || key === 's') setMode('select');
+    if (key === 'j') setMode('add-jack');
+    if (key === 'k') setMode('add-knob');
+    if (key === 'w') setMode('add-switch');
+    if (key === 't') setMode('add-label');
   });
 
   // ---- tool buttons ----
@@ -1613,9 +1652,12 @@ html, body {
 
     for (const c of mod.connections) {
       if (!c || !c.position) continue;
+      // Export bakes a blank label into name = id, since connections[].name is required —
+      // undo that here so a genuinely blank label doesn't come back showing the raw id.
+      const jackLabel = (c.name && c.name !== c.id) ? c.name : '';
       components.push({
         id: c.id || uid(), type: 'jack', x: c.position.x, y: c.position.y,
-        label: c.name || '', labelPosition: c.labelPosition || 'below',
+        label: jackLabel, labelPosition: c.labelPosition || 'below',
         _imported: !!c.id,
       });
     }

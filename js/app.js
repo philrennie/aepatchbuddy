@@ -326,8 +326,6 @@
     const img = document.createElement("img");
     img.src = mod.image;
     img.alt = mod.name;
-    img.width = size.w;
-    img.height = size.h;
     wrap.appendChild(img);
 
     const removeBtn = document.createElement("div");
