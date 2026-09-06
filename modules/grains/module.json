@@ -1,0 +1,209 @@
+{
+  "id": "grains",
+  "name": "GRAINS",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p86/GRAINS.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/grains",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "IN 1",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "2",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "3",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "A",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "c5",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "B.CV",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "B.CTRL",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "B.GATE",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "D",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "D",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "switch",
+      "label": "IN 1",
+      "position": {
+        "x": 110,
+        "y": 370
+      },
+      "label2": "MAN",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c18",
+      "type": "switch",
+      "label": "IN 2",
+      "position": {
+        "x": 110,
+        "y": 470
+      },
+      "label2": "MAN",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "1",
+      "position": {
+        "x": 50,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "2",
+      "position": {
+        "x": 50,
+        "y": 470
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "knob",
+      "label": "3",
+      "position": {
+        "x": 50,
+        "y": 570
+      },
+      "labelPosition": "below"
+    }
+  ]
+}

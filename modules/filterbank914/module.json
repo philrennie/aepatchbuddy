@@ -1,0 +1,297 @@
+{
+  "id": "filterbank914",
+  "name": "FILTERBANK914",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p184/FILTERBANK914.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/filterbank",
+  "width": 480,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "IN HI",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "IN LO",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT",
+      "position": {
+        "x": 460,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT",
+      "position": {
+        "x": 460,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "OUT ODD",
+      "position": {
+        "x": 460,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "OUT ODD",
+      "position": {
+        "x": 460,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "OUT EVEN",
+      "position": {
+        "x": 460,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "OUT EVEN",
+      "position": {
+        "x": 460,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "c15",
+      "position": {
+        "x": 460,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "c16",
+      "position": {
+        "x": 460,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "500",
+      "position": {
+        "x": 240,
+        "y": 320
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c18",
+      "type": "knob",
+      "label": "700",
+      "position": {
+        "x": 240,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "1000",
+      "position": {
+        "x": 240,
+        "y": 470
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "1400",
+      "position": {
+        "x": 240,
+        "y": 550
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "knob",
+      "label": "125",
+      "position": {
+        "x": 150,
+        "y": 320
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c22",
+      "type": "knob",
+      "label": "175",
+      "position": {
+        "x": 150,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c23",
+      "type": "knob",
+      "label": "250",
+      "position": {
+        "x": 150,
+        "y": 470
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c24",
+      "type": "knob",
+      "label": "350",
+      "position": {
+        "x": 150,
+        "y": 550
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c25",
+      "type": "knob",
+      "label": "2000",
+      "position": {
+        "x": 330,
+        "y": 320
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c26",
+      "type": "knob",
+      "label": "2800",
+      "position": {
+        "x": 330,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c27",
+      "type": "knob",
+      "label": "4000",
+      "position": {
+        "x": 330,
+        "y": 470
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c28",
+      "type": "knob",
+      "label": "5600",
+      "position": {
+        "x": 330,
+        "y": 550
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c29",
+      "type": "knob",
+      "label": "LOW",
+      "position": {
+        "x": 70,
+        "y": 430
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c30",
+      "type": "knob",
+      "label": "HIGH",
+      "position": {
+        "x": 410,
+        "y": 430
+      },
+      "labelPosition": "below"
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "id": "logic",
+  "name": "LOGIC",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p16/LOGIC.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/logic",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "1A",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "IB",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "2A",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "2B",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "IN3",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "IN4",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "c7",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "c8",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "NAND",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "AND",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "XOR",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "NAND",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "AND",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "XOR",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "INV 3",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "INV 4",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ]
+}

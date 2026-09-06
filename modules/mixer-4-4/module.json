@@ -1,0 +1,197 @@
+{
+  "id": "mixer-4-4",
+  "name": "MIXER 4-4",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p13/MIXER_4-4.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/mixer4-4",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "A1",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "A2",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "A3",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "A4",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "B1",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "B2",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "B3",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "B4",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT A",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT A",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "OUT B",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "OUT B",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "THRU",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "THRU",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "THRU",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "THRU",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "LEVEL 1",
+      "position": {
+        "x": 80,
+        "y": 330
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "knob",
+      "label": "LEVEL 2",
+      "position": {
+        "x": 80,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c22",
+      "type": "knob",
+      "label": "LEVEL 3",
+      "position": {
+        "x": 80,
+        "y": 490
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c23",
+      "type": "knob",
+      "label": "LEVEL 4",
+      "position": {
+        "x": 80,
+        "y": 570
+      },
+      "labelPosition": "below"
+    }
+  ]
+}

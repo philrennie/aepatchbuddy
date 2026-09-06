@@ -1,0 +1,252 @@
+{
+  "id": "fmos-r2",
+  "name": "FMOS R2",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p225/FMOS_R2.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/fmos_r2",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "CV",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "c2",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "MOD CV",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "SYNC",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "IMDI",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "IMDI",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "B.CV",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "B.CV",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "SUB",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "MIX",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "switch",
+      "label": "QNT",
+      "position": {
+        "x": 120,
+        "y": 330
+      },
+      "label2": "CONT",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c18",
+      "type": "switch",
+      "label": "+2 OCT",
+      "position": {
+        "x": 120,
+        "y": 430
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "FREQ",
+      "position": {
+        "x": 50,
+        "y": 330
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "FDBK/FIX FREQ",
+      "position": {
+        "x": 50,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "knob",
+      "label": "MULTIPLER",
+      "position": {
+        "x": 50,
+        "y": 490
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c22",
+      "type": "switch",
+      "label": "FDB",
+      "position": {
+        "x": 120,
+        "y": 510
+      },
+      "label2": "FIX",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c23",
+      "type": "knob",
+      "label": "DEPTH",
+      "position": {
+        "x": 50,
+        "y": 570
+      },
+      "labelPosition": "below"
+    }
+  ],
+  "labels": [
+    {
+      "id": "c24",
+      "text": "OPM",
+      "position": {
+        "x": 140,
+        "y": 510
+      },
+      "size": 11,
+      "align": "middle"
+    },
+    {
+      "id": "c25",
+      "text": "CV",
+      "position": {
+        "x": 140,
+        "y": 330
+      },
+      "size": 11,
+      "align": "middle"
+    }
+  ]
+}
