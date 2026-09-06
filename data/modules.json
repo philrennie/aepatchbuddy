@@ -7871,6 +7871,412 @@
     ]
   },
   {
+    "id": "modulators",
+    "name": "MODULATORS",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p152/MODULATORS.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/modulators",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "ENV GT",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "c2",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "VCA IN",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "VCA MOD",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "c5",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "LFO PWM",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "LFO SYNC",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "c8",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "ENV",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "ENV",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "VCA",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "VCA",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "wave:triangle+saw",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "wave:square",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "RND",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "RND",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "ATTACK",
+        "position": {
+          "x": 40,
+          "y": 340
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "knob",
+        "label": "RELEASE",
+        "position": {
+          "x": 40,
+          "y": 410
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c22",
+        "type": "knob",
+        "label": "RATE",
+        "position": {
+          "x": 40,
+          "y": 500
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c23",
+        "type": "knob",
+        "label": "PW",
+        "position": {
+          "x": 40,
+          "y": 570
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c24",
+        "type": "switch",
+        "label": "GT",
+        "position": {
+          "x": 120,
+          "y": 380
+        },
+        "label2": "TR",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c25",
+        "type": "switch",
+        "label": "wave:triangle",
+        "position": {
+          "x": 120,
+          "y": 500
+        },
+        "label2": "wave:saw",
+        "orientation": "vertical"
+      }
+    ]
+  },
+  {
+    "id": "ms-filter",
+    "name": "MS  FILTER",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p87/MS20_FILTER.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/ms20-filter",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN H",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "IN L",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "CV 1",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "CV 2",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "c5",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "c6",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "BUS CV",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "BUS CTRL",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "LP",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "LP",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "LP",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "BP",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "BP",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "BP",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "HP",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "HP",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "FREQ",
+        "position": {
+          "x": 80,
+          "y": 360
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "knob",
+        "label": "CV 1",
+        "position": {
+          "x": 80,
+          "y": 440
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c22",
+        "type": "knob",
+        "label": "RESONANCE",
+        "position": {
+          "x": 80,
+          "y": 530
+        },
+        "labelPosition": "below"
+      }
+    ]
+  },
+  {
     "id": "seq8",
     "name": "SEQ8",
     "manufacturer": "Tangible Waves",
