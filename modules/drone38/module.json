@@ -1,0 +1,579 @@
+{
+  "id": "drone38",
+  "name": "DRONE38",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p119/DRONE38.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/drone38",
+  "width": 640,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "A1",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "A2",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "A3",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "A4",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "A5",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "A6",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "c7",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "c8",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT",
+      "position": {
+        "x": 620,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT",
+      "position": {
+        "x": 620,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "SUM A",
+      "position": {
+        "x": 620,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "SUM A",
+      "position": {
+        "x": 620,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "SUM B",
+      "position": {
+        "x": 620,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "SUM B",
+      "position": {
+        "x": 620,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "SUM C",
+      "position": {
+        "x": 620,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "SUM C",
+      "position": {
+        "x": 620,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c17",
+      "name": "B1",
+      "position": {
+        "x": 210,
+        "y": 160
+      },
+      "labelPosition": "above"
+    },
+    {
+      "id": "c18",
+      "name": "B2",
+      "position": {
+        "x": 240,
+        "y": 160
+      },
+      "labelPosition": "above"
+    },
+    {
+      "id": "c19",
+      "name": "B3",
+      "position": {
+        "x": 270,
+        "y": 160
+      },
+      "labelPosition": "above"
+    },
+    {
+      "id": "c20",
+      "name": "B4",
+      "position": {
+        "x": 300,
+        "y": 160
+      },
+      "labelPosition": "above"
+    },
+    {
+      "id": "c21",
+      "name": "B5",
+      "position": {
+        "x": 330,
+        "y": 160
+      },
+      "labelPosition": "above"
+    },
+    {
+      "id": "c22",
+      "name": "B6",
+      "position": {
+        "x": 360,
+        "y": 160
+      },
+      "labelPosition": "above"
+    },
+    {
+      "id": "c23",
+      "name": "c23",
+      "position": {
+        "x": 390,
+        "y": 160
+      },
+      "labelPosition": "above"
+    },
+    {
+      "id": "c24",
+      "name": "c24",
+      "position": {
+        "x": 420,
+        "y": 160
+      },
+      "labelPosition": "above"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c25",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 110,
+        "y": 280
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c26",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 170,
+        "y": 280
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c27",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 230,
+        "y": 280
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c28",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 370,
+        "y": 280
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c29",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 430,
+        "y": 280
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c30",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 490,
+        "y": 280
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c31",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 110,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c32",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 170,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c33",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 230,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c34",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 370,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c35",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 430,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c36",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 490,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c37",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 110,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c38",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 170,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c39",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 230,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c40",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 370,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c41",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 430,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c42",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 490,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c43",
+      "type": "knob",
+      "label": "LEVEL A",
+      "position": {
+        "x": 180,
+        "y": 550
+      },
+      "labelPosition": "above"
+    },
+    {
+      "id": "c44",
+      "type": "knob",
+      "label": "LEVEL B",
+      "position": {
+        "x": 350,
+        "y": 550
+      },
+      "labelPosition": "above"
+    },
+    {
+      "id": "c45",
+      "type": "knob",
+      "label": "LEVEL C",
+      "position": {
+        "x": 520,
+        "y": 550
+      },
+      "labelPosition": "above"
+    },
+    {
+      "id": "c46",
+      "type": "switch",
+      "label": "wave:saw",
+      "position": {
+        "x": 70,
+        "y": 530
+      },
+      "label2": "wave:triangle",
+      "orientation": "horizontal"
+    },
+    {
+      "id": "c47",
+      "type": "switch",
+      "label": "wave:saw",
+      "position": {
+        "x": 70,
+        "y": 570
+      },
+      "label2": "wave:saw",
+      "orientation": "horizontal"
+    },
+    {
+      "id": "c48",
+      "type": "switch",
+      "label": "A1-A3 ON",
+      "position": {
+        "x": 150,
+        "y": 610
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c49",
+      "type": "switch",
+      "label": "A4-A6 ON",
+      "position": {
+        "x": 220,
+        "y": 610
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c50",
+      "type": "switch",
+      "label": "B1-B3 ON",
+      "position": {
+        "x": 320,
+        "y": 610
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c51",
+      "type": "switch",
+      "label": "B4-B6 ON",
+      "position": {
+        "x": 390,
+        "y": 610
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c52",
+      "type": "switch",
+      "label": "C1-C3 ON",
+      "position": {
+        "x": 490,
+        "y": 610
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c53",
+      "type": "switch",
+      "label": "C4-C6 ON",
+      "position": {
+        "x": 560,
+        "y": 610
+      },
+      "label2": "",
+      "orientation": "vertical"
+    }
+  ],
+  "labels": [
+    {
+      "id": "c55",
+      "text": "A",
+      "position": {
+        "x": 20,
+        "y": 530
+      },
+      "size": 13,
+      "align": "middle"
+    },
+    {
+      "id": "c56",
+      "text": "B",
+      "position": {
+        "x": 20,
+        "y": 570
+      },
+      "size": 13,
+      "align": "middle"
+    },
+    {
+      "id": "c57",
+      "text": "A",
+      "position": {
+        "x": 300,
+        "y": 290
+      },
+      "size": 20,
+      "align": "middle"
+    },
+    {
+      "id": "c58",
+      "text": "B",
+      "position": {
+        "x": 300,
+        "y": 390
+      },
+      "size": 20,
+      "align": "middle"
+    },
+    {
+      "id": "c59",
+      "text": "C",
+      "position": {
+        "x": 300,
+        "y": 480
+      },
+      "size": 20,
+      "align": "middle"
+    }
+  ]
+}

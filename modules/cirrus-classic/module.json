@@ -1,0 +1,263 @@
+{
+  "id": "cirrus-classic",
+  "name": "CIRRUS CLASSIC",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p185/CIRRUS_CLASSIC.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/cirrus-classic",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "IN L",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "IN R",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "POSITION CV",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "SIZE CV",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "DENSITY CV",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "TEXT CV",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "REC",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT L",
+      "position": {
+        "x": 300,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT L",
+      "position": {
+        "x": 300,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "OUT R",
+      "position": {
+        "x": 300,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "OUT R",
+      "position": {
+        "x": 300,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c19",
+      "name": "PLAY",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c20",
+      "name": "V/OCT CV",
+      "position": {
+        "x": 20,
+        "y": 300
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c21",
+      "name": "BLEND CV",
+      "position": {
+        "x": 20,
+        "y": 330
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c37",
+      "name": "BUS CTRL",
+      "position": {
+        "x": 20,
+        "y": 360
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c38",
+      "name": "BUS CV",
+      "position": {
+        "x": 20,
+        "y": 390
+      },
+      "labelPosition": "right"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c39",
+      "type": "knob",
+      "label": "POSITION",
+      "position": {
+        "x": 80,
+        "y": 440
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c40",
+      "type": "knob",
+      "label": "SIZE",
+      "position": {
+        "x": 160,
+        "y": 440
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c41",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 240,
+        "y": 440
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c42",
+      "type": "knob",
+      "label": "IN GAIN",
+      "position": {
+        "x": 40,
+        "y": 500
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c43",
+      "type": "knob",
+      "label": "DENSITY",
+      "position": {
+        "x": 120,
+        "y": 500
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c44",
+      "type": "knob",
+      "label": "TEXTURE",
+      "position": {
+        "x": 200,
+        "y": 500
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c45",
+      "type": "knob",
+      "label": "BLEND",
+      "position": {
+        "x": 280,
+        "y": 500
+      },
+      "labelPosition": "below"
+    }
+  ]
+}
