@@ -1,15 +1,15 @@
 {
-  "id": "adsr",
-  "name": "ADSR",
+  "id": "2env",
+  "name": "2ENV",
   "manufacturer": "Tangible Waves",
-  "url": "https://www.tangiblewaves.com/store/p96/ADSR.html",
-  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/adsr",
+  "url": "https://www.tangiblewaves.com/store/p59/2ENV.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2env",
   "width": 160,
   "height": 640,
   "connections": [
     {
       "id": "c1",
-      "name": "GATE",
+      "name": "GT 1",
       "position": {
         "x": 20,
         "y": 60
@@ -18,7 +18,7 @@
     },
     {
       "id": "c2",
-      "name": "A CV",
+      "name": "ACV1",
       "position": {
         "x": 20,
         "y": 90
@@ -27,7 +27,7 @@
     },
     {
       "id": "c3",
-      "name": "D CV",
+      "name": "DCV1",
       "position": {
         "x": 20,
         "y": 120
@@ -36,7 +36,7 @@
     },
     {
       "id": "c4",
-      "name": "S CV",
+      "name": "GT2",
       "position": {
         "x": 20,
         "y": 150
@@ -45,7 +45,7 @@
     },
     {
       "id": "c5",
-      "name": "R CV",
+      "name": "ACV1",
       "position": {
         "x": 20,
         "y": 180
@@ -54,7 +54,7 @@
     },
     {
       "id": "c6",
-      "name": "c6",
+      "name": "DCV2",
       "position": {
         "x": 20,
         "y": 210
@@ -63,7 +63,7 @@
     },
     {
       "id": "c7",
-      "name": "B.GATE",
+      "name": "BS GATE",
       "position": {
         "x": 20,
         "y": 240
@@ -72,7 +72,7 @@
     },
     {
       "id": "c8",
-      "name": "B.GATE",
+      "name": "BS GATE",
       "position": {
         "x": 20,
         "y": 270
@@ -81,7 +81,7 @@
     },
     {
       "id": "c9",
-      "name": "OUT",
+      "name": "OUT 1",
       "position": {
         "x": 140,
         "y": 60
@@ -90,7 +90,7 @@
     },
     {
       "id": "c10",
-      "name": "OUT",
+      "name": "OUT 1",
       "position": {
         "x": 140,
         "y": 90
@@ -99,7 +99,7 @@
     },
     {
       "id": "c11",
-      "name": "OUT",
+      "name": "OUT 1",
       "position": {
         "x": 140,
         "y": 120
@@ -108,7 +108,7 @@
     },
     {
       "id": "c12",
-      "name": "END",
+      "name": "END 1",
       "position": {
         "x": 140,
         "y": 150
@@ -117,7 +117,7 @@
     },
     {
       "id": "c13",
-      "name": "MULT",
+      "name": "OUT 2",
       "position": {
         "x": 140,
         "y": 180
@@ -126,7 +126,7 @@
     },
     {
       "id": "c14",
-      "name": "MULT",
+      "name": "OUT 2",
       "position": {
         "x": 140,
         "y": 210
@@ -135,7 +135,7 @@
     },
     {
       "id": "c15",
-      "name": "MULT",
+      "name": "OUT 2",
       "position": {
         "x": 140,
         "y": 240
@@ -144,7 +144,7 @@
     },
     {
       "id": "c16",
-      "name": "MULT",
+      "name": "END 2",
       "position": {
         "x": 140,
         "y": 270
@@ -154,7 +154,7 @@
   ],
   "controls": [
     {
-      "id": "c17",
+      "id": "c20",
       "type": "knob",
       "label": "ATTACK",
       "position": {
@@ -164,7 +164,7 @@
       "labelPosition": "below"
     },
     {
-      "id": "c18",
+      "id": "c21",
       "type": "knob",
       "label": "DECAY",
       "position": {
@@ -174,45 +174,67 @@
       "labelPosition": "below"
     },
     {
-      "id": "c19",
+      "id": "c22",
       "type": "knob",
-      "label": "SUSTAIN",
+      "label": "ATTACK",
       "position": {
         "x": 40,
-        "y": 480
+        "y": 500
       },
       "labelPosition": "below"
     },
     {
-      "id": "c20",
+      "id": "c23",
       "type": "knob",
-      "label": "RELEASE",
+      "label": "DECAY",
       "position": {
         "x": 40,
-        "y": 550
+        "y": 570
       },
       "labelPosition": "below"
     },
     {
-      "id": "c21",
+      "id": "c24",
       "type": "switch",
       "label": "GT",
       "position": {
         "x": 90,
-        "y": 400
+        "y": 340
       },
-      "label2": "TRG",
+      "label2": "TR",
       "orientation": "vertical"
     },
     {
-      "id": "c22",
+      "id": "c25",
       "type": "switch",
       "label": "FAST",
       "position": {
         "x": 130,
-        "y": 400
+        "y": 340
       },
       "label2": "SLOW",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c26",
+      "type": "switch",
+      "label": "FAST",
+      "position": {
+        "x": 130,
+        "y": 500
+      },
+      "label2": "SLOW",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c27",
+      "type": "switch",
+      "label": "GT",
+      "position": {
+        "x": 90,
+        "y": 500
+      },
+      "label2": "TR",
       "orientation": "vertical"
     }
   ]
