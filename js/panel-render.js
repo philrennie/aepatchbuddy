@@ -79,30 +79,54 @@
     return { originX, box, s, gap };
   }
 
+  // Panel artwork reuses the app's own theme tokens (css/themes.css) rather than a
+  // separate artwork-only palette, so the module panel always matches the active
+  // theme. Cached since module-editor's render() can run on every drag-move frame;
+  // invalidated (not eagerly recomputed) on "patchbay-themechange" so the next call
+  // — whenever it happens — picks up the new theme.
+  let _colorsCache = null;
+  function colors() {
+    if (!_colorsCache) {
+      const s = getComputedStyle(document.documentElement);
+      const get = (name) => s.getPropertyValue(name).trim();
+      _colorsCache = {
+        bg: get('--bg'), panel: get('--panel'), panel2: get('--panel-2'),
+        border: get('--border'), borderSoft: get('--border-soft'),
+        text: get('--text'), textDim: get('--text-dim'), textFaint: get('--text-faint'),
+        accent: get('--accent'), accentDim: get('--accent-dim'), danger: get('--danger'),
+      };
+    }
+    return _colorsCache;
+  }
+  if (typeof window !== 'undefined') {
+    window.addEventListener('patchbay-themechange', () => { _colorsCache = null; });
+  }
+
   // Renders a module definition — the same shape as module.json:
   // { name, width, height, connections, controls, labels } — as a static
   // SVG panel string.
   function buildSVGString(mod) {
+    const c = colors();
     const W = mod.width, H = mod.height;
     const lines = [];
     lines.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">`);
-    lines.push(`  <rect x="0" y="0" width="${W}" height="${H}" fill="#2b271f"/>`);
-    lines.push(`  <rect x="4" y="4" width="${W - 8}" height="${H - 8}" fill="none" stroke="#4a4335" stroke-width="2"/>`);
-    lines.push(`  <circle cx="14" cy="14" r="4" fill="#141210"/>`);
-    lines.push(`  <circle cx="${W - 14}" cy="14" r="4" fill="#141210"/>`);
-    lines.push(`  <circle cx="14" cy="${H - 14}" r="4" fill="#141210"/>`);
-    lines.push(`  <circle cx="${W - 14}" cy="${H - 14}" r="4" fill="#141210"/>`);
-    lines.push(`  <text x="${W / 2}" y="40" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="14" letter-spacing="1">${escXml((mod.name || 'UNTITLED').toUpperCase())}</text>`);
+    lines.push(`  <rect x="0" y="0" width="${W}" height="${H}" fill="${c.panel}"/>`);
+    lines.push(`  <rect x="4" y="4" width="${W - 8}" height="${H - 8}" fill="none" stroke="${c.border}" stroke-width="2"/>`);
+    lines.push(`  <circle cx="14" cy="14" r="4" fill="${c.bg}"/>`);
+    lines.push(`  <circle cx="${W - 14}" cy="14" r="4" fill="${c.bg}"/>`);
+    lines.push(`  <circle cx="14" cy="${H - 14}" r="4" fill="${c.bg}"/>`);
+    lines.push(`  <circle cx="${W - 14}" cy="${H - 14}" r="4" fill="${c.bg}"/>`);
+    lines.push(`  <text x="${W / 2}" y="40" text-anchor="middle" fill="${c.accent}" font-family="IBM Plex Mono, monospace" font-size="14" letter-spacing="1">${escXml((mod.name || 'UNTITLED').toUpperCase())}</text>`);
 
     function svgText(label, lp) {
-      return `  <text x="${lp.x}" y="${lp.y}" text-anchor="${lp.anchor}" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="${LABEL_SIZE}">${escXml(label)}</text>`;
+      return `  <text x="${lp.x}" y="${lp.y}" text-anchor="${lp.anchor}" fill="${c.textDim}" font-family="IBM Plex Mono, monospace" font-size="${LABEL_SIZE}">${escXml(label)}</text>`;
     }
 
     function svgWave(names, lp) {
       const { originX, box, s, gap } = waveRun(names, lp);
       return names.map((n, i) =>
         `  <g transform="translate(${originX + i * (box * s + gap)},${lp.y - LABEL_SIZE}) scale(${s})">` +
-        `<path d="${WAVE_GLYPHS[n]}" fill="none" stroke="#9a9282" stroke-width="${1.5 / s}" ` +
+        `<path d="${WAVE_GLYPHS[n]}" fill="none" stroke="${c.textDim}" stroke-width="${1.5 / s}" ` +
         `stroke-linejoin="round" stroke-linecap="round"/></g>`
       ).join('\n');
     }
@@ -113,44 +137,44 @@
       return w ? svgWave(w, lp) : svgText(label, lp);
     }
 
-    for (const c of (mod.connections || [])) {
-      lines.push(`  <circle cx="${c.position.x}" cy="${c.position.y}" r="${JACK_R}" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>`);
-      if (c.name) lines.push(svgLabel(c.name, labelPos(c.position.x, c.position.y, c.labelPosition || 'below', JACK_R)));
+    for (const conn of (mod.connections || [])) {
+      lines.push(`  <circle cx="${conn.position.x}" cy="${conn.position.y}" r="${JACK_R}" fill="${c.bg}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
+      if (conn.name) lines.push(svgLabel(conn.name, labelPos(conn.position.x, conn.position.y, conn.labelPosition || 'below', JACK_R)));
     }
 
-    for (const c of (mod.controls || [])) {
-      const cx = c.position.x, cy = c.position.y;
-      if (c.type === 'switch') {
-        const horiz = (c.orientation || 'vertical') === 'horizontal';
+    for (const ctrl of (mod.controls || [])) {
+      const cx = ctrl.position.x, cy = ctrl.position.y;
+      if (ctrl.type === 'switch') {
+        const horiz = (ctrl.orientation || 'vertical') === 'horizontal';
         if (horiz) {
           const bw = SW_H_HW * 2, bh = SW_H_HH * 2;
           const tw = Math.round(bw * 0.39), th = bh - 2;
-          lines.push(`  <rect x="${cx - SW_H_HW}" y="${cy - SW_H_HH}" width="${bw}" height="${bh}" rx="3" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
-          lines.push(`  <rect x="${cx - SW_H_HW + 2}" y="${cy - SW_H_HH + 1}" width="${tw}" height="${th}" rx="2" fill="#8a8270"/>`);
+          lines.push(`  <rect x="${cx - SW_H_HW}" y="${cy - SW_H_HH}" width="${bw}" height="${bh}" rx="3" fill="${c.panel2}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
+          lines.push(`  <rect x="${cx - SW_H_HW + 2}" y="${cy - SW_H_HH + 1}" width="${tw}" height="${th}" rx="2" fill="${c.textFaint}"/>`);
           const ly = cy + Math.round(LABEL_SIZE * 0.35);
-          if (c.label)  lines.push(svgLabel(c.label,  { x: cx - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }));
-          if (c.label2) lines.push(svgLabel(c.label2, { x: cx + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }));
+          if (ctrl.label)  lines.push(svgLabel(ctrl.label,  { x: cx - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }));
+          if (ctrl.label2) lines.push(svgLabel(ctrl.label2, { x: cx + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }));
         } else {
           const bw = SW_V_HW * 2, bh = SW_V_HH * 2;
           const tw = bw - 2, th = Math.round(bh * 0.39);
-          lines.push(`  <rect x="${cx - SW_V_HW}" y="${cy - SW_V_HH}" width="${bw}" height="${bh}" rx="3" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
-          lines.push(`  <rect x="${cx - SW_V_HW + 1}" y="${cy - SW_V_HH + 2}" width="${tw}" height="${th}" rx="2" fill="#8a8270"/>`);
-          if (c.label)  lines.push(svgLabel(c.label,  { x: cx, y: cy - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }));
-          if (c.label2) lines.push(svgLabel(c.label2, { x: cx, y: cy + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }));
+          lines.push(`  <rect x="${cx - SW_V_HW}" y="${cy - SW_V_HH}" width="${bw}" height="${bh}" rx="3" fill="${c.panel2}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
+          lines.push(`  <rect x="${cx - SW_V_HW + 1}" y="${cy - SW_V_HH + 2}" width="${tw}" height="${th}" rx="2" fill="${c.textFaint}"/>`);
+          if (ctrl.label)  lines.push(svgLabel(ctrl.label,  { x: cx, y: cy - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }));
+          if (ctrl.label2) lines.push(svgLabel(ctrl.label2, { x: cx, y: cy + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }));
         }
       } else {
         // knob (default)
-        lines.push(`  <circle cx="${cx}" cy="${cy}" r="${KNOB_R}" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
-        lines.push(`  <line x1="${cx}" y1="${cy - KNOB_TICK_IN}" x2="${cx}" y2="${cy - KNOB_TICK_OUT}" stroke="#c8bfaa" stroke-width="1.5" stroke-linecap="round"/>`);
-        if (c.label) lines.push(svgLabel(c.label, labelPos(cx, cy, c.labelPosition || 'below', KNOB_R)));
+        lines.push(`  <circle cx="${cx}" cy="${cy}" r="${KNOB_R}" fill="${c.panel2}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
+        lines.push(`  <line x1="${cx}" y1="${cy - KNOB_TICK_IN}" x2="${cx}" y2="${cy - KNOB_TICK_OUT}" stroke="${c.text}" stroke-width="1.5" stroke-linecap="round"/>`);
+        if (ctrl.label) lines.push(svgLabel(ctrl.label, labelPos(cx, cy, ctrl.labelPosition || 'below', KNOB_R)));
       }
     }
 
-    for (const c of (mod.labels || [])) {
-      if (!c.text) continue;
-      const size = c.size || LABEL_SIZE;
-      const anchor = c.align || 'middle';
-      lines.push(`  <text x="${c.position.x}" y="${c.position.y}" text-anchor="${anchor}" fill="#c8bfaa" font-family="IBM Plex Mono, monospace" font-size="${size}">${escXml(c.text)}</text>`);
+    for (const lbl of (mod.labels || [])) {
+      if (!lbl.text) continue;
+      const size = lbl.size || LABEL_SIZE;
+      const anchor = lbl.align || 'middle';
+      lines.push(`  <text x="${lbl.position.x}" y="${lbl.position.y}" text-anchor="${anchor}" fill="${c.text}" font-family="IBM Plex Mono, monospace" font-size="${size}">${escXml(lbl.text)}</text>`);
     }
 
     lines.push(`</svg>`);
@@ -163,6 +187,6 @@
     KNOB_R, KNOB_TICK_IN, KNOB_TICK_OUT,
     SW_V_HW, SW_V_HH, SW_H_HW, SW_H_HH,
     WAVE_GLYPHS, parseWave, escXml, labelPos, waveRun,
-    buildSVGString,
+    colors, buildSVGString,
   };
 }());

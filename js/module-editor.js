@@ -229,35 +229,37 @@
 
   // ---- SVG rendering ----
 
-  // Each component type: returns an SVG <g> element.
-  // isGhost = true → amber tint, reduced opacity, pointer-events:none
+  // Each component type: returns an SVG <g> element. `t` is the current theme's
+  // resolved colors (PanelRender.colors()) — panel artwork always matches the
+  // active theme, same tokens css/themes.css defines for the app chrome.
+  // isGhost = true → accent tint, reduced opacity, pointer-events:none
 
-  function jackG(comp, isGhost) {
+  function jackG(comp, isGhost, t) {
     const g = mkEl('g');
     if (!isGhost) { g.classList.add('comp'); g.dataset.id = comp.id; }
     const a = isGhost ? '0.5' : '1';
-    const s = isGhost ? '#e8a33d' : '#8a8270';
-    const fill = isGhost ? 'rgba(232,163,61,0.6)' : '#9a9282';
+    const s = isGhost ? t.accent : t.textFaint;
+    const fill = isGhost ? `color-mix(in srgb, ${t.accent} 60%, transparent)` : t.textDim;
 
-    g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: JACK_R, fill: '#141210', stroke: s, 'stroke-width': 1.5, opacity: a }));
-    g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: JACK_DOT_R, fill: '#3a352c', opacity: a }));
+    g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: JACK_R, fill: t.bg, stroke: s, 'stroke-width': 1.5, opacity: a }));
+    g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: JACK_DOT_R, fill: t.border, opacity: a }));
     if (comp.label) {
       g.appendChild(captionG(comp.label, labelPos(comp.x, comp.y, comp.labelPosition || 'below', JACK_R), fill));
     }
     return g;
   }
 
-  function knobG(comp, isGhost) {
+  function knobG(comp, isGhost, t) {
     const g = mkEl('g');
     if (!isGhost) { g.classList.add('comp'); g.dataset.id = comp.id; }
     const a = isGhost ? '0.5' : '1';
-    const s = isGhost ? '#e8a33d' : '#8a8270';
-    const fill = isGhost ? 'rgba(232,163,61,0.6)' : '#9a9282';
+    const s = isGhost ? t.accent : t.textFaint;
+    const fill = isGhost ? `color-mix(in srgb, ${t.accent} 60%, transparent)` : t.textDim;
 
-    g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: KNOB_R, fill: '#1e1c18', stroke: s, 'stroke-width': 1.5, opacity: a }));
+    g.appendChild(mkEl('circle', { cx: comp.x, cy: comp.y, r: KNOB_R, fill: t.panel2, stroke: s, 'stroke-width': 1.5, opacity: a }));
     g.appendChild(mkEl('line', {
       x1: comp.x, y1: comp.y - KNOB_TICK_IN, x2: comp.x, y2: comp.y - KNOB_TICK_OUT,
-      stroke: isGhost ? 'rgba(232,163,61,0.8)' : '#c8bfaa',
+      stroke: isGhost ? `color-mix(in srgb, ${t.accent} 80%, transparent)` : t.text,
       'stroke-width': 1.5, 'stroke-linecap': 'round', opacity: a,
     }));
     if (comp.label) {
@@ -266,19 +268,19 @@
     return g;
   }
 
-  function switchG(comp, isGhost) {
+  function switchG(comp, isGhost, t) {
     const g = mkEl('g');
     if (!isGhost) { g.classList.add('comp'); g.dataset.id = comp.id; }
     const a = isGhost ? '0.5' : '1';
-    const s = isGhost ? '#e8a33d' : '#8a8270';
-    const toggleFill = isGhost ? 'rgba(232,163,61,0.4)' : '#8a8270';
-    const labelFill  = isGhost ? 'rgba(232,163,61,0.6)' : '#9a9282';
+    const s = isGhost ? t.accent : t.textFaint;
+    const toggleFill = isGhost ? `color-mix(in srgb, ${t.accent} 40%, transparent)` : t.textFaint;
+    const labelFill  = isGhost ? `color-mix(in srgb, ${t.accent} 60%, transparent)` : t.textDim;
     const horiz = (comp.orientation || 'vertical') === 'horizontal';
 
     if (horiz) {
       const bw = SW_H_HW * 2, bh = SW_H_HH * 2;
       const tw = Math.round(bw * 0.39), th = bh - 2;
-      g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW, y: comp.y - SW_H_HH, width: bw, height: bh, rx: 3, fill: '#1e1c18', stroke: s, 'stroke-width': 1.5, opacity: a }));
+      g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW, y: comp.y - SW_H_HH, width: bw, height: bh, rx: 3, fill: t.panel2, stroke: s, 'stroke-width': 1.5, opacity: a }));
       g.appendChild(mkEl('rect', { x: comp.x - SW_H_HW + 2, y: comp.y - SW_H_HH + 1, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
       const ly = comp.y + Math.round(LABEL_SIZE * 0.35);
       if (comp.label)  g.appendChild(captionG(comp.label,  { x: comp.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }, labelFill));
@@ -286,7 +288,7 @@
     } else {
       const bw = SW_V_HW * 2, bh = SW_V_HH * 2;
       const tw = bw - 2, th = Math.round(bh * 0.39);
-      g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW, y: comp.y - SW_V_HH, width: bw, height: bh, rx: 3, fill: '#1e1c18', stroke: s, 'stroke-width': 1.5, opacity: a }));
+      g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW, y: comp.y - SW_V_HH, width: bw, height: bh, rx: 3, fill: t.panel2, stroke: s, 'stroke-width': 1.5, opacity: a }));
       g.appendChild(mkEl('rect', { x: comp.x - SW_V_HW + 1, y: comp.y - SW_V_HH + 2, width: tw, height: th, rx: 2, fill: toggleFill, opacity: a }));
       if (comp.label)  g.appendChild(captionG(comp.label,  { x: comp.x, y: comp.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }, labelFill));
       if (comp.label2) g.appendChild(captionG(comp.label2, { x: comp.x, y: comp.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }, labelFill));
@@ -294,30 +296,30 @@
     return g;
   }
 
-  function labelG(comp, isGhost) {
+  function labelG(comp, isGhost, t) {
     const g = mkEl('g');
     if (!isGhost) { g.classList.add('comp'); g.dataset.id = comp.id; }
-    const fill = isGhost ? 'rgba(232,163,61,0.6)' : '#c8bfaa';
+    const fill = isGhost ? `color-mix(in srgb, ${t.accent} 60%, transparent)` : t.text;
     const size = comp.size || LABEL_SIZE;
     const anchor = comp.align || 'middle';
 
-    const t = mkEl('text', {
+    const el = mkEl('text', {
       x: comp.x, y: comp.y,
       'text-anchor': anchor,
       fill,
       'font-family': 'IBM Plex Mono, monospace',
       'font-size': size,
     });
-    t.textContent = isGhost ? (comp.text || 'LABEL') : (comp.text || '');
-    g.appendChild(t);
+    el.textContent = isGhost ? (comp.text || 'LABEL') : (comp.text || '');
+    g.appendChild(el);
     return g;
   }
 
-  function compG(comp, isGhost) {
-    if (comp.type === 'jack')   return jackG(comp, isGhost);
-    if (comp.type === 'knob')   return knobG(comp, isGhost);
-    if (comp.type === 'switch') return switchG(comp, isGhost);
-    if (comp.type === 'label')  return labelG(comp, isGhost);
+  function compG(comp, isGhost, t) {
+    if (comp.type === 'jack')   return jackG(comp, isGhost, t);
+    if (comp.type === 'knob')   return knobG(comp, isGhost, t);
+    if (comp.type === 'switch') return switchG(comp, isGhost, t);
+    if (comp.type === 'label')  return labelG(comp, isGhost, t);
   }
 
   function selRadius(comp) {
@@ -326,6 +328,7 @@
 
   function render() {
     const W = state.width, H = state.height;
+    const t = PanelRender.colors(); // panel artwork always matches the active theme
 
     svgEl.setAttribute('viewBox', `0 0 ${W} ${H}`);
     svgEl.setAttribute('width', W);
@@ -335,15 +338,15 @@
     while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
 
     // panel background
-    svgEl.appendChild(mkEl('rect', { x: 0, y: 0, width: W, height: H, fill: '#2b271f' }));
-    svgEl.appendChild(mkEl('rect', { x: 4, y: 4, width: W - 8, height: H - 8, fill: 'none', stroke: '#4a4335', 'stroke-width': 2 }));
+    svgEl.appendChild(mkEl('rect', { x: 0, y: 0, width: W, height: H, fill: t.panel }));
+    svgEl.appendChild(mkEl('rect', { x: 4, y: 4, width: W - 8, height: H - 8, fill: 'none', stroke: t.border, 'stroke-width': 2 }));
     for (const [cx, cy] of [[14, 14], [W - 14, 14], [14, H - 14], [W - 14, H - 14]]) {
-      svgEl.appendChild(mkEl('circle', { cx, cy, r: 4, fill: '#141210' }));
+      svgEl.appendChild(mkEl('circle', { cx, cy, r: 4, fill: t.bg }));
     }
     const title = mkEl('text', {
       x: W / 2, y: 40,
       'text-anchor': 'middle',
-      fill: '#e8a33d',
+      fill: t.accent,
       'font-family': 'IBM Plex Mono, monospace',
       'font-size': 14,
       'letter-spacing': 1,
@@ -354,7 +357,7 @@
     // components
     let selectedEl = null;
     for (const comp of state.components) {
-      const g = compG(comp, false);
+      const g = compG(comp, false, t);
       svgEl.appendChild(g);
       if (comp.id === state.selectedId) selectedEl = g;
     }
@@ -371,7 +374,7 @@
             x: bbox.x - pad, y: bbox.y - pad,
             width: bbox.width + pad * 2, height: bbox.height + pad * 2,
             fill: 'none',
-            stroke: '#e8a33d',
+            stroke: t.accent,
             'stroke-width': 1.5,
             'stroke-dasharray': '4 3',
             opacity: 0.85,
@@ -382,7 +385,7 @@
             cx: sel.x, cy: sel.y,
             r: selRadius(sel),
             fill: 'none',
-            stroke: '#e8a33d',
+            stroke: t.accent,
             'stroke-width': 1.5,
             'stroke-dasharray': '4 3',
             opacity: 0.85,
@@ -401,7 +404,7 @@
         label: '', label2: '', labelPosition: 'below', orientation: 'vertical',
         text: '', size: LABEL_SIZE, align: 'middle',
       };
-      const g = compG(ghostComp, true);
+      const g = compG(ghostComp, true, t);
       g.setAttribute('pointer-events', 'none');
       svgEl.appendChild(g);
     }
@@ -1120,6 +1123,10 @@
     render();
     renderProps();
   });
+
+  // Panel artwork colors track the active theme (PanelRender.colors()) — re-render
+  // the canvas whenever the theme changes so the preview picks them up immediately.
+  window.addEventListener('patchbay-themechange', () => render());
 
   // ---- init ----
   applyInitState();
