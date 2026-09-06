@@ -25,6 +25,10 @@ Runs entirely from static files — no server, no build step, no dependencies.
 
 Jacks are always visible with a subtle ring; a jack with a cable patched into it stays lit in that cable's colour, and a solid dot is drawn at each cable end — so you can always tell exactly which connector a cable lands on.
 
+### Themes
+
+The theme picker is in the top bar. **System** (the default) follows your OS's light/dark setting; or pick one of six named themes directly — Solarized, Nord, and Gruvbox, each with a dark and light variant. The module panel graphics re-theme along with the rest of the app — except a module with its own hand-drawn `module.svg` (`customImage: true`), which is a static file and always keeps its own colours.
+
 ---
 
 ## Module editor
@@ -236,9 +240,11 @@ src/
 ├── module-editor.html      Visual module builder
 ├── css/style.css
 ├── css/module-editor.css
+├── css/themes.css          Color tokens for all themes (used by both apps)
 ├── js/app.js
 ├── js/module-editor.js
 ├── js/panel-render.js      Shared SVG panel renderer (used by both apps)
+├── js/theme.js             Theme picker logic (used by both apps)
 ├── data/
 │   └── modules.json        Auto-generated — do not edit by hand
 ├── modules/                Individual module source folders

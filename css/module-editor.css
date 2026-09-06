@@ -1,15 +1,6 @@
+/* Color tokens (--bg, --panel, --text, --accent, etc.) come from css/themes.css,
+   which must be linked before this file. Only non-color tokens live here. */
 :root {
-  --bg: #161513;
-  --panel: #232019;
-  --panel-2: #1b1913;
-  --border: #3a352c;
-  --border-soft: #2a271f;
-  --text: #f2ede4;
-  --text-dim: #a8a196;
-  --text-faint: #6f6a5f;
-  --accent: #e8a33d;
-  --accent-dim: #7a5a28;
-  --danger: #d9695c;
   --sans: "IBM Plex Sans", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
 }
@@ -54,6 +45,75 @@ html, body {
 .brand-name { font-size: 14px; font-weight: 600; }
 .brand-sep { color: var(--text-faint); }
 #topbar-subtitle { color: var(--text-dim); font-size: 13px; }
+
+/* ---------- Theme picker ---------- */
+
+#theme-picker { position: relative; margin-left: auto; }
+
+.theme-picker-btn {
+  font-family: var(--sans);
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 5px;
+  padding: 7px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+
+.theme-picker-btn:hover {
+  border-color: var(--text-dim);
+  background: color-mix(in srgb, var(--text) 3%, transparent);
+}
+
+.theme-picker-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 160px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.theme-picker-menu[hidden] { display: none; }
+
+.theme-picker-group {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 6px 8px 2px;
+}
+
+.theme-picker-option {
+  font-family: var(--sans);
+  background: transparent;
+  border: none;
+  color: var(--text);
+  text-align: left;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.theme-picker-option:hover {
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+}
+
+.theme-picker-option.active {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
 
 /* --- body --- */
 #body { flex: 1 1 auto; display: flex; min-height: 0; }
@@ -165,7 +225,7 @@ html, body {
 
 .tool-btn.active {
   border-color: var(--accent-dim);
-  background: rgba(232,163,61,0.08);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
   color: var(--accent);
 }
 
@@ -258,7 +318,7 @@ html, body {
   position: relative;
   overflow: auto;
   background:
-    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0) 0 0 / 24px 24px,
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--text) 6%, transparent) 1px, transparent 0) 0 0 / 24px 24px,
     var(--bg);
 }
 
@@ -314,7 +374,7 @@ html, body {
   transition: background 0.12s;
 }
 
-.delete-btn:hover { background: rgba(217,105,92,0.1); }
+.delete-btn:hover { background: color-mix(in srgb, var(--danger) 10%, transparent); }
 
 /* --- label position picker --- */
 .pos-grid {
@@ -343,7 +403,7 @@ html, body {
 .pos-btn.active {
   border-color: var(--accent-dim);
   color: var(--accent);
-  background: rgba(232,163,61,0.08);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
 .pos-center {
@@ -387,7 +447,7 @@ html, body {
 .orient-btn.active {
   border-color: var(--accent-dim);
   color: var(--accent);
-  background: rgba(232,163,61,0.08);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
 /* --- waveform symbol picker --- */
@@ -416,7 +476,7 @@ html, body {
 .wave-pick-btn.active {
   border-color: var(--accent-dim);
   color: var(--accent);
-  background: rgba(232,163,61,0.08);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
 .wave-pick-btn svg { display: block; }
@@ -449,7 +509,7 @@ html, body {
 .action-btn:hover {
   border-color: var(--text-dim);
   color: var(--text);
-  background: rgba(255,255,255,0.03);
+  background: color-mix(in srgb, var(--text) 3%, transparent);
 }
 
 .action-btn.primary {
@@ -459,11 +519,11 @@ html, body {
 
 .action-btn.primary:hover {
   border-color: var(--accent);
-  background: rgba(232,163,61,0.08);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
 .action-btn.danger { color: var(--danger); }
-.action-btn.danger:hover { border-color: var(--danger); background: rgba(217,105,92,0.08); }
+.action-btn.danger:hover { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 8%, transparent); }
 
 #copy-feedback {
   font-size: 11px;
@@ -496,7 +556,7 @@ html, body {
   transition: opacity 0.3s;
 }
 
-#toast.error { border-color: var(--danger); color: #f0c4bd; }
+#toast.error { border-color: var(--danger); color: var(--danger); }
 
 /* scrollbar */
 .side-panel::-webkit-scrollbar,

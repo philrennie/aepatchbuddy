@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Patch Bay — color themes.
+   Shared by both apps (index.html and module-editor.html link this file).
+   Six named themes (Solarized / Nord / Gruvbox, each dark + light), plus a
+   "System" mode that follows the OS prefers-color-scheme with Solarized as
+   the default pair. All 11 tokens are also reused by the module panel
+   artwork renderer (js/panel-render.js) — see CLAUDE.md's Theming section.
+
+   - Bare :root = Solarized Dark (no-JS / no-preference fallback).
+   - @media (prefers-color-scheme: light), unless a theme is explicitly
+     chosen, swaps in Solarized Light — pure CSS, no JS needed for this.
+   - [data-theme="..."], set by js/theme.js from the user's saved choice,
+     always wins over both of the above.
+   ========================================================================== */
+
+:root {
+  /* Solarized Dark */
+  --bg: #002b36;
+  --panel-2: #073642;
+  --panel: #0a4552;
+  --border-soft: #0d3d49;
+  --border: #164f5c;
+  --text-faint: #586e75;
+  --text-dim: #839496;
+  --text: #93a1a1;
+  --accent: #b58900;
+  --accent-dim: #7b5c00;
+  --danger: #dc322f;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    /* Solarized Light */
+    --bg: #fdf6e3;
+    --panel-2: #eee8d5;
+    --panel: #e4dcc5;
+    --border-soft: #e8e1cc;
+    --border: #d3c9ad;
+    --text-faint: #93a1a1;
+    --text-dim: #657b83;
+    --text: #586e75;
+    --accent: #b58900;
+    --accent-dim: #8a6a00;
+    --danger: #dc322f;
+  }
+}
+
+[data-theme="solarized-dark"] {
+  --bg: #002b36;
+  --panel-2: #073642;
+  --panel: #0a4552;
+  --border-soft: #0d3d49;
+  --border: #164f5c;
+  --text-faint: #586e75;
+  --text-dim: #839496;
+  --text: #93a1a1;
+  --accent: #b58900;
+  --accent-dim: #7b5c00;
+  --danger: #dc322f;
+}
+
+[data-theme="solarized-light"] {
+  --bg: #fdf6e3;
+  --panel-2: #eee8d5;
+  --panel: #e4dcc5;
+  --border-soft: #e8e1cc;
+  --border: #d3c9ad;
+  --text-faint: #93a1a1;
+  --text-dim: #657b83;
+  --text: #586e75;
+  --accent: #b58900;
+  --accent-dim: #8a6a00;
+  --danger: #dc322f;
+}
+
+[data-theme="nord-dark"] {
+  --bg: #2e3440;
+  --panel-2: #313846;
+  --panel: #3b4252;
+  --border-soft: #434c5e;
+  --border: #4c566a;
+  --text-faint: #7b88a1;
+  --text-dim: #d8dee9;
+  --text: #eceff4;
+  --accent: #88c0d0;
+  --accent-dim: #5e81ac;
+  --danger: #bf616a;
+}
+
+[data-theme="nord-light"] {
+  --bg: #eceff4;
+  --panel-2: #e5e9f0;
+  --panel: #d8dee9;
+  --border-soft: #cbd3e0;
+  --border: #b8c2d6;
+  --text-faint: #4c566a;
+  --text-dim: #3b4252;
+  --text: #2e3440;
+  --accent: #5e81ac;
+  --accent-dim: #81a1c1;
+  --danger: #bf616a;
+}
+
+[data-theme="gruvbox-dark"] {
+  --bg: #1d2021;
+  --panel-2: #282828;
+  --panel: #3c3836;
+  --border-soft: #45403d;
+  --border: #504945;
+  --text-faint: #a89984;
+  --text-dim: #d5c4a1;
+  --text: #ebdbb2;
+  --accent: #fe8019;
+  --accent-dim: #d65d0e;
+  --danger: #fb4934;
+}
+
+[data-theme="gruvbox-light"] {
+  --bg: #f9f5d7;
+  --panel-2: #fbf1c7;
+  --panel: #ebdbb2;
+  --border-soft: #e3d5ae;
+  --border: #d5c4a1;
+  --text-faint: #7c6f64;
+  --text-dim: #504945;
+  --text: #3c3836;
+  --accent: #af3a03;
+  --accent-dim: #7c2d00;
+  --danger: #9d0006;
+}

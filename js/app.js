@@ -1074,6 +1074,15 @@
     }
   }
 
+  // Generated panels (moduleImageSrc's cache) are colored from the active theme —
+  // drop the cache for every module and re-render so a theme change shows up
+  // immediately in both the sidebar and the rack, not just on next reload.
+  window.addEventListener("patchbay-themechange", () => {
+    for (const mod of libraryById.values()) delete mod._generatedImage;
+    renderModuleList(el.moduleSearch.value);
+    renderAll();
+  });
+
   /* ---------------------------------------------------------------------
      Init
   --------------------------------------------------------------------- */
