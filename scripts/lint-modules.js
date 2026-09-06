@@ -23,9 +23,21 @@ function validatePosition(pos, ctx) {
   }
 }
 
+// A label may be the token `wave:<name>` (or `wave:a+b` for a composite),
+// rendered as a waveform glyph. Not required, but flag malformed tokens.
+const WAVE_PRIMS = ['sine', 'square', 'triangle', 'saw'];
+function checkWaveToken(str, ctx) {
+  if (typeof str !== 'string' || !/^wave:/.test(str.trim())) return;
+  const m = /^wave:([a-z]+(?:\+[a-z]+)*)$/.exec(str.trim());
+  if (!m || !m[1].split('+').every(p => WAVE_PRIMS.includes(p))) {
+    warn(`${ctx}: "${str}" looks like a waveform token but isn't wave:<${WAVE_PRIMS.join('|')}>[+…]`);
+  }
+}
+
 function validateConnection(conn, mod, i) {
   const ctx = `${mod}/connections[${i}]`;
   if (!conn.name || typeof conn.name !== 'string') err(`${ctx}: missing name`);
+  else checkWaveToken(conn.name, `${ctx}.name`);
   validatePosition(conn.position, ctx);
   if (conn.labelPosition !== undefined && !LABEL_POSITIONS.includes(conn.labelPosition))
     err(`${ctx}: labelPosition must be one of ${LABEL_POSITIONS.join(', ')}`);
@@ -36,10 +48,12 @@ function validateControl(ctrl, mod, i) {
   if (!ctrl.id   || typeof ctrl.id   !== 'string') err(`${ctx}: missing id`);
   if (!ctrl.type || !['knob', 'switch'].includes(ctrl.type)) err(`${ctx}: type must be 'knob' or 'switch'`);
   if (typeof ctrl.label !== 'string') err(`${ctx}: missing label`);
+  else checkWaveToken(ctrl.label, `${ctx}.label`);
   validatePosition(ctrl.position, ctx);
   if (ctrl.type === 'switch') {
     const ori = ctrl.orientation || 'vertical';
     if (!['vertical', 'horizontal'].includes(ori)) err(`${ctx}: orientation must be 'vertical' or 'horizontal'`);
+    if (typeof ctrl.label2 === 'string') checkWaveToken(ctrl.label2, `${ctx}.label2`);
   }
   if (ctrl.type === 'knob' && ctrl.labelPosition !== undefined && !LABEL_POSITIONS.includes(ctrl.labelPosition))
     err(`${ctx}: labelPosition must be one of ${LABEL_POSITIONS.join(', ')}`);

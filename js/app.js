@@ -78,6 +78,16 @@
     return `${prefix}_${Math.random().toString(36).slice(2, 8)}${Date.now().toString(36).slice(-4)}`;
   }
 
+  // A label may be the token `wave:<name>` (or `wave:a+b` for a composite) —
+  // the module SVG draws the actual glyph; here we only need a readable word
+  // for the hover tooltips.
+  const WAVE_WORDS = { sine: "Sine", square: "Square", triangle: "Triangle", saw: "Sawtooth" };
+  function labelText(s) {
+    const m = /^wave:([a-z]+(?:\+[a-z]+)*)$/.exec(String(s || ""));
+    if (!m) return s;
+    return m[1].split("+").map((p) => WAVE_WORDS[p] || p).join(" + ");
+  }
+
   function nextCableColor() {
     const c = CABLE_COLORS[cableColorCursor % CABLE_COLORS.length];
     cableColorCursor++;
@@ -389,7 +399,7 @@
 
       const label = document.createElement("div");
       label.className = "jack-label";
-      label.textContent = conn.name;
+      label.textContent = labelText(conn.name);
       jack.appendChild(label);
 
       jack.addEventListener("mousedown", onJackMouseDown);
@@ -416,7 +426,7 @@
     div.dataset.controlId = ctrl.id;
     div.style.left = `${px}px`;
     div.style.top = `${py}px`;
-    div.title = ctrl.label || ctrl.id;
+    div.title = labelText(ctrl.label) || ctrl.id;
 
     const body = document.createElement("div");
     body.className = "knob-body";
@@ -446,7 +456,7 @@
     div.style.height = `${bh}px`;
     div.style.marginLeft = `${-bw / 2}px`;
     div.style.marginTop = `${-bh / 2}px`;
-    div.title = value ? (ctrl.label2 || "1") : (ctrl.label || "0");
+    div.title = value ? (labelText(ctrl.label2) || "1") : (labelText(ctrl.label) || "0");
 
     const body = document.createElement("div");
     body.className = "switch-body";
