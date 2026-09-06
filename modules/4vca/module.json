@@ -1,0 +1,243 @@
+{
+  "id": "4vca",
+  "name": "4VCA",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p136/4VCA.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/4vca",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c9",
+      "name": "OUT 1",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT 1",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "OUT 2",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "OUT 2",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "OUT 3",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "OUT 4",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MIX",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MIX",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c33",
+      "name": "IN 1",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c34",
+      "name": "CV 1",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c35",
+      "name": "IN 2",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c36",
+      "name": "CV 2",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c37",
+      "name": "IN 3",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c38",
+      "name": "CV 3",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c39",
+      "name": "IN 4",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c40",
+      "name": "CV 4",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c21",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 130,
+        "y": 360
+      },
+      "label2": "2",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c22",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 90,
+        "y": 450
+      },
+      "label2": "3",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c26",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 90,
+        "y": 360
+      },
+      "label2": "1",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c28",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 130,
+        "y": 450
+      },
+      "label2": "4",
+      "orientation": "vertical"
+    }
+  ],
+  "labels": [
+    {
+      "id": "c41",
+      "text": "AUD",
+      "position": {
+        "x": 60,
+        "y": 350
+      },
+      "size": 11,
+      "align": "middle"
+    },
+    {
+      "id": "c42",
+      "text": "DC",
+      "position": {
+        "x": 60,
+        "y": 380
+      },
+      "size": 11,
+      "align": "middle"
+    },
+    {
+      "id": "c43",
+      "text": "AUD",
+      "position": {
+        "x": 60,
+        "y": 440
+      },
+      "size": 11,
+      "align": "middle"
+    },
+    {
+      "id": "c44",
+      "text": "DC",
+      "position": {
+        "x": 60,
+        "y": 470
+      },
+      "size": 11,
+      "align": "middle"
+    }
+  ]
+}

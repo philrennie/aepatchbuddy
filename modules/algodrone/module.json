@@ -1,0 +1,237 @@
+{
+  "id": "algodrone",
+  "name": "ALGODRONE",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p90/ALGODRONE.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/algodrone",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "CV",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "GATE",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "PAR 1",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "PAR 2",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "PAR 3",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "SIZE",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "POS",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "BUS CV",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT",
+      "position": {
+        "x": 300,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT",
+      "position": {
+        "x": 300,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "CYCLE",
+      "position": {
+        "x": 300,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "CYCLE",
+      "position": {
+        "x": 300,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "SIZE",
+      "position": {
+        "x": 260,
+        "y": 320
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c18",
+      "type": "knob",
+      "label": "PAR 1",
+      "position": {
+        "x": 160,
+        "y": 400
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "POSITION",
+      "position": {
+        "x": 260,
+        "y": 400
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "COARSE FREQ",
+      "position": {
+        "x": 50,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c23",
+      "type": "knob",
+      "label": "PAR 2",
+      "position": {
+        "x": 160,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c24",
+      "type": "knob",
+      "label": "MOTION",
+      "position": {
+        "x": 260,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c25",
+      "type": "knob",
+      "label": "FINE FREQ",
+      "position": {
+        "x": 50,
+        "y": 570
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c26",
+      "type": "knob",
+      "label": "PAR 3",
+      "position": {
+        "x": 160,
+        "y": 570
+      },
+      "labelPosition": "below"
+    }
+  ]
+}
