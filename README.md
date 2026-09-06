@@ -29,13 +29,15 @@ Jacks are always visible with a subtle ring; a jack with a cable patched into it
 
 ## Module editor
 
-Open **`module-editor.html`** alongside the main app. It lets you build a module panel SVG visually, then export the SVG image and the `module.json` entry ready to drop into the library.
+Open **`module-editor.html`** alongside the main app. It lets you build a module panel visually, then export the `module.json` entry ready to drop into the library — the panel graphic itself is optional (see below).
 
-- Use the tool buttons to place **jacks**, **knobs**, and **toggle switches**
+- Use the tool buttons to place **jacks**, **knobs**, **toggle switches**, and **labels** (free panel text)
 - Click a component to select it and edit its label, position, and orientation in the right-hand panel
 - The width field sets the module's rack-unit width (1 RU = 25 mm = 160 px); height is always 640 px (100 mm), matching the AE Modular standard
+- **Custom SVG artwork** checkbox marks the module as shipping its own hand-drawn `module.svg` (sets `customImage: true` in the exported JSON) — leave it unchecked and the main app renders the panel automatically from `module.json` alone, same as this editor's own preview
+- **Import JSON** loads an existing `module.json` back into the editor for further edits — no need to re-upload a matching SVG, since the JSON alone carries enough to reconstruct the panel
 - **Copy JSON entry** puts the `module.json` snippet on the clipboard
-- **Download SVG** saves the panel graphic
+- **Download SVG** saves the panel graphic, for modules that check "Custom SVG artwork"
 
 ---
 
@@ -55,7 +57,7 @@ Modules live in individual folders under `src/modules/`. Adding a module is a pu
 
 3. **Add `module.json`** — see the schema below.
 
-4. **Add `module.svg`** — the panel graphic. You can build it in the module editor and download the SVG from there, or supply your own. The SVG's `viewBox` / `width` / `height` must match the `width` and `height` values in `module.json`.
+4. **Add `module.svg`** — optional. If you don't supply one, the panel is rendered automatically from `module.json` (the same way the module editor's own live preview works) — nothing else to do. If you want custom artwork instead, set `"customImage": true` in `module.json` (or check "Custom SVG artwork" in the module editor) and add `module.svg` alongside it. The SVG's `viewBox` / `width` / `height` must match the `width` and `height` values in `module.json`.
 
 5. **Open a pull request** against `main`. A GitHub Actions workflow will lint your `module.json` automatically — fix any errors it reports before requesting review.
 
@@ -78,19 +80,23 @@ node scripts/lint-modules.js
   "manufacturer": "Tangible Waves",
   "url": "https://www.example.com/shop/2tone",
   "documentation": "https://www.example.com/docs/2tone",
+  "customImage": true,
   "width": 160,
   "height": 640,
   "connections": [
-    { "id": "a-in",  "name": "A IN",  "position": { "x": 40,  "y": 120 } },
-    { "id": "a-out", "name": "A OUT", "position": { "x": 120, "y": 120 } }
+    { "id": "a-in",  "name": "A IN",  "position": { "x": 40,  "y": 120 }, "labelPosition": "right" },
+    { "id": "a-out", "name": "A OUT", "position": { "x": 120, "y": 120 }, "labelPosition": "left" }
   ],
   "controls": [
-    { "id": "tone", "type": "knob", "label": "TONE", "position": { "x": 80, "y": 280 } }
+    { "id": "tone", "type": "knob", "label": "TONE", "position": { "x": 80, "y": 280 }, "labelPosition": "below" }
+  ],
+  "labels": [
+    { "text": "TONE STAGE", "position": { "x": 80, "y": 200 }, "size": 12, "align": "middle" }
   ]
 }
 ```
 
-**Do not include an `image` field** — the build script sets it from the presence of `module.svg` in the folder.
+**Do not include an `image` field** — the build script sets it, but only when `customImage` is `true`.
 
 #### Field reference
 
@@ -101,10 +107,12 @@ node scripts/lint-modules.js
 | `manufacturer` | | Name of the company that makes this module. Shown as a subtitle in the library sidebar. |
 | `url` | | Product page URL (`https://…`). Shown as a link button on rack instances and in the sidebar. |
 | `documentation` | | Documentation/manual URL (`https://…`). Available in the module editor; not currently surfaced in the main app. |
+| `customImage` | | `true` if this module ships its own hand-drawn `module.svg`. Omit (or `false`) to have the panel rendered automatically from the rest of this file instead. Build-time only — stripped before publishing to `data/modules.json`. |
 | `width` | ✓ | Panel width in native SVG pixels. Must be a multiple of 160 (1 RU = 160 px). |
 | `height` | ✓ | Panel height in native SVG pixels. Always 640 (100 mm at AE Modular scale). |
 | `connections` | ✓ | Array of jack definitions (see below). |
 | `controls` | | Array of knob and switch definitions (see below). Omit if the module has none. |
+| `labels` | | Array of free-standing text definitions (see below). Omit if the module has none. |
 
 #### `connections[]`
 
@@ -113,6 +121,7 @@ node scripts/lint-modules.js
 | `id` | ✓ | Unique identifier for this jack **within the module**. Used internally by the patch format — different from the display name. Required when any two jacks share the same `name` (e.g. a mult); recommended for all jacks. |
 | `name` | ✓ | Display name shown on hover (e.g. `"A IN"`, `"MULT"`). Does not need to be unique. May also be a [waveform token](#waveform-symbol-labels). |
 | `position` | ✓ | `{ "x": number, "y": number }` — centre of the jack in native SVG pixel space (top-left origin, before any scaling). |
+| `labelPosition` | | Where the module editor draws the caption relative to the jack: `"above"`, `"left"`, `"right"`, or `"below"` (default). Only affects the generated SVG — the main app positions jack labels with CSS regardless of this value. |
 
 #### `controls[]`
 
@@ -124,6 +133,23 @@ node scripts/lint-modules.js
 | `label2` | (switch) | Label for position 1 of a switch. May also be a [waveform token](#waveform-symbol-labels). |
 | `orientation` | (switch) | `"vertical"` (default) or `"horizontal"`. |
 | `position` | ✓ | `{ "x": number, "y": number }` — centre of the control in native SVG pixel space. |
+| `labelPosition` | (knob) | Same as `connections[].labelPosition`, above. Not applicable to switches, which position `label`/`label2` from `orientation` instead. |
+
+#### `labels[]`
+
+Arbitrary panel text not attached to a jack or control — section headings, dividers, etc.
+
+| Field | Required | Description |
+|---|---|---|
+| `text` | ✓ | The text to render. |
+| `position` | ✓ | `{ "x": number, "y": number }` — anchor point in native SVG pixel space. |
+| `size` | | Font size in px. Defaults to `11`. |
+| `align` | | SVG `text-anchor` value: `"start"`, `"middle"` (default), or `"end"`. |
+
+Like `labelPosition`, this field is not read by the main patch app — the text is already baked
+into `module.svg` as static graphics. It exists so that `module.json` alone is enough to reopen
+a module in the module editor (**Import JSON**) and reconstruct the full panel, without needing
+to re-upload the matching SVG.
 
 #### Waveform symbol labels
 
@@ -209,13 +235,16 @@ src/
 ├── index.html              Main app
 ├── module-editor.html      Visual module builder
 ├── css/style.css
+├── css/module-editor.css
 ├── js/app.js
+├── js/module-editor.js
+├── js/panel-render.js      Shared SVG panel renderer (used by both apps)
 ├── data/
 │   └── modules.json        Auto-generated — do not edit by hand
 ├── modules/                Individual module source folders
 │   └── {module-id}/
 │       ├── module.json     Module definition (source of truth)
-│       └── module.svg      Panel graphic (required)
+│       └── module.svg      Panel graphic (optional — only used when customImage: true)
 └── scripts/
     ├── build-modules.js    Combines module folders → data/modules.json
     └── lint-modules.js     Validates all module.json files

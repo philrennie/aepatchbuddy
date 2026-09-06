@@ -1,9 +1,9 @@
 {
-  "id": "2cvtool",
-  "name": "2CVTOOL",
+  "id": "2tone",
+  "name": "2TONE",
   "manufacturer": "Tangible Waves",
-  "url": "https://www.tangiblewaves.com/store/p93/2CVTOOL.html",
-  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2cvtool",
+  "url": "https://www.tangiblewaves.com/store/p133/2TONE.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2tone",
   "width": 160,
   "height": 640,
   "connections": [
@@ -27,7 +27,7 @@
     },
     {
       "id": "c3",
-      "name": "c3",
+      "name": "MULT",
       "position": {
         "x": 20,
         "y": 120
@@ -36,7 +36,7 @@
     },
     {
       "id": "c4",
-      "name": "c4",
+      "name": "MULT",
       "position": {
         "x": 20,
         "y": 150
@@ -45,7 +45,7 @@
     },
     {
       "id": "c5",
-      "name": "c5",
+      "name": "MULT",
       "position": {
         "x": 20,
         "y": 180
@@ -54,7 +54,7 @@
     },
     {
       "id": "c6",
-      "name": "c6",
+      "name": "MULT",
       "position": {
         "x": 20,
         "y": 210
@@ -63,7 +63,7 @@
     },
     {
       "id": "c7",
-      "name": "BUS CV",
+      "name": "MULT",
       "position": {
         "x": 20,
         "y": 240
@@ -72,7 +72,7 @@
     },
     {
       "id": "c8",
-      "name": "BUS CTRL",
+      "name": "MULT",
       "position": {
         "x": 20,
         "y": 270
@@ -156,7 +156,7 @@
     {
       "id": "c17",
       "type": "knob",
-      "label": "OFFSET 1",
+      "label": "HIGH",
       "position": {
         "x": 80,
         "y": 340
@@ -166,7 +166,7 @@
     {
       "id": "c18",
       "type": "knob",
-      "label": "LEVEL 1",
+      "label": "LOW",
       "position": {
         "x": 80,
         "y": 410
@@ -176,7 +176,7 @@
     {
       "id": "c19",
       "type": "knob",
-      "label": "OFFSET 2",
+      "label": "HIGH",
       "position": {
         "x": 80,
         "y": 510
@@ -186,7 +186,7 @@
     {
       "id": "c20",
       "type": "knob",
-      "label": "LEVEL 2",
+      "label": "LOW",
       "position": {
         "x": 80,
         "y": 580

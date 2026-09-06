@@ -1,7 +1,6 @@
 {
   "id": "trig164",
   "name": "TRIG164",
-  "image": "images/trig164.svg",
   "manufacturer": "Tangible Waves",
   "url": "https://www.tangiblewaves.com/store/p52/TRIQ164.html",
   "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/triq164",
@@ -14,7 +13,8 @@
       "position": {
         "x": 20,
         "y": 60
-      }
+      },
+      "labelPosition": "right"
     },
     {
       "id": "c2",
@@ -22,7 +22,8 @@
       "position": {
         "x": 20,
         "y": 90
-      }
+      },
+      "labelPosition": "right"
     },
     {
       "id": "c3",
@@ -30,7 +31,8 @@
       "position": {
         "x": 20,
         "y": 120
-      }
+      },
+      "labelPosition": "right"
     },
     {
       "id": "c4",
@@ -38,7 +40,8 @@
       "position": {
         "x": 20,
         "y": 150
-      }
+      },
+      "labelPosition": "right"
     },
     {
       "id": "c5",
@@ -46,7 +49,8 @@
       "position": {
         "x": 20,
         "y": 180
-      }
+      },
+      "labelPosition": "right"
     },
     {
       "id": "c6",
@@ -54,7 +58,8 @@
       "position": {
         "x": 20,
         "y": 210
-      }
+      },
+      "labelPosition": "right"
     },
     {
       "id": "c7",
@@ -62,7 +67,8 @@
       "position": {
         "x": 20,
         "y": 240
-      }
+      },
+      "labelPosition": "right"
     },
     {
       "id": "c8",
@@ -70,7 +76,8 @@
       "position": {
         "x": 20,
         "y": 270
-      }
+      },
+      "labelPosition": "right"
     },
     {
       "id": "c9",
@@ -78,7 +85,8 @@
       "position": {
         "x": 290,
         "y": 60
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c10",
@@ -86,7 +94,8 @@
       "position": {
         "x": 290,
         "y": 90
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c11",
@@ -94,7 +103,8 @@
       "position": {
         "x": 290,
         "y": 120
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c12",
@@ -102,7 +112,8 @@
       "position": {
         "x": 290,
         "y": 150
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c13",
@@ -110,7 +121,8 @@
       "position": {
         "x": 290,
         "y": 180
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c14",
@@ -118,7 +130,8 @@
       "position": {
         "x": 290,
         "y": 210
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c15",
@@ -126,7 +139,8 @@
       "position": {
         "x": 290,
         "y": 240
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c16",
@@ -134,7 +148,8 @@
       "position": {
         "x": 290,
         "y": 270
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c18",
@@ -142,7 +157,8 @@
       "position": {
         "x": 290,
         "y": 390
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c19",
@@ -150,7 +166,8 @@
       "position": {
         "x": 290,
         "y": 600
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c20",
@@ -158,7 +175,8 @@
       "position": {
         "x": 290,
         "y": 570
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c21",
@@ -166,7 +184,8 @@
       "position": {
         "x": 290,
         "y": 540
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c22",
@@ -174,7 +193,8 @@
       "position": {
         "x": 290,
         "y": 510
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c23",
@@ -182,7 +202,8 @@
       "position": {
         "x": 290,
         "y": 480
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c24",
@@ -190,7 +211,8 @@
       "position": {
         "x": 290,
         "y": 450
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c25",
@@ -198,7 +220,8 @@
       "position": {
         "x": 290,
         "y": 420
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c26",
@@ -206,7 +229,8 @@
       "position": {
         "x": 230,
         "y": 340
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c27",
@@ -214,7 +238,8 @@
       "position": {
         "x": 230,
         "y": 370
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c28",
@@ -222,7 +247,8 @@
       "position": {
         "x": 230,
         "y": 400
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c29",
@@ -230,7 +256,8 @@
       "position": {
         "x": 230,
         "y": 430
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c30",
@@ -238,7 +265,8 @@
       "position": {
         "x": 230,
         "y": 460
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c31",
@@ -246,7 +274,8 @@
       "position": {
         "x": 230,
         "y": 490
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c32",
@@ -254,7 +283,8 @@
       "position": {
         "x": 230,
         "y": 520
-      }
+      },
+      "labelPosition": "left"
     },
     {
       "id": "c33",
@@ -262,7 +292,8 @@
       "position": {
         "x": 230,
         "y": 550
-      }
+      },
+      "labelPosition": "left"
     }
   ],
   "controls": [
@@ -273,7 +304,8 @@
       "position": {
         "x": 160,
         "y": 590
-      }
+      },
+      "labelPosition": "below"
     }
   ]
 }

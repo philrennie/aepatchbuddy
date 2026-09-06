@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Combines modules/*/module.json into data/modules.json.
-// Each module folder must contain both module.json and module.svg.
+// module.svg is only required when a module declares customImage: true.
 // Run: node scripts/build-modules.js
 'use strict';
 const fs   = require('fs');
@@ -23,15 +23,8 @@ let failed = false;
 
 for (const dir of dirs) {
   const jsonPath = path.join(modulesDir, dir, 'module.json');
-  const svgPath  = path.join(modulesDir, dir, 'module.svg');
 
   if (!fs.existsSync(jsonPath)) continue;
-
-  if (!fs.existsSync(svgPath)) {
-    console.error(`ERROR: ${dir}/module.svg is missing`);
-    failed = true;
-    continue;
-  }
 
   let mod;
   try {
@@ -42,7 +35,13 @@ for (const dir of dirs) {
     continue;
   }
 
-  mod.image = `modules/${dir}/module.svg`;
+  // module.svg is only expected when the module declares customImage: true — otherwise
+  // the patch app generates the panel inline (js/panel-render.js). lint-modules.js is
+  // what actually validates the flag against the filesystem before this ever runs in CI.
+  if (mod.customImage) {
+    mod.image = `modules/${dir}/module.svg`;
+  }
+  delete mod.customImage;
   modules.push(mod);
 }
 

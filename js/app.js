@@ -125,6 +125,18 @@
     return { w: mod.width * MODULE_SCALE, h: mod.height * MODULE_SCALE };
   }
 
+  // Modules with a static module.svg use it directly; modules without one (no `image`
+  // field) get their panel generated inline via the shared renderer (js/panel-render.js),
+  // memoized on the module object so it's only built once regardless of instance count.
+  function moduleImageSrc(mod) {
+    if (mod.image) return mod.image;
+    if (!mod._generatedImage) {
+      const svg = PanelRender.buildSVGString(mod);
+      mod._generatedImage = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+    }
+    return mod._generatedImage;
+  }
+
   function jackCanvasPos(instance, connector) {
     const mod = libraryById.get(instance.moduleId);
     return {
@@ -184,7 +196,7 @@
 
       const thumb = document.createElement("img");
       thumb.className = "module-thumb";
-      thumb.src = mod.image;
+      thumb.src = moduleImageSrc(mod);
       thumb.alt = mod.name;
       thumb.loading = "lazy";
 
@@ -324,10 +336,8 @@
     wrap.style.height = `${size.h}px`;
 
     const img = document.createElement("img");
-    img.src = mod.image;
+    img.src = moduleImageSrc(mod);
     img.alt = mod.name;
-    img.width = size.w;
-    img.height = size.h;
     wrap.appendChild(img);
 
     const removeBtn = document.createElement("div");

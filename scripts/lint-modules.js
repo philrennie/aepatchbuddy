@@ -14,6 +14,9 @@ let errors = 0;
 function err(msg)  { console.error(`  ERROR: ${msg}`); errors++; }
 function warn(msg) { console.warn (`  WARN:  ${msg}`); }
 
+const LABEL_POSITIONS = ['above', 'left', 'right', 'below'];
+const LABEL_ALIGNS    = ['start', 'middle', 'end'];
+
 function validatePosition(pos, ctx) {
   if (!pos || typeof pos.x !== 'number' || typeof pos.y !== 'number') {
     err(`${ctx}: position must be {x: number, y: number}`);
@@ -36,6 +39,8 @@ function validateConnection(conn, mod, i) {
   if (!conn.name || typeof conn.name !== 'string') err(`${ctx}: missing name`);
   else checkWaveToken(conn.name, `${ctx}.name`);
   validatePosition(conn.position, ctx);
+  if (conn.labelPosition !== undefined && !LABEL_POSITIONS.includes(conn.labelPosition))
+    err(`${ctx}: labelPosition must be one of ${LABEL_POSITIONS.join(', ')}`);
 }
 
 function validateControl(ctrl, mod, i) {
@@ -50,6 +55,18 @@ function validateControl(ctrl, mod, i) {
     if (!['vertical', 'horizontal'].includes(ori)) err(`${ctx}: orientation must be 'vertical' or 'horizontal'`);
     if (typeof ctrl.label2 === 'string') checkWaveToken(ctrl.label2, `${ctx}.label2`);
   }
+  if (ctrl.type === 'knob' && ctrl.labelPosition !== undefined && !LABEL_POSITIONS.includes(ctrl.labelPosition))
+    err(`${ctx}: labelPosition must be one of ${LABEL_POSITIONS.join(', ')}`);
+}
+
+function validateLabel(lbl, mod, i) {
+  const ctx = `${mod}/labels[${i}]`;
+  if (!lbl.text || typeof lbl.text !== 'string') err(`${ctx}: missing text`);
+  validatePosition(lbl.position, ctx);
+  if (lbl.size !== undefined && (typeof lbl.size !== 'number' || lbl.size <= 0))
+    err(`${ctx}: size must be a positive number`);
+  if (lbl.align !== undefined && !LABEL_ALIGNS.includes(lbl.align))
+    err(`${ctx}: align must be one of ${LABEL_ALIGNS.join(', ')}`);
 }
 
 const dirs = fs.readdirSync(modulesDir)
@@ -64,20 +81,28 @@ for (const dir of dirs) {
 
   if (!fs.existsSync(jsonPath)) { err(`${dir}: missing module.json`); continue; }
 
-  // SVG check
-  if (!fs.existsSync(svgPath)) {
-    err(`${dir}: missing module.svg`);
-  } else {
-    const svg = fs.readFileSync(svgPath, 'utf8');
-    if (!svg.trimStart().startsWith('<svg') && !svg.includes('<svg ')) {
-      err(`${dir}/module.svg: does not appear to be a valid SVG`);
-    }
-  }
-
   // Parse JSON
   let mod;
   try { mod = JSON.parse(fs.readFileSync(jsonPath, 'utf8')); }
   catch (e) { err(`${dir}/module.json: invalid JSON — ${e.message}`); continue; }
+
+  // SVG check — module.svg is only expected when customImage is declared; otherwise the
+  // patch app generates the panel inline and a stray file here would just be ignored.
+  if (mod.customImage !== undefined && typeof mod.customImage !== 'boolean')
+    err(`${dir}: customImage must be a boolean`);
+
+  if (mod.customImage) {
+    if (!fs.existsSync(svgPath)) {
+      err(`${dir}: customImage is true but module.svg is missing`);
+    } else {
+      const svg = fs.readFileSync(svgPath, 'utf8');
+      if (!svg.trimStart().startsWith('<svg') && !svg.includes('<svg ')) {
+        err(`${dir}/module.svg: does not appear to be a valid SVG`);
+      }
+    }
+  } else if (fs.existsSync(svgPath)) {
+    warn(`${dir}: module.svg exists but customImage is not set — it will be ignored (auto-generated panel used instead)`);
+  }
 
   // Required fields
   if (!mod.id   || typeof mod.id   !== 'string') err(`${dir}: missing id`);
@@ -93,6 +118,11 @@ for (const dir of dirs) {
   if (mod.controls !== undefined) {
     if (!Array.isArray(mod.controls)) err(`${dir}: controls must be an array`);
     else mod.controls.forEach((c, i) => validateControl(c, dir, i));
+  }
+
+  if (mod.labels !== undefined) {
+    if (!Array.isArray(mod.labels)) err(`${dir}: labels must be an array`);
+    else mod.labels.forEach((l, i) => validateLabel(l, dir, i));
   }
 
   if (mod.manufacturer !== undefined && typeof mod.manufacturer !== 'string')

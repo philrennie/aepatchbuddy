@@ -1,0 +1,165 @@
+{
+  "id": "4i-o",
+  "name": "4I/O",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p46/4I%2FO.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/4io",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c9",
+      "name": "I/O 1",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "I/O 2",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "I/O 3",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "I/O 4",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c29",
+      "name": "I/O 1 (1+2 STR)",
+      "position": {
+        "x": 70,
+        "y": 330
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c30",
+      "name": "I/O 2",
+      "position": {
+        "x": 70,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c31",
+      "name": "I/O 3 (3+4 STR)",
+      "position": {
+        "x": 70,
+        "y": 490
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c32",
+      "name": "I/O 4",
+      "position": {
+        "x": 70,
+        "y": 570
+      },
+      "labelPosition": "below"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c21",
+      "type": "switch",
+      "label": "AUD",
+      "position": {
+        "x": 140,
+        "y": 410
+      },
+      "label2": "DC",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c22",
+      "type": "switch",
+      "label": "AUD",
+      "position": {
+        "x": 140,
+        "y": 490
+      },
+      "label2": "DC",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c26",
+      "type": "switch",
+      "label": "AUD",
+      "position": {
+        "x": 140,
+        "y": 330
+      },
+      "label2": "DC",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c28",
+      "type": "switch",
+      "label": "AUD",
+      "position": {
+        "x": 140,
+        "y": 570
+      },
+      "label2": "DC",
+      "orientation": "vertical"
+    }
+  ]
+}
