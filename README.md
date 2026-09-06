@@ -232,7 +232,9 @@ src/
 ├── index.html              Main app
 ├── module-editor.html      Visual module builder
 ├── css/style.css
+├── css/module-editor.css
 ├── js/app.js
+├── js/module-editor.js
 ├── data/
 │   └── modules.json        Auto-generated — do not edit by hand
 ├── modules/                Individual module source folders
