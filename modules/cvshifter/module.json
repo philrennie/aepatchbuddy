@@ -1,0 +1,155 @@
+{
+  "id": "cvshifter",
+  "name": "CVSHIFTER",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p148/CVSHIFTER.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/cvshifter",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "CV",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "TRIG",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "TRIG SLOW",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "RESET",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "c5",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "c6",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "BS CV",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "BS GT",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "CV1",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "CV2",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "CV3",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "CV4",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "TRIG1",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "TRIG2",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "TRIG3",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "TRIG4",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ]
+}

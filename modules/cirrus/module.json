@@ -1,0 +1,329 @@
+{
+  "id": "cirrus",
+  "name": "CIRRUS",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p142/CIRRUS.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/cirrus",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "IN L",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "IN R",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "1V/OCT CV",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "PITCH CV",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "HOLD",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "TRIG",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "BUS CTRL",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "BUS CV",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT L",
+      "position": {
+        "x": 300,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT L",
+      "position": {
+        "x": 300,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "OUT R",
+      "position": {
+        "x": 300,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "OUT R",
+      "position": {
+        "x": 300,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c19",
+      "name": "POS",
+      "position": {
+        "x": 20,
+        "y": 300
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c20",
+      "name": "SIZE",
+      "position": {
+        "x": 20,
+        "y": 330
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c21",
+      "name": "SHAPE",
+      "position": {
+        "x": 20,
+        "y": 360
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c22",
+      "name": "DENS",
+      "position": {
+        "x": 20,
+        "y": 390
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c23",
+      "name": "FDBK",
+      "position": {
+        "x": 20,
+        "y": 420
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c24",
+      "name": "PAN",
+      "position": {
+        "x": 20,
+        "y": 450
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c25",
+      "name": "MIX",
+      "position": {
+        "x": 20,
+        "y": 480
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c26",
+      "name": "REVERB",
+      "position": {
+        "x": 20,
+        "y": 510
+      },
+      "labelPosition": "right"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c27",
+      "type": "knob",
+      "label": "FEEDBACK",
+      "position": {
+        "x": 100,
+        "y": 590
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c28",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 160,
+        "y": 590
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c29",
+      "type": "knob",
+      "label": "MIX",
+      "position": {
+        "x": 220,
+        "y": 590
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c30",
+      "type": "knob",
+      "label": "REVERB",
+      "position": {
+        "x": 280,
+        "y": 590
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c31",
+      "type": "knob",
+      "label": "SIZE",
+      "position": {
+        "x": 250,
+        "y": 520
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c32",
+      "type": "knob",
+      "label": "POSITION",
+      "position": {
+        "x": 190,
+        "y": 520
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c33",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 280,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c34",
+      "type": "knob",
+      "label": "DENSITY",
+      "position": {
+        "x": 220,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c35",
+      "type": "knob",
+      "label": "SHAPE",
+      "position": {
+        "x": 160,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c36",
+      "type": "knob",
+      "label": "INPUT",
+      "position": {
+        "x": 100,
+        "y": 460
+      },
+      "labelPosition": "below"
+    }
+  ]
+}
