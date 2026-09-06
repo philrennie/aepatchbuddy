@@ -1,9 +1,9 @@
 {
-  "id": "2cvtool",
-  "name": "2CVTOOL",
+  "id": "4buffer",
+  "name": "4BUFFER",
   "manufacturer": "Tangible Waves",
-  "url": "https://www.tangiblewaves.com/store/p93/2CVTOOL.html",
-  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2cvtool",
+  "url": "https://www.tangiblewaves.com/store/p95/4BUFFER.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/4buffer?id=_4buffer",
   "width": 160,
   "height": 640,
   "connections": [
@@ -27,7 +27,7 @@
     },
     {
       "id": "c3",
-      "name": "c3",
+      "name": "IN 3",
       "position": {
         "x": 20,
         "y": 120
@@ -36,7 +36,7 @@
     },
     {
       "id": "c4",
-      "name": "c4",
+      "name": "IN 4",
       "position": {
         "x": 20,
         "y": 150
@@ -63,7 +63,7 @@
     },
     {
       "id": "c7",
-      "name": "BUS CV",
+      "name": "B.CTRL",
       "position": {
         "x": 20,
         "y": 240
@@ -72,7 +72,7 @@
     },
     {
       "id": "c8",
-      "name": "BUS CTRL",
+      "name": "B.GATE",
       "position": {
         "x": 20,
         "y": 270
@@ -117,7 +117,7 @@
     },
     {
       "id": "c13",
-      "name": "MULT",
+      "name": "OUT 3",
       "position": {
         "x": 140,
         "y": 180
@@ -126,7 +126,7 @@
     },
     {
       "id": "c14",
-      "name": "MULT",
+      "name": "OUT 3",
       "position": {
         "x": 140,
         "y": 210
@@ -135,7 +135,7 @@
     },
     {
       "id": "c15",
-      "name": "MULT",
+      "name": "OUT 4",
       "position": {
         "x": 140,
         "y": 240
@@ -144,7 +144,7 @@
     },
     {
       "id": "c16",
-      "name": "MULT",
+      "name": "OUT 4",
       "position": {
         "x": 140,
         "y": 270
@@ -154,44 +154,37 @@
   ],
   "controls": [
     {
-      "id": "c17",
-      "type": "knob",
-      "label": "OFFSET 1",
+      "id": "c21",
+      "type": "switch",
+      "label": "LINK 2 > 3",
       "position": {
         "x": 80,
-        "y": 340
+        "y": 470
       },
-      "labelPosition": "below"
+      "label2": "",
+      "orientation": "vertical"
     },
     {
-      "id": "c18",
-      "type": "knob",
-      "label": "LEVEL 1",
-      "position": {
-        "x": 80,
-        "y": 410
-      },
-      "labelPosition": "below"
-    },
-    {
-      "id": "c19",
-      "type": "knob",
-      "label": "OFFSET 2",
-      "position": {
-        "x": 80,
-        "y": 510
-      },
-      "labelPosition": "below"
-    },
-    {
-      "id": "c20",
-      "type": "knob",
-      "label": "LEVEL 2",
+      "id": "c22",
+      "type": "switch",
+      "label": "LINK 3 > 4",
       "position": {
         "x": 80,
         "y": 580
       },
-      "labelPosition": "below"
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c26",
+      "type": "switch",
+      "label": "LINK 1 > 2",
+      "position": {
+        "x": 80,
+        "y": 390
+      },
+      "label2": "",
+      "orientation": "vertical"
     }
   ]
 }

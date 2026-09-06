@@ -1,9 +1,9 @@
 {
-  "id": "2cvtool",
-  "name": "2CVTOOL",
+  "id": "4attmix",
+  "name": "4ATTMIX",
   "manufacturer": "Tangible Waves",
-  "url": "https://www.tangiblewaves.com/store/p93/2CVTOOL.html",
-  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2cvtool",
+  "url": "https://www.tangiblewaves.com/store/p53/4ATTMIX.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/4attmix",
   "width": 160,
   "height": 640,
   "connections": [
@@ -27,7 +27,7 @@
     },
     {
       "id": "c3",
-      "name": "c3",
+      "name": "IN 3",
       "position": {
         "x": 20,
         "y": 120
@@ -36,7 +36,7 @@
     },
     {
       "id": "c4",
-      "name": "c4",
+      "name": "IN 4",
       "position": {
         "x": 20,
         "y": 150
@@ -45,7 +45,7 @@
     },
     {
       "id": "c5",
-      "name": "c5",
+      "name": "+5V",
       "position": {
         "x": 20,
         "y": 180
@@ -54,7 +54,7 @@
     },
     {
       "id": "c6",
-      "name": "c6",
+      "name": "+5V",
       "position": {
         "x": 20,
         "y": 210
@@ -63,7 +63,7 @@
     },
     {
       "id": "c7",
-      "name": "BUS CV",
+      "name": "BUS CTRL",
       "position": {
         "x": 20,
         "y": 240
@@ -72,7 +72,7 @@
     },
     {
       "id": "c8",
-      "name": "BUS CTRL",
+      "name": "BUS GATE",
       "position": {
         "x": 20,
         "y": 270
@@ -90,7 +90,7 @@
     },
     {
       "id": "c10",
-      "name": "OUT 1",
+      "name": "OUT 2",
       "position": {
         "x": 140,
         "y": 90
@@ -99,7 +99,7 @@
     },
     {
       "id": "c11",
-      "name": "OUT 2",
+      "name": "OUT 3",
       "position": {
         "x": 140,
         "y": 120
@@ -108,7 +108,7 @@
     },
     {
       "id": "c12",
-      "name": "OUT 2",
+      "name": "OUT 4",
       "position": {
         "x": 140,
         "y": 150
@@ -117,7 +117,7 @@
     },
     {
       "id": "c13",
-      "name": "MULT",
+      "name": "MIX",
       "position": {
         "x": 140,
         "y": 180
@@ -126,7 +126,7 @@
     },
     {
       "id": "c14",
-      "name": "MULT",
+      "name": "MIX",
       "position": {
         "x": 140,
         "y": 210
@@ -135,7 +135,7 @@
     },
     {
       "id": "c15",
-      "name": "MULT",
+      "name": "MIX",
       "position": {
         "x": 140,
         "y": 240
@@ -144,7 +144,7 @@
     },
     {
       "id": "c16",
-      "name": "MULT",
+      "name": "MIX",
       "position": {
         "x": 140,
         "y": 270
@@ -154,31 +154,11 @@
   ],
   "controls": [
     {
-      "id": "c17",
-      "type": "knob",
-      "label": "OFFSET 1",
-      "position": {
-        "x": 80,
-        "y": 340
-      },
-      "labelPosition": "below"
-    },
-    {
-      "id": "c18",
-      "type": "knob",
-      "label": "LEVEL 1",
-      "position": {
-        "x": 80,
-        "y": 410
-      },
-      "labelPosition": "below"
-    },
-    {
       "id": "c19",
       "type": "knob",
-      "label": "OFFSET 2",
+      "label": "LEVEL 3",
       "position": {
-        "x": 80,
+        "x": 50,
         "y": 510
       },
       "labelPosition": "below"
@@ -186,12 +166,87 @@
     {
       "id": "c20",
       "type": "knob",
-      "label": "LEVEL 2",
+      "label": "LEVEL 4",
       "position": {
-        "x": 80,
-        "y": 580
+        "x": 50,
+        "y": 590
       },
       "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "switch",
+      "label": "MIX",
+      "position": {
+        "x": 120,
+        "y": 520
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c22",
+      "type": "switch",
+      "label": "MIX",
+      "position": {
+        "x": 120,
+        "y": 600
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c23",
+      "type": "knob",
+      "label": "LEVEL 2",
+      "position": {
+        "x": 50,
+        "y": 430
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c24",
+      "type": "knob",
+      "label": "LEVEL 1",
+      "position": {
+        "x": 50,
+        "y": 350
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c25",
+      "type": "switch",
+      "label": "MIX",
+      "position": {
+        "x": 120,
+        "y": 360
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c26",
+      "type": "switch",
+      "label": "MIX",
+      "position": {
+        "x": 120,
+        "y": 440
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c27",
+      "type": "switch",
+      "label": "DC",
+      "position": {
+        "x": 70,
+        "y": 310
+      },
+      "label2": "AUDIO",
+      "orientation": "horizontal"
     }
   ]
 }

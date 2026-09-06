@@ -1,9 +1,9 @@
 {
-  "id": "2cvtool",
-  "name": "2CVTOOL",
+  "id": "2vca",
+  "name": "2VCA",
   "manufacturer": "Tangible Waves",
-  "url": "https://www.tangiblewaves.com/store/p93/2CVTOOL.html",
-  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2cvtool",
+  "url": "https://www.tangiblewaves.com/store/p11/2VCA_.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2vca",
   "width": 160,
   "height": 640,
   "connections": [
@@ -18,7 +18,7 @@
     },
     {
       "id": "c2",
-      "name": "IN 2",
+      "name": "CV 1",
       "position": {
         "x": 20,
         "y": 90
@@ -27,7 +27,7 @@
     },
     {
       "id": "c3",
-      "name": "c3",
+      "name": "IN 2",
       "position": {
         "x": 20,
         "y": 120
@@ -36,7 +36,7 @@
     },
     {
       "id": "c4",
-      "name": "c4",
+      "name": "CV 2",
       "position": {
         "x": 20,
         "y": 150
@@ -154,44 +154,46 @@
   ],
   "controls": [
     {
-      "id": "c17",
-      "type": "knob",
-      "label": "OFFSET 1",
-      "position": {
-        "x": 80,
-        "y": 340
-      },
-      "labelPosition": "below"
-    },
-    {
-      "id": "c18",
-      "type": "knob",
-      "label": "LEVEL 1",
-      "position": {
-        "x": 80,
-        "y": 410
-      },
-      "labelPosition": "below"
-    },
-    {
       "id": "c19",
       "type": "knob",
-      "label": "OFFSET 2",
+      "label": "CV 1",
       "position": {
-        "x": 80,
-        "y": 510
+        "x": 50,
+        "y": 410
       },
       "labelPosition": "below"
     },
     {
       "id": "c20",
       "type": "knob",
-      "label": "LEVEL 2",
+      "label": "CV 2",
       "position": {
-        "x": 80,
-        "y": 580
+        "x": 50,
+        "y": 520
       },
       "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "switch",
+      "label": "AUDIO",
+      "position": {
+        "x": 110,
+        "y": 410
+      },
+      "label2": "DC",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c22",
+      "type": "switch",
+      "label": "AUDIO",
+      "position": {
+        "x": 110,
+        "y": 520
+      },
+      "label2": "DC",
+      "orientation": "vertical"
     }
   ]
 }

@@ -14,7 +14,8 @@
         "position": {
           "x": 20,
           "y": 60
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c2",
@@ -22,7 +23,8 @@
         "position": {
           "x": 20,
           "y": 90
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c3",
@@ -30,7 +32,8 @@
         "position": {
           "x": 20,
           "y": 120
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c4",
@@ -38,7 +41,8 @@
         "position": {
           "x": 20,
           "y": 150
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c5",
@@ -46,7 +50,8 @@
         "position": {
           "x": 20,
           "y": 180
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c6",
@@ -54,7 +59,8 @@
         "position": {
           "x": 20,
           "y": 210
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c7",
@@ -62,7 +68,8 @@
         "position": {
           "x": 20,
           "y": 240
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c8",
@@ -70,7 +77,8 @@
         "position": {
           "x": 20,
           "y": 270
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c9",
@@ -78,7 +86,8 @@
         "position": {
           "x": 140,
           "y": 60
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c10",
@@ -86,7 +95,8 @@
         "position": {
           "x": 140,
           "y": 90
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c11",
@@ -94,7 +104,8 @@
         "position": {
           "x": 140,
           "y": 120
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c12",
@@ -102,7 +113,8 @@
         "position": {
           "x": 140,
           "y": 150
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c13",
@@ -110,7 +122,8 @@
         "position": {
           "x": 140,
           "y": 180
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c14",
@@ -118,7 +131,8 @@
         "position": {
           "x": 140,
           "y": 210
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c15",
@@ -126,7 +140,8 @@
         "position": {
           "x": 140,
           "y": 240
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c16",
@@ -134,7 +149,8 @@
         "position": {
           "x": 140,
           "y": 270
-        }
+        },
+        "labelPosition": "left"
       }
     ],
     "controls": [
@@ -145,7 +161,8 @@
         "position": {
           "x": 50,
           "y": 570
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c18",
@@ -154,7 +171,8 @@
         "position": {
           "x": 50,
           "y": 500
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c19",
@@ -178,8 +196,7 @@
         "label2": "+5V",
         "orientation": "vertical"
       }
-    ],
-    "image": "modules/2att-cv/module.svg"
+    ]
   },
   {
     "id": "2cvadd-hq",
@@ -196,7 +213,8 @@
         "position": {
           "x": 20,
           "y": 60
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c2",
@@ -204,7 +222,8 @@
         "position": {
           "x": 20,
           "y": 90
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c3",
@@ -212,7 +231,8 @@
         "position": {
           "x": 20,
           "y": 120
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c4",
@@ -220,7 +240,8 @@
         "position": {
           "x": 20,
           "y": 150
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c5",
@@ -228,7 +249,8 @@
         "position": {
           "x": 20,
           "y": 180
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c6",
@@ -236,7 +258,8 @@
         "position": {
           "x": 20,
           "y": 210
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c7",
@@ -244,7 +267,8 @@
         "position": {
           "x": 20,
           "y": 240
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c8",
@@ -252,7 +276,8 @@
         "position": {
           "x": 20,
           "y": 270
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c9",
@@ -260,7 +285,8 @@
         "position": {
           "x": 140,
           "y": 60
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c10",
@@ -268,7 +294,8 @@
         "position": {
           "x": 140,
           "y": 90
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c11",
@@ -276,7 +303,8 @@
         "position": {
           "x": 140,
           "y": 120
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c12",
@@ -284,7 +312,8 @@
         "position": {
           "x": 140,
           "y": 150
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c13",
@@ -292,7 +321,8 @@
         "position": {
           "x": 140,
           "y": 180
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c14",
@@ -300,7 +330,8 @@
         "position": {
           "x": 140,
           "y": 210
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c15",
@@ -308,7 +339,8 @@
         "position": {
           "x": 140,
           "y": 240
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c16",
@@ -316,10 +348,10 @@
         "position": {
           "x": 140,
           "y": 270
-        }
+        },
+        "labelPosition": "left"
       }
-    ],
-    "image": "modules/2cvadd-hq/module.svg"
+    ]
   },
   {
     "id": "2cvtool",
@@ -336,7 +368,8 @@
         "position": {
           "x": 20,
           "y": 60
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c2",
@@ -344,7 +377,8 @@
         "position": {
           "x": 20,
           "y": 90
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c3",
@@ -352,7 +386,8 @@
         "position": {
           "x": 20,
           "y": 120
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c4",
@@ -360,7 +395,8 @@
         "position": {
           "x": 20,
           "y": 150
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c5",
@@ -368,7 +404,8 @@
         "position": {
           "x": 20,
           "y": 180
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c6",
@@ -376,7 +413,8 @@
         "position": {
           "x": 20,
           "y": 210
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c7",
@@ -384,7 +422,8 @@
         "position": {
           "x": 20,
           "y": 240
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c8",
@@ -392,7 +431,8 @@
         "position": {
           "x": 20,
           "y": 270
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c9",
@@ -400,7 +440,8 @@
         "position": {
           "x": 140,
           "y": 60
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c10",
@@ -408,7 +449,8 @@
         "position": {
           "x": 140,
           "y": 90
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c11",
@@ -416,7 +458,8 @@
         "position": {
           "x": 140,
           "y": 120
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c12",
@@ -424,7 +467,8 @@
         "position": {
           "x": 140,
           "y": 150
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c13",
@@ -432,7 +476,8 @@
         "position": {
           "x": 140,
           "y": 180
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c14",
@@ -440,7 +485,8 @@
         "position": {
           "x": 140,
           "y": 210
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c15",
@@ -448,7 +494,8 @@
         "position": {
           "x": 140,
           "y": 240
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c16",
@@ -456,7 +503,8 @@
         "position": {
           "x": 140,
           "y": 270
-        }
+        },
+        "labelPosition": "left"
       }
     ],
     "controls": [
@@ -467,7 +515,8 @@
         "position": {
           "x": 80,
           "y": 340
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c18",
@@ -476,7 +525,8 @@
         "position": {
           "x": 80,
           "y": 410
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c19",
@@ -485,7 +535,8 @@
         "position": {
           "x": 80,
           "y": 510
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c20",
@@ -494,10 +545,10 @@
         "position": {
           "x": 80,
           "y": 580
-        }
+        },
+        "labelPosition": "below"
       }
-    ],
-    "image": "modules/2cvtool/module.svg"
+    ]
   },
   {
     "id": "2lfo",
@@ -514,7 +565,8 @@
         "position": {
           "x": 20,
           "y": 60
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c2",
@@ -522,7 +574,8 @@
         "position": {
           "x": 20,
           "y": 90
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c3",
@@ -530,7 +583,8 @@
         "position": {
           "x": 20,
           "y": 120
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c4",
@@ -538,7 +592,8 @@
         "position": {
           "x": 20,
           "y": 150
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c5",
@@ -546,7 +601,8 @@
         "position": {
           "x": 20,
           "y": 180
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c6",
@@ -554,7 +610,8 @@
         "position": {
           "x": 20,
           "y": 210
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c7",
@@ -562,7 +619,8 @@
         "position": {
           "x": 20,
           "y": 240
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c8",
@@ -570,7 +628,8 @@
         "position": {
           "x": 20,
           "y": 270
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c9",
@@ -578,7 +637,8 @@
         "position": {
           "x": 140,
           "y": 60
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c10",
@@ -586,7 +646,8 @@
         "position": {
           "x": 140,
           "y": 90
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c11",
@@ -594,7 +655,8 @@
         "position": {
           "x": 140,
           "y": 120
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c12",
@@ -602,7 +664,8 @@
         "position": {
           "x": 140,
           "y": 150
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c13",
@@ -610,7 +673,8 @@
         "position": {
           "x": 140,
           "y": 180
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c14",
@@ -618,7 +682,8 @@
         "position": {
           "x": 140,
           "y": 210
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c15",
@@ -626,7 +691,8 @@
         "position": {
           "x": 140,
           "y": 240
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c16",
@@ -634,7 +700,8 @@
         "position": {
           "x": 140,
           "y": 270
-        }
+        },
+        "labelPosition": "left"
       }
     ],
     "controls": [
@@ -645,7 +712,8 @@
         "position": {
           "x": 50,
           "y": 340
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c18",
@@ -654,7 +722,8 @@
         "position": {
           "x": 50,
           "y": 420
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c19",
@@ -663,7 +732,8 @@
         "position": {
           "x": 50,
           "y": 580
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c20",
@@ -672,7 +742,8 @@
         "position": {
           "x": 50,
           "y": 500
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c22",
@@ -707,8 +778,7 @@
         "label2": "wave:saw",
         "orientation": "vertical"
       }
-    ],
-    "image": "modules/2lfo/module.svg"
+    ]
   },
   {
     "id": "2osc-d",
@@ -725,7 +795,8 @@
         "position": {
           "x": 20,
           "y": 60
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c2",
@@ -733,7 +804,8 @@
         "position": {
           "x": 20,
           "y": 90
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c3",
@@ -741,7 +813,8 @@
         "position": {
           "x": 20,
           "y": 120
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c4",
@@ -749,7 +822,8 @@
         "position": {
           "x": 20,
           "y": 150
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c5",
@@ -757,7 +831,8 @@
         "position": {
           "x": 20,
           "y": 180
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c6",
@@ -765,7 +840,8 @@
         "position": {
           "x": 20,
           "y": 210
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c7",
@@ -773,7 +849,8 @@
         "position": {
           "x": 20,
           "y": 240
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c8",
@@ -781,7 +858,8 @@
         "position": {
           "x": 20,
           "y": 270
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c9",
@@ -789,7 +867,8 @@
         "position": {
           "x": 140,
           "y": 60
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c10",
@@ -797,7 +876,8 @@
         "position": {
           "x": 140,
           "y": 90
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c11",
@@ -805,7 +885,8 @@
         "position": {
           "x": 140,
           "y": 120
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c12",
@@ -813,7 +894,8 @@
         "position": {
           "x": 140,
           "y": 150
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c13",
@@ -821,7 +903,8 @@
         "position": {
           "x": 140,
           "y": 180
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c14",
@@ -829,7 +912,8 @@
         "position": {
           "x": 140,
           "y": 210
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c15",
@@ -837,7 +921,8 @@
         "position": {
           "x": 140,
           "y": 240
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c16",
@@ -845,7 +930,8 @@
         "position": {
           "x": 140,
           "y": 270
-        }
+        },
+        "labelPosition": "left"
       }
     ],
     "controls": [
@@ -856,7 +942,8 @@
         "position": {
           "x": 50,
           "y": 360
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c18",
@@ -865,7 +952,8 @@
         "position": {
           "x": 50,
           "y": 460
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c19",
@@ -874,7 +962,8 @@
         "position": {
           "x": 50,
           "y": 560
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c22",
@@ -909,8 +998,7 @@
         "label2": "LO",
         "orientation": "vertical"
       }
-    ],
-    "image": "modules/2osc-d/module.svg"
+    ]
   },
   {
     "id": "2signalamp",
@@ -927,7 +1015,8 @@
         "position": {
           "x": 20,
           "y": 60
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c2",
@@ -935,7 +1024,8 @@
         "position": {
           "x": 20,
           "y": 90
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c3",
@@ -943,7 +1033,8 @@
         "position": {
           "x": 20,
           "y": 120
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c4",
@@ -951,7 +1042,8 @@
         "position": {
           "x": 20,
           "y": 150
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c5",
@@ -959,7 +1051,8 @@
         "position": {
           "x": 20,
           "y": 180
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c6",
@@ -967,7 +1060,8 @@
         "position": {
           "x": 20,
           "y": 210
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c7",
@@ -975,7 +1069,8 @@
         "position": {
           "x": 20,
           "y": 240
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c8",
@@ -983,7 +1078,8 @@
         "position": {
           "x": 20,
           "y": 270
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c9",
@@ -991,7 +1087,8 @@
         "position": {
           "x": 140,
           "y": 60
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c10",
@@ -999,7 +1096,8 @@
         "position": {
           "x": 140,
           "y": 90
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c11",
@@ -1007,7 +1105,8 @@
         "position": {
           "x": 140,
           "y": 120
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c12",
@@ -1015,7 +1114,8 @@
         "position": {
           "x": 140,
           "y": 150
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c13",
@@ -1023,7 +1123,8 @@
         "position": {
           "x": 140,
           "y": 180
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c14",
@@ -1031,7 +1132,8 @@
         "position": {
           "x": 140,
           "y": 210
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c15",
@@ -1039,7 +1141,8 @@
         "position": {
           "x": 140,
           "y": 240
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c16",
@@ -1047,7 +1150,8 @@
         "position": {
           "x": 140,
           "y": 270
-        }
+        },
+        "labelPosition": "left"
       }
     ],
     "controls": [
@@ -1058,7 +1162,8 @@
         "position": {
           "x": 80,
           "y": 370
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c18",
@@ -1067,35 +1172,37 @@
         "position": {
           "x": 80,
           "y": 500
-        }
+        },
+        "labelPosition": "below"
       }
-    ],
-    "image": "modules/2signalamp/module.svg"
+    ]
   },
   {
-    "id": "kick",
-    "name": "KICK",
+    "id": "2tone",
+    "name": "2TONE",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p133/2TONE.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2tone",
     "width": 160,
     "height": 640,
-    "manufacturer": "Tangible Waves",
-    "url": "https://www.tangiblewaves.com/store/p73/KICK.html",
-    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/kick",
     "connections": [
       {
         "id": "c1",
-        "name": "TRIG",
+        "name": "IN 1",
         "position": {
           "x": 20,
           "y": 60
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c2",
-        "name": "MULT",
+        "name": "IN 2",
         "position": {
           "x": 20,
           "y": 90
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c3",
@@ -1103,7 +1210,8 @@
         "position": {
           "x": 20,
           "y": 120
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c4",
@@ -1111,7 +1219,8 @@
         "position": {
           "x": 20,
           "y": 150
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c5",
@@ -1119,7 +1228,8 @@
         "position": {
           "x": 20,
           "y": 180
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c6",
@@ -1127,7 +1237,8 @@
         "position": {
           "x": 20,
           "y": 210
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c7",
@@ -1135,47 +1246,53 @@
         "position": {
           "x": 20,
           "y": 240
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c8",
-        "name": "BUS GATE",
+        "name": "MULT",
         "position": {
           "x": 20,
           "y": 270
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c9",
-        "name": "OUT",
+        "name": "OUT 1",
         "position": {
           "x": 140,
           "y": 60
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c10",
-        "name": "OUT",
+        "name": "OUT 1",
         "position": {
           "x": 140,
           "y": 90
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c11",
-        "name": "OUT",
+        "name": "OUT 2",
         "position": {
           "x": 140,
           "y": 120
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c12",
-        "name": "MULT",
+        "name": "OUT 2",
         "position": {
           "x": 140,
           "y": 150
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c13",
@@ -1183,7 +1300,8 @@
         "position": {
           "x": 140,
           "y": 180
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c14",
@@ -1191,7 +1309,8 @@
         "position": {
           "x": 140,
           "y": 210
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c15",
@@ -1199,7 +1318,8 @@
         "position": {
           "x": 140,
           "y": 240
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c16",
@@ -1207,7 +1327,1210 @@
         "position": {
           "x": 140,
           "y": 270
-        }
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c17",
+        "type": "knob",
+        "label": "HIGH",
+        "position": {
+          "x": 80,
+          "y": 340
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c18",
+        "type": "knob",
+        "label": "LOW",
+        "position": {
+          "x": 80,
+          "y": 410
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "HIGH",
+        "position": {
+          "x": 80,
+          "y": 510
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "LOW",
+        "position": {
+          "x": 80,
+          "y": 580
+        },
+        "labelPosition": "below"
+      }
+    ]
+  },
+  {
+    "id": "2vca",
+    "name": "2VCA",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p11/2VCA_.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/2vca",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN 1",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "CV 1",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "IN 2",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "CV 2",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "c5",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "c6",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "BUS CV",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "BUS CTRL",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT 1",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT 1",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "OUT 2",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "OUT 2",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "CV 1",
+        "position": {
+          "x": 50,
+          "y": 410
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "CV 2",
+        "position": {
+          "x": 50,
+          "y": 520
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "switch",
+        "label": "AUDIO",
+        "position": {
+          "x": 110,
+          "y": 410
+        },
+        "label2": "DC",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c22",
+        "type": "switch",
+        "label": "AUDIO",
+        "position": {
+          "x": 110,
+          "y": 520
+        },
+        "label2": "DC",
+        "orientation": "vertical"
+      }
+    ]
+  },
+  {
+    "id": "3vcswitch",
+    "name": "3VCSWITCH",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p42/3VCSWITCH.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/3vcswitch",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IO 1",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "GATE 1",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "IO 2",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "GATE 2",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "IO 3",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "GATE 3",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "+5V",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "BUS GATE",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "1 A",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "1 B",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "2 A",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "2 B",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "3 A",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "3 B",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "c15",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "c16",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "CV 1",
+        "position": {
+          "x": 50,
+          "y": 410
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "CV 2",
+        "position": {
+          "x": 50,
+          "y": 520
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "switch",
+        "label": "AUDIO",
+        "position": {
+          "x": 110,
+          "y": 410
+        },
+        "label2": "DC",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c22",
+        "type": "switch",
+        "label": "AUDIO",
+        "position": {
+          "x": 110,
+          "y": 520
+        },
+        "label2": "DC",
+        "orientation": "vertical"
+      }
+    ]
+  },
+  {
+    "id": "4attmix",
+    "name": "4ATTMIX",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p53/4ATTMIX.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/4attmix",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN 1",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "IN 2",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "IN 3",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "IN 4",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "+5V",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "+5V",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "BUS CTRL",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "BUS GATE",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT 1",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT 2",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "OUT 3",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "OUT 4",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "MIX",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "MIX",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "MIX",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "MIX",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "LEVEL 3",
+        "position": {
+          "x": 50,
+          "y": 510
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "LEVEL 4",
+        "position": {
+          "x": 50,
+          "y": 590
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "switch",
+        "label": "MIX",
+        "position": {
+          "x": 120,
+          "y": 520
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c22",
+        "type": "switch",
+        "label": "MIX",
+        "position": {
+          "x": 120,
+          "y": 600
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c23",
+        "type": "knob",
+        "label": "LEVEL 2",
+        "position": {
+          "x": 50,
+          "y": 430
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c24",
+        "type": "knob",
+        "label": "LEVEL 1",
+        "position": {
+          "x": 50,
+          "y": 350
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c25",
+        "type": "switch",
+        "label": "MIX",
+        "position": {
+          "x": 120,
+          "y": 360
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c26",
+        "type": "switch",
+        "label": "MIX",
+        "position": {
+          "x": 120,
+          "y": 440
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c27",
+        "type": "switch",
+        "label": "DC",
+        "position": {
+          "x": 70,
+          "y": 310
+        },
+        "label2": "AUDIO",
+        "orientation": "horizontal"
+      }
+    ]
+  },
+  {
+    "id": "4buffer",
+    "name": "4BUFFER",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p95/4BUFFER.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/4buffer?id=_4buffer",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN 1",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "IN 2",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "IN 3",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "IN 4",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "c5",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "c6",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "B.CTRL",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "B.GATE",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT 1",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT 1",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "OUT 2",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "OUT 2",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "OUT 3",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "OUT 3",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "OUT 4",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "OUT 4",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c21",
+        "type": "switch",
+        "label": "LINK 2 > 3",
+        "position": {
+          "x": 80,
+          "y": 470
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c22",
+        "type": "switch",
+        "label": "LINK 3 > 4",
+        "position": {
+          "x": 80,
+          "y": 580
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c26",
+        "type": "switch",
+        "label": "LINK 1 > 2",
+        "position": {
+          "x": 80,
+          "y": 390
+        },
+        "label2": "",
+        "orientation": "vertical"
+      }
+    ]
+  },
+  {
+    "id": "4i-o",
+    "name": "4I/O",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p46/4I%2FO.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/4io",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c9",
+        "name": "I/O 1",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "I/O 2",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "I/O 3",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "I/O 4",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c29",
+        "name": "I/O 1 (1+2 STR)",
+        "position": {
+          "x": 70,
+          "y": 330
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c30",
+        "name": "I/O 2",
+        "position": {
+          "x": 70,
+          "y": 410
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c31",
+        "name": "I/O 3 (3+4 STR)",
+        "position": {
+          "x": 70,
+          "y": 490
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c32",
+        "name": "I/O 4",
+        "position": {
+          "x": 70,
+          "y": 570
+        },
+        "labelPosition": "below"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c21",
+        "type": "switch",
+        "label": "AUD",
+        "position": {
+          "x": 140,
+          "y": 410
+        },
+        "label2": "DC",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c22",
+        "type": "switch",
+        "label": "AUD",
+        "position": {
+          "x": 140,
+          "y": 490
+        },
+        "label2": "DC",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c26",
+        "type": "switch",
+        "label": "AUD",
+        "position": {
+          "x": 140,
+          "y": 330
+        },
+        "label2": "DC",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c28",
+        "type": "switch",
+        "label": "AUD",
+        "position": {
+          "x": 140,
+          "y": 570
+        },
+        "label2": "DC",
+        "orientation": "vertical"
+      }
+    ]
+  },
+  {
+    "id": "kick",
+    "name": "KICK",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p73/KICK.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/kick",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "TRIG",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "BUS GATE",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
       }
     ],
     "controls": [
@@ -1229,7 +2552,8 @@
         "position": {
           "x": 80,
           "y": 440
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c19",
@@ -1238,7 +2562,8 @@
         "position": {
           "x": 80,
           "y": 510
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c20",
@@ -1247,10 +2572,10 @@
         "position": {
           "x": 80,
           "y": 580
-        }
+        },
+        "labelPosition": "below"
       }
-    ],
-    "image": "modules/kick/module.svg"
+    ]
   },
   {
     "id": "seq8",
@@ -1267,7 +2592,8 @@
         "position": {
           "x": 20,
           "y": 120
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c2",
@@ -1275,7 +2601,8 @@
         "position": {
           "x": 20,
           "y": 150
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c3",
@@ -1283,7 +2610,8 @@
         "position": {
           "x": 20,
           "y": 180
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c4",
@@ -1291,7 +2619,8 @@
         "position": {
           "x": 20,
           "y": 210
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c5",
@@ -1299,7 +2628,8 @@
         "position": {
           "x": 20,
           "y": 240
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c6",
@@ -1307,7 +2637,8 @@
         "position": {
           "x": 20,
           "y": 270
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c7",
@@ -1315,7 +2646,8 @@
         "position": {
           "x": 20,
           "y": 300
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c8",
@@ -1323,7 +2655,8 @@
         "position": {
           "x": 20,
           "y": 330
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c9",
@@ -1331,7 +2664,8 @@
         "position": {
           "x": 300,
           "y": 120
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c10",
@@ -1339,7 +2673,8 @@
         "position": {
           "x": 300,
           "y": 150
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c11",
@@ -1347,7 +2682,8 @@
         "position": {
           "x": 300,
           "y": 180
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c12",
@@ -1355,7 +2691,8 @@
         "position": {
           "x": 300,
           "y": 210
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c13",
@@ -1363,7 +2700,8 @@
         "position": {
           "x": 300,
           "y": 240
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c14",
@@ -1371,7 +2709,8 @@
         "position": {
           "x": 300,
           "y": 270
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c15",
@@ -1379,7 +2718,8 @@
         "position": {
           "x": 300,
           "y": 300
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c16",
@@ -1387,7 +2727,8 @@
         "position": {
           "x": 300,
           "y": 330
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c17",
@@ -1395,7 +2736,8 @@
         "position": {
           "x": 50,
           "y": 60
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c18",
@@ -1403,7 +2745,8 @@
         "position": {
           "x": 80,
           "y": 60
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c19",
@@ -1411,7 +2754,8 @@
         "position": {
           "x": 110,
           "y": 60
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c20",
@@ -1419,7 +2763,8 @@
         "position": {
           "x": 140,
           "y": 60
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c21",
@@ -1427,7 +2772,8 @@
         "position": {
           "x": 170,
           "y": 60
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c22",
@@ -1435,7 +2781,8 @@
         "position": {
           "x": 200,
           "y": 60
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c23",
@@ -1443,7 +2790,8 @@
         "position": {
           "x": 230,
           "y": 60
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c24",
@@ -1451,7 +2799,8 @@
         "position": {
           "x": 260,
           "y": 60
-        }
+        },
+        "labelPosition": "below"
       }
     ],
     "controls": [
@@ -1462,7 +2811,8 @@
         "position": {
           "x": 200,
           "y": 540
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c26",
@@ -1471,7 +2821,8 @@
         "position": {
           "x": 200,
           "y": 480
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c27",
@@ -1480,7 +2831,8 @@
         "position": {
           "x": 200,
           "y": 420
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c28",
@@ -1489,7 +2841,8 @@
         "position": {
           "x": 200,
           "y": 360
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c29",
@@ -1498,7 +2851,8 @@
         "position": {
           "x": 50,
           "y": 580
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c30",
@@ -1507,7 +2861,8 @@
         "position": {
           "x": 50,
           "y": 520
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c31",
@@ -1516,7 +2871,8 @@
         "position": {
           "x": 50,
           "y": 460
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c32",
@@ -1525,7 +2881,8 @@
         "position": {
           "x": 50,
           "y": 400
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c33",
@@ -1534,7 +2891,8 @@
         "position": {
           "x": 110,
           "y": 580
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c34",
@@ -1543,7 +2901,8 @@
         "position": {
           "x": 110,
           "y": 520
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c35",
@@ -1552,7 +2911,8 @@
         "position": {
           "x": 110,
           "y": 460
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c36",
@@ -1561,7 +2921,8 @@
         "position": {
           "x": 110,
           "y": 400
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c37",
@@ -1574,13 +2935,11 @@
         "label2": "5V",
         "orientation": "horizontal"
       }
-    ],
-    "image": "modules/seq8/module.svg"
+    ]
   },
   {
     "id": "trig164",
     "name": "TRIG164",
-    "image": "modules/trig164/module.svg",
     "manufacturer": "Tangible Waves",
     "url": "https://www.tangiblewaves.com/store/p52/TRIQ164.html",
     "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/triq164",
@@ -1593,7 +2952,8 @@
         "position": {
           "x": 20,
           "y": 60
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c2",
@@ -1601,7 +2961,8 @@
         "position": {
           "x": 20,
           "y": 90
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c3",
@@ -1609,7 +2970,8 @@
         "position": {
           "x": 20,
           "y": 120
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c4",
@@ -1617,7 +2979,8 @@
         "position": {
           "x": 20,
           "y": 150
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c5",
@@ -1625,7 +2988,8 @@
         "position": {
           "x": 20,
           "y": 180
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c6",
@@ -1633,7 +2997,8 @@
         "position": {
           "x": 20,
           "y": 210
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c7",
@@ -1641,7 +3006,8 @@
         "position": {
           "x": 20,
           "y": 240
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c8",
@@ -1649,7 +3015,8 @@
         "position": {
           "x": 20,
           "y": 270
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c9",
@@ -1657,7 +3024,8 @@
         "position": {
           "x": 290,
           "y": 60
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c10",
@@ -1665,7 +3033,8 @@
         "position": {
           "x": 290,
           "y": 90
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c11",
@@ -1673,7 +3042,8 @@
         "position": {
           "x": 290,
           "y": 120
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c12",
@@ -1681,7 +3051,8 @@
         "position": {
           "x": 290,
           "y": 150
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c13",
@@ -1689,7 +3060,8 @@
         "position": {
           "x": 290,
           "y": 180
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c14",
@@ -1697,7 +3069,8 @@
         "position": {
           "x": 290,
           "y": 210
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c15",
@@ -1705,7 +3078,8 @@
         "position": {
           "x": 290,
           "y": 240
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c16",
@@ -1713,7 +3087,8 @@
         "position": {
           "x": 290,
           "y": 270
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c18",
@@ -1721,7 +3096,8 @@
         "position": {
           "x": 290,
           "y": 390
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c19",
@@ -1729,7 +3105,8 @@
         "position": {
           "x": 290,
           "y": 600
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c20",
@@ -1737,7 +3114,8 @@
         "position": {
           "x": 290,
           "y": 570
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c21",
@@ -1745,7 +3123,8 @@
         "position": {
           "x": 290,
           "y": 540
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c22",
@@ -1753,7 +3132,8 @@
         "position": {
           "x": 290,
           "y": 510
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c23",
@@ -1761,7 +3141,8 @@
         "position": {
           "x": 290,
           "y": 480
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c24",
@@ -1769,7 +3150,8 @@
         "position": {
           "x": 290,
           "y": 450
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c25",
@@ -1777,7 +3159,8 @@
         "position": {
           "x": 290,
           "y": 420
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c26",
@@ -1785,7 +3168,8 @@
         "position": {
           "x": 230,
           "y": 340
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c27",
@@ -1793,7 +3177,8 @@
         "position": {
           "x": 230,
           "y": 370
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c28",
@@ -1801,7 +3186,8 @@
         "position": {
           "x": 230,
           "y": 400
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c29",
@@ -1809,7 +3195,8 @@
         "position": {
           "x": 230,
           "y": 430
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c30",
@@ -1817,7 +3204,8 @@
         "position": {
           "x": 230,
           "y": 460
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c31",
@@ -1825,7 +3213,8 @@
         "position": {
           "x": 230,
           "y": 490
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c32",
@@ -1833,7 +3222,8 @@
         "position": {
           "x": 230,
           "y": 520
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c33",
@@ -1841,7 +3231,8 @@
         "position": {
           "x": 230,
           "y": 550
-        }
+        },
+        "labelPosition": "left"
       }
     ],
     "controls": [
@@ -1852,7 +3243,8 @@
         "position": {
           "x": 160,
           "y": 590
-        }
+        },
+        "labelPosition": "below"
       }
     ]
   },
@@ -1871,7 +3263,8 @@
         "position": {
           "x": 20,
           "y": 60
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c2",
@@ -1879,7 +3272,8 @@
         "position": {
           "x": 20,
           "y": 90
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c3",
@@ -1887,7 +3281,8 @@
         "position": {
           "x": 20,
           "y": 120
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c4",
@@ -1895,7 +3290,8 @@
         "position": {
           "x": 20,
           "y": 150
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c5",
@@ -1903,7 +3299,8 @@
         "position": {
           "x": 20,
           "y": 180
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c6",
@@ -1911,7 +3308,8 @@
         "position": {
           "x": 20,
           "y": 210
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c7",
@@ -1919,7 +3317,8 @@
         "position": {
           "x": 20,
           "y": 240
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c8",
@@ -1927,7 +3326,8 @@
         "position": {
           "x": 20,
           "y": 270
-        }
+        },
+        "labelPosition": "right"
       },
       {
         "id": "c9",
@@ -1935,7 +3335,8 @@
         "position": {
           "x": 140,
           "y": 60
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c10",
@@ -1943,7 +3344,8 @@
         "position": {
           "x": 140,
           "y": 90
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c11",
@@ -1951,7 +3353,8 @@
         "position": {
           "x": 140,
           "y": 120
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c12",
@@ -1959,7 +3362,8 @@
         "position": {
           "x": 140,
           "y": 150
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c13",
@@ -1967,7 +3371,8 @@
         "position": {
           "x": 140,
           "y": 180
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c14",
@@ -1975,7 +3380,8 @@
         "position": {
           "x": 140,
           "y": 210
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c15",
@@ -1983,7 +3389,8 @@
         "position": {
           "x": 140,
           "y": 240
-        }
+        },
+        "labelPosition": "left"
       },
       {
         "id": "c16",
@@ -1991,7 +3398,8 @@
         "position": {
           "x": 140,
           "y": 270
-        }
+        },
+        "labelPosition": "left"
       }
     ],
     "controls": [
@@ -2002,7 +3410,8 @@
         "position": {
           "x": 60,
           "y": 360
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c18",
@@ -2011,7 +3420,8 @@
         "position": {
           "x": 60,
           "y": 420
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c19",
@@ -2020,7 +3430,8 @@
         "position": {
           "x": 60,
           "y": 480
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c20",
@@ -2029,7 +3440,8 @@
         "position": {
           "x": 60,
           "y": 540
-        }
+        },
+        "labelPosition": "below"
       },
       {
         "id": "c21",
@@ -2042,7 +3454,6 @@
         "label2": "ACCEL",
         "orientation": "vertical"
       }
-    ],
-    "image": "modules/trip/module.svg"
+    ]
   }
 ]

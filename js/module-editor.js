@@ -33,6 +33,7 @@
     manufacturer: '',
     url: '',
     documentation: '',
+    customImage: false, // true = this module ships its own module.svg; exported as customImage:true
     width: PIXELS_PER_RU,
     height: MODULE_HEIGHT,
     components: [],
@@ -43,47 +44,21 @@
     _nextId: 1,
   };
 
-  // ---- component geometry constants ----
-  // Edit here; both the live preview and the exported SVG read from these.
-  const LABEL_SIZE        = 11;   // font-size for all component labels
-  const LABEL_GAP         = 8;   // px gap between component edge and label baseline
-  const LABEL_BELOW_EXTRA = 10;   // extra clearance added only on the below side
+  // Geometry constants, waveform glyphs, and the SVG-string builder are shared with the
+  // patch app via js/panel-render.js (loaded before this file) so the live preview here
+  // and any generated panel stay pixel-identical.
+  const {
+    LABEL_SIZE, LABEL_GAP, LABEL_BELOW_EXTRA,
+    JACK_R, JACK_DOT_R,
+    KNOB_R, KNOB_TICK_IN, KNOB_TICK_OUT,
+    SW_V_HW, SW_V_HH, SW_H_HW, SW_H_HH,
+    WAVE_GLYPHS, parseWave, escXml, labelPos, waveRun, buildSVGString,
+  } = window.PanelRender;
 
-  const JACK_R      = 9;         // jack outer radius
-  const JACK_DOT_R  = 3;         // jack centre dot radius
-
-  const KNOB_R        = 12;      // knob outer radius
-  const KNOB_TICK_IN  = 6;       // tick line inner distance from centre
-  const KNOB_TICK_OUT = 10;      // tick line outer distance from centre
-
-  const SW_V_HW = 5;             // vertical switch half-width  (body x ± SW_V_HW)
-  const SW_V_HH = 14;            // vertical switch half-height (body y ± SW_V_HH)
-  const SW_H_HW = 14;            // horizontal switch half-width
-  const SW_H_HH = 5;             // horizontal switch half-height
-
-  // ---- waveform symbol labels ----
-  // A label ("connection name" / knob or switch label) may be the literal
-  // token `wave:<name>` — or `wave:a+b` for a composite — instead of text.
-  // It renders as a vector glyph here and in the exported SVG, and shows as
-  // a word ("Sawtooth") in the patch editor's hover tooltips.
-  // Each path is drawn in a 14 × 14 local box (centre line ~y=7) and scaled
-  // to LABEL_SIZE at render time.
-  const WAVE_GLYPHS = {
-    sine:     'M0,7 q3.5,-6 7,0 t7,0',
-    square:   'M0,12 V4 H7 V12 H14 V4',
-    triangle: 'M0,12 L7,4 L14,12',
-    saw:      'M0,12 L14,4 V12',
-  };
+  // Order/labels for this editor's own wave-symbol picker UI (props panel) — not shared,
+  // since js/app.js has no UI that needs them.
   const WAVE_ORDER = ['sine', 'square', 'triangle', 'saw'];
   const WAVE_WORDS = { sine: 'Sine', square: 'Square', triangle: 'Triangle', saw: 'Sawtooth' };
-
-  // "wave:triangle+saw" -> ['triangle','saw'];  non-token / unknown name -> null
-  function parseWave(s) {
-    const m = /^wave:([a-z]+(?:\+[a-z]+)*)$/.exec(String(s || '').trim());
-    if (!m) return null;
-    const parts = m[1].split('+');
-    return parts.every(p => WAVE_GLYPHS[p]) ? parts : null;
-  }
 
   let ghost = null;     // {x, y} position while in add mode
   let drag = null;      // {id, sx, sy, ox, oy}
@@ -96,6 +71,7 @@
   const inputMfr   = document.getElementById('input-manufacturer');
   const inputUrl   = document.getElementById('input-url');
   const inputDocs  = document.getElementById('input-docs');
+  const inputCustomImage = document.getElementById('input-custom-image');
   const snapEnable = document.getElementById('snap-enable');
   const snapSizeEl = document.getElementById('snap-size');
   const propsDiv   = document.getElementById('props-content');
@@ -113,6 +89,7 @@
     state.manufacturer  = '';
     state.url           = '';
     state.documentation = '';
+    state.customImage   = false;
     state.width         = PIXELS_PER_RU;
     state.height        = MODULE_HEIGHT;
     state.selectedId    = null;
@@ -127,6 +104,7 @@
     inputMfr.value     = state.manufacturer || '';
     inputUrl.value     = state.url          || '';
     inputDocs.value    = state.documentation || '';
+    inputCustomImage.checked = state.customImage;
     inputW.value       = Math.max(1, Math.round(state.width / PIXELS_PER_RU));
     snapEnable.checked = state.snapEnabled;
     snapSizeEl.value   = state.snapSize;
@@ -193,28 +171,10 @@
       .replace(/^-+|-+$/g, '') || 'module';
   }
 
-  function escXml(s) {
-    return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-
   function mkEl(tag, attrs) {
     const e = document.createElementNS(NS, tag);
     if (attrs) for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, String(v));
     return e;
-  }
-
-  // Returns {x, y, anchor} for a label placed in `pos` direction, `r` px from center (cx, cy).
-  function labelPos(cx, cy, pos, r) {
-    switch (pos) {
-      case 'above': return { x: cx,               y: cy - r - LABEL_GAP,                    anchor: 'middle' };
-      case 'left':  return { x: cx - r - LABEL_GAP, y: cy + Math.round(LABEL_SIZE * 0.35), anchor: 'end'    };
-      case 'right': return { x: cx + r + LABEL_GAP, y: cy + Math.round(LABEL_SIZE * 0.35), anchor: 'start'  };
-      default:      return { x: cx,               y: cy + r + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }; // below
-    }
   }
 
   function textEl(label, lp, fillColor) {
@@ -227,17 +187,6 @@
     });
     t.textContent = label;
     return t;
-  }
-
-  // Geometry shared by the live-preview and exported wave glyph runs.
-  // Returns { originX, box, s, gap } for `names` placed at label pos `lp`.
-  function waveRun(names, lp) {
-    const box = 14, s = LABEL_SIZE / box, gap = 3 * s;
-    const runW = names.length * box * s + (names.length - 1) * gap;
-    const originX = lp.anchor === 'end'    ? lp.x - runW
-                  : lp.anchor === 'middle' ? lp.x - runW / 2
-                  :                          lp.x;
-    return { originX, box, s, gap };
   }
 
   // Live preview: one or more wave glyphs as a horizontal run at `lp`.
@@ -856,6 +805,7 @@
   inputMfr.addEventListener('input',  () => { state.manufacturer  = inputMfr.value;  });
   inputUrl.addEventListener('input',  () => { state.url           = inputUrl.value;  });
   inputDocs.addEventListener('input', () => { state.documentation = inputDocs.value; });
+  inputCustomImage.addEventListener('change', () => { state.customImage = inputCustomImage.checked; });
 
   inputW.addEventListener('input', () => {
     const ru = Math.max(1, Math.min(8, parseInt(inputW.value, 10) || 1));
@@ -871,76 +821,12 @@
   });
 
   // ---- export ----
-  function buildSVGString() {
-    const W = state.width, H = state.height;
-    const lines = [];
-    lines.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">`);
-    lines.push(`  <rect x="0" y="0" width="${W}" height="${H}" fill="#2b271f"/>`);
-    lines.push(`  <rect x="4" y="4" width="${W - 8}" height="${H - 8}" fill="none" stroke="#4a4335" stroke-width="2"/>`);
-    lines.push(`  <circle cx="14" cy="14" r="4" fill="#141210"/>`);
-    lines.push(`  <circle cx="${W - 14}" cy="14" r="4" fill="#141210"/>`);
-    lines.push(`  <circle cx="14" cy="${H - 14}" r="4" fill="#141210"/>`);
-    lines.push(`  <circle cx="${W - 14}" cy="${H - 14}" r="4" fill="#141210"/>`);
-    lines.push(`  <text x="${W / 2}" y="40" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="14" letter-spacing="1">${escXml((state.name || 'UNTITLED').toUpperCase())}</text>`);
 
-    function svgText(label, lp) {
-      return `  <text x="${lp.x}" y="${lp.y}" text-anchor="${lp.anchor}" fill="#9a9282" font-family="IBM Plex Mono, monospace" font-size="${LABEL_SIZE}">${escXml(label)}</text>`;
-    }
-
-    function svgWave(names, lp) {
-      const { originX, box, s, gap } = waveRun(names, lp);
-      return names.map((n, i) =>
-        `  <g transform="translate(${originX + i * (box * s + gap)},${lp.y - LABEL_SIZE}) scale(${s})">` +
-        `<path d="${WAVE_GLYPHS[n]}" fill="none" stroke="#9a9282" stroke-width="${1.5 / s}" ` +
-        `stroke-linejoin="round" stroke-linecap="round"/></g>`
-      ).join('\n');
-    }
-
-    // A wave token renders as a glyph run; anything else as <text>.
-    function svgLabel(label, lp) {
-      const w = parseWave(label);
-      return w ? svgWave(w, lp) : svgText(label, lp);
-    }
-
-    for (const c of state.components) {
-      if (c.type === 'jack') {
-        lines.push(`  <circle cx="${c.x}" cy="${c.y}" r="${JACK_R}" fill="#141210" stroke="#8a8270" stroke-width="1.5"/>`);
-        if (c.label) lines.push(svgLabel(c.label, labelPos(c.x, c.y, c.labelPosition || 'below', JACK_R)));
-      } else if (c.type === 'knob') {
-        lines.push(`  <circle cx="${c.x}" cy="${c.y}" r="${KNOB_R}" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
-        lines.push(`  <line x1="${c.x}" y1="${c.y - KNOB_TICK_IN}" x2="${c.x}" y2="${c.y - KNOB_TICK_OUT}" stroke="#c8bfaa" stroke-width="1.5" stroke-linecap="round"/>`);
-        if (c.label) lines.push(svgLabel(c.label, labelPos(c.x, c.y, c.labelPosition || 'below', KNOB_R)));
-      } else if (c.type === 'switch') {
-        const horiz = (c.orientation || 'vertical') === 'horizontal';
-        if (horiz) {
-          const bw = SW_H_HW * 2, bh = SW_H_HH * 2;
-          const tw = Math.round(bw * 0.39), th = bh - 2;
-          lines.push(`  <rect x="${c.x - SW_H_HW}" y="${c.y - SW_H_HH}" width="${bw}" height="${bh}" rx="3" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
-          lines.push(`  <rect x="${c.x - SW_H_HW + 2}" y="${c.y - SW_H_HH + 1}" width="${tw}" height="${th}" rx="2" fill="#8a8270"/>`);
-          const ly = c.y + Math.round(LABEL_SIZE * 0.35);
-          if (c.label)  lines.push(svgLabel(c.label,  { x: c.x - SW_H_HW - LABEL_GAP, y: ly, anchor: 'end'   }));
-          if (c.label2) lines.push(svgLabel(c.label2, { x: c.x + SW_H_HW + LABEL_GAP, y: ly, anchor: 'start' }));
-        } else {
-          const bw = SW_V_HW * 2, bh = SW_V_HH * 2;
-          const tw = bw - 2, th = Math.round(bh * 0.39);
-          lines.push(`  <rect x="${c.x - SW_V_HW}" y="${c.y - SW_V_HH}" width="${bw}" height="${bh}" rx="3" fill="#1e1c18" stroke="#8a8270" stroke-width="1.5"/>`);
-          lines.push(`  <rect x="${c.x - SW_V_HW + 1}" y="${c.y - SW_V_HH + 2}" width="${tw}" height="${th}" rx="2" fill="#8a8270"/>`);
-          if (c.label)  lines.push(svgLabel(c.label,  { x: c.x, y: c.y - SW_V_HH - LABEL_GAP,                    anchor: 'middle' }));
-          if (c.label2) lines.push(svgLabel(c.label2, { x: c.x, y: c.y + SW_V_HH + LABEL_GAP + LABEL_BELOW_EXTRA, anchor: 'middle' }));
-        }
-      } else if (c.type === 'label' && c.text) {
-        const size = c.size || LABEL_SIZE;
-        const anchor = c.align || 'middle';
-        lines.push(`  <text x="${c.x}" y="${c.y}" text-anchor="${anchor}" fill="#c8bfaa" font-family="IBM Plex Mono, monospace" font-size="${size}">${escXml(c.text)}</text>`);
-      }
-    }
-
-    lines.push(`</svg>`);
-    return lines.join('\n');
-  }
-
-  function buildJSON() {
-    const id = state.id || nameToId(state.name) || 'module';
+  // Builds the module-definition shape shared with module.json / js/panel-render.js
+  // ({name, width, height, connections, controls, labels}) from the editor's own
+  // state.components array. Used by both buildJSON() (below) and the "Download SVG"
+  // handler, which hands this straight to PanelRender.buildSVGString().
+  function toModuleDef() {
     const connections = state.components
       .filter(c => c.type === 'jack')
       .map(c => ({
@@ -971,20 +857,36 @@
         align: c.align || 'middle',
       }));
 
-    // `labels` is not used by the patch editor (the SVG already bakes the text in) — it exists
-    // purely so a module.json alone can be re-imported here and reconstruct the full panel,
-    // without needing the matching module.svg re-uploaded.
-    return JSON.stringify({
-      id,
+    return {
       name: state.name || 'Untitled',
-      ...(state.manufacturer ? { manufacturer: state.manufacturer } : {}),
-      ...(state.url          ? { url:          state.url          } : {}),
-      ...(state.documentation ? { documentation: state.documentation } : {}),
       width: state.width,
       height: state.height,
       connections,
       ...(controls.length ? { controls } : {}),
       ...(labels.length   ? { labels }   : {}),
+    };
+  }
+
+  function buildJSON() {
+    const id = state.id || nameToId(state.name) || 'module';
+    const def = toModuleDef();
+
+    // `labels` is not used by the patch editor (the SVG already bakes the text in) — it exists
+    // purely so a module.json alone can be re-imported here and reconstruct the full panel,
+    // without needing the matching module.svg re-uploaded. `customImage` is build-time-only
+    // metadata (stripped by build-modules.js) telling it whether to expect a module.svg.
+    return JSON.stringify({
+      id,
+      name: def.name,
+      ...(state.manufacturer  ? { manufacturer: state.manufacturer } : {}),
+      ...(state.url           ? { url: state.url } : {}),
+      ...(state.documentation ? { documentation: state.documentation } : {}),
+      ...(state.customImage   ? { customImage: true } : {}),
+      width: def.width,
+      height: def.height,
+      connections: def.connections,
+      ...(def.controls ? { controls: def.controls } : {}),
+      ...(def.labels   ? { labels: def.labels }     : {}),
     }, null, 2);
   }
 
@@ -1050,6 +952,7 @@
     state.manufacturer  = mod.manufacturer  || '';
     state.url           = mod.url           || '';
     state.documentation = mod.documentation || '';
+    state.customImage   = mod.customImage === true;
     state.width = (typeof mod.width === 'number' && mod.width > 0)
       ? Math.max(PIXELS_PER_RU, Math.round(mod.width / PIXELS_PER_RU) * PIXELS_PER_RU)
       : PIXELS_PER_RU;
@@ -1066,7 +969,7 @@
   }
 
   document.getElementById('btn-download-svg').addEventListener('click', () => {
-    const blob = new Blob([buildSVGString()], { type: 'image/svg+xml' });
+    const blob = new Blob([buildSVGString(toModuleDef())], { type: 'image/svg+xml' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -1141,6 +1044,7 @@
         manufacturer: state.manufacturer,
         url: state.url,
         documentation: state.documentation,
+        customImage: state.customImage,
         width: state.width,
         height: state.height,
         components: state.components,
@@ -1172,6 +1076,7 @@
       if (s.manufacturer  !== undefined) state.manufacturer  = s.manufacturer;
       if (s.url           !== undefined) state.url           = s.url;
       if (s.documentation !== undefined) state.documentation = s.documentation;
+      if (s.customImage   !== undefined) state.customImage   = s.customImage === true;
       if (s.width         !== undefined) state.width         = Math.max(PIXELS_PER_RU, Math.round(s.width / PIXELS_PER_RU) * PIXELS_PER_RU);
       state.height = MODULE_HEIGHT;
       if (Array.isArray(s.components)) state.components  = s.components;

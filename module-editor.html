@@ -48,6 +48,13 @@
           </div>
         </div>
         <div class="field">
+          <label class="field-label checkbox-field" for="input-custom-image">
+            <input type="checkbox" id="input-custom-image"> Custom SVG artwork
+          </label>
+          <div class="field-hint">Exports <code>customImage: true</code>. Download SVG below and
+            include <code>module.svg</code> in your PR. (Doesn't change this preview.)</div>
+        </div>
+        <div class="field">
           <label class="field-label" for="input-manufacturer">Manufacturer</label>
           <input type="text" id="input-manufacturer" placeholder="e.g. Tangible Waves" autocomplete="off" spellcheck="false">
         </div>
@@ -158,6 +165,7 @@
 
 </div>
 <div id="toast" hidden></div>
+<script src="js/panel-render.js"></script>
 <script src="js/module-editor.js"></script>
 </body>
 </html>

@@ -81,20 +81,28 @@ for (const dir of dirs) {
 
   if (!fs.existsSync(jsonPath)) { err(`${dir}: missing module.json`); continue; }
 
-  // SVG check
-  if (!fs.existsSync(svgPath)) {
-    err(`${dir}: missing module.svg`);
-  } else {
-    const svg = fs.readFileSync(svgPath, 'utf8');
-    if (!svg.trimStart().startsWith('<svg') && !svg.includes('<svg ')) {
-      err(`${dir}/module.svg: does not appear to be a valid SVG`);
-    }
-  }
-
   // Parse JSON
   let mod;
   try { mod = JSON.parse(fs.readFileSync(jsonPath, 'utf8')); }
   catch (e) { err(`${dir}/module.json: invalid JSON — ${e.message}`); continue; }
+
+  // SVG check — module.svg is only expected when customImage is declared; otherwise the
+  // patch app generates the panel inline and a stray file here would just be ignored.
+  if (mod.customImage !== undefined && typeof mod.customImage !== 'boolean')
+    err(`${dir}: customImage must be a boolean`);
+
+  if (mod.customImage) {
+    if (!fs.existsSync(svgPath)) {
+      err(`${dir}: customImage is true but module.svg is missing`);
+    } else {
+      const svg = fs.readFileSync(svgPath, 'utf8');
+      if (!svg.trimStart().startsWith('<svg') && !svg.includes('<svg ')) {
+        err(`${dir}/module.svg: does not appear to be a valid SVG`);
+      }
+    }
+  } else if (fs.existsSync(svgPath)) {
+    warn(`${dir}: module.svg exists but customImage is not set — it will be ignored (auto-generated panel used instead)`);
+  }
 
   // Required fields
   if (!mod.id   || typeof mod.id   !== 'string') err(`${dir}: missing id`);
