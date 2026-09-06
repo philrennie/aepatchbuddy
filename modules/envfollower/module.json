@@ -1,0 +1,205 @@
+{
+  "id": "envfollower",
+  "name": "ENVFOLLOWER",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p147/ENVFOLLOWER%2FEXT.IN.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/envfollower",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "IN",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "ENV",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "ENV",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "ENV",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "GATE",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "GATE",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "GATE",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "SIGNAL",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "SIGNAL",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c20",
+      "name": "UNBAL IN",
+      "position": {
+        "x": 40,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "name": "BAL IN",
+      "position": {
+        "x": 40,
+        "y": 540
+      },
+      "labelPosition": "below"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "GAIN",
+      "position": {
+        "x": 110,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c18",
+      "type": "knob",
+      "label": "SMOOTH",
+      "position": {
+        "x": 110,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "GATE THRESH",
+      "position": {
+        "x": 110,
+        "y": 480
+      },
+      "labelPosition": "below"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "id": "hpamp",
+  "name": "HPAMP",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p36/HPAMP.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/hpamp",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "IN L",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "IN R",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c28",
+      "name": "c28",
+      "position": {
+        "x": 50,
+        "y": 500
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c29",
+      "name": "c29",
+      "position": {
+        "x": 110,
+        "y": 500
+      },
+      "labelPosition": "below"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "VOLUME",
+      "position": {
+        "x": 80,
+        "y": 350
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c31",
+      "type": "switch",
+      "label": "MONO",
+      "position": {
+        "x": 130,
+        "y": 140
+      },
+      "label2": "STEREO",
+      "orientation": "vertical"
+    }
+  ],
+  "labels": [
+    {
+      "id": "c30",
+      "text": "HEADPHONES",
+      "position": {
+        "x": 80,
+        "y": 540
+      },
+      "size": 15,
+      "align": "middle"
+    }
+  ]
+}

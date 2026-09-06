@@ -1,0 +1,231 @@
+{
+  "id": "grunge-filter",
+  "name": "GRUNGE FILTER",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p164/GRUNGE_FILTER.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/grunge-filter",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "IN H",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "IN L",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "CV 1",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "CV 2",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "c5",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "c6",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "B.CV",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "B.CTRL",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "OUT",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "switch",
+      "label": "FM",
+      "position": {
+        "x": 130,
+        "y": 400
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c18",
+      "type": "switch",
+      "label": "SOFT",
+      "position": {
+        "x": 120,
+        "y": 570
+      },
+      "label2": "HARD",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "CUTOFF FREQ",
+      "position": {
+        "x": 50,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "CV 1",
+      "position": {
+        "x": 50,
+        "y": 490
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "knob",
+      "label": "RESONANCE",
+      "position": {
+        "x": 50,
+        "y": 570
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c26",
+      "type": "switch",
+      "label": "DIST",
+      "position": {
+        "x": 130,
+        "y": 320
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c27",
+      "type": "switch",
+      "label": "BP",
+      "position": {
+        "x": 90,
+        "y": 320
+      },
+      "label2": "LP",
+      "orientation": "vertical"
+    }
+  ]
+}

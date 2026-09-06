@@ -5184,6 +5184,1724 @@
     ]
   },
   {
+    "id": "envfollower",
+    "name": "ENVFOLLOWER",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p147/ENVFOLLOWER%2FEXT.IN.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/envfollower",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "ENV",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "ENV",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "ENV",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "GATE",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "GATE",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "GATE",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "SIGNAL",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "SIGNAL",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c20",
+        "name": "UNBAL IN",
+        "position": {
+          "x": 40,
+          "y": 460
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "name": "BAL IN",
+        "position": {
+          "x": 40,
+          "y": 540
+        },
+        "labelPosition": "below"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c17",
+        "type": "knob",
+        "label": "GAIN",
+        "position": {
+          "x": 110,
+          "y": 340
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c18",
+        "type": "knob",
+        "label": "SMOOTH",
+        "position": {
+          "x": 110,
+          "y": 410
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "GATE THRESH",
+        "position": {
+          "x": 110,
+          "y": 480
+        },
+        "labelPosition": "below"
+      }
+    ]
+  },
+  {
+    "id": "filterbank914",
+    "name": "FILTERBANK914",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p184/FILTERBANK914.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/filterbank",
+    "width": 480,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN HI",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "IN LO",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT",
+        "position": {
+          "x": 460,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT",
+        "position": {
+          "x": 460,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "OUT ODD",
+        "position": {
+          "x": 460,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "OUT ODD",
+        "position": {
+          "x": 460,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "OUT EVEN",
+        "position": {
+          "x": 460,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "OUT EVEN",
+        "position": {
+          "x": 460,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "c15",
+        "position": {
+          "x": 460,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "c16",
+        "position": {
+          "x": 460,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c17",
+        "type": "knob",
+        "label": "500",
+        "position": {
+          "x": 240,
+          "y": 320
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c18",
+        "type": "knob",
+        "label": "700",
+        "position": {
+          "x": 240,
+          "y": 390
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "1000",
+        "position": {
+          "x": 240,
+          "y": 470
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "1400",
+        "position": {
+          "x": 240,
+          "y": 550
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "knob",
+        "label": "125",
+        "position": {
+          "x": 150,
+          "y": 320
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c22",
+        "type": "knob",
+        "label": "175",
+        "position": {
+          "x": 150,
+          "y": 390
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c23",
+        "type": "knob",
+        "label": "250",
+        "position": {
+          "x": 150,
+          "y": 470
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c24",
+        "type": "knob",
+        "label": "350",
+        "position": {
+          "x": 150,
+          "y": 550
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c25",
+        "type": "knob",
+        "label": "2000",
+        "position": {
+          "x": 330,
+          "y": 320
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c26",
+        "type": "knob",
+        "label": "2800",
+        "position": {
+          "x": 330,
+          "y": 390
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c27",
+        "type": "knob",
+        "label": "4000",
+        "position": {
+          "x": 330,
+          "y": 470
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c28",
+        "type": "knob",
+        "label": "5600",
+        "position": {
+          "x": 330,
+          "y": 550
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c29",
+        "type": "knob",
+        "label": "LOW",
+        "position": {
+          "x": 70,
+          "y": 430
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c30",
+        "type": "knob",
+        "label": "HIGH",
+        "position": {
+          "x": 410,
+          "y": 430
+        },
+        "labelPosition": "below"
+      }
+    ]
+  },
+  {
+    "id": "fmos",
+    "name": "FMOS",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p97/FMOS.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/fmos",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "CV 1",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "CV 2",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "MLT CV",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "DPT CV",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "c5",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "c6",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "B.BCTRL",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "B.CV",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c17",
+        "type": "switch",
+        "label": "wave:triangle",
+        "position": {
+          "x": 120,
+          "y": 350
+        },
+        "label2": "wave:sine",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c18",
+        "type": "switch",
+        "label": "+2 OCT",
+        "position": {
+          "x": 120,
+          "y": 430
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "PITCH",
+        "position": {
+          "x": 60,
+          "y": 430
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "MULTIPLIER",
+        "position": {
+          "x": 60,
+          "y": 500
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "knob",
+        "label": "MOD DEPTH",
+        "position": {
+          "x": 60,
+          "y": 570
+        },
+        "labelPosition": "below"
+      }
+    ]
+  },
+  {
+    "id": "fmos-r2",
+    "name": "FMOS R2",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p225/FMOS_R2.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/fmos_r2",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "CV",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "c2",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "MOD CV",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "SYNC",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "IMDI",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "IMDI",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "B.CV",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "B.CV",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "SUB",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "MIX",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c17",
+        "type": "switch",
+        "label": "QNT",
+        "position": {
+          "x": 120,
+          "y": 330
+        },
+        "label2": "CONT",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c18",
+        "type": "switch",
+        "label": "+2 OCT",
+        "position": {
+          "x": 120,
+          "y": 430
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "FREQ",
+        "position": {
+          "x": 50,
+          "y": 330
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "FDBK/FIX FREQ",
+        "position": {
+          "x": 50,
+          "y": 410
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "knob",
+        "label": "MULTIPLER",
+        "position": {
+          "x": 50,
+          "y": 490
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c22",
+        "type": "switch",
+        "label": "FDB",
+        "position": {
+          "x": 120,
+          "y": 510
+        },
+        "label2": "FIX",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c23",
+        "type": "knob",
+        "label": "DEPTH",
+        "position": {
+          "x": 50,
+          "y": 570
+        },
+        "labelPosition": "below"
+      }
+    ],
+    "labels": [
+      {
+        "id": "c24",
+        "text": "OPM",
+        "position": {
+          "x": 140,
+          "y": 510
+        },
+        "size": 11,
+        "align": "middle"
+      },
+      {
+        "id": "c25",
+        "text": "CV",
+        "position": {
+          "x": 140,
+          "y": 330
+        },
+        "size": 11,
+        "align": "middle"
+      }
+    ]
+  },
+  {
+    "id": "grains",
+    "name": "GRAINS",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p86/GRAINS.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/grains",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN 1",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "2",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "3",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "A",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "c5",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "B.CV",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "B.CTRL",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "B.GATE",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "D",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "D",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c17",
+        "type": "switch",
+        "label": "IN 1",
+        "position": {
+          "x": 110,
+          "y": 370
+        },
+        "label2": "MAN",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c18",
+        "type": "switch",
+        "label": "IN 2",
+        "position": {
+          "x": 110,
+          "y": 470
+        },
+        "label2": "MAN",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "1",
+        "position": {
+          "x": 50,
+          "y": 370
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "2",
+        "position": {
+          "x": 50,
+          "y": 470
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "knob",
+        "label": "3",
+        "position": {
+          "x": 50,
+          "y": 570
+        },
+        "labelPosition": "below"
+      }
+    ]
+  },
+  {
+    "id": "grunge-filter",
+    "name": "GRUNGE FILTER",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p164/GRUNGE_FILTER.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/grunge-filter",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN H",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "IN L",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "CV 1",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "CV 2",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "c5",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "c6",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "B.CV",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "B.CTRL",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c17",
+        "type": "switch",
+        "label": "FM",
+        "position": {
+          "x": 130,
+          "y": 400
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c18",
+        "type": "switch",
+        "label": "SOFT",
+        "position": {
+          "x": 120,
+          "y": 570
+        },
+        "label2": "HARD",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "CUTOFF FREQ",
+        "position": {
+          "x": 50,
+          "y": 410
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "CV 1",
+        "position": {
+          "x": 50,
+          "y": 490
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "knob",
+        "label": "RESONANCE",
+        "position": {
+          "x": 50,
+          "y": 570
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c26",
+        "type": "switch",
+        "label": "DIST",
+        "position": {
+          "x": 130,
+          "y": 320
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c27",
+        "type": "switch",
+        "label": "BP",
+        "position": {
+          "x": 90,
+          "y": 320
+        },
+        "label2": "LP",
+        "orientation": "vertical"
+      }
+    ]
+  },
+  {
+    "id": "hpamp",
+    "name": "HPAMP",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p36/HPAMP.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/hpamp",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN L",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "IN R",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c28",
+        "name": "c28",
+        "position": {
+          "x": 50,
+          "y": 500
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c29",
+        "name": "c29",
+        "position": {
+          "x": 110,
+          "y": 500
+        },
+        "labelPosition": "below"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c19",
+        "type": "knob",
+        "label": "VOLUME",
+        "position": {
+          "x": 80,
+          "y": 350
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c31",
+        "type": "switch",
+        "label": "MONO",
+        "position": {
+          "x": 130,
+          "y": 140
+        },
+        "label2": "STEREO",
+        "orientation": "vertical"
+      }
+    ],
+    "labels": [
+      {
+        "id": "c30",
+        "text": "HEADPHONES",
+        "position": {
+          "x": 80,
+          "y": 540
+        },
+        "size": 15,
+        "align": "middle"
+      }
+    ]
+  },
+  {
+    "id": "joystick",
+    "name": "JOYSTICK",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p130/joystick.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/joystick",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "CV 1",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "CV 2",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "CV 3",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "CV 4",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "MULT",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "Q1",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "Q2",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "Q3",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "Q4",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "CV X",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "CV Y",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "CV MIX",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "GATE",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c17",
+        "type": "switch",
+        "label": "OVERLAP",
+        "position": {
+          "x": 40,
+          "y": 370
+        },
+        "label2": "",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c18",
+        "type": "switch",
+        "label": "INPUT MIX",
+        "position": {
+          "x": 120,
+          "y": 370
+        },
+        "label2": "CV SOURCE",
+        "orientation": "vertical"
+      }
+    ]
+  },
+  {
     "id": "kick",
     "name": "KICK",
     "manufacturer": "Tangible Waves",
@@ -5376,6 +7094,536 @@
         "position": {
           "x": 80,
           "y": 580
+        },
+        "labelPosition": "below"
+      }
+    ]
+  },
+  {
+    "id": "logic",
+    "name": "LOGIC",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p16/LOGIC.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/logic",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "1A",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "IB",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "2A",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "2B",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "IN3",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "IN4",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "c7",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "c8",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "NAND",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "AND",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "XOR",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "NAND",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "AND",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "XOR",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "INV 3",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "INV 4",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ]
+  },
+  {
+    "id": "lopag",
+    "name": "LOPAG",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p62/LOPAG_%28lowpass_gate%29.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/lopag",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "IN",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "TRIG",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "GATE",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "CV",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "c5",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "c6",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "c7",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "BS GATE",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "OUT",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "TRIG",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "MULT",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c19",
+        "type": "switch",
+        "label": "VCA",
+        "position": {
+          "x": 80,
+          "y": 400
+        },
+        "label2": "LP GATE",
+        "orientation": "vertical"
+      },
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "CV LEVEL",
+        "position": {
+          "x": 80,
+          "y": 530
+        },
+        "labelPosition": "below"
+      }
+    ]
+  },
+  {
+    "id": "mixer-4-4",
+    "name": "MIXER 4-4",
+    "manufacturer": "Tangible Waves",
+    "url": "https://www.tangiblewaves.com/store/p13/MIXER_4-4.html",
+    "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/mixer4-4",
+    "width": 160,
+    "height": 640,
+    "connections": [
+      {
+        "id": "c1",
+        "name": "A1",
+        "position": {
+          "x": 20,
+          "y": 60
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c2",
+        "name": "A2",
+        "position": {
+          "x": 20,
+          "y": 90
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c3",
+        "name": "A3",
+        "position": {
+          "x": 20,
+          "y": 120
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c4",
+        "name": "A4",
+        "position": {
+          "x": 20,
+          "y": 150
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c5",
+        "name": "B1",
+        "position": {
+          "x": 20,
+          "y": 180
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c6",
+        "name": "B2",
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c7",
+        "name": "B3",
+        "position": {
+          "x": 20,
+          "y": 240
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c8",
+        "name": "B4",
+        "position": {
+          "x": 20,
+          "y": 270
+        },
+        "labelPosition": "right"
+      },
+      {
+        "id": "c9",
+        "name": "OUT A",
+        "position": {
+          "x": 140,
+          "y": 60
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c10",
+        "name": "OUT A",
+        "position": {
+          "x": 140,
+          "y": 90
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c11",
+        "name": "OUT B",
+        "position": {
+          "x": 140,
+          "y": 120
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c12",
+        "name": "OUT B",
+        "position": {
+          "x": 140,
+          "y": 150
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c13",
+        "name": "THRU",
+        "position": {
+          "x": 140,
+          "y": 180
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c14",
+        "name": "THRU",
+        "position": {
+          "x": 140,
+          "y": 210
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c15",
+        "name": "THRU",
+        "position": {
+          "x": 140,
+          "y": 240
+        },
+        "labelPosition": "left"
+      },
+      {
+        "id": "c16",
+        "name": "THRU",
+        "position": {
+          "x": 140,
+          "y": 270
+        },
+        "labelPosition": "left"
+      }
+    ],
+    "controls": [
+      {
+        "id": "c20",
+        "type": "knob",
+        "label": "LEVEL 1",
+        "position": {
+          "x": 80,
+          "y": 330
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c21",
+        "type": "knob",
+        "label": "LEVEL 2",
+        "position": {
+          "x": 80,
+          "y": 410
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c22",
+        "type": "knob",
+        "label": "LEVEL 3",
+        "position": {
+          "x": 80,
+          "y": 490
+        },
+        "labelPosition": "below"
+      },
+      {
+        "id": "c23",
+        "type": "knob",
+        "label": "LEVEL 4",
+        "position": {
+          "x": 80,
+          "y": 570
         },
         "labelPosition": "below"
       }
