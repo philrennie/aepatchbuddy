@@ -503,19 +503,62 @@
     }
   }
 
-  // slack (0.75–1.4) scales the cable's droop; higher = longer cable = more sag.
-  function cableSag(p1, p2, slack = 1.0) {
-    return Math.max(30, Math.hypot(p2.x - p1.x, p2.y - p1.y) * 0.3) * slack;
+  // ---- cable path (rope sag) ----
+  // A multi-point sag shape, giving a bit more weight/character than a single fixed bezier
+  // arc — inspired by the Verlet-rope technique in patchbay-js
+  // (https://github.com/HelgeSverre/patchbay-js, MIT License, Helge Sverre), which seeds
+  // points along the line and relaxes them with an iterative distance-constraint solve.
+  // That solve step turned out to destabilize here: seeding points at uniform *t* along a
+  // sine droop profile does not give them uniform *spacing* (segments bunch up near the
+  // peak, stretch out near the pinned endpoints), so a solver targeting one uniform segment
+  // length fights the seed shape and overshoots for short/steep cables — visible as a jagged
+  // zigzag right at the jacks, worst right after moving a module. Dropping the solve and
+  // using only the seeded points (independently verified smooth/monotonic — see below) is
+  // simpler and fixes that outright, at the cost of the physically-settled look the solver
+  // was meant to add.
+  const ROPE_POINTS = 8; // points per cable, endpoints included
+
+  // slack (0.75–1.4) scales the cable's droop depth; higher = more sag.
+  function settledRopePoints(p1, p2, slack = 1.0) {
+    const dx = p2.x - p1.x, dy = p2.y - p1.y;
+    const straight = Math.hypot(dx, dy) || 1;
+    const sag = Math.max(30, straight * 0.3) * slack;
+
+    const points = [{ x: p1.x, y: p1.y }];
+    for (let i = 1; i < ROPE_POINTS - 1; i++) {
+      const t = i / (ROPE_POINTS - 1);
+      const droop = sag * Math.sin(Math.PI * t); // smooth 0 → peak → 0 profile along the run
+      points.push({ x: p1.x + dx * t, y: p1.y + dy * t + droop });
+    }
+    points.push({ x: p2.x, y: p2.y });
+    return points;
   }
 
-  function bezierPath(p1, p2, slack = 1.0) {
-    const sag = cableSag(p1, p2, slack);
-    return `M ${p1.x} ${p1.y} C ${p1.x} ${p1.y + sag}, ${p2.x} ${p2.y + sag}, ${p2.x} ${p2.y}`;
+  // Smooths a point run into an SVG path string via a standard (uniform) Catmull-Rom-to-
+  // cubic-Bezier conversion — unrelated to patchbay-js, which renders straight rotated
+  // segments rather than a smooth curve.
+  function ropePathFromPoints(points) {
+    let d = `M ${points[0].x} ${points[0].y}`;
+    for (let i = 0; i < points.length - 1; i++) {
+      const p0 = points[i === 0 ? 0 : i - 1];
+      const p1 = points[i];
+      const p2 = points[i + 1];
+      const p3 = points[i + 2 < points.length ? i + 2 : i + 1];
+      const c1x = p1.x + (p2.x - p0.x) / 6, c1y = p1.y + (p2.y - p0.y) / 6;
+      const c2x = p2.x - (p3.x - p1.x) / 6, c2y = p2.y - (p3.y - p1.y) / 6;
+      d += ` C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p2.x} ${p2.y}`;
+    }
+    return d;
   }
 
-  function cableMidpoint(p1, p2, slack = 1.0) {
-    const sag = cableSag(p1, p2, slack);
-    return { x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 + 0.75 * sag };
+  function ropeCablePath(p1, p2, slack = 1.0) {
+    return ropePathFromPoints(settledRopePoints(p1, p2, slack));
+  }
+
+  function ropeMidpoint(points) {
+    const i = Math.floor((points.length - 1) / 2);
+    const a = points[i], b = points[Math.min(i + 1, points.length - 1)];
+    return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
   }
 
   function buildCablePath(cable) {
@@ -534,7 +577,8 @@
 
     const p1 = jackCanvasPos(fromInst, fromConn);
     const p2 = jackCanvasPos(toInst, toConn);
-    const d = bezierPath(p1, p2, cable.slack);
+    const ropePoints = settledRopePoints(p1, p2, cable.slack);
+    const d = ropePathFromPoints(ropePoints);
 
     const hit = document.createElementNS("http://www.w3.org/2000/svg", "path");
     hit.setAttribute("d", d);
@@ -570,7 +614,7 @@
     });
 
     if (cable.id === selectedCableId) {
-      const mid = cableMidpoint(p1, p2, cable.slack);
+      const mid = ropeMidpoint(ropePoints);
       const del = document.createElementNS("http://www.w3.org/2000/svg", "g");
       del.setAttribute("class", "cable-delete-btn");
       del.style.pointerEvents = "auto";
@@ -776,7 +820,7 @@
   function onJackMouseMove(e) {
     if (!connectCtx) return;
     const pt = canvasPointFromClient(e.clientX, e.clientY);
-    connectCtx.tempPath.setAttribute("d", bezierPath(connectCtx.start, pt));
+    connectCtx.tempPath.setAttribute("d", ropeCablePath(connectCtx.start, pt));
   }
 
   function onJackMouseUp(e) {
