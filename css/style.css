@@ -729,6 +729,55 @@ html, body {
   color: var(--danger);
 }
 
+/* ---------- Share panel ---------- */
+
+.share-wrap { position: relative; }
+
+.share-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 320px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.share-panel[hidden] { display: none; }
+
+.share-panel-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.share-url-text {
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  padding: 8px;
+  resize: none;
+  line-height: 1.45;
+  word-break: break-all;
+}
+
+.share-url-text:focus {
+  outline: none;
+  border-color: var(--accent-dim);
+}
+
 /* ---------- Scrollbars (webkit) ---------- */
 
 #module-list::-webkit-scrollbar { width: 10px; }

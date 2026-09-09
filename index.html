@@ -43,6 +43,14 @@
       <div class="divider"></div>
       <button id="btn-clear" class="text-btn">Clear rack</button>
       <button id="btn-import" class="text-btn">Import</button>
+      <div class="share-wrap">
+        <button id="btn-share" class="text-btn">Share</button>
+        <div id="share-panel" class="share-panel" hidden>
+          <div class="share-panel-label">Shareable link</div>
+          <textarea id="share-url" class="share-url-text" readonly rows="3"></textarea>
+          <button id="btn-copy-share" class="text-btn primary">Copy link</button>
+        </div>
+      </div>
       <button id="btn-export" class="text-btn primary">Export patch</button>
       <input type="file" id="file-import" accept="application/json" hidden>
       <div class="divider"></div>
