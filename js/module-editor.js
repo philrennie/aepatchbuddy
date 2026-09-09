@@ -175,6 +175,15 @@
     state.selectedId = state.components[next].id;
     setMode('select');
     renderProps();
+    focusPropsLabel();
+  }
+
+  // Focuses the first text input in the props panel — the label field for jacks/knobs/switches,
+  // the text field for label components. Called after a pure click-select or keyboard select so
+  // the user can start typing without needing to click the input first.
+  function focusPropsLabel() {
+    const inp = propsDiv.querySelector('input[type="text"]');
+    if (inp) inp.focus();
   }
 
   function nameToId(name) {
@@ -596,6 +605,32 @@
     del.textContent = 'Delete component';
     del.addEventListener('click', () => deleteComponent(comp.id));
     append(del);
+
+    // quick labels (not relevant for the label component type, which uses `text` not `label`)
+    if (comp.type !== 'label') {
+      const QUICK_LABELS = ['IN', 'OUT', 'MULT', 'THRU', 'B.GATE', 'B.CV', 'B.START', 'B.STOP'];
+
+      const qlHeading = document.createElement('div');
+      qlHeading.className = 'field-label';
+      qlHeading.style.marginTop = '12px';
+      qlHeading.textContent = 'Quick labels';
+      append(qlHeading);
+
+      const qlRow = document.createElement('div');
+      qlRow.className = 'quick-labels';
+      for (const lbl of QUICK_LABELS) {
+        const btn = document.createElement('button');
+        btn.className = 'quick-label-btn';
+        btn.textContent = lbl;
+        btn.addEventListener('click', () => {
+          comp.label = lbl;
+          render();
+          renderProps();
+        });
+        qlRow.appendChild(btn);
+      }
+      append(qlRow);
+    }
   }
 
   function field(labelText, type, value, placeholder, extra = {}) {
@@ -703,6 +738,7 @@
 
     if (drag) {
       e.preventDefault();
+      drag.moved = true;
       const raw = svgRaw(e);
       const comp = byId(drag.id);
       if (comp) {
@@ -727,6 +763,8 @@
 
   svgEl.addEventListener('mousedown', e => {
     if (e.button !== 0) return;
+    // Always remove focus from any left/right panel input when the canvas is clicked.
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
 
     if (state.mode !== 'select') {
       // Place component
@@ -744,6 +782,7 @@
       setMode('select');
       render();
       renderProps();
+      focusPropsLabel();
       return;
     }
 
@@ -755,7 +794,7 @@
       state.selectedId = id;
       const comp = byId(id);
       const raw = svgRaw(e);
-      drag = { id, sx: raw.x, sy: raw.y, ox: comp.x, oy: comp.y };
+      drag = { id, sx: raw.x, sy: raw.y, ox: comp.x, oy: comp.y, moved: false };
       render();
       renderProps();
     } else {
@@ -767,7 +806,12 @@
     }
   });
 
-  svgEl.addEventListener('mouseup', () => { drag = null; render(); });
+  svgEl.addEventListener('mouseup', () => {
+    const pureClick = drag && !drag.moved;
+    drag = null;
+    render();
+    if (pureClick) focusPropsLabel();
+  });
   document.addEventListener('mouseup', () => { if (drag) { drag = null; render(); } });
 
   // ---- keyboard ----

@@ -203,6 +203,9 @@ html, body {
   padding: 7px 12px;
   font-size: 13px;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
   transition: border-color 0.12s ease, background 0.12s ease;
 }
 
