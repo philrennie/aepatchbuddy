@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patch Bay — User Guide</title>
+<script>
+  try {
+    var t = localStorage.getItem('patchbay-theme');
+    if (t && t !== 'system') document.documentElement.dataset.theme = t;
+  } catch (_) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/help.css">
+</head>
+<body>
+
+<div id="app">
+
+  <header id="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">PB</span>
+      <span class="brand-name">Patch&nbsp;Bay</span>
+    </a>
+    <span class="help-page-title">User Guide</span>
+    <div class="topbar-actions">
+      <a href="index.html" class="text-btn">← Back to editor</a>
+      <div class="divider"></div>
+      <div id="theme-picker"></div>
+    </div>
+  </header>
+
+  <main id="help-main">
+    <div class="help-content">
+
+      <p class="help-intro">Patch Bay is a visual documentation tool for AE Modular synthesizer patches. Build your rack, connect jacks with cables, then export or share your patch.</p>
+
+      <!-- Quick start -->
+      <section class="help-section">
+        <h2 class="help-section-title">Quick start</h2>
+        <ol>
+          <li>Find a module in the <strong>library panel</strong> on the left — search by name or manufacturer.</li>
+          <li><strong>Click</strong> a module to place it in the center of your rack, or <strong>drag</strong> it to drop it exactly where you want.</li>
+          <li>Click-drag from one <strong>jack</strong> to another to patch a cable between them.</li>
+          <li>Name your patch at the top, then <strong>Export patch</strong> to save it as JSON, or <strong>Share</strong> to generate a shareable link.</li>
+        </ol>
+      </section>
+
+      <!-- Module library -->
+      <section class="help-section">
+        <h2 class="help-section-title">The module library</h2>
+        <ul>
+          <li>Use the <strong>search bar</strong> at the top of the sidebar to filter modules by name or manufacturer.</li>
+          <li><strong>Click</strong> any module in the list to add it to the center of the current rack view.</li>
+          <li><strong>Drag</strong> a module from the sidebar directly onto the rack to place it exactly where you want it.</li>
+          <li>The module thumbnail shows a preview of the panel artwork.</li>
+        </ul>
+        <div class="help-tip">
+          <strong>Tip:</strong> Modules with a product link show a <strong>↗</strong> button when you hover over a rack instance — click it to open the manufacturer's product page.
+        </div>
+      </section>
+
+      <!-- Patching cables -->
+      <section class="help-section">
+        <h2 class="help-section-title">Patching cables</h2>
+        <ul>
+          <li><strong>Drag</strong> from any jack on a module to any other jack to create a cable. Cables are automatically assigned a color from the rotation.</li>
+          <li>You can connect any jack to any other jack — Patch Bay doesn't enforce signal direction or type, just like the hardware.</li>
+          <li><strong>Hover</strong> over a jack to see its name in a tooltip.</li>
+          <li>A jack that has a cable connected to it stays visually lit (in the cable's color) so you can trace connections at a glance.</li>
+        </ul>
+        <h3 class="help-section-title" style="margin-top: 20px;">Re-routing a cable</h3>
+        <p>To move one end of an existing cable to a different jack, drag from the jack where that cable is currently connected — the cable lifts off and follows your mouse, ready to be dropped on a new destination jack. Release on empty space to restore it to its original connection.</p>
+      </section>
+
+      <!-- Removing cables -->
+      <section class="help-section">
+        <h2 class="help-section-title">Removing cables</h2>
+        <ul>
+          <li><strong>Click</strong> any cable to select it (it highlights and shows a × button at its midpoint).</li>
+          <li>Press <kbd>Delete</kbd> or <kbd>Backspace</kbd> to remove the selected cable.</li>
+          <li>Click the <strong>×</strong> button that appears at the cable's midpoint to remove it.</li>
+          <li>Click anywhere on the empty rack to deselect.</li>
+        </ul>
+      </section>
+
+      <!-- Moving modules -->
+      <section class="help-section">
+        <h2 class="help-section-title">Moving modules</h2>
+        <ul>
+          <li><strong>Drag</strong> a module by its panel face (not a jack) to reposition it anywhere on the rack.</li>
+          <li>Cables stay connected and update in real time as you drag.</li>
+          <li>To remove a module, hover over it and click the <strong>×</strong> button that appears at the top-right corner. This also removes all cables connected to that module.</li>
+        </ul>
+      </section>
+
+      <!-- Controls -->
+      <section class="help-section">
+        <h2 class="help-section-title">Knobs &amp; switches</h2>
+        <p>Some modules include knob and switch controls to help document parameter settings alongside your patch.</p>
+        <ul>
+          <li><strong>Knobs</strong> — drag up to increase the value, down to decrease it. The tick mark shows the current position. Hover for the control name.</li>
+          <li><strong>Switches</strong> — click to toggle between the two positions. The handle moves to show which state the switch is in.</li>
+        </ul>
+        <div class="help-tip">
+          <strong>Note:</strong> Control values are saved with your patch when you export or use the share link, so your documented settings travel with the patch.
+        </div>
+      </section>
+
+      <!-- Zoom and navigation -->
+      <section class="help-section">
+        <h2 class="help-section-title">Zoom &amp; navigation</h2>
+        <div class="help-table-wrap">
+          <table>
+            <thead>
+              <tr><th>Action</th><th>Effect</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Scroll wheel</td><td>Zoom in / out</td></tr>
+              <tr><td><strong>+</strong> / <strong>–</strong> buttons in topbar</td><td>Zoom in / out</td></tr>
+              <tr><td>Drag on empty rack</td><td>Pan the view</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The zoom level is shown as a percentage in the topbar. The rack canvas is much larger than the viewport — pan freely to spread out your modules.</p>
+      </section>
+
+      <!-- Saving and loading -->
+      <section class="help-section">
+        <h2 class="help-section-title">Saving &amp; loading</h2>
+        <ul>
+          <li><strong>Export patch</strong> — downloads the current rack as a <code>.json</code> file. The filename is derived from the patch name you've set.</li>
+          <li><strong>Import</strong> — loads a previously exported <code>.json</code> file, replacing the current rack. Modules that aren't found in the library are silently skipped with a warning.</li>
+          <li><strong>Auto-save</strong> — your patch is automatically saved in the browser as you work. It reloads when you revisit the page, even without an explicit export.</li>
+          <li><strong>Clear rack</strong> — removes all modules and cables after a confirmation prompt.</li>
+        </ul>
+        <div class="help-tip">
+          <strong>Tip:</strong> The auto-save is per browser and device. Export to JSON if you want a backup or to move a patch to another machine.
+        </div>
+      </section>
+
+      <!-- Sharing -->
+      <section class="help-section">
+        <h2 class="help-section-title">Sharing patches</h2>
+        <ul>
+          <li>Click <strong>Share</strong> to generate a shareable link for the current patch.</li>
+          <li>The entire patch is compressed and encoded directly into the URL — no account or server is involved.</li>
+          <li>Paste the link anywhere (Discord, email, a forum post). Anyone who opens it will have the patch loaded automatically.</li>
+          <li>Links are <strong>snapshots</strong>: changing the patch after sharing doesn't update previously shared links — generate a new link to share an updated version.</li>
+        </ul>
+        <div class="help-tip">
+          <strong>Privacy:</strong> Share links use the URL <em>fragment</em> (<code>#patch=…</code>), which is never sent to any server — the patch data stays between you and whoever you share the link with.
+        </div>
+      </section>
+
+      <!-- Module editor -->
+      <section class="help-section">
+        <h2 class="help-section-title">The module editor</h2>
+        <p>Patch Bay ships with a growing module library, but if a module you use isn't listed yet you can define it yourself with the <strong>Module Editor</strong> — a companion tool for visually placing jacks, knobs, switches, and labels onto a panel, then exporting a <code>module.json</code>.</p>
+        <ul>
+          <li>Open it at <a href="module-editor.html">module-editor.html</a> (linked from the <strong>?</strong> button in any Patch Bay topbar).</li>
+          <li>Set the panel name, width, and metadata, then use the placement tools to build your panel.</li>
+          <li>Export a <code>module.json</code> — that's all Patch Bay needs to render the panel and expose its jacks for patching.</li>
+          <li>Want your module in the shared library? You can submit it by opening a pull request against the <a href="https://github.com/philrennie/aepatchbuddy" target="_blank" rel="noopener">github.com/philrennie/aepatchbuddy</a> repository — see the <a href="module-editor-help.html">Module Editor guide</a> for step-by-step instructions.</li>
+        </ul>
+      </section>
+
+      <!-- Keyboard shortcuts -->
+      <section class="help-section">
+        <h2 class="help-section-title">Keyboard shortcuts</h2>
+        <div class="help-table-wrap">
+          <table>
+            <thead>
+              <tr><th>Key</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><kbd>Delete</kbd> or <kbd>Backspace</kbd></td><td>Remove the selected cable</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Keyboard shortcuts are disabled while a text input is focused (e.g. the patch name field).</p>
+      </section>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="js/theme.js"></script>
+</body>
+</html>

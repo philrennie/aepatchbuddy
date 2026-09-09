@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module Editor — Guide</title>
+<script>
+  try {
+    var t = localStorage.getItem('patchbay-theme');
+    if (t && t !== 'system') document.documentElement.dataset.theme = t;
+  } catch (_) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/help.css">
+</head>
+<body>
+
+<div id="app">
+
+  <header id="topbar">
+    <a class="brand" href="module-editor.html">
+      <span class="brand-mark">PB</span>
+      <span class="brand-name">Patch&nbsp;Bay</span>
+    </a>
+    <span class="help-page-title">Module Editor — Guide</span>
+    <div class="topbar-actions">
+      <a href="module-editor.html" class="text-btn">← Back to editor</a>
+      <div class="divider"></div>
+      <div id="theme-picker"></div>
+    </div>
+  </header>
+
+  <main id="help-main">
+    <div class="help-content">
+
+      <p class="help-intro">The Module Editor is a visual tool for defining AE Modular module panels — placing jacks, knobs, switches, and labels, then exporting a <code>module.json</code> that Patch Bay understands. You can use it to document modules for your own patches, or to contribute new modules to the shared library.</p>
+
+      <!-- Overview -->
+      <section class="help-section">
+        <h2 class="help-section-title">Layout</h2>
+        <p>The editor is split into three columns:</p>
+        <ul>
+          <li><strong>Left panel</strong> — module settings (name, ID, width, metadata) and tool selection.</li>
+          <li><strong>Centre canvas</strong> — the live panel preview. Click in add-tool mode to place components; click in select mode to select and drag them.</li>
+          <li><strong>Right panel</strong> — properties for the currently selected component (label, position, orientation).</li>
+        </ul>
+        <p>The bottom bar has export and import actions.</p>
+      </section>
+
+      <!-- Panel settings -->
+      <section class="help-section">
+        <h2 class="help-section-title">Panel settings</h2>
+        <ul>
+          <li><strong>Name</strong> — the human-readable module name shown in Patch Bay's sidebar and on the panel itself.</li>
+          <li><strong>ID</strong> — a short, lowercase, hyphenated identifier (e.g. <code>vco</code>, <code>ms-filter</code>). This becomes the folder name and the JSON filename. It auto-derives from the name but can be edited independently. Must be unique within the library.</li>
+          <li><strong>Width</strong> — panel width in Rack Units (1 RU = 160 px, ≈ 25 mm at AE Modular scale). Standard AE modules are 1–4 RU wide.</li>
+          <li><strong>Custom SVG artwork</strong> — tick this if you are providing your own hand-drawn or vector panel artwork. Exports <code>customImage: true</code> in the JSON and expects a matching <code>module.svg</code> in the same PR folder. Leave unticked to let Patch Bay render the panel from the JSON automatically.</li>
+          <li><strong>Manufacturer, Product URL, Documentation URL</strong> — optional; shown in the sidebar and as link buttons on rack instances in the patch editor.</li>
+        </ul>
+      </section>
+
+      <!-- Tools -->
+      <section class="help-section">
+        <h2 class="help-section-title">Tools</h2>
+        <p>Select a tool from the left panel (or use the keyboard shortcut), then click anywhere on the canvas to place a component. The editor switches back to Select automatically after each placement.</p>
+        <div class="help-table-wrap">
+          <table>
+            <thead><tr><th>Tool</th><th>Shortcut</th><th>What it adds</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Select</strong></td><td><kbd>S</kbd> or <kbd>Esc</kbd></td><td>Select and drag existing components. No placement.</td></tr>
+              <tr><td><strong>Add Jack</strong></td><td><kbd>J</kbd></td><td>A mono jack (audio/CV input or output). Each jack becomes a patchable connector in the patch editor.</td></tr>
+              <tr><td><strong>Add Knob</strong></td><td><kbd>K</kbd></td><td>A rotary control for documenting parameter positions. Stored per-instance in saved patches.</td></tr>
+              <tr><td><strong>Add Switch</strong></td><td><kbd>W</kbd></td><td>A two-position toggle (vertical or horizontal). Stored per-instance in saved patches.</td></tr>
+              <tr><td><strong>Add Label</strong></td><td><kbd>T</kbd></td><td>Free-standing panel text — section headings, dividers, or any annotation that isn't attached to a jack or control.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="help-tip">
+          <strong>Tip:</strong> Use <kbd>[</kbd> and <kbd>]</kbd> to cycle through components in creation order. Selecting a component automatically focuses its label field so you can start typing immediately.
+        </div>
+      </section>
+
+      <!-- Grid -->
+      <section class="help-section">
+        <h2 class="help-section-title">Grid &amp; snap</h2>
+        <p>The <strong>Snap</strong> checkbox in the left panel snaps placed and dragged components to a grid. The default is 10 px, which aligns well with AE Modular's nominal jack spacing. Disable snap for freeform positioning or set a smaller step (e.g. 5 px) for tighter adjustments.</p>
+        <p>The dotted background is the same 24 px decorative grid used in the patch editor — it is not the snap grid.</p>
+      </section>
+
+      <!-- Properties -->
+      <section class="help-section">
+        <h2 class="help-section-title">Component properties</h2>
+        <p>Click a component on the canvas to select it. Its properties appear in the right panel.</p>
+        <ul>
+          <li><strong>Label / Connection name</strong> — the text shown next to the component on the panel. For jacks, this is also the name shown in Patch Bay's hover tooltips. Labels can be plain text or a <strong>waveform glyph</strong> — switch to the ∿ tab and pick a shape (sine, square, triangle, sawtooth or a combination).</li>
+          <li><strong>Label position</strong> — jacks and knobs have a 3×3 grid picker (above / below / left / right). Jacks at the panel edges conventionally use the inward direction.</li>
+          <li><strong>Orientation</strong> (switches only) — vertical or horizontal body.</li>
+          <li><strong>Quick labels</strong> — one-click presets for common signal names: <strong>IN, OUT, MULT, THRU, B.GATE, B.CV, B.START, B.STOP</strong>. Click any to set the label instantly.</li>
+          <li><strong>X / Y</strong> — exact pixel position in native panel space (before any app scaling). Edit directly for precise placement.</li>
+          <li><strong>ID</strong> — read-only. Jacks use this ID to identify cable connections in saved patches; do not delete and recreate a jack if patches are already referencing it.</li>
+        </ul>
+        <div class="help-tip">
+          <strong>Deleting a jack that patches already reference</strong> breaks those cable connections. The editor warns you when deleting a component whose ID came from an imported <code>module.json</code> — the same caution applies if you re-export an edited module and distribute it.
+        </div>
+      </section>
+
+      <!-- Export -->
+      <section class="help-section">
+        <h2 class="help-section-title">Exporting</h2>
+        <ul>
+          <li><strong>Copy JSON entry</strong> — copies the complete <code>module.json</code> object to the clipboard. Paste it into your favourite editor to review or tweak before saving.</li>
+          <li><strong>Download JSON</strong> — saves <code>{id}.json</code> directly. This is the file to put in your PR. You will need to rename it to module.json once it is in the module subfolder</li>
+          <li><strong>Download SVG</strong> — exports a <code>{id}.svg</code> panel image rendered from the same data. Useful as a reference or as the <code>module.svg</code> for a <code>customImage: true. You will need to rename it to module.svg once it is in the module subfolder</code> module. Only include it in the PR if <strong>Custom SVG artwork</strong> is ticked.</li>
+        </ul>
+        <p>The editor auto-saves to browser storage as you work. Clearing the module or closing the tab does not lose your progress unless you explicitly click <strong>Clear module</strong>.</p>
+      </section>
+
+      <!-- Import -->
+      <section class="help-section">
+        <h2 class="help-section-title">Importing</h2>
+        <p>Click <strong>Import JSON</strong> to load an existing <code>module.json</code> back into the editor. This lets you reopen a module for editing without needing its original <code>module.svg</code> — all jack, knob, switch, and label components are reconstructed from the JSON alone. Component IDs are preserved verbatim so a re-export won't break existing patch references.</p>
+      </section>
+
+      <!-- Keyboard shortcuts -->
+      <section class="help-section">
+        <h2 class="help-section-title">Keyboard shortcuts</h2>
+        <div class="help-table-wrap">
+          <table>
+            <thead><tr><th>Key</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td><kbd>S</kbd> or <kbd>Esc</kbd></td><td>Switch to Select tool</td></tr>
+              <tr><td><kbd>J</kbd></td><td>Switch to Add Jack tool</td></tr>
+              <tr><td><kbd>K</kbd></td><td>Switch to Add Knob tool</td></tr>
+              <tr><td><kbd>W</kbd></td><td>Switch to Add Switch tool</td></tr>
+              <tr><td><kbd>T</kbd></td><td>Switch to Add Label tool</td></tr>
+              <tr><td><kbd>[</kbd> / <kbd>]</kbd></td><td>Select previous / next component</td></tr>
+              <tr><td><kbd>Delete</kbd> or <kbd>Backspace</kbd></td><td>Delete selected component</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Keyboard shortcuts are disabled while a text input is focused.</p>
+      </section>
+
+      <!-- Submitting a module -->
+      <section class="help-section">
+        <h2 class="help-section-title">Submitting a module to the library</h2>
+        <p>The Patch Bay module library lives in the GitHub repository at <a href="https://github.com/philrennie/aepatchbuddy" target="_blank" rel="noopener"><strong>github.com/philrennie/aepatchbuddy</strong></a>. To add a new module, open a pull request against the <code>main</code> branch:</p>
+        <ol>
+          <li><strong>Fork</strong> the repository on GitHub (<em>Fork</em> button, top-right of the repo page).</li>
+          <li>In your fork, create the folder <code>src/modules/{your-module-id}/</code>. The folder name must exactly match the <strong>ID</strong> field in the editor.</li>
+          <li>Save your exported <code>module.json</code> into that folder.</li>
+          <li>If you ticked <strong>Custom SVG artwork</strong>, also place your <code>module.svg</code> in the same folder. Otherwise, no SVG is needed — Patch Bay renders the panel from the JSON automatically.</li>
+          <li><strong>Commit</strong> your changes and <strong>open a pull request</strong> against <code>philrennie/aepatchbuddy</code>'s <code>main</code> branch.</li>
+        </ol>
+        <div class="help-tip">
+          <strong>Validation runs automatically.</strong> A GitHub Actions lint workflow checks every PR that touches <code>src/modules/**</code>. It verifies the JSON schema, checks that a <code>module.svg</code> exists when <code>customImage: true</code>, and warns on malformed waveform tokens. The check must pass before the PR can be merged.
+        </div>
+        <h3 class="help-section-title" style="margin-top:20px;">What happens on merge</h3>
+        <p>When the PR is merged into <code>main</code>, a publish workflow automatically rebuilds <code>data/modules.json</code> from all individual module files and deploys the site to GitHub Pages. Your module appears in Patch Bay's library within a minute or two of merge.</p>
+        <h3 class="help-section-title" style="margin-top:20px;">Module guidelines</h3>
+        <ul>
+          <li>Use the real module name and manufacturer as they appear on the hardware or the manufacturer's website.</li>
+          <li>Jack names should match the panel silkscreen exactly where possible (e.g. <strong>1V/OCT</strong>, <strong>GATE</strong>, <strong>OUT</strong>).</li>
+          <li>Do not include copyrighted panel artwork in <code>module.svg</code> — the auto-generated panel (no <code>customImage</code>) is always acceptable and preferred unless you have original artwork.</li>
+          <li>Only add a <code>url</code> or <code>documentation</code> field if you have a real, stable link to a product or documentation page.</li>
+          <li>One module per PR is strongly preferred; it keeps review and CI feedback clean.</li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="js/theme.js"></script>
+</body>
+</html>

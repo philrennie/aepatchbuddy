@@ -48,7 +48,7 @@ html, body {
 
 /* ---------- Theme picker ---------- */
 
-#theme-picker { position: relative; margin-left: auto; }
+#theme-picker { position: relative; }
 
 .theme-picker-btn {
   font-family: var(--sans);
@@ -375,6 +375,33 @@ html, body {
 }
 
 .delete-btn:hover { background: color-mix(in srgb, var(--danger) 10%, transparent); }
+
+/* --- quick label buttons --- */
+.quick-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 6px;
+}
+
+.quick-label-btn {
+  padding: 3px 6px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  cursor: pointer;
+  transition: border-color 0.1s, background 0.1s, color 0.1s;
+  line-height: 1;
+}
+
+.quick-label-btn:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
 
 /* --- label position picker --- */
 .pos-grid {
