@@ -68,6 +68,10 @@
     fileImport: document.getElementById("file-import"),
     toast: document.getElementById("toast"),
     patchName: document.getElementById("patch-name"),
+    btnShare: document.getElementById("btn-share"),
+    sharePanel: document.getElementById("share-panel"),
+    shareUrlText: document.getElementById("share-url"),
+    btnCopyShare: document.getElementById("btn-copy-share"),
   };
 
   /* ---------------------------------------------------------------------
@@ -109,6 +113,61 @@
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "");
+  }
+
+  // ---- share link helpers (compression) ----
+
+  function toBase64url(bytes) {
+    let binary = '';
+    for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+    return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+  }
+
+  function fromBase64url(b64url) {
+    const b64 = b64url.replace(/-/g, '+').replace(/_/g, '/');
+    const padded = b64.padEnd(b64.length + (4 - b64.length % 4) % 4, '=');
+    const binary = atob(padded);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return bytes;
+  }
+
+  async function compressToBase64url(str) {
+    const cs = new CompressionStream('gzip');
+    const writer = cs.writable.getWriter();
+    writer.write(new TextEncoder().encode(str));
+    writer.close();
+    const chunks = [];
+    const reader = cs.readable.getReader();
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value);
+    }
+    const total = chunks.reduce((n, c) => n + c.length, 0);
+    const all = new Uint8Array(total);
+    let off = 0;
+    for (const chunk of chunks) { all.set(chunk, off); off += chunk.length; }
+    return toBase64url(all);
+  }
+
+  async function decompressFromBase64url(b64url) {
+    const ds = new DecompressionStream('gzip');
+    const writer = ds.writable.getWriter();
+    writer.write(fromBase64url(b64url));
+    writer.close();
+    const chunks = [];
+    const reader = ds.readable.getReader();
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value);
+    }
+    const total = chunks.reduce((n, c) => n + c.length, 0);
+    const all = new Uint8Array(total);
+    let off = 0;
+    for (const chunk of chunks) { all.set(chunk, off); off += chunk.length; }
+    return new TextDecoder().decode(all);
   }
 
   function updatePageTitle() {
@@ -170,7 +229,11 @@
     libraryById.clear();
     for (const mod of library) libraryById.set(mod.id, mod);
     renderModuleList("");
-    loadFromStorage();
+    if (location.hash.startsWith('#patch=')) {
+      loadFromHash();
+    } else {
+      loadFromStorage();
+    }
   }
 
   function renderModuleList(filterText) {
@@ -1117,6 +1180,86 @@
       toast("Patch imported.");
     }
   }
+
+  // ---- share link (compressed #fragment) ----
+
+  async function loadFromHash() {
+    try {
+      const encoded = location.hash.slice('#patch='.length);
+      const json = await decompressFromBase64url(encoded);
+      const data = JSON.parse(json);
+      // Clear the hash now — it was a transport mechanism, not a live URL
+      history.replaceState(null, '', location.pathname + location.search);
+      importPatch(data);
+      toast("Shared patch loaded.");
+    } catch (err) {
+      console.error("Failed to load patch from URL:", err);
+      toast("Couldn't load the patch from this link.", true);
+      loadFromStorage();
+    }
+  }
+
+  el.btnShare.addEventListener("click", async (e) => {
+    e.stopPropagation();
+    if (!el.sharePanel.hidden) {
+      el.sharePanel.hidden = true;
+      return;
+    }
+    if (rack.instances.size === 0) {
+      toast("Add some modules before sharing.", true);
+      return;
+    }
+    const origText = el.btnShare.textContent;
+    el.btnShare.textContent = "…";
+    el.btnShare.disabled = true;
+    try {
+      const trimmedName = patchName.trim();
+      const payload = {
+        format: "ae-patch-bay",
+        version: 1,
+        name: trimmedName || "Untitled Patch",
+        createdAt: new Date().toISOString(),
+        instances: Array.from(rack.instances.values()).map((i) => ({
+          id: i.id, moduleId: i.moduleId, x: Math.round(i.x), y: Math.round(i.y),
+          controls: i.controls || {},
+        })),
+        cables: Array.from(rack.cables.values()).map((c) => ({
+          id: c.id, from: c.from, to: c.to, color: c.color, slack: c.slack,
+        })),
+      };
+      const encoded = await compressToBase64url(JSON.stringify(payload));
+      const url = `${location.origin}${location.pathname}#patch=${encoded}`;
+      el.shareUrlText.value = url;
+      el.sharePanel.hidden = false;
+      el.shareUrlText.select();
+    } catch (err) {
+      console.error("Share link error:", err);
+      toast("Couldn't generate share link.", true);
+    } finally {
+      el.btnShare.textContent = origText;
+      el.btnShare.disabled = false;
+    }
+  });
+
+  el.btnCopyShare.addEventListener("click", () => {
+    const url = el.shareUrlText.value;
+    if (!url) return;
+    navigator.clipboard.writeText(url).then(() => {
+      toast("Link copied to clipboard.");
+      el.sharePanel.hidden = true;
+    }).catch(() => {
+      el.shareUrlText.select();
+      document.execCommand("copy");
+      toast("Link copied.");
+      el.sharePanel.hidden = true;
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!el.sharePanel.hidden && !e.target.closest(".share-wrap")) {
+      el.sharePanel.hidden = true;
+    }
+  });
 
   // Generated panels (moduleImageSrc's cache) are colored from the active theme —
   // drop the cache for every module and re-render so a theme change shows up
