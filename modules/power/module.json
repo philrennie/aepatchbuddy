@@ -1,0 +1,168 @@
+{
+  "id": "power",
+  "name": "POWER",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p85/power_%28LoFi%29_.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/power",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c9",
+      "name": "I/O1",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "I/O2,HP",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "c11",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "c12",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "+5",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "+5",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "GND",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "GND",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c21",
+      "name": "I/O 1",
+      "position": {
+        "x": 40,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c22",
+      "name": "I/O 2, HP",
+      "position": {
+        "x": 120,
+        "y": 460
+      },
+      "labelPosition": "below"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "HP VOL",
+      "position": {
+        "x": 80,
+        "y": 350
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c23",
+      "type": "switch",
+      "label": "AUD",
+      "position": {
+        "x": 30,
+        "y": 560
+      },
+      "label2": "CV",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c24",
+      "type": "switch",
+      "label": "AUD",
+      "position": {
+        "x": 110,
+        "y": 560
+      },
+      "label2": "CV",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c25",
+      "type": "switch",
+      "label": "HP",
+      "position": {
+        "x": 140,
+        "y": 560
+      },
+      "label2": "I/0",
+      "orientation": "vertical"
+    }
+  ],
+  "labels": [
+    {
+      "id": "c26",
+      "text": "1",
+      "position": {
+        "x": 47,
+        "y": 565
+      },
+      "size": 11,
+      "align": "middle"
+    },
+    {
+      "id": "c27",
+      "text": "2",
+      "position": {
+        "x": 94,
+        "y": 565
+      },
+      "size": 11,
+      "align": "middle"
+    }
+  ]
+}

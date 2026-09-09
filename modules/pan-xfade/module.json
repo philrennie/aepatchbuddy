@@ -1,0 +1,199 @@
+{
+  "id": "pan-xfade",
+  "name": "PAN / XFADE",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p213/PAN%2FXFADE.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/pan_xfade",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "IN1/L",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "IN2/R",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "POS CV",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "BS.CTRL",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT L",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT L",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "OUT R",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "OUT R",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "switch",
+      "label": "ADUIO",
+      "position": {
+        "x": 130,
+        "y": 340
+      },
+      "label2": "DC",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c18",
+      "type": "switch",
+      "label": "XFADE",
+      "position": {
+        "x": 130,
+        "y": 420
+      },
+      "label2": "PAN",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "POS / XFADE",
+      "position": {
+        "x": 50,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "CV DEPTH",
+      "position": {
+        "x": 50,
+        "y": 560
+      },
+      "labelPosition": "below"
+    }
+  ]
+}
