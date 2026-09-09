@@ -175,15 +175,7 @@
     state.selectedId = state.components[next].id;
     setMode('select');
     renderProps();
-    focusPropsLabel();
-  }
-
-  // Focuses the first text input in the props panel — the label field for jacks/knobs/switches,
-  // the text field for label components. Called after a pure click-select or keyboard select so
-  // the user can start typing without needing to click the input first.
-  function focusPropsLabel() {
-    const inp = propsDiv.querySelector('input[type="text"]');
-    if (inp) inp.focus();
+    svgEl.focus();
   }
 
   function nameToId(name) {
@@ -671,6 +663,7 @@
     toggle.className = 'orient-row';
     for (const [kind, txt] of [['text', 'Abc'], ['wave', '∿']]) {
       const b = document.createElement('button');
+      b.tabIndex = -1;
       b.className = 'orient-btn' + ((kind === 'wave') === isWave ? ' active' : '');
       b.textContent = txt;
       b.title = kind === 'wave' ? 'Waveform symbol' : 'Text';
@@ -738,7 +731,6 @@
 
     if (drag) {
       e.preventDefault();
-      drag.moved = true;
       const raw = svgRaw(e);
       const comp = byId(drag.id);
       if (comp) {
@@ -782,7 +774,7 @@
       setMode('select');
       render();
       renderProps();
-      focusPropsLabel();
+      svgEl.focus();
       return;
     }
 
@@ -794,7 +786,7 @@
       state.selectedId = id;
       const comp = byId(id);
       const raw = svgRaw(e);
-      drag = { id, sx: raw.x, sy: raw.y, ox: comp.x, oy: comp.y, moved: false };
+      drag = { id, sx: raw.x, sy: raw.y, ox: comp.x, oy: comp.y };
       render();
       renderProps();
     } else {
@@ -807,10 +799,9 @@
   });
 
   svgEl.addEventListener('mouseup', () => {
-    const pureClick = drag && !drag.moved;
     drag = null;
     render();
-    if (pureClick) focusPropsLabel();
+    if (state.selectedId) svgEl.focus();
   });
   document.addEventListener('mouseup', () => { if (drag) { drag = null; render(); } });
 

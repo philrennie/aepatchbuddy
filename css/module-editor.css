@@ -342,6 +342,7 @@ html, body {
 #editor-svg.cursor-select { cursor: default; }
 #editor-svg.cursor-add    { cursor: crosshair; }
 #editor-svg.cursor-drag   { cursor: grabbing; }
+#editor-svg:focus         { outline: none; }
 
 /* --- right panel --- */
 .prop-empty {
