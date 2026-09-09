@@ -1,0 +1,260 @@
+{
+  "id": "multifx",
+  "name": "MULTIFX",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p51/MULTIFX.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/multifx",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "IN",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "CV PAR 1",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "CV PAR 2",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "CV PAR 3",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "c5",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "c6",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "c7",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "c8",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "L",
+      "position": {
+        "x": 300,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "R",
+      "position": {
+        "x": 300,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "MONO",
+      "position": {
+        "x": 300,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "INPUT LEVEL",
+      "position": {
+        "x": 110,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "knob",
+      "label": "FEEDBACK",
+      "position": {
+        "x": 110,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c22",
+      "type": "knob",
+      "label": "DRY",
+      "position": {
+        "x": 110,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c28",
+      "type": "knob",
+      "label": "WET",
+      "position": {
+        "x": 110,
+        "y": 550
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c29",
+      "type": "knob",
+      "label": "PROGRAM",
+      "position": {
+        "x": 210,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c30",
+      "type": "knob",
+      "label": "PAR 1",
+      "position": {
+        "x": 210,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c31",
+      "type": "knob",
+      "label": "PAR 2",
+      "position": {
+        "x": 210,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c32",
+      "type": "knob",
+      "label": "PAR 3",
+      "position": {
+        "x": 210,
+        "y": 550
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c33",
+      "type": "switch",
+      "label": "LOW",
+      "position": {
+        "x": 150,
+        "y": 290
+      },
+      "label2": "HIGH",
+      "orientation": "horizontal"
+    }
+  ],
+  "labels": [
+    {
+      "id": "c34",
+      "text": "SAMPLE RATE",
+      "position": {
+        "x": 153,
+        "y": 270
+      },
+      "size": 11,
+      "align": "middle"
+    }
+  ]
+}

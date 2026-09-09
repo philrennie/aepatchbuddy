@@ -1,0 +1,227 @@
+{
+  "id": "nyle-filter",
+  "name": "NYLE FILTER",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p47/NYLE_FILTER_%28Steiner_type%29.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/nyle-filter",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "LP IN",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "BP IN",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "HP IN",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "CV 1",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "CV 2",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "CV RESONANCE",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "BUS CV",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "BUS CTRL",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT",
+      "position": {
+        "x": 300,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT",
+      "position": {
+        "x": 300,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "OUT",
+      "position": {
+        "x": 300,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "LOWPASS IN",
+      "position": {
+        "x": 110,
+        "y": 350
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c18",
+      "type": "knob",
+      "label": "BANDPASS IN",
+      "position": {
+        "x": 110,
+        "y": 420
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "HIGHPASS IN",
+      "position": {
+        "x": 110,
+        "y": 490
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "FREEQUENCY",
+      "position": {
+        "x": 220,
+        "y": 350
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "knob",
+      "label": "CV 1",
+      "position": {
+        "x": 220,
+        "y": 420
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c22",
+      "type": "knob",
+      "label": "CV 2",
+      "position": {
+        "x": 220,
+        "y": 490
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c23",
+      "type": "knob",
+      "label": "RESONANCE",
+      "position": {
+        "x": 220,
+        "y": 560
+      },
+      "labelPosition": "below"
+    }
+  ]
+}

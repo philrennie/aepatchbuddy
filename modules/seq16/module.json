@@ -1,0 +1,564 @@
+{
+  "id": "seq16",
+  "name": "SEQ16",
+  "url": "https://www.tangiblewaves.com/store/p41/SEQ16.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/seq16",
+  "width": 640,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "CLK",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "RESET",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "c3",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "c4",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "B.GATE",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "B.CLK",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "B.START",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "B.STOP",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "CV",
+      "position": {
+        "x": 620,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "CV",
+      "position": {
+        "x": 620,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "CV",
+      "position": {
+        "x": 620,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "GATE",
+      "position": {
+        "x": 620,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "GATE",
+      "position": {
+        "x": 620,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "GATE",
+      "position": {
+        "x": 620,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "ACCENT",
+      "position": {
+        "x": 620,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "ACCENT",
+      "position": {
+        "x": 620,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c17",
+      "name": "1",
+      "position": {
+        "x": 90,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c18",
+      "name": "2",
+      "position": {
+        "x": 120,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c19",
+      "name": "3",
+      "position": {
+        "x": 150,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c20",
+      "name": "4",
+      "position": {
+        "x": 180,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "name": "5",
+      "position": {
+        "x": 210,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c22",
+      "name": "6",
+      "position": {
+        "x": 240,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c23",
+      "name": "7",
+      "position": {
+        "x": 270,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c24",
+      "name": "8",
+      "position": {
+        "x": 300,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c25",
+      "name": "9",
+      "position": {
+        "x": 330,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c26",
+      "name": "10",
+      "position": {
+        "x": 360,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c27",
+      "name": "11",
+      "position": {
+        "x": 390,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c28",
+      "name": "12",
+      "position": {
+        "x": 420,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c29",
+      "name": "13",
+      "position": {
+        "x": 450,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c30",
+      "name": "14",
+      "position": {
+        "x": 480,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c31",
+      "name": "15",
+      "position": {
+        "x": 510,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c32",
+      "name": "16",
+      "position": {
+        "x": 540,
+        "y": 300
+      },
+      "labelPosition": "below"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c33",
+      "type": "knob",
+      "label": "CV II",
+      "position": {
+        "x": 70,
+        "y": 600
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c34",
+      "type": "knob",
+      "label": "CV III",
+      "position": {
+        "x": 130,
+        "y": 600
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c35",
+      "type": "knob",
+      "label": "CV IV",
+      "position": {
+        "x": 190,
+        "y": 600
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c36",
+      "type": "knob",
+      "label": "CV 5",
+      "position": {
+        "x": 250,
+        "y": 600
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c37",
+      "type": "knob",
+      "label": "CV ACC",
+      "position": {
+        "x": 410,
+        "y": 600
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c38",
+      "type": "knob",
+      "label": "ACC RPT",
+      "position": {
+        "x": 470,
+        "y": 600
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c39",
+      "type": "knob",
+      "label": "9",
+      "position": {
+        "x": 90,
+        "y": 490
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c40",
+      "type": "knob",
+      "label": "10",
+      "position": {
+        "x": 150,
+        "y": 530
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c41",
+      "type": "knob",
+      "label": "11",
+      "position": {
+        "x": 220,
+        "y": 490
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c42",
+      "type": "knob",
+      "label": "12",
+      "position": {
+        "x": 270,
+        "y": 530
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c43",
+      "type": "knob",
+      "label": "13",
+      "position": {
+        "x": 330,
+        "y": 490
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c44",
+      "type": "knob",
+      "label": "14",
+      "position": {
+        "x": 390,
+        "y": 530
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c45",
+      "type": "knob",
+      "label": "15",
+      "position": {
+        "x": 450,
+        "y": 490
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c46",
+      "type": "knob",
+      "label": "16",
+      "position": {
+        "x": 510,
+        "y": 530
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c47",
+      "type": "knob",
+      "label": "1",
+      "position": {
+        "x": 90,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c48",
+      "type": "knob",
+      "label": "2",
+      "position": {
+        "x": 150,
+        "y": 420
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c49",
+      "type": "knob",
+      "label": "3",
+      "position": {
+        "x": 220,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c50",
+      "type": "knob",
+      "label": "4",
+      "position": {
+        "x": 270,
+        "y": 420
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c51",
+      "type": "knob",
+      "label": "5",
+      "position": {
+        "x": 330,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c52",
+      "type": "knob",
+      "label": "6",
+      "position": {
+        "x": 390,
+        "y": 420
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c53",
+      "type": "knob",
+      "label": "7",
+      "position": {
+        "x": 450,
+        "y": 370
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c54",
+      "type": "knob",
+      "label": "8",
+      "position": {
+        "x": 510,
+        "y": 420
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c55",
+      "type": "switch",
+      "label": "8",
+      "position": {
+        "x": 320,
+        "y": 260
+      },
+      "label2": "16",
+      "orientation": "horizontal"
+    },
+    {
+      "id": "c56",
+      "type": "switch",
+      "label": "2.5V",
+      "position": {
+        "x": 320,
+        "y": 170
+      },
+      "label2": "5V",
+      "orientation": "horizontal"
+    }
+  ],
+  "labels": [
+    {
+      "id": "c57",
+      "text": "CV RANGE",
+      "position": {
+        "x": 320,
+        "y": 160
+      },
+      "size": 11,
+      "align": "middle"
+    },
+    {
+      "id": "c58",
+      "text": "STEPS",
+      "position": {
+        "x": 320,
+        "y": 240
+      },
+      "size": 11,
+      "align": "middle"
+    }
+  ]
+}

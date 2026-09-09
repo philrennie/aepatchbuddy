@@ -1,0 +1,250 @@
+{
+  "id": "quantizer",
+  "name": "QUANTIZER",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p99/QUANTIZER.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/quantizer",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c9",
+      "name": "QCV 1",
+      "position": {
+        "x": 120,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "QCV 2",
+      "position": {
+        "x": 120,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "QCV 3",
+      "position": {
+        "x": 120,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "QCV 4",
+      "position": {
+        "x": 120,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "1",
+      "position": {
+        "x": 120,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "2",
+      "position": {
+        "x": 120,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "3",
+      "position": {
+        "x": 120,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "4",
+      "position": {
+        "x": 120,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c28",
+      "name": "CV1",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c29",
+      "name": "CV2",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c30",
+      "name": "CV3",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c31",
+      "name": "CV4",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c32",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c33",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c34",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c35",
+      "name": "B.CV",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c36",
+      "name": "c36",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c37",
+      "name": "c37",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c38",
+      "name": "c38",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c39",
+      "name": "c39",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c40",
+      "name": "c40",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c41",
+      "name": "c41",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c42",
+      "name": "c42",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c43",
+      "name": "c43",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "below"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "OFFSET",
+      "position": {
+        "x": 50,
+        "y": 560
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c44",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 50,
+        "y": 510
+      },
+      "label2": "LOCK",
+      "orientation": "horizontal"
+    }
+  ]
+}
