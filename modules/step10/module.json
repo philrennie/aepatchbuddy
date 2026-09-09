@@ -1,0 +1,368 @@
+{
+  "id": "step10",
+  "name": "STEP10",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p14/STEP10_.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/step10",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "CLK",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "RESET",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "c3",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "c4",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "B.GT",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "B.CLK",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "S.STRT",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "B.STP",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "TRIG",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "TRIG",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "T.INV",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "T.INV",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "THRU",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "THRU",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "THRU",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "THRU",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c28",
+      "name": "1",
+      "position": {
+        "x": 140,
+        "y": 320
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c29",
+      "name": "2",
+      "position": {
+        "x": 140,
+        "y": 350
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c30",
+      "name": "3",
+      "position": {
+        "x": 140,
+        "y": 380
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c31",
+      "name": "4",
+      "position": {
+        "x": 140,
+        "y": 410
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c32",
+      "name": "5",
+      "position": {
+        "x": 140,
+        "y": 440
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c33",
+      "name": "6",
+      "position": {
+        "x": 140,
+        "y": 470
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c34",
+      "name": "7",
+      "position": {
+        "x": 140,
+        "y": 500
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c35",
+      "name": "8",
+      "position": {
+        "x": 140,
+        "y": 530
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c36",
+      "name": "9",
+      "position": {
+        "x": 140,
+        "y": 560
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c37",
+      "name": "10",
+      "position": {
+        "x": 140,
+        "y": 590
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "switch",
+      "label": "(10)",
+      "position": {
+        "x": 50,
+        "y": 310
+      },
+      "label2": "8",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c18",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 30,
+        "y": 350
+      },
+      "label2": "1",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c19",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 30,
+        "y": 410
+      },
+      "label2": "2",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c20",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 30,
+        "y": 470
+      },
+      "label2": "3",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c21",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 30,
+        "y": 530
+      },
+      "label2": "4",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c22",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 30,
+        "y": 590
+      },
+      "label2": "5",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c23",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 80,
+        "y": 350
+      },
+      "label2": "6",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c24",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 80,
+        "y": 410
+      },
+      "label2": "7",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c25",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 80,
+        "y": 470
+      },
+      "label2": "8",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c26",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 80,
+        "y": 530
+      },
+      "label2": "9",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c27",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 80,
+        "y": 590
+      },
+      "label2": "10",
+      "orientation": "vertical"
+    }
+  ]
+}

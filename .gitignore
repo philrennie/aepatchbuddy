@@ -1,0 +1,3 @@
+# Ignore files dropped into new-modules/ — the folder itself is tracked
+new-modules/*
+!new-modules/.gitkeep
