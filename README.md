@@ -67,6 +67,16 @@ Modules live in individual folders under `src/modules/`. Adding a module is a pu
 
 > **Note:** Do not commit changes to `data/modules.json` — it is auto-generated on merge and your edit will be overwritten.
 
+### Importing modules from the module editor
+
+If you've been building modules in the editor and have a collection of exported `{name}.json` files, drop them into `new-modules/` (ignored by git — your local scratch space) and run:
+
+```bash
+node scripts/import-new-modules.js
+```
+
+This creates `modules/{id}/module.json` for each file, using the `id` field in the JSON. It skips any module whose folder already exists, so it's safe to run repeatedly. There is no need to rebuild `data/modules.json`, this will be handled by gitub actions when submitting a PR.
+
 ### Running the lint check locally
 
 From the repo root (`src/`):
@@ -251,9 +261,11 @@ src/
 │   └── {module-id}/
 │       ├── module.json     Module definition (source of truth)
 │       └── module.svg      Panel graphic (optional — only used when customImage: true)
+├── new-modules/            Drop exported {name}.json files here to import (git-ignored)
 └── scripts/
-    ├── build-modules.js    Combines module folders → data/modules.json
-    └── lint-modules.js     Validates all module.json files
+    ├── build-modules.js        Combines module folders → data/modules.json
+    ├── import-new-modules.js   Imports {name}.json files from new-modules/ → modules/
+    └── lint-modules.js         Validates all module.json files
 ```
 
 `.github/workflows/` contains two Actions:

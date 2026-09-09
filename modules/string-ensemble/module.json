@@ -1,0 +1,341 @@
+{
+  "id": "string-ensemble",
+  "name": "string ensemble",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p242/STRING_ENSEMBLE.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/string-ensemble",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "CV",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "GATE",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "CV2",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "IMDI",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "IMDI",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "c6",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "BUS CV",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "BUS GATE",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT L",
+      "position": {
+        "x": 300,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT L",
+      "position": {
+        "x": 300,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "OUTT R",
+      "position": {
+        "x": 300,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "OUT R",
+      "position": {
+        "x": 300,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "MULT",
+      "position": {
+        "x": 300,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "PITCH",
+      "position": {
+        "x": 40,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c18",
+      "type": "knob",
+      "label": "SPREAD",
+      "position": {
+        "x": 40,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "VIB RATE",
+      "position": {
+        "x": 40,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "VIB DEPTH",
+      "position": {
+        "x": 40,
+        "y": 550
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "knob",
+      "label": "CHORD",
+      "position": {
+        "x": 100,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c22",
+      "type": "knob",
+      "label": "ATTACK",
+      "position": {
+        "x": 100,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c23",
+      "type": "knob",
+      "label": "RELEASE",
+      "position": {
+        "x": 100,
+        "y": 550
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c24",
+      "type": "knob",
+      "label": "RATE",
+      "position": {
+        "x": 180,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c25",
+      "type": "knob",
+      "label": "DEPTH",
+      "position": {
+        "x": 180,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c26",
+      "type": "knob",
+      "label": "MIX",
+      "position": {
+        "x": 180,
+        "y": 550
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c27",
+      "type": "knob",
+      "label": "RATE",
+      "position": {
+        "x": 270,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c28",
+      "type": "knob",
+      "label": "DEPTH",
+      "position": {
+        "x": 270,
+        "y": 410
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c29",
+      "type": "knob",
+      "label": "FEEDBACK",
+      "position": {
+        "x": 270,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c30",
+      "type": "knob",
+      "label": "MIX",
+      "position": {
+        "x": 270,
+        "y": 550
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c31",
+      "type": "switch",
+      "label": "8",
+      "position": {
+        "x": 230,
+        "y": 340
+      },
+      "label2": "4",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c32",
+      "type": "switch",
+      "label": "ENSEMBLE",
+      "position": {
+        "x": 180,
+        "y": 340
+      },
+      "label2": "CHORUS",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c33",
+      "type": "switch",
+      "label": "BASS",
+      "position": {
+        "x": 120,
+        "y": 340
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c34",
+      "type": "switch",
+      "label": "MAJ",
+      "position": {
+        "x": 90,
+        "y": 340
+      },
+      "label2": "MIN",
+      "orientation": "vertical"
+    }
+  ]
+}
