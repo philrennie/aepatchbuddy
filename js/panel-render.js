@@ -28,6 +28,44 @@
   const SW_H_HW = 14;            // horizontal switch half-width
   const SW_H_HH = 5;             // horizontal switch half-height
 
+  const SLIDER_TRACK_W     = 4;   // slider track thickness (across the travel axis)
+  const SLIDER_HANDLE_LEN  = 14;  // slider handle size along the travel axis
+  const SLIDER_HANDLE_CROSS = 18; // slider handle size across the travel axis
+  const SLIDER_DEFAULT_LEN = 80;  // slider travel length when `length` is omitted
+  const SLIDER_MIN_LEN     = 20;  // shortest slider `length` the editor allows
+
+  // Track + handle rects for a slider centred at (cx, cy). `length` is the travel
+  // distance along the orientation axis; `value` (0–1, default 0.5) places the handle
+  // (1 = top for vertical, 1 = right for horizontal). Shared so the live preview,
+  // the exported SVG, and the patch app's DOM overlay all agree on geometry.
+  function sliderRects(cx, cy, length, orientation, value) {
+    const horiz = orientation === 'horizontal';
+    const half = length / 2;
+    const v = (value == null ? 0.5 : Math.max(0, Math.min(1, value)));
+    if (horiz) {
+      const hx = cx - half + v * length;
+      return {
+        track:  { x: cx - half, y: cy - SLIDER_TRACK_W / 2, width: length, height: SLIDER_TRACK_W },
+        handle: { x: hx - SLIDER_HANDLE_LEN / 2, y: cy - SLIDER_HANDLE_CROSS / 2, width: SLIDER_HANDLE_LEN, height: SLIDER_HANDLE_CROSS },
+      };
+    }
+    const hy = cy + half - v * length;
+    return {
+      track:  { x: cx - SLIDER_TRACK_W / 2, y: cy - half, width: SLIDER_TRACK_W, height: length },
+      handle: { x: cx - SLIDER_HANDLE_CROSS / 2, y: hy - SLIDER_HANDLE_LEN / 2, width: SLIDER_HANDLE_CROSS, height: SLIDER_HANDLE_LEN },
+    };
+  }
+
+  // Radius to hand labelPos() for a slider caption placed in direction `pos`:
+  // clears the track end when the label is along the travel axis, the handle
+  // otherwise.
+  function sliderLabelR(length, orientation, pos) {
+    const horiz = orientation === 'horizontal';
+    const alongAxis = horiz ? (pos === 'left' || pos === 'right')
+                            : (pos === 'above' || pos === 'below');
+    return alongAxis ? length / 2 + 4 : SLIDER_HANDLE_CROSS / 2 + 2;
+  }
+
   // ---- waveform symbol labels ----
   // A label (connection name / knob or switch label) may be the literal
   // token `wave:<name>` — or `wave:a+b` for a composite — instead of text.
@@ -144,7 +182,17 @@
 
     for (const ctrl of (mod.controls || [])) {
       const cx = ctrl.position.x, cy = ctrl.position.y;
-      if (ctrl.type === 'switch') {
+      if (ctrl.type === 'slider') {
+        const len = ctrl.length || SLIDER_DEFAULT_LEN;
+        const ori = (ctrl.orientation || 'vertical') === 'horizontal' ? 'horizontal' : 'vertical';
+        const { track, handle } = sliderRects(cx, cy, len, ori, 0.5);
+        lines.push(`  <rect x="${track.x}" y="${track.y}" width="${track.width}" height="${track.height}" rx="2" fill="${c.bg}" stroke="${c.textFaint}" stroke-width="1.5"/>`);
+        lines.push(`  <rect x="${handle.x}" y="${handle.y}" width="${handle.width}" height="${handle.height}" rx="2" fill="${c.textFaint}"/>`);
+        if (ctrl.label) {
+          const pos = ctrl.labelPosition || 'below';
+          lines.push(svgLabel(ctrl.label, labelPos(cx, cy, pos, sliderLabelR(len, ori, pos))));
+        }
+      } else if (ctrl.type === 'switch') {
         const horiz = (ctrl.orientation || 'vertical') === 'horizontal';
         if (horiz) {
           const bw = SW_H_HW * 2, bh = SW_H_HH * 2;
@@ -186,7 +234,8 @@
     JACK_R, JACK_DOT_R,
     KNOB_R, KNOB_TICK_IN, KNOB_TICK_OUT,
     SW_V_HW, SW_V_HH, SW_H_HW, SW_H_HH,
-    WAVE_GLYPHS, parseWave, escXml, labelPos, waveRun,
+    SLIDER_TRACK_W, SLIDER_HANDLE_LEN, SLIDER_HANDLE_CROSS, SLIDER_DEFAULT_LEN, SLIDER_MIN_LEN,
+    WAVE_GLYPHS, parseWave, escXml, labelPos, waveRun, sliderRects, sliderLabelR,
     colors, buildSVGString,
   };
 }());

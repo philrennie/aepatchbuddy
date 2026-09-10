@@ -35,7 +35,7 @@
   <main id="help-main">
     <div class="help-content">
 
-      <p class="help-intro">The Module Editor is a visual tool for defining AE Modular module panels — placing jacks, knobs, switches, and labels, then exporting a <code>module.json</code> that Patch Bay understands. You can use it to document modules for your own patches, or to contribute new modules to the shared library.</p>
+      <p class="help-intro">The Module Editor is a visual tool for defining AE Modular module panels — placing jacks, knobs, switches, sliders, and labels, then exporting a <code>module.json</code> that Patch Bay understands. You can use it to document modules for your own patches, or to contribute new modules to the shared library.</p>
 
       <!-- Overview -->
       <section class="help-section">
@@ -73,6 +73,7 @@
               <tr><td><strong>Add Jack</strong></td><td><kbd>J</kbd></td><td>A mono jack (audio/CV input or output). Each jack becomes a patchable connector in the patch editor.</td></tr>
               <tr><td><strong>Add Knob</strong></td><td><kbd>K</kbd></td><td>A rotary control for documenting parameter positions. Stored per-instance in saved patches.</td></tr>
               <tr><td><strong>Add Switch</strong></td><td><kbd>W</kbd></td><td>A two-position toggle (vertical or horizontal). Stored per-instance in saved patches.</td></tr>
+              <tr><td><strong>Add Slider</strong></td><td><kbd>L</kbd></td><td>A fader for documenting parameter positions — vertical or horizontal, with an adjustable travel length. Stored per-instance in saved patches.</td></tr>
               <tr><td><strong>Add Label</strong></td><td><kbd>T</kbd></td><td>Free-standing panel text — section headings, dividers, or any annotation that isn't attached to a jack or control.</td></tr>
             </tbody>
           </table>
@@ -95,8 +96,9 @@
         <p>Click a component on the canvas to select it. Its properties appear in the right panel.</p>
         <ul>
           <li><strong>Label / Connection name</strong> — the text shown next to the component on the panel. For jacks, this is also the name shown in Patch Bay's hover tooltips. Labels can be plain text or a <strong>waveform glyph</strong> — switch to the ∿ tab and pick a shape (sine, square, triangle, sawtooth or a combination).</li>
-          <li><strong>Label position</strong> — jacks and knobs have a 3×3 grid picker (above / below / left / right). Jacks at the panel edges conventionally use the inward direction.</li>
-          <li><strong>Orientation</strong> (switches only) — vertical or horizontal body.</li>
+          <li><strong>Label position</strong> — jacks, knobs, and sliders have a 3×3 grid picker (above / below / left / right). Jacks at the panel edges conventionally use the inward direction.</li>
+          <li><strong>Orientation</strong> (switches and sliders) — vertical or horizontal body; for a slider this is also the travel axis.</li>
+          <li><strong>Length</strong> (sliders only) — travel length in native panel pixels (default 80). Snaps to the grid step while dragging the field.</li>
           <li><strong>Quick labels</strong> — one-click presets for common signal names: <strong>IN, OUT, MULT, THRU, B.GATE, B.CV, B.START, B.STOP</strong>. Click any to set the label instantly.</li>
           <li><strong>X / Y</strong> — exact pixel position in native panel space (before any app scaling). Edit directly for precise placement.</li>
           <li><strong>ID</strong> — read-only. Jacks use this ID to identify cable connections in saved patches; do not delete and recreate a jack if patches are already referencing it.</li>
@@ -120,7 +122,7 @@
       <!-- Import -->
       <section class="help-section">
         <h2 class="help-section-title">Importing</h2>
-        <p>Click <strong>Import JSON</strong> to load an existing <code>module.json</code> back into the editor. This lets you reopen a module for editing without needing its original <code>module.svg</code> — all jack, knob, switch, and label components are reconstructed from the JSON alone. Component IDs are preserved verbatim so a re-export won't break existing patch references.</p>
+        <p>Click <strong>Import JSON</strong> to load an existing <code>module.json</code> back into the editor. This lets you reopen a module for editing without needing its original <code>module.svg</code> — all jack, knob, switch, slider, and label components are reconstructed from the JSON alone. Component IDs are preserved verbatim so a re-export won't break existing patch references.</p>
       </section>
 
       <!-- Keyboard shortcuts -->
@@ -134,6 +136,7 @@
               <tr><td><kbd>J</kbd></td><td>Switch to Add Jack tool</td></tr>
               <tr><td><kbd>K</kbd></td><td>Switch to Add Knob tool</td></tr>
               <tr><td><kbd>W</kbd></td><td>Switch to Add Switch tool</td></tr>
+              <tr><td><kbd>L</kbd></td><td>Switch to Add Slider tool</td></tr>
               <tr><td><kbd>T</kbd></td><td>Switch to Add Label tool</td></tr>
               <tr><td><kbd>[</kbd> / <kbd>]</kbd></td><td>Select previous / next component</td></tr>
               <tr><td><kbd>Delete</kbd> or <kbd>Backspace</kbd></td><td>Delete selected component</td></tr>

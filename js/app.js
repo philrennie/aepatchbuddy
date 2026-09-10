@@ -43,6 +43,7 @@
   let dragCtx = null;        // instance drag
   let connectCtx = null;     // cable-being-drawn drag
   let knobDragCtx = null;    // knob rotation drag
+  let sliderDragCtx = null;  // slider handle drag
   let panCtx = null;         // canvas pan drag
   let saveTimer = null;      // debounce handle for localStorage writes
 
@@ -482,9 +483,12 @@
     for (const ctrl of (mod.controls || [])) {
       const px = ctrl.position.x * MODULE_SCALE;
       const py = ctrl.position.y * MODULE_SCALE;
-      const value = (inst.controls[ctrl.id] !== undefined) ? inst.controls[ctrl.id] : (ctrl.type === 'knob' ? 0.5 : 0);
+      const isRange = ctrl.type === 'knob' || ctrl.type === 'slider';
+      const value = (inst.controls[ctrl.id] !== undefined) ? inst.controls[ctrl.id] : (isRange ? 0.5 : 0);
       const ctrlEl = ctrl.type === 'knob'
         ? buildKnobControl(inst.id, ctrl, value, px, py)
+        : ctrl.type === 'slider'
+        ? buildSliderControl(inst.id, ctrl, value, px, py)
         : buildSwitchControl(inst.id, ctrl, value, px, py);
       anchor.appendChild(ctrlEl);
     }
@@ -556,6 +560,52 @@
       e.stopPropagation();
       onSwitchClick(instanceId, ctrl.id);
     });
+    return div;
+  }
+
+  // Slider (fader) overlay. Like the knob, the body is a fixed screen-size hit
+  // target positioned at the scaled jack coordinate; only the track *length*
+  // scales with MODULE_SCALE so it lines up with the panel artwork.
+  const SLIDER_HANDLE_LEN = 14;   // handle size along the travel axis
+  const SLIDER_CROSS      = 18;   // handle / hit-area size across the travel axis
+
+  function buildSliderControl(instanceId, ctrl, value, px, py) {
+    const horiz = (ctrl.orientation || "vertical") === "horizontal";
+    const len = Math.max(SLIDER_HANDLE_LEN + 2, (ctrl.length || 80) * MODULE_SCALE);
+    const w = horiz ? len : SLIDER_CROSS;
+    const h = horiz ? SLIDER_CROSS : len;
+
+    const div = document.createElement("div");
+    div.className = "slider-control " + (horiz ? "slider-h" : "slider-v");
+    div.dataset.instanceId = instanceId;
+    div.dataset.controlId = ctrl.id;
+    div.style.left = `${px}px`;
+    div.style.top = `${py}px`;
+    div.style.width = `${w}px`;
+    div.style.height = `${h}px`;
+    div.style.marginLeft = `${-w / 2}px`;
+    div.style.marginTop = `${-h / 2}px`;
+    div.title = labelText(ctrl.label) || ctrl.id;
+
+    const track = document.createElement("div");
+    track.className = "slider-track";
+
+    const handle = document.createElement("div");
+    handle.className = "slider-handle";
+    const travel = len - SLIDER_HANDLE_LEN;
+    if (horiz) {
+      handle.style.width = `${SLIDER_HANDLE_LEN}px`;
+      handle.style.height = `${SLIDER_CROSS}px`;
+      handle.style.left = `${value * travel}px`;
+    } else {
+      handle.style.width = `${SLIDER_CROSS}px`;
+      handle.style.height = `${SLIDER_HANDLE_LEN}px`;
+      handle.style.top = `${(1 - value) * travel}px`;
+    }
+
+    div.appendChild(track);
+    div.appendChild(handle);
+    div.addEventListener("mousedown", onSliderMouseDown);
     return div;
   }
 
@@ -819,6 +869,54 @@
     renderAll();
   }
 
+  function onSliderMouseDown(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const div = e.currentTarget;
+    const instanceId = div.dataset.instanceId;
+    const controlId = div.dataset.controlId;
+    const inst = rack.instances.get(instanceId);
+    if (!inst) return;
+    const mod = libraryById.get(inst.moduleId);
+    const ctrl = mod && (mod.controls || []).find((c) => c.id === controlId);
+    const horiz = !!ctrl && (ctrl.orientation || "vertical") === "horizontal";
+    const len = Math.max(SLIDER_HANDLE_LEN + 2, ((ctrl && ctrl.length) || 80) * MODULE_SCALE);
+    const value = inst.controls[controlId] !== undefined ? inst.controls[controlId] : 0.5;
+    sliderDragCtx = {
+      instanceId, controlId, horiz,
+      travel: Math.max(1, len - SLIDER_HANDLE_LEN),
+      start: horiz ? e.clientX : e.clientY,
+      startValue: value,
+      el: div,
+    };
+    div.classList.add("slider-active");
+    document.addEventListener("mousemove", onSliderMouseMove);
+    document.addEventListener("mouseup", onSliderMouseUp);
+  }
+
+  function onSliderMouseMove(e) {
+    if (!sliderDragCtx) return;
+    const inst = rack.instances.get(sliderDragCtx.instanceId);
+    if (!inst) return;
+    const { horiz, travel, start, startValue } = sliderDragCtx;
+    // vertical: up = higher value; horizontal: right = higher value
+    const moved = horiz ? e.clientX - start : start - e.clientY;
+    const newValue = Math.max(0, Math.min(1, startValue + moved / (travel * zoom)));
+    inst.controls[sliderDragCtx.controlId] = newValue;
+    const handle = sliderDragCtx.el.querySelector(".slider-handle");
+    if (handle) {
+      if (horiz) handle.style.left = `${newValue * travel}px`;
+      else handle.style.top = `${(1 - newValue) * travel}px`;
+    }
+  }
+
+  function onSliderMouseUp() {
+    if (sliderDragCtx) sliderDragCtx.el.classList.remove("slider-active");
+    sliderDragCtx = null;
+    document.removeEventListener("mousemove", onSliderMouseMove);
+    document.removeEventListener("mouseup", onSliderMouseUp);
+  }
+
   /* ---------------------------------------------------------------------
      Cable dragging (jack -> jack)
   --------------------------------------------------------------------- */
@@ -993,6 +1091,7 @@
     if (e.button !== 0) return;
     if (e.target.closest(".instance") || e.target.closest(".jack") ||
         e.target.closest(".knob-control") || e.target.closest(".switch-control") ||
+        e.target.closest(".slider-control") ||
         e.target.closest("[data-cable-id]")) return;
     e.preventDefault();
     panCtx = { startX: e.clientX - panX, startY: e.clientY - panY };
