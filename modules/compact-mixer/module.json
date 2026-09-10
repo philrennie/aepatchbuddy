@@ -1,0 +1,553 @@
+{
+  "id": "compact-mixer",
+  "name": "COMPACT MIXER",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p156/COMPACTMIXER.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/compact-mixer",
+  "width": 960,
+  "height": 540,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "1",
+      "position": {
+        "x": 70,
+        "y": 80
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c2",
+      "name": "2",
+      "position": {
+        "x": 130,
+        "y": 80
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c3",
+      "name": "3",
+      "position": {
+        "x": 190,
+        "y": 80
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c4",
+      "name": "4",
+      "position": {
+        "x": 250,
+        "y": 80
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c5",
+      "name": "5",
+      "position": {
+        "x": 310,
+        "y": 80
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c6",
+      "name": "6",
+      "position": {
+        "x": 370,
+        "y": 80
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c7",
+      "name": "7/8",
+      "position": {
+        "x": 430,
+        "y": 80
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c8",
+      "name": "9/10",
+      "position": {
+        "x": 490,
+        "y": 80
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c9",
+      "name": "L",
+      "position": {
+        "x": 570,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c10",
+      "name": "R",
+      "position": {
+        "x": 600,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c11",
+      "name": "1",
+      "position": {
+        "x": 660,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c12",
+      "name": "2",
+      "position": {
+        "x": 690,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c13",
+      "name": "1L",
+      "position": {
+        "x": 750,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c14",
+      "name": "1R",
+      "position": {
+        "x": 780,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c15",
+      "name": "2L",
+      "position": {
+        "x": 860,
+        "y": 140
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c16",
+      "name": "2R",
+      "position": {
+        "x": 900,
+        "y": 140
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c48",
+      "name": "SEND",
+      "position": {
+        "x": 690,
+        "y": 220
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c49",
+      "name": "RETURN (STEREO)",
+      "position": {
+        "x": 730,
+        "y": 220
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c50",
+      "name": "SEND",
+      "position": {
+        "x": 690,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c51",
+      "name": "MAIN OUT",
+      "position": {
+        "x": 730,
+        "y": 330
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c52",
+      "name": "HEADPHONES",
+      "position": {
+        "x": 730,
+        "y": 390
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c53",
+      "name": "RETURN (STERO)",
+      "position": {
+        "x": 730,
+        "y": 270
+      },
+      "labelPosition": "right"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 70,
+        "y": 180
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c18",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 70,
+        "y": 250
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c19",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 70,
+        "y": 320
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c20",
+      "type": "knob",
+      "label": "LEVEL",
+      "position": {
+        "x": 70,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c21",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 130,
+        "y": 180
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c22",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 130,
+        "y": 250
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c23",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 130,
+        "y": 320
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c24",
+      "type": "knob",
+      "label": "LEVEL",
+      "position": {
+        "x": 130,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c25",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 190,
+        "y": 180
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c26",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 190,
+        "y": 250
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c27",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 190,
+        "y": 320
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c28",
+      "type": "knob",
+      "label": "LEVEL",
+      "position": {
+        "x": 190,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c29",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 250,
+        "y": 180
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c30",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 250,
+        "y": 250
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c31",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 250,
+        "y": 320
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c32",
+      "type": "knob",
+      "label": "LEVEL",
+      "position": {
+        "x": 250,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c33",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 310,
+        "y": 180
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c34",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 310,
+        "y": 250
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c35",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 310,
+        "y": 320
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c36",
+      "type": "knob",
+      "label": "LEVEL",
+      "position": {
+        "x": 310,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c37",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 370,
+        "y": 180
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c38",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 370,
+        "y": 250
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c39",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 370,
+        "y": 320
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c40",
+      "type": "knob",
+      "label": "LEVEL",
+      "position": {
+        "x": 370,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c41",
+      "type": "knob",
+      "label": "LEVEL",
+      "position": {
+        "x": 430,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c42",
+      "type": "knob",
+      "label": "LEVEL",
+      "position": {
+        "x": 490,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c43",
+      "type": "knob",
+      "label": "MAIN LEVEL",
+      "position": {
+        "x": 590,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c44",
+      "type": "knob",
+      "label": "HP LEVEL",
+      "position": {
+        "x": 680,
+        "y": 390
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c45",
+      "type": "knob",
+      "label": "FX 2 LEVEL",
+      "position": {
+        "x": 620,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c46",
+      "type": "knob",
+      "label": "FX 1 LEVEL",
+      "position": {
+        "x": 620,
+        "y": 220
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "labels": [
+    {
+      "id": "c56",
+      "text": "MAIN",
+      "position": {
+        "x": 590,
+        "y": 110
+      },
+      "size": 11,
+      "align": "middle"
+    },
+    {
+      "id": "c57",
+      "text": "FX SEND",
+      "position": {
+        "x": 670,
+        "y": 110
+      },
+      "size": 11,
+      "align": "middle"
+    },
+    {
+      "id": "c58",
+      "text": "FX RETURN",
+      "position": {
+        "x": 770,
+        "y": 110
+      },
+      "size": 11,
+      "align": "middle"
+    },
+    {
+      "id": "c59",
+      "text": "FX RETURN",
+      "position": {
+        "x": 880,
+        "y": 110
+      },
+      "size": 11,
+      "align": "middle"
+    }
+  ]
+}
