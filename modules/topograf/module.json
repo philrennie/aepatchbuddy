@@ -1,0 +1,227 @@
+{
+  "id": "topograf",
+  "name": "TOPOGRAF",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p76/TOPOGRAF.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/topograf",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "CLK",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "RESET",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "X CV",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "Y CV",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "CHAOS CV",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "CH 1 CV",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "CH 2 CV",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "CH 3 CV",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "TR 1",
+      "position": {
+        "x": 300,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "TR 2",
+      "position": {
+        "x": 300,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "TR 3",
+      "position": {
+        "x": 300,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "ACC 1",
+      "position": {
+        "x": 300,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "ACC 2",
+      "position": {
+        "x": 300,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "ACC 3",
+      "position": {
+        "x": 300,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "c15",
+      "position": {
+        "x": 300,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "c16",
+      "position": {
+        "x": 300,
+        "y": 270
+      },
+      "labelPosition": "left"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c38",
+      "type": "knob",
+      "label": "TEMPO",
+      "position": {
+        "x": 70,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c39",
+      "type": "knob",
+      "label": "MAP Y",
+      "position": {
+        "x": 70,
+        "y": 420
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c40",
+      "type": "knob",
+      "label": "MAP X",
+      "position": {
+        "x": 70,
+        "y": 500
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c41",
+      "type": "knob",
+      "label": "CHAOS",
+      "position": {
+        "x": 70,
+        "y": 580
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c42",
+      "type": "knob",
+      "label": "1",
+      "position": {
+        "x": 170,
+        "y": 380
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c43",
+      "type": "knob",
+      "label": "2",
+      "position": {
+        "x": 210,
+        "y": 460
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c44",
+      "type": "knob",
+      "label": "3",
+      "position": {
+        "x": 250,
+        "y": 540
+      },
+      "labelPosition": "below"
+    }
+  ]
+}
