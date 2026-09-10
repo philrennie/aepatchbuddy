@@ -1,0 +1,245 @@
+{
+  "id": "imdi-heart",
+  "name": "IMDI HEART",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p15/IMDI%2FHEART_.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/imdi-heart",
+  "width": 160,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "1",
+      "position": {
+        "x": 140,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c2",
+      "name": "2",
+      "position": {
+        "x": 140,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c3",
+      "name": "3",
+      "position": {
+        "x": 140,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c4",
+      "name": "4",
+      "position": {
+        "x": 140,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c5",
+      "name": "5",
+      "position": {
+        "x": 140,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c6",
+      "name": "6",
+      "position": {
+        "x": 140,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c7",
+      "name": "7",
+      "position": {
+        "x": 140,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c8",
+      "name": "8",
+      "position": {
+        "x": 140,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c9",
+      "name": "9",
+      "position": {
+        "x": 140,
+        "y": 300
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "10",
+      "position": {
+        "x": 140,
+        "y": 330
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "11",
+      "position": {
+        "x": 140,
+        "y": 360
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "12",
+      "position": {
+        "x": 140,
+        "y": 390
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "13",
+      "position": {
+        "x": 140,
+        "y": 420
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "14",
+      "position": {
+        "x": 140,
+        "y": 450
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "15",
+      "position": {
+        "x": 140,
+        "y": 480
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "16",
+      "position": {
+        "x": 140,
+        "y": 510
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c17",
+      "name": "RUN",
+      "position": {
+        "x": 20,
+        "y": 410
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c18",
+      "name": "CLOCK",
+      "position": {
+        "x": 20,
+        "y": 440
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c19",
+      "name": "START",
+      "position": {
+        "x": 20,
+        "y": 470
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c20",
+      "name": "IMDI",
+      "position": {
+        "x": 20,
+        "y": 500
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c21",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 530
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c22",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 560
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c23",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 590
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c24",
+      "name": "MULT",
+      "position": {
+        "x": 20,
+        "y": 620
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c25",
+      "name": "IMDI",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c26",
+      "name": "IMDI THRU",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    }
+  ]
+}
