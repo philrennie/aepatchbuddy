@@ -1,0 +1,291 @@
+{
+  "id": "waeve82",
+  "name": "WAEVE82",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p235/WAEVE82.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/waeve82",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "1",
+      "position": {
+        "x": 40,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c2",
+      "name": "2",
+      "position": {
+        "x": 40,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c3",
+      "name": "3",
+      "position": {
+        "x": 40,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c4",
+      "name": "4",
+      "position": {
+        "x": 40,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c5",
+      "name": "5",
+      "position": {
+        "x": 40,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c6",
+      "name": "6",
+      "position": {
+        "x": 40,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c7",
+      "name": "IMDI",
+      "position": {
+        "x": 40,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "IMDI THRU",
+      "position": {
+        "x": 40,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "OUT MIX",
+      "position": {
+        "x": 300,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "OUT MIX",
+      "position": {
+        "x": 300,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "OUT L",
+      "position": {
+        "x": 300,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "OUT L",
+      "position": {
+        "x": 300,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "OUT R",
+      "position": {
+        "x": 300,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "OUT R",
+      "position": {
+        "x": 300,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "IMDI 1",
+      "position": {
+        "x": 300,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "IMDI 2",
+      "position": {
+        "x": 300,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c17",
+      "name": "1",
+      "position": {
+        "x": 70,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c18",
+      "name": "2 CHD",
+      "position": {
+        "x": 70,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c19",
+      "name": "3 SUS",
+      "position": {
+        "x": 70,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c20",
+      "name": "4 LFO SYNC",
+      "position": {
+        "x": 70,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c21",
+      "name": "5 LFO CLK",
+      "position": {
+        "x": 70,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c22",
+      "name": "6 IMDI2",
+      "position": {
+        "x": 70,
+        "y": 210
+      },
+      "labelPosition": "right"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c23",
+      "type": "knob",
+      "label": "",
+      "position": {
+        "x": 50,
+        "y": 350
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c24",
+      "type": "knob",
+      "label": "",
+      "position": {
+        "x": 120,
+        "y": 350
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c25",
+      "type": "knob",
+      "label": "",
+      "position": {
+        "x": 190,
+        "y": 350
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c26",
+      "type": "knob",
+      "label": "",
+      "position": {
+        "x": 260,
+        "y": 350
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c27",
+      "type": "knob",
+      "label": "",
+      "position": {
+        "x": 50,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c28",
+      "type": "knob",
+      "label": "",
+      "position": {
+        "x": 120,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c29",
+      "type": "knob",
+      "label": "",
+      "position": {
+        "x": 190,
+        "y": 480
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c30",
+      "type": "knob",
+      "label": "",
+      "position": {
+        "x": 260,
+        "y": 480
+      },
+      "labelPosition": "below"
+    }
+  ]
+}

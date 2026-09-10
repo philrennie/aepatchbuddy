@@ -1,0 +1,179 @@
+{
+  "id": "master",
+  "name": "MASTER",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p207/MASTER_R5.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/master",
+  "width": 320,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "AUDIO 1",
+      "position": {
+        "x": 210,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c2",
+      "name": "CTRL 1",
+      "position": {
+        "x": 210,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c3",
+      "name": "B.CV",
+      "position": {
+        "x": 210,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c4",
+      "name": "B.GATE",
+      "position": {
+        "x": 210,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c5",
+      "name": "B.CTRL",
+      "position": {
+        "x": 210,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c6",
+      "name": "+5V",
+      "position": {
+        "x": 210,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c7",
+      "name": "+5V",
+      "position": {
+        "x": 210,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c8",
+      "name": "GND",
+      "position": {
+        "x": 210,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c9",
+      "name": "2 IO",
+      "position": {
+        "x": 250,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c10",
+      "name": "2 IO",
+      "position": {
+        "x": 250,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c11",
+      "name": "B.CV",
+      "position": {
+        "x": 250,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c12",
+      "name": "B.GATE",
+      "position": {
+        "x": 250,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c13",
+      "name": "B.CTRL",
+      "position": {
+        "x": 250,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c14",
+      "name": "B.CLOCK",
+      "position": {
+        "x": 250,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c15",
+      "name": "B.START",
+      "position": {
+        "x": 250,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c16",
+      "name": "B.STOP",
+      "position": {
+        "x": 250,
+        "y": 270
+      },
+      "labelPosition": "right"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c17",
+      "type": "switch",
+      "label": "CH1",
+      "position": {
+        "x": 60,
+        "y": 330
+      },
+      "label2": "OMNI",
+      "orientation": "horizontal"
+    },
+    {
+      "id": "c18",
+      "type": "switch",
+      "label": "",
+      "position": {
+        "x": 60,
+        "y": 380
+      },
+      "label2": "LEGATO",
+      "orientation": "horizontal"
+    }
+  ]
+}

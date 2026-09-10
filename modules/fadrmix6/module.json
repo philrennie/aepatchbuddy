@@ -1,0 +1,605 @@
+{
+  "id": "fadrmix6",
+  "name": "FADRMIX6",
+  "manufacturer": "Tangible Waves",
+  "url": "https://www.tangiblewaves.com/store/p217/FADRMIX6.html",
+  "documentation": "https://wiki.aemodular.com/#/modules/tangiblewaves/fadrmix6",
+  "width": 960,
+  "height": 640,
+  "connections": [
+    {
+      "id": "c1",
+      "name": "BD",
+      "position": {
+        "x": 20,
+        "y": 60
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c2",
+      "name": "SN",
+      "position": {
+        "x": 20,
+        "y": 90
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c3",
+      "name": "CL",
+      "position": {
+        "x": 20,
+        "y": 120
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c4",
+      "name": "HH C",
+      "position": {
+        "x": 20,
+        "y": 150
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c5",
+      "name": "HH O",
+      "position": {
+        "x": 20,
+        "y": 180
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c6",
+      "name": "FX",
+      "position": {
+        "x": 20,
+        "y": 210
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c7",
+      "name": "PITCH CV",
+      "position": {
+        "x": 20,
+        "y": 240
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c8",
+      "name": "ACCENT",
+      "position": {
+        "x": 20,
+        "y": 270
+      },
+      "labelPosition": "right"
+    },
+    {
+      "id": "c9",
+      "name": "MAIN L",
+      "position": {
+        "x": 940,
+        "y": 60
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c10",
+      "name": "MAIN R",
+      "position": {
+        "x": 940,
+        "y": 90
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c11",
+      "name": "FX SEND 1",
+      "position": {
+        "x": 940,
+        "y": 120
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c12",
+      "name": "FX SEND 2",
+      "position": {
+        "x": 940,
+        "y": 150
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c13",
+      "name": "FX RTN 1 L",
+      "position": {
+        "x": 940,
+        "y": 180
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c14",
+      "name": "FX RETURN 1 R",
+      "position": {
+        "x": 940,
+        "y": 210
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c15",
+      "name": "FX RETURN 2 L",
+      "position": {
+        "x": 940,
+        "y": 240
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c16",
+      "name": "FX RETURN 2 R",
+      "position": {
+        "x": 940,
+        "y": 270
+      },
+      "labelPosition": "left"
+    },
+    {
+      "id": "c52",
+      "name": "1",
+      "position": {
+        "x": 280,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c53",
+      "name": "1",
+      "position": {
+        "x": 310,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c54",
+      "name": "2",
+      "position": {
+        "x": 350,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c55",
+      "name": "2",
+      "position": {
+        "x": 380,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c56",
+      "name": "3",
+      "position": {
+        "x": 430,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c57",
+      "name": "3",
+      "position": {
+        "x": 460,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c58",
+      "name": "4",
+      "position": {
+        "x": 500,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c59",
+      "name": "4",
+      "position": {
+        "x": 530,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c60",
+      "name": "5",
+      "position": {
+        "x": 570,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c61",
+      "name": "5",
+      "position": {
+        "x": 600,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c62",
+      "name": "6",
+      "position": {
+        "x": 640,
+        "y": 130
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c63",
+      "name": "6",
+      "position": {
+        "x": 670,
+        "y": 130
+      },
+      "labelPosition": "below"
+    }
+  ],
+  "controls": [
+    {
+      "id": "c21",
+      "type": "slider",
+      "label": "LEVEL",
+      "position": {
+        "x": 90,
+        "y": 500
+      },
+      "orientation": "vertical",
+      "length": 150,
+      "labelPosition": "below"
+    },
+    {
+      "id": "c22",
+      "type": "slider",
+      "label": "LEVEL",
+      "position": {
+        "x": 190,
+        "y": 500
+      },
+      "orientation": "vertical",
+      "length": 150,
+      "labelPosition": "below"
+    },
+    {
+      "id": "c23",
+      "type": "slider",
+      "label": "LEVEL",
+      "position": {
+        "x": 290,
+        "y": 500
+      },
+      "orientation": "vertical",
+      "length": 150,
+      "labelPosition": "below"
+    },
+    {
+      "id": "c24",
+      "type": "slider",
+      "label": "LEVEL",
+      "position": {
+        "x": 380,
+        "y": 500
+      },
+      "orientation": "vertical",
+      "length": 150,
+      "labelPosition": "below"
+    },
+    {
+      "id": "c25",
+      "type": "slider",
+      "label": "LEVEL",
+      "position": {
+        "x": 470,
+        "y": 500
+      },
+      "orientation": "vertical",
+      "length": 150,
+      "labelPosition": "below"
+    },
+    {
+      "id": "c26",
+      "type": "slider",
+      "label": "LEVEL",
+      "position": {
+        "x": 560,
+        "y": 500
+      },
+      "orientation": "vertical",
+      "length": 150,
+      "labelPosition": "below"
+    },
+    {
+      "id": "c27",
+      "type": "slider",
+      "label": "L",
+      "position": {
+        "x": 670,
+        "y": 500
+      },
+      "orientation": "vertical",
+      "length": 150,
+      "labelPosition": "below"
+    },
+    {
+      "id": "c28",
+      "type": "slider",
+      "label": "R",
+      "position": {
+        "x": 720,
+        "y": 500
+      },
+      "orientation": "vertical",
+      "length": 150,
+      "labelPosition": "below"
+    },
+    {
+      "id": "c29",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 110,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c30",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 70,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c31",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 110,
+        "y": 380
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c32",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 210,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c33",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 170,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c34",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 210,
+        "y": 380
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c35",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 310,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c36",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 270,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c37",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 310,
+        "y": 380
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c38",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 400,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c39",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 360,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c40",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 400,
+        "y": 380
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c41",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 490,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c42",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 450,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c43",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 490,
+        "y": 380
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c44",
+      "type": "knob",
+      "label": "FX 1",
+      "position": {
+        "x": 580,
+        "y": 300
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c45",
+      "type": "knob",
+      "label": "FX 2",
+      "position": {
+        "x": 540,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c46",
+      "type": "knob",
+      "label": "PAN",
+      "position": {
+        "x": 580,
+        "y": 380
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c47",
+      "type": "knob",
+      "label": "HP LEVEL",
+      "position": {
+        "x": 850,
+        "y": 560
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c48",
+      "type": "knob",
+      "label": "FX 2 LEVEL",
+      "position": {
+        "x": 820,
+        "y": 440
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c49",
+      "type": "knob",
+      "label": "FX 1 LEVEL",
+      "position": {
+        "x": 820,
+        "y": 340
+      },
+      "labelPosition": "below"
+    },
+    {
+      "id": "c50",
+      "type": "switch",
+      "label": "MONO",
+      "position": {
+        "x": 870,
+        "y": 440
+      },
+      "label2": "",
+      "orientation": "vertical"
+    },
+    {
+      "id": "c51",
+      "type": "switch",
+      "label": "MONO",
+      "position": {
+        "x": 870,
+        "y": 340
+      },
+      "label2": "",
+      "orientation": "vertical"
+    }
+  ],
+  "labels": [
+    {
+      "id": "c64",
+      "text": "INPUTS",
+      "position": {
+        "x": 480,
+        "y": 110
+      },
+      "size": 11,
+      "align": "middle"
+    }
+  ]
+}
