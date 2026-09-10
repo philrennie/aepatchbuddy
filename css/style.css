@@ -710,6 +710,42 @@ html, body {
   background: var(--accent);
 }
 
+.slider-control {
+  position: absolute;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.slider-control.slider-h { cursor: ew-resize; }
+.slider-control.slider-v { cursor: ns-resize; }
+
+.slider-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border: 1.5px solid var(--text-faint);
+  box-sizing: border-box;
+}
+
+.slider-handle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 2px;
+  background: var(--text-dim);
+}
+
+.slider-control:hover .slider-handle,
+.slider-control.slider-active .slider-handle {
+  background: var(--accent);
+}
+
+.slider-control:hover .slider-track,
+.slider-control.slider-active .slider-track {
+  border-color: var(--accent);
+}
+
 /* ---------- Toast ---------- */
 
 .toast {

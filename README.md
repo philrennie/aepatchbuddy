@@ -17,6 +17,7 @@ Runs entirely from static files — no server, no build step, no dependencies.
 | **Reroute a cable** | Drag from an already-connected jack to redirect it |
 | **Delete a cable** | Click the cable to select it, then click the × at its midpoint or press Delete / Backspace |
 | **Set a knob** | Drag up/down on the knob overlay |
+| **Set a slider** | Drag the slider handle along its track |
 | **Toggle a switch** | Click the switch overlay |
 | **Name your patch** | Edit the field in the top bar — used as the export filename |
 | **Export** | Downloads the current rack as a `.json` file |
@@ -35,8 +36,8 @@ The theme picker is in the top bar. **System** (the default) follows your OS's l
 
 Open **`module-editor.html`** alongside the main app. It lets you build a module panel visually, then export the `module.json` entry ready to drop into the library — the panel graphic itself is optional (see below).
 
-- Use the tool buttons to place **jacks**, **knobs**, **toggle switches**, and **labels** (free panel text)
-- Click a component to select it and edit its label, position, and orientation in the right-hand panel
+- Use the tool buttons to place **jacks**, **knobs**, **toggle switches**, **sliders** (faders, with vertical/horizontal orientation and adjustable length), and **labels** (free panel text)
+- Click a component to select it and edit its label, position, orientation, and (for sliders) length in the right-hand panel
 - The width field sets the module's rack-unit width (1 RU = 25 mm = 160 px); height is always 640 px (100 mm), matching the AE Modular standard
 - **Custom SVG artwork** checkbox marks the module as shipping its own hand-drawn `module.svg` (sets `customImage: true` in the exported JSON) — leave it unchecked and the main app renders the panel automatically from `module.json` alone, same as this editor's own preview
 - **Import JSON** loads an existing `module.json` back into the editor for further edits — no need to re-upload a matching SVG, since the JSON alone carries enough to reconstruct the panel
@@ -125,7 +126,7 @@ node scripts/lint-modules.js
 | `width` | ✓ | Panel width in native SVG pixels. Must be a multiple of 160 (1 RU = 160 px). |
 | `height` | ✓ | Panel height in native SVG pixels. Always 640 (100 mm at AE Modular scale). |
 | `connections` | ✓ | Array of jack definitions (see below). |
-| `controls` | | Array of knob and switch definitions (see below). Omit if the module has none. |
+| `controls` | | Array of knob, switch, and slider definitions (see below). Omit if the module has none. |
 | `labels` | | Array of free-standing text definitions (see below). Omit if the module has none. |
 
 #### `connections[]`
@@ -142,12 +143,13 @@ node scripts/lint-modules.js
 | Field | Required | Description |
 |---|---|---|
 | `id` | ✓ | Unique identifier within the module. |
-| `type` | ✓ | `"knob"` or `"switch"`. |
+| `type` | ✓ | `"knob"`, `"switch"`, or `"slider"`. |
 | `label` | ✓ | Text label. For a switch this is the label for position 0. May also be a [waveform token](#waveform-symbol-labels). |
 | `label2` | (switch) | Label for position 1 of a switch. May also be a [waveform token](#waveform-symbol-labels). |
-| `orientation` | (switch) | `"vertical"` (default) or `"horizontal"`. |
+| `orientation` | (switch, slider) | `"vertical"` (default) or `"horizontal"`. For a slider this is the travel axis. |
+| `length` | (slider) | Travel length of the slider in native SVG pixels. Defaults to `80`. |
 | `position` | ✓ | `{ "x": number, "y": number }` — centre of the control in native SVG pixel space. |
-| `labelPosition` | (knob) | Same as `connections[].labelPosition`, above. Not applicable to switches, which position `label`/`label2` from `orientation` instead. |
+| `labelPosition` | (knob, slider) | Same as `connections[].labelPosition`, above. Not applicable to switches, which position `label`/`label2` from `orientation` instead. |
 
 #### `labels[]`
 
@@ -217,7 +219,7 @@ Open the SVG in a browser or image editor and read off the pixel position of eac
 }
 ```
 
-- `instances[].controls` maps each control's `id` to its current value: `0`–`1` for knobs, `0` or `1` for switches.
+- `instances[].controls` maps each control's `id` to its current value: `0`–`1` for knobs and sliders, `0` or `1` for switches.
 - `cables[].from/to.connector` holds the connection `id` from `module.json` (or the `name` for older modules that predate the `id` field).
 - If a patch references a `moduleId` not in the current library, that module and its cables are skipped with a toast warning — patches remain loadable even if the library changes.
 

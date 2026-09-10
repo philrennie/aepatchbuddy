@@ -46,7 +46,7 @@
     height: MODULE_HEIGHT,
     components: [],
     selectedId: null,
-    mode: 'select',       // 'select' | 'add-jack' | 'add-knob' | 'add-switch' | 'add-label'
+    mode: 'select',       // 'select' | 'add-jack' | 'add-knob' | 'add-switch' | 'add-slider' | 'add-label'
     snapEnabled: true,
     snapSize: 10,
     _nextId: 1,
@@ -60,7 +60,8 @@
     JACK_R, JACK_DOT_R,
     KNOB_R, KNOB_TICK_IN, KNOB_TICK_OUT,
     SW_V_HW, SW_V_HH, SW_H_HW, SW_H_HH,
-    WAVE_GLYPHS, parseWave, escXml, labelPos, waveRun, buildSVGString,
+    SLIDER_DEFAULT_LEN, SLIDER_MIN_LEN,
+    WAVE_GLYPHS, parseWave, escXml, labelPos, waveRun, sliderRects, sliderLabelR, buildSVGString,
   } = window.PanelRender;
 
   // Order/labels for this editor's own wave-symbol picker UI (props panel) — not shared,
@@ -297,6 +298,26 @@
     return g;
   }
 
+  function sliderG(comp, isGhost, t) {
+    const g = mkEl('g');
+    if (!isGhost) { g.classList.add('comp'); g.dataset.id = comp.id; }
+    const a = isGhost ? '0.5' : '1';
+    const s = isGhost ? t.accent : t.textFaint;
+    const handleFill = isGhost ? `color-mix(in srgb, ${t.accent} 40%, transparent)` : t.textFaint;
+    const labelFill  = isGhost ? `color-mix(in srgb, ${t.accent} 60%, transparent)` : t.textDim;
+    const len = comp.length || SLIDER_DEFAULT_LEN;
+    const ori = (comp.orientation || 'vertical') === 'horizontal' ? 'horizontal' : 'vertical';
+    const { track, handle } = sliderRects(comp.x, comp.y, len, ori, 0.5);
+
+    g.appendChild(mkEl('rect', { ...track, rx: 2, fill: t.bg, stroke: s, 'stroke-width': 1.5, opacity: a }));
+    g.appendChild(mkEl('rect', { ...handle, rx: 2, fill: handleFill, opacity: a }));
+    if (comp.label) {
+      const pos = comp.labelPosition || 'below';
+      g.appendChild(captionG(comp.label, labelPos(comp.x, comp.y, pos, sliderLabelR(len, ori, pos)), labelFill));
+    }
+    return g;
+  }
+
   function labelG(comp, isGhost, t) {
     const g = mkEl('g');
     if (!isGhost) { g.classList.add('comp'); g.dataset.id = comp.id; }
@@ -320,6 +341,7 @@
     if (comp.type === 'jack')   return jackG(comp, isGhost, t);
     if (comp.type === 'knob')   return knobG(comp, isGhost, t);
     if (comp.type === 'switch') return switchG(comp, isGhost, t);
+    if (comp.type === 'slider') return sliderG(comp, isGhost, t);
     if (comp.type === 'label')  return labelG(comp, isGhost, t);
   }
 
@@ -367,8 +389,8 @@
     if (state.selectedId) {
       const sel = byId(state.selectedId);
       if (sel) {
-        if (sel.type === 'label' && selectedEl) {
-          // arbitrary-width text: ring its actual rendered bounding box instead of a fixed radius
+        if ((sel.type === 'label' || sel.type === 'slider') && selectedEl) {
+          // arbitrary-extent component: ring its actual rendered bounding box instead of a fixed radius
           const bbox = selectedEl.getBBox();
           const pad = 4;
           svgEl.appendChild(mkEl('rect', {
@@ -403,6 +425,7 @@
       const ghostComp = {
         id: '__ghost__', type, x: ghost.x, y: ghost.y,
         label: '', label2: '', labelPosition: 'below', orientation: 'vertical',
+        length: SLIDER_DEFAULT_LEN,
         text: '', size: LABEL_SIZE, align: 'middle',
       };
       const g = compG(ghostComp, true, t);
@@ -429,8 +452,8 @@
 
     function append(el) { propsDiv.appendChild(el); }
 
-    // ---- jack / knob: label + position picker ----
-    if (comp.type === 'jack' || comp.type === 'knob') {
+    // ---- jack / knob / slider: label + position picker ----
+    if (comp.type === 'jack' || comp.type === 'knob' || comp.type === 'slider') {
       append(labelEditor(
         comp.type === 'jack' ? 'Connection name' : 'Label',
         () => comp.label || '',
@@ -513,6 +536,38 @@
 
       append(labelEditor(pos1Name, () => comp.label  || '', v => { comp.label  = v; }, 'e.g. ON',  '10px'));
       append(labelEditor(pos2Name, () => comp.label2 || '', v => { comp.label2 = v; }, 'e.g. OFF'));
+    }
+
+    // ---- slider: orientation + travel length ----
+    if (comp.type === 'slider') {
+      const orLabel = document.createElement('div');
+      orLabel.className = 'field-label';
+      orLabel.style.marginTop = '8px';
+      orLabel.textContent = 'Orientation';
+      append(orLabel);
+
+      const orientRow = document.createElement('div');
+      orientRow.className = 'orient-row';
+      for (const [val, icon, txt] of [['vertical', '⬍', 'Vertical'], ['horizontal', '⬌', 'Horizontal']]) {
+        const btn = document.createElement('button');
+        btn.className = 'orient-btn' + ((comp.orientation || 'vertical') === val ? ' active' : '');
+        btn.innerHTML = `${icon} ${txt}`;
+        btn.addEventListener('click', () => {
+          comp.orientation = val;
+          render();
+          renderProps();
+        });
+        orientRow.appendChild(btn);
+      }
+      append(orientRow);
+
+      const lf = field('Length', 'number', comp.length || SLIDER_DEFAULT_LEN, '', { min: SLIDER_MIN_LEN, step: state.snapSize });
+      lf.style.marginTop = '8px';
+      lf.querySelector('input').addEventListener('input', e => {
+        const v = parseFloat(e.target.value);
+        if (!isNaN(v) && v >= SLIDER_MIN_LEN) { comp.length = v; render(); }
+      });
+      append(lf);
     }
 
     // ---- label: text + size + alignment ----
@@ -765,6 +820,8 @@
       const type = state.mode.replace('add-', '');
       const defaults = type === 'switch'
         ? { label: '', label2: '', orientation: 'vertical' }
+        : type === 'slider'
+        ? { label: '', labelPosition: 'below', orientation: 'vertical', length: SLIDER_DEFAULT_LEN }
         : type === 'label'
         ? { text: 'Label text', size: LABEL_SIZE, align: 'middle' }
         : { label: '', labelPosition: 'below' };
@@ -821,6 +878,7 @@
     if (key === 'j') setMode('add-jack');
     if (key === 'k') setMode('add-knob');
     if (key === 'w') setMode('add-switch');
+    if (key === 'l') setMode('add-slider');
     if (key === 't') setMode('add-label');
   });
 
@@ -899,12 +957,16 @@
         labelPosition: c.labelPosition || 'below',
       }));
     const controls = state.components
-      .filter(c => c.type === 'knob' || c.type === 'switch')
+      .filter(c => c.type === 'knob' || c.type === 'switch' || c.type === 'slider')
       .map(c => {
         const entry = { id: c.id, type: c.type, label: c.label || '', position: { x: c.x, y: c.y } };
         if (c.type === 'switch') {
           entry.label2 = c.label2 || '';
           entry.orientation = c.orientation || 'vertical';
+        } else if (c.type === 'slider') {
+          entry.orientation = c.orientation || 'vertical';
+          entry.length = c.length || SLIDER_DEFAULT_LEN;
+          entry.labelPosition = c.labelPosition || 'below';
         } else {
           entry.labelPosition = c.labelPosition || 'below';
         }
@@ -990,6 +1052,13 @@
         components.push({
           id: c.id || uid(), type: 'switch', x: c.position.x, y: c.position.y,
           label: c.label || '', label2: c.label2 || '', orientation: c.orientation || 'vertical',
+          _imported: !!c.id,
+        });
+      } else if (c.type === 'slider') {
+        components.push({
+          id: c.id || uid(), type: 'slider', x: c.position.x, y: c.position.y,
+          label: c.label || '', labelPosition: c.labelPosition || 'below',
+          orientation: c.orientation || 'vertical', length: c.length || SLIDER_DEFAULT_LEN,
           _imported: !!c.id,
         });
       } else {
