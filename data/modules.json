@@ -8439,7 +8439,7 @@
         "type": "switch",
         "label": "IN 1",
         "position": {
-          "x": 110,
+          "x": 90,
           "y": 370
         },
         "label2": "MAN",
@@ -8450,7 +8450,7 @@
         "type": "switch",
         "label": "IN 2",
         "position": {
-          "x": 110,
+          "x": 90,
           "y": 470
         },
         "label2": "MAN",
@@ -8461,7 +8461,7 @@
         "type": "knob",
         "label": "1",
         "position": {
-          "x": 50,
+          "x": 40,
           "y": 370
         },
         "labelPosition": "below"
@@ -8471,7 +8471,7 @@
         "type": "knob",
         "label": "2",
         "position": {
-          "x": 50,
+          "x": 40,
           "y": 470
         },
         "labelPosition": "below"
@@ -8481,10 +8481,21 @@
         "type": "knob",
         "label": "3",
         "position": {
-          "x": 50,
+          "x": 40,
           "y": 570
         },
         "labelPosition": "below"
+      },
+      {
+        "id": "c22",
+        "type": "switch",
+        "label": "M",
+        "position": {
+          "x": 140,
+          "y": 330
+        },
+        "label2": "G",
+        "orientation": "vertical"
       }
     ]
   },
