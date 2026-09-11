@@ -3,7 +3,7 @@ name: Lint Modules
 on:
   pull_request:
     paths:
-      - 'src/modules/**'
+      - 'modules/**'
 
 jobs:
   lint:
